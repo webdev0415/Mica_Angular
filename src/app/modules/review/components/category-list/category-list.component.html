@@ -1,0 +1,24 @@
+<h4 *ngIf="sectionName" class="text-center bg-inverse text-white pt-2 pb-2 m-0">{{sectionName | uppercase}}</h4>
+
+<div id="9aef3768-a721-44e1-bc9c-bafc39ec9064" *ngFor="let cat of catsValue | async; trackBy: trackByFn">
+  <div id="1c6e28e9-cfc6-4128-a51d-6da38f98dc65" *ngIf="cat.symptoms?.length">
+    <h4 class="text-center bg-inverse text-white pt-2 pb-2 m-0" [ngClass]="{'bg-gray': sectionName}"
+    >{{getCatName(cat) | uppercase}}</h4>
+
+    <symptom-review-new class="d-block"
+      [readOnly]="readOnly"
+      [symptomGroupID]="symptomGroupID"
+      [categoryID]="cat.categoryID"
+      [ecwValidationSymptoms]="ecwValidationSymptoms"
+      [svgShapes]="svgShapes"
+    ></symptom-review-new>
+    
+    <!-- <ng-template #oldView>
+      <symptom-review class="d-block"
+        [symptomGroupID]="symptomGroupID"
+        [categoryID]="cat.categoryID"
+        [ecwValidationSymptoms]="ecwValidationSymptoms"
+      ></symptom-review>
+    </ng-template> -->
+  </div>
+</div>

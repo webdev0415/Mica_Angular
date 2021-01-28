@@ -1,0 +1,31 @@
+<div id="3428349b-f371-4dee-8fc8-c5d3390c7932" class="container">
+  <header class="row justify-content-center mt-5">
+    <h2 class="text-center">ECW Illnesses</h2>
+  </header>
+  <div id="a6eed51f-8962-431e-9560-05acf1f354f9" class="row mt-5">
+    <div id="157e7270-ca81-47b8-b444-7d689628c491" *ngIf="illnesses.length" class="d-flex justify-content-between w-100">
+      <ngb-pagination [collectionSize]="totalElements" [(page)]="page" [maxSize]="5" [pageSize]="pageSize" [rotate]="true" [boundaryLinks]="true" (pageChange)="changePage($event)"></ngb-pagination>
+      <div id="d35f44cf-dce2-413a-883a-5f92c3fa1e77" ngbDropdown class="d-inline-block ml-2">
+        <button class="btn btn-secondary dropdown-toggle" id="itemsPerPageDropdown" ngbDropdownToggle>
+          {{pageSize}}
+        </button>
+        <div id="91bd8272-6d95-46d8-a456-058a0c7cc780" class="dropdown-menu" aria-labelledby="itemsPerPageDropdown">
+          <button type="button" *ngFor="let itemsNumber of pageSizes" id="history-selector" class="dropdown-item" (click)="setPageSize(itemsNumber)">
+            {{itemsNumber}}
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div id="4f7b935e-3ef0-447f-bdf2-d31827cba568" class="row mt-5 justify-content-center">
+    <ecw-reviews-table class="w-100" *ngIf="!loadingData; else spinner"
+      [illnesses]="illnesses" [filter]="filter" (onChangeFilter)="onChangeFilter($event)"
+      (onSelectIllness)="goToReview($event)"
+    ></ecw-reviews-table>
+  </div>
+  <div id="712c39ea-74d9-4228-872b-af139cb59e37" class="row mt-5">
+    <ngb-pagination *ngIf="!loadingData && !!illnesses.length" [collectionSize]="totalElements" [(page)]="page" [maxSize]="5" [pageSize]="pageSize" [rotate]="true" [boundaryLinks]="true" (pageChange)="changePage($event)"></ngb-pagination>
+  </div>
+</div>
+
+<ng-template #spinner><mica-page-spinner></mica-page-spinner></ng-template>

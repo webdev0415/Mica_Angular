@@ -1,0 +1,60 @@
+input:not([matInput])
+  height: 28px
+  min-width: 100px
+  padding: 0.25rem 0.5rem
+  font-size: 0.875rem
+  border: 1px solid rgba(0, 0, 0, 0.15)
+  outline: none
+
+  &.ng-invalid
+    border-color: #d9534f
+
+  &::placeholder
+    font-size: x-small
+label
+  height: 24px
+  margin-bottom: 8px
+  white-space: nowrap
+
+.alert-msg
+  height: 15px
+  display: block
+  font-size: x-small
+  color: gray
+
+.source-dropdown
+  position: relative
+  .btn
+    text-transform: none
+  .dropdown-menu
+    top: 30px
+    min-width: initial
+
+.autocomplete
+  position: absolute
+  z-index: 10
+  min-width: 100%
+  max-height: 200px
+  overflow-y: scroll
+  margin-top: 60px
+  background-color: #fff
+  border: 1px solid rgba(0, 0, 0, 0.15)
+  border-top: none
+  .dropdown-item
+    padding: 3px 1rem
+    overflow: hidden
+    text-overflow: ellipsis
+
+.remove-source-btn
+  outline: none
+  cursor: pointer
+
+.source
+  word-break: break-word
+
+.source-form-container
+  display: grid
+  width: 100%
+  grid-template-columns: 50% 30% 15%
+  align-items: baseline
+  justify-content: space-between

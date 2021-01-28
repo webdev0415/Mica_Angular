@@ -1,0 +1,8 @@
+<span *ngIf="value; else noValueBadge">{{value}}</span>
+<ng-template #noValueBadge>
+  <div id="25ac4c90-cba0-4772-ad48-caea2bea2c47" class="d-flex">
+    <div id="2a208192-ae06-4736-9d59-9f0794f855e6" class="badge badge-default" [class.badge-danger]="required">
+      <span class="material-icons mr-2">edit</span>
+      {{label}}</div>
+  </div>
+</ng-template>   

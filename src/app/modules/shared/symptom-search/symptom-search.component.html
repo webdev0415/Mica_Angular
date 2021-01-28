@@ -1,0 +1,21 @@
+<div id="f6e0839f-790e-404c-badf-0dfed0dc5e52" class="dropdown" [class.show]="(searchResults | async).length && !searchFailed && focusOnSearch">
+  <div id="ca50e056-1b54-4aec-9dc0-5ad3a42c09fd" class="input-group">
+    <div id="951e3889-3951-49bd-87b9-b56301078a4a" class="search-group" [class.has-danger]="searchFailed">
+      <span class="material-icons">search</span>
+      <input #input type="text" [formControl]="searchCtrl" [class.form-control-danger]="searchFailed"
+             class="form-control form-control-lg search" id="searchSymptom" placeholder="Search by Symptom Name or ID">
+      <button *ngIf="input.value && !searching" type="button" class="close" [ngClass]="{'error-cancel': searchFailed}" (click)="onClose()">
+        <span>×</span>
+      </button>
+    </div>
+    <mica-inline-spinner *ngIf="searching" class="spinner"></mica-inline-spinner>
+  </div>
+  <ul #ul class="dropdown-menu">
+    <li *ngFor="let result of searchResults | async" class="dropdown-item"
+      (click)="onSelect(result.value)">{{result.value}} - {{result.name}}</li>
+  </ul>
+</div>
+<div id="77670372-9378-4899-b432-25b275f54fb4" class="text-danger font-weight-bold">
+  <span *ngIf="searchFailed">Sorry, can't find data. Please try again.</span>
+  <span *ngIf="!searchFailed">&nbsp;</span>
+</div>

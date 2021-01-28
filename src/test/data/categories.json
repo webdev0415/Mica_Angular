@@ -1,0 +1,17 @@
+[
+  {
+    "name": "cat1",
+    "categoryID": "cat1",
+    "symptoms": ["1", "2", "3"]
+  },
+  {
+    "name": "cat2",
+    "categoryID": "cat2",
+    "symptoms": ["1", "2", "3"]
+  },
+  {
+    "name": "cat3",
+    "categoryID": "cat3",
+    "symptoms": ["1", "2", "3"]
+  }
+]

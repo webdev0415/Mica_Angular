@@ -1,0 +1,38 @@
+<div class="review-container">
+  <div class="non-drug-container">
+    <div class="row d-flex justify-content-between align-items-center">
+      <h5 class="my-1">Drug</h5>
+      <div class="my-1">
+        <button mat-button color="primary" (click)="stepperControl.emit(0)">Edit</button>
+      </div>
+    </div>
+    <mat-card>
+      <div class="row d-flex justify-content-start align-items-center">
+        <div class="m-2">{{nonDrugName}}</div>
+      </div>
+    </mat-card>
+  </div>
+
+  <div class="source-container">
+    <div class="row d-flex justify-content-between align-items-center">
+      <h5 class="my-1">Sources</h5>
+      <div class="my-1">
+        <button mat-button color="primary" (click)="stepperControl.emit(1)">Edit</button>
+      </div>
+    </div>
+    <mat-card>
+      <div class="row d-flex justify-content-start align-items-center">
+        <div class="m-2">
+          <mica-source-form class="flex-fill"
+                            readOnly="true"
+                            [sourcesData]="sourcesData$ | async"
+                            [sourceCtrlArray]="sourceCtrlArray"
+                            [recordType]="recordType$ | async"
+                            [noSourceRemovalOptions]="true">
+          </mica-source-form>
+        </div>
+      </div>
+    </mat-card>
+  </div>
+
+</div>

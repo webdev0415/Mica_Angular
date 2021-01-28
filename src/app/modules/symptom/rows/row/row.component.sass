@@ -1,0 +1,57 @@
+@import "../../symptom.variables"
+
+$sec-row-height: 47px
+$sec-row-margin: 4px
+$symptom-data-height: $sec-row-height + $symptom-row-height + ($sec-row-margin * 2)
+
+\:host
+  min-height: 60px
+  &::ng-deep
+    .custom-select,
+    .symptom-input,
+    .disabled-box,
+    button
+      height: $symptom-row-height
+
+// .symptom-row-container
+//   opacity: 1
+  // transition: opacity 3s
+  // &.wait-render
+  //   opacity: 0
+
+.col-buttons
+  align-items: flex-end
+  display: flex
+  flex-grow: 0
+  justify-content: space-between
+  &::ng-deep
+    button
+      width: $symptom-row-height
+
+.horizontal
+  // height: 90px
+  .btn-container
+    width: 100% // bias title may be wider
+  .col-buttons
+    flex-direction: column
+    height: 90px
+  // .multiplier
+  //   margin-right: .5rem
+
+.vertical
+  .col-buttons
+    flex-basis: 60px
+  .multiplier
+    height: inherit
+
+.modifier-row
+  margin: .5rem 0
+  min-height: 90px
+  mica-modifier
+    height: inherit
+
+.diagCriteria  
+  div
+    margin-right: 10px
+
+

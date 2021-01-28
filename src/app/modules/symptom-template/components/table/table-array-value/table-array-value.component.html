@@ -1,0 +1,12 @@
+<div id="45b39831-1bbe-45bc-9d6f-e396cbabc62e" *ngIf="ctrl?.value" class="value d-flex" placement="top">
+  <div *ngFor="let value of ctrl.value" class="mr-2 badge badge-primary item">
+    {{value}}
+    <button type="button" class="close ml-3"><span>×</span></button>
+  </div>
+  <div id="b3519831-1bbe-45bc-9d6f-e396cbabc62e" class="d-flex">
+    <div id="978f3f8e-162d-4d74-84e6-26e49c55f581" class="badge badge-default" [class.badge-danger]="required">
+      <span class="material-icons mr-2">edit</span>
+      {{label}}</div>
+    </div>
+</div>
+

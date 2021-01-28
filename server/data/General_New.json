@@ -1,0 +1,556 @@
+{
+  "symptompsGroups": [
+    {
+      "name": "General",
+      "id": "general",
+      "categories": [
+        {
+          "name": "Core Symptoms",
+          "symptoms": [
+            {
+              "name": "Current Tobacco Consumer",
+              "multipleQuestions": false,
+              "criticality": 50,
+              "symptomsModel": {
+                "bias": true,
+                "descriptors": "Content will appear here",
+                "questionText": "Question Text will appear here",
+                "scaleTimeLimit": 10,
+                "scaleInfoText": "Amount of Time",
+                "timeUnitDefault": 3,
+                "dataStoreTypes": [
+                  "Importance",
+                  "Likelihood",
+                  "TimeUnit",
+                  "Slope"
+                ]
+              },
+              "icd10Code": "C50.221"
+            },
+            {
+              "name": "Current Alcohol Consumer",
+              "multipleQuestions": false,
+              "criticality": 50,
+              "symptomsModel": {
+                "bias": true,
+                "descriptors": "Content will appear here",
+                "questionText": "Question Text will appear here",
+                "scaleTimeLimit": 30,
+                "scaleInfoText": "Amount of Time",
+                "dataStoreTypes": [
+                  "Importance",
+                  "Likelihood",
+                  "TimeUnit",
+                  "Slope"
+                ]
+              },
+              "icd10Code": "C50.221"
+            },
+            {
+              "name": "Current Caffeine Consumer",
+              "multipleQuestions": false,
+              "criticality": 50,
+              "symptomsModel": {
+                "bias": true,
+                "descriptors": "Content will appear here",
+                "questionText": "Question Text will appear here",
+                "scaleTimeLimit": 10,
+                "scaleInfoText": "Amount of Time",
+                "dataStoreTypes": [
+                  "Importance",
+                  "Likelihood",
+                  "TimeUnit",
+                  "Slope"
+                ]
+              },
+              "icd10Code": "C50.221"
+            },
+            {
+              "name": "Current Tobacco Consumer",
+              "multipleQuestions": false,
+              "criticality": 50,
+              "symptomsModel": {
+                "bias": true,
+                "descriptors": "Content will appear here",
+                "questionText": "Question Text will appear here",
+                "scaleTimeLimit": 10,
+                "scaleInfoText": "Amount of Time",
+                "dataStoreTypes": [
+                  "Importance",
+                  "Likelihood",
+                  "TimeUnit",
+                  "Slope"
+                ]
+              },
+              "icd10Code": "C50.221"
+            },
+            {
+              "name": "Time Since Last Drink",
+              "multipleQuestions": false,
+              "criticality": 50,
+              "symptomsModel": {
+                "bias": true,
+                "descriptors": "Content will appear here",
+                "questionText": "Question Text will appear here",
+                "scaleTimeLimit": 5,
+                "scaleInfoText": "Amount of Time",
+                "dataStoreTypes": [
+                  "Importance",
+                  "Likelihood",
+                  "TimeUnit",
+                  "Slope"
+                ]
+              },
+              "icd10Code": "C50.221"
+            },
+            {
+              "name": "Patient Age",
+              "multipleQuestions": false,
+              "criticality": 50,
+              "symptomsModel": {
+                "bias": true,
+                "descriptors": "Content will appear here",
+                "questionText": "Question Text will appear here",
+                "scaleTimeLimit": 10,
+                "scaleInfoText": "Amount of Time",
+                "dataStoreTypes": [
+                  "Importance",
+                  "Likelihood",
+                  "TimeUnit",
+                  "Slope"
+                ]
+              },
+              "icd10Code": "C50.221"
+            },
+            {
+              "name": "Seasonality",
+              "multipleQuestions": true,
+              "criticality": 50,
+              "symptomsModel": {
+                "bias": true,
+                "descriptors": "Content will appear here",
+                "questionText": "Question Text will appear here",
+                "dataStoreTypes": [
+                  "Seasonality",
+                  "Importance",
+                  "Likelihood"
+                ]
+              },
+              "icd10Code": "C50.221"
+            },
+            {
+              "name": "Illness Related to an Allergy",
+              "multipleQuestions": true,
+              "criticality": 50,
+              "symptomsModel": {
+                "bias": true,
+                "descriptors": "Content will appear here",
+                "questionText": "Question Text will appear here",
+                "scaleTimeLimit": 10,
+                "scaleInfoText": "Usage per ",
+                "dataStoreTypes": [
+                  "Importance",
+                  "Allergy",
+                  "Likelihood",
+                  "TimeUnit",
+                  "Slope"
+                ]
+              },
+              "icd10Code": "C50.221"
+            },
+            {
+              "name": "Was a Tobacco User",
+              "multipleQuestions": false,
+              "criticality": 50,
+              "symptomsModel": {
+                "bias": true,
+                "descriptors": "Content will appear here",
+                "questionText": "Question Text will appear here",
+                "scaleTimeLimit": 100,
+                "scaleInfoText": "Total Amount of Packs",
+                "dataStoreTypes": [
+                  "Importance",
+                  "Likelihood",
+                  "TimeUnit",
+                  "Slope"
+                ]
+              },
+              "icd10Code": "C50.221"
+            },
+            {
+              "name": "Illicit Drug User/Type",
+              "multipleQuestions": false,
+              "criticality": 50,
+              "symptomsModel": {
+                "bias": true,
+                "descriptors": "Content will appear here",
+                "questionText": "Question Text will appear here",
+                "scaleTimeLimit": 10,
+                "scaleInfoText": "Amount of Time",
+                "dataStoreTypes": [
+                  "Importance",
+                  "Drug",
+                  "Likelihood",
+                  "TimeUnit",
+                  "Slope"
+                ]
+              },
+              "icd10Code": "C50.221"
+            },
+            {
+              "name": "Patient Sex",
+              "multipleQuestions": true,
+              "criticality": 50,
+              "symptomsModel": {
+                "bias": true,
+                "descriptors": "Content will appear here",
+                "questionText": "Question Text will appear here",
+                "dataStoreTypes": [
+                  "Gender",
+                  "Importance",
+                  "Likelihood"
+                ]
+              },
+              "icd10Code": "C50.221"
+            },
+            {
+              "name": "Patient Sexual Orientation",
+              "multipleQuestions": true,
+              "criticality": 50,
+              "symptomsModel": {
+                "bias": true,
+                "descriptors": "Content will appear here",
+                "questionText": "Question Text will appear here",
+                "dataStoreTypes": [
+                  "Sexual Orientation",
+                  "Importance",
+                  "Likelihood"
+                ]
+              },
+              "icd10Code": "C50.221"
+            },
+            {
+              "name": "Ethnicity/Genetics",
+              "multipleQuestions": true,
+              "criticality": 50,
+              "symptomsModel": {
+                "bias": true,
+                "descriptors": "Content will appear here",
+                "questionText": "Question Text will appear here",
+                "dataStoreTypes": [
+                  "Ethnicity",
+                  "Importance",
+                  "Likelihood"
+                ]
+              },
+              "icd10Code": "C50.221"
+            }
+          ],
+          "dataStoreRefTypes": {
+            "Likelihood": [
+              {
+                "name": "Likelihood",
+                "value": "0"
+              }
+            ],
+            "Slope": [
+              {
+                "name": "Pos"
+              },
+              {
+                "name": "Flat",
+                "default": true
+              },
+              {
+                "name": "Neg"
+              }
+            ],
+            "Allergy": {
+              "title": "Allergy",
+              "values": [
+                {
+                  "name": "Antiperspirant"
+                },
+                {
+                  "name": "Apple"
+                },
+                {
+                  "name": "Aspirin"
+                },
+                {
+                  "name": "Antibiotic"
+                }
+              ]
+            },
+            "Ethnicity": {
+              "title": "Ethnicity",
+              "values": [
+                {
+                  "name": "White"
+                },
+                {
+                  "name": "Black/African American",
+                  "value": "black_african_american"
+                },
+                {
+                  "name": "Asian"
+                },
+                {
+                  "name": "American Indian"
+                },
+                {
+                  "name": "Mediterranean"
+                },
+                {
+                  "name": "Pacific Islander"
+                },
+                {
+                  "name": "Hispanic"
+                }
+              ]
+            },
+            "Seasonality": {
+              "title": "Season",
+              "values": [
+                {
+                  "name": "Summer"
+                },
+                {
+                  "name": "Winter"
+                },
+                {
+                  "name": "Fall"
+                },
+                {
+                  "name": "Spring"
+                }
+              ]
+            },
+            "Gender": {
+              "title": "Gender",
+              "values":  [
+                {
+                  "name": "Male"
+                },
+                {
+                  "name": "Female"
+                },
+                {
+                  "name": "Transgender"
+                }
+              ]
+            },
+            "TimeUnit": [
+              {
+                "name": "Days"
+              },
+              {
+                "name": "Weeks"
+              },
+              {
+                "name": "Months"
+              },
+              {
+                "name": "Years"
+              }
+            ],
+            "Importance": [
+              {
+                "name": "High"
+              },
+              {
+                "name": "Medium",
+                "default": true
+              },
+              {
+                "name": "Low"
+              }
+            ],
+            "Drug": {
+              "title": "Drug",
+              "values": [
+                {
+                  "name": "Hallucinations"
+                },
+                {
+                  "name": "Other"
+                },
+                {
+                  "name": "Narcotic"
+                },
+                {
+                  "name": "Stimulants"
+                },
+                {
+                  "name": "Cannabis"
+                },
+                {
+                  "name": "Opioids"
+                }
+              ]
+            },
+            "Sexual Orientation": {
+              "title": "Orientation",
+              "values": [
+                {
+                  "name": "Homosexual"
+                },
+                {
+                  "name": "Heterosexual"
+                },
+                {
+                  "name": "Bisexual"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Family History",
+          "symptoms": [
+            {
+              "name": "Allergies",
+              "multipleQuestions": true,
+              "criticality": 50,
+              "symptomsModel": {
+                "bias": true,
+                "descriptors": "Content will appear here",
+                "questionText": "Question Text will appear here",
+                "dataStoreTypes": [
+                  "Importance",
+                  "Allergy",
+                  "Likelihood"
+                ]
+              },
+              "icd10Code": "C50.221"
+            }
+          ],
+          "dataStoreRefTypes": {
+            "Likelihood": [
+              {
+                "name": "Likelihood",
+                "value": "0"
+              }
+            ],
+            "Allergy": [
+              {
+                "name": "Antiperspirant"
+              },
+              {
+                "name": "Apple"
+              },
+              {
+                "name": "Aspirin"
+              },
+              {
+                "name": "Antibiotic"
+              }
+            ],
+            "Importance": [
+              {
+                "name": "High"
+              },
+              {
+                "name": "Medium",
+                "default": true
+              },
+              {
+                "name": "Low"
+              }
+            ]
+          }
+        },
+        {
+          "name": "Personal History",
+          "symptoms": [
+            {
+              "name": "AIDS/HIV",
+              "multipleQuestions": false,
+              "criticality": 50,
+              "symptomsModel": {
+                "bias": true,
+                "descriptors": "Content will appear here",
+                "questionText": "Question Text will appear here",
+                "scaleTimeLimit": 10,
+                "scaleInfoText": "Diagnosed in Last",
+                "dataStoreTypes": [
+                  "Importance",
+                  "Likelihood",
+                  "TimeUnit",
+                  "Slope"
+                ]
+              },
+              "icd10Code": "C50.221"
+            },
+            {
+              "name": "Cancer",
+              "multipleQuestions": true,
+              "criticality": 50,
+              "symptomsModel": {
+                "bias": true,
+                "descriptors": "Content will appear here",
+                "questionText": "Question Text will appear here",
+                "scaleTimeLimit": 10,
+                "scaleInfoText": "Diagnosed in Last",
+                "dataStoreTypes": [
+                  "Importance",
+                  "Likelihood",
+                  "TimeUnit",
+                  "Slope"
+                ]
+              },
+              "icd10Code": "C50.221"
+            }
+          ],
+          "dataStoreRefTypes": {
+            "Likelihood": [
+              {
+                "name": "Likelihood",
+                "value": "0"
+              }
+            ],
+            "Slope": [
+              {
+                "name": "Pos"
+              },
+              {
+                "name": "Flat",
+                "default": true
+              },
+              {
+                "name": "Neg"
+              }
+            ],
+            "Importance": [
+              {
+                "name": "High"
+              },
+              {
+                "name": "Medium",
+                "default": true
+              },
+              {
+                "name": "Low"
+              }
+            ],
+            "TimeUnit": [
+              {
+                "name": "Days"
+              },
+              {
+                "name": "Weeks"
+              },
+              {
+                "name": "Months"
+              },
+              {
+                "name": "Years"
+              }
+            ],
+            "Cancer": []
+          }
+        }
+      ]
+    }
+  ]
+}

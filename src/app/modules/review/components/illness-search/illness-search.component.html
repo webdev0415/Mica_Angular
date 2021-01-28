@@ -1,0 +1,34 @@
+<div id="540754ba-e4d1-4976-a969-5729ce494971" class="row">
+  <mica-typeahead #typeahead class="typeahead" [placeholder]="'Enter ICD Code'" [typeAheadMin]="1"
+    [liveSearchType]="'remoteIllnessValue'"
+    [icd10CodeSearch]="true"
+    [sortByKey]="'value.idIcd10Code'"
+    [canClose]="false"
+    [templateRef]="results"
+    (noSearch)="noSearchInspect($event)"
+    [urlQuery]="'?state=APPROVED'"></mica-typeahead>
+    <div id="103b15ac-5e7c-44bb-b300-8eef54df049a" class="btn-group" role="group" aria-label="Basic example">
+      <button type="button" [disabled]="!illnessToInspect || syncing || noSearchInput" [class.sync]="syncing"
+        class="btn btn-primary confirm align-middle" (click)="onInspectIllness()">
+        <span class="material-icons mr-2">remove_red_eye</span>
+        INSPECT
+      </button>
+      <button type="button" [disabled]="!(isReadOnlyMode | async) || syncing || noSearchInput"
+        class="btn btn-primary confirm align-middle" [class.sync]="syncing"
+        (click)="onEditIllness()">
+        <span class="material-icons mr-2">edit</span>
+        EDIT
+      </button>
+      <review-syncing-btn *ngIf="syncing"></review-syncing-btn>
+    </div>
+</div>
+<ng-template #results let-items="items" let-emitter="emitter">
+  <h6 class="dropdown-header">OTHER AVAILABLE ILNESSES</h6>
+  <div id="a5443253-efa6-41f7-aa1d-dec2d4e357ed">
+    <button class="dropdown-item" type="button" *ngFor="let item of items; trackBy: trackByFn"
+      (click)="onSelectIllness(item, emitter)">
+      {{item.value.idIcd10Code}} <span class="badge badge-default ml-1 mr-1">v{{item.value.version}}</span> -
+      {{item.name}}
+    </button>
+  </div>
+</ng-template>

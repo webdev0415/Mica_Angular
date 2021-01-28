@@ -1,0 +1,26 @@
+<div class="drug-restriction-container">
+  <div class="restriction-form-header">
+    <span>Add a restriction for {{drugInfo?.header.drugName | titlecase}}</span>
+  </div>
+
+  <mica-illness-search class="search-resume"
+                       [showIllnessGroupToggle]="true"
+                       [combineWithSymptoms]="true"
+                       [searchResults]="illnessSearchResults$ | async"
+                       (searchIllness)="onSearchIllness($event)"
+                       (selectIllness)="onSelectIllness($event)"
+                       (selectSymptom)="onSelectSymptom($event)">
+  </mica-illness-search>
+
+  <button class="add-restriction-btn restriction-form-btn align-left" mat-flat-button color="primary">Add</button>
+
+<!--TODO: ADD WARNINGS-->
+<!--  <mica-warning>-->
+<!--    <mica-warning-form></mica-warning-form>-->
+<!--    <mica-warning-list></mica-warning-list>-->
+<!--  </mica-warning>-->
+
+  <mica-drug-likelihood class="likelihood" [likelihoodCtrl]="likelihoodCtrl"></mica-drug-likelihood>
+
+  <mica-source-form class="sources" [sourceCtrlArray]="sourceCtrlArray" treatmentType="drug" entityType="treatment" [sourcesData]="treatmentsSources$ | async" (sourceAdded)="onSourceAdded($event)"></mica-source-form>
+</div>

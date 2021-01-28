@@ -1,0 +1,20 @@
+<mica-error-box *ngIf="!!dataCorruptMsg" [message]="dataCorruptMsg">
+    <p><strong>Sorry, data corruption has been detected for {{(sgData | async)?.groupID}}!</strong></p>
+    <p>Please report this error by clicking below.</p>
+    <p>You may continue working on a different symptom group in the meantime. You may also try working on a different illness.</p>
+  </mica-error-box>
+  <div id="271bc788-fb3d-4945-8c0f-499839d04a00" class="default-editor">
+    <ul class="nav nav-tabs">
+      <li class="nav-item" *ngFor="let category of categories | async">
+        <a class="nav-link" [class.active]="(activeCategoryID | async) === category" href="#"
+          (click)="onSelectCategory(category, $event)">{{categoryName(category) | titleCase}}</a>
+      </li>
+    </ul>
+    <section>
+      <div id="224d6bb2-23ae-47f6-a6f8-4d9d032cbdc4" [@fadeIn]="categoryState">
+        <workbench-symptoms-list></workbench-symptoms-list>
+        <button *ngIf="nextCategoryName | async" class="btn btn-outline-primary mt-3"
+          (click)="onSelectNextCategory()">Go to {{nextCategoryName | async | titleCase}} Symptoms</button>
+      </div>
+    </section>
+  </div>

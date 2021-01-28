@@ -1,0 +1,30 @@
+@import "../../symptom.variables"
+
+\:host
+  display: flex
+  flex-direction: column
+  justify-content: space-between
+  min-height: 90px
+
+.row
+  &.modifier
+    > *
+      margin-bottom: .5rem
+
+mica-dropdown
+  height: $symptom-row-height
+  width: 6rem
+  &.ethnicity
+    width: initial
+
+.likelihood
+  flex: 1
+
+.add-row,
+.remove-row
+  align-self: flex-end
+  .material-icons
+    font-size: 19px
+
+// .modifierValue-dropdown
+//   margin-right: auto

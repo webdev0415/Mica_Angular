@@ -1,0 +1,29 @@
+<div id="6e3cbe1b-d072-4a75-a966-c6024dac9bf5" class="dropdown" [class.show]="isActive" (click)="showDropdown()">
+    <ng-template [ngIf]="multiSelect" [ngIfElse]="singleSelect">
+        <button [disabled]="controlDisabled" class="btn btn-secondary dropdown-toggle" [id]="title" type="button" [ngClass]="dropdownToggleClass"
+            aria-haspopup="true" [attr.aria-expanded]="isActive">
+                <div id="3bf990b9-a614-40f0-b1ca-b8d8ae9b8e6f"
+                class="selectedValues">{{selectedItems || placeholder}}</div>
+        </button>
+        <div id="496d2aa5-1cbf-465b-8361-b2cb35d74ad4" class="dropdown-menu" [attr.aria-labelledby]="title">
+        <button class="dropdown-item" [class.btn-primary]="valueSelected(item.value)" type="button" *ngFor="let item of dropdownItems"
+            (click)="onValueClick($event, item.value)">{{item.name}}
+        </button>
+        </div>
+    </ng-template>
+    <ng-template #singleSelect>
+        <button [disabled]="controlDisabled" class="btn btn-secondary dropdown-toggle"
+            [id]="title" type="button" [ngClass]="dropdownToggleClass"
+            aria-haspopup="true"
+            [attr.aria-expanded]="isActive">{{valueName || placeholder}}
+        </button>
+        <div id="f6aae4d2-b2c0-4c68-a6cb-300482ac21f3" class="dropdown-menu" [attr.aria-labelledby]="title">
+          <button class="dropdown-item" type="button" *ngIf="emptyItem"
+            (click)="ctrl.setValue(emptyItem.value)">{{emptyItem.name}}
+          </button>
+          <button class="dropdown-item" type="button" *ngFor="let item of dropdownItems"
+            (click)="ctrl.setValue(item.value)">{{item.name}}
+        </button>
+        </div>
+    </ng-template>
+</div>

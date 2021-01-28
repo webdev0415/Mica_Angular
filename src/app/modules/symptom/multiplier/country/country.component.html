@@ -1,0 +1,32 @@
+<div id="c6e0a2f0-d913-493e-a740-b308451e2df1" *ngIf="!(loadingData | async); else spinner" class="dropdown" [class.show]="menuLevel >= 0">
+  <button [disabled]="readOnly" (click)="onToggleDropdown()" type="button" aria-haspopup="true" aria-expanded="false"
+    class="btn btn-secondary btn-sm dropdown-toggle">
+    {{placeholder}}
+  </button>
+  <div id="bb0c8253-985f-4d48-8aea-e5f54ee0fd56" class="dropdown-menu">
+    <div id="8568a6db-004d-4ef2-9603-3805820ebdd4" class="levels">
+      <ul class="continent" aria-labelledby="dropdownMenuButton">
+        <li class="dropdown-item selector" *ngFor="let continent of continents | async">
+          <span (click)="setContinent(continent)">{{continent | titleCase}}</span>
+          <i (click)="onNextLevel(1, continent)" class="next material-icons mi-24">chevron_right</i>
+        </li>
+      </ul>
+      <ul class="region" *ngIf="showRegions" aria-labelledby="dropdownMenuButton">
+        <li class="dropdown-item selector" *ngFor="let region of regions | async">
+          <span (click)="setRegion(region)">{{region | titleCase}}</span>
+          <i (click)="onNextLevel(2, region)" class="next material-icons mi-24">chevron_right</i>
+        </li>
+      </ul>
+      <ul class="country" *ngIf="showCountries" aria-labelledby="dropdownMenuButton">
+        <li *ngFor="let country of countries | async" class="dropdown-item selector">
+          <span (click)="setCountry(country.name)">{{country.name | titleCase}}</span>
+          <i *ngIf="country.name === 'United States'" (click)="onNextLevel(3, country.name)" class="next material-icons mi-24">chevron_right</i>
+        </li>
+      </ul>
+      <ul class="states" *ngIf="showStates" aria-labelledby="dropdownMenuButton">
+        <li *ngFor="let state of states" (click)="setState(state)" class="dropdown-item selector">{{state | titleCase}}</li>
+      </ul>
+    </div>
+  </div>
+</div>
+<ng-template #spinner><mica-multiplier-loader *ngIf="loadingData"></mica-multiplier-loader></ng-template>

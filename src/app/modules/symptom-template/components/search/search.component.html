@@ -1,0 +1,27 @@
+<div id="b7eff80e-4d97-454b-86d6-c22375f049d7" class="dropdown searching" [class.show]="(searchResults | async).length && !searchFailed && focusOnSearch">
+  <div id="dc85680b-6b66-4feb-b50a-593bca3c8d49" class="input-group" [class.has-danger]="searchFailed">
+    <input #input type="text" [formControl]="searchCtrl" [class.form-control-danger]="searchFailed" autocomplete="off"
+      class="form-control form-control-lg search" id="searchSymptom" placeholder="Search by Symptom Name or ID">
+    <button *ngIf="input.value && !searching" type="button" class="close" [ngClass]="{'error-cancel': searchFailed}" (click)="onClose()">
+      <span>×</span>
+    </button>
+    <mica-inline-spinner *ngIf="searching" class="spinner"></mica-inline-spinner>
+  </div>
+  <span class="spec-char" *ngIf="!input.value">No special characters are allowed</span>
+  <ul #ul class="dropdown-menu" *ngIf="clearSearchOnSelect; else:clearSearchOnSelectFalse">
+    <li *ngFor="let result of searchResults | async" class="dropdown-item"
+        (click)="onSearch(result.value)">{{result.value}}: {{result.name}}</li>
+  </ul>
+</div>
+<div id="b626e8f0-e46e-4925-af98-d8bf234a663e" class="text-danger font-weight-bold">
+  <span *ngIf="searchFailed">Sorry, can't find data. Please try again.</span>
+  <span *ngIf="!searchFailed">&nbsp;</span>
+</div>
+
+
+<ng-template  #clearSearchOnSelectFalse>
+    <ul #ul class="dropdown-menu">
+    <li *ngFor="let result of searchResults | async" class="dropdown-item"
+    (click)="onSelectValue(result,$event)">{{result.value}}: {{result.name}}</li>
+    </ul>
+</ng-template>

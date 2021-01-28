@@ -1,0 +1,15 @@
+<div class="illness-search-container">
+  <mat-form-field class="field">
+    <mat-label>Search for Illness{{combineWithSymptoms ? '/Symptom' : ''}}</mat-label>
+    <input type="text" matInput [formControl]="searchCtrl" [errorStateMatcher]="errorStateMatcher" [matAutocomplete]="searchAuto" #searchInput="matInput">
+    <mat-hint *ngIf="searchInput.focused && searchCtrl.invalid"></mat-hint>
+  </mat-form-field>
+
+  <mat-checkbox [formControl]="groupToggleCtrl" *ngIf="groupToggleCtrl.enabled">Whole Illness Group</mat-checkbox>
+</div>
+
+<mat-autocomplete #searchAuto="matAutocomplete" [displayWith]="displayWithFn">
+  <mat-option *ngFor="let item of searchResults" [value]="item">
+    {{ item.name }}: {{item.description}}
+  </mat-option>
+</mat-autocomplete>

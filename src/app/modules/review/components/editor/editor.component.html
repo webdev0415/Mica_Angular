@@ -1,0 +1,16 @@
+<mica-page-spinner *ngIf="(dataLoading | async); else main" [message]="'Loading Illness Data...'"></mica-page-spinner>
+<ng-template #main>
+  <div id="76d92cde-32fd-46e9-88b0-004ffbaf3e11" class="container">
+    <div id="a9eb8291-8821-4818-84f1-bf6193052d67" class="row" *ngIf="dataCorruptMsg | async; else mainForm">
+      <reviewer-data-validation class="col" [message]="dataCorruptMsg | async"></reviewer-data-validation>
+    </div>
+  </div>
+</ng-template>
+<ng-template #mainForm>
+  <div id="72ceb090-822c-45d6-ac1e-9e8bb61cbb18">
+    <icd-report></icd-report>
+  </div>
+  <div id="3b61bd42-2b2e-433a-b35a-11fc9b9c600b" class="row mt-4">
+    <review-symptom-groups class="col"></review-symptom-groups>
+  </div>
+</ng-template>

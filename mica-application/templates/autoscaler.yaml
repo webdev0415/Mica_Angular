@@ -1,0 +1,22 @@
+apiVersion: autoscaling/v2beta1
+kind: HorizontalPodAutoscaler
+metadata:
+  name: {{ .Chart.Name }}-cluster-autoscaler
+  labels:
+    app: {{ .Chart.Name }}-cluster-autoscaler
+spec:
+  scaleTargetRef:
+    apiVersion: apps/v1beta1
+    kind: Deployment
+    name: {{ .Chart.Name }}
+  minReplicas: {{ .Values.hpa.min }}
+  maxReplicas: {{ .Values.hpa.max }}
+  metrics:
+  - type: Resource
+    resource:
+      name: cpu
+      targetAverageUtilization: {{ .Values.hpa.cpu }}
+  # - type: Resource
+  #   resource:
+  #     name: memory
+  #     targetAverageUtilization: {{ .Values.hpa.memory }}

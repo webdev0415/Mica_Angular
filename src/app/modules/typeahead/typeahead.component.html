@@ -1,0 +1,18 @@
+<div id="1a1a9868-d90f-4dea-afbc-ee2b30293486" class="dropdown" [ngClass]="dropdownClass" [class.show]="(selectableItems | async)?.length">
+  <div id="6b8b3e52-7f6f-4758-8e35-2d0aff5417c3" class="form-group m-0 typeahead">
+    <input #searchInput type="text" class="form-control" [class.form-control-sm]="small" [id]="title"
+      [formControl]="ctrl" [placeholder]="placeholder" maxlength="{{maxLength || ''}}"/>
+    <!-- <span class="spec-char" *ngIf="icd10CodeSearch">No special characters are allowed</span> -->
+    <div id="cf289b13-9f95-4a40-929c-e2067c0b8080" *ngIf="searching.value" class="cssload-loader"></div>
+    <button *ngIf="!searching.value && canClose" type="button" class="close" aria-label="Close" (click)="close.emit(true)">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div id="8ee3863d-3df2-4d7d-b363-6f6bc07abcd0" *ngIf="showDropdown || notFound">
+    <mica-typeahead-dropdown *ngIf="(selectableItems | async)?.length" [items]="selectableItems | async" [formatter]="resultFormatter"
+      [align]="dropdownAlignment" [labelledBy]="title" [templateRef]="templateRef" (outOfFocus)="focusLost()"
+      [searchInput]="searchInput"
+      (optionSelect)="optionSelect($event[resultKey || 'value'])"></mica-typeahead-dropdown>
+    <div class="not-found" *ngIf="notFound">No results found</div>
+  </div>
+</div>

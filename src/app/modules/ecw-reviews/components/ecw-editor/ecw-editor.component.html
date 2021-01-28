@@ -1,0 +1,9 @@
+<div id="adf21c1e-5d9f-4b95-a3df-1d9763a6faa0" class="container" *ngIf="!loadingData; else spinner">
+  <div id="99f1b3b6-a0f9-4faa-88db-0733a1ed2cff" class="row mt-4">
+    <ecw-symptom-groups></ecw-symptom-groups>
+  </div>
+</div>
+
+<ng-template #spinner>
+    <mica-page-spinner [message]="'Loading Illness Data...'"></mica-page-spinner>
+</ng-template>

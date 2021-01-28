@@ -1,0 +1,33 @@
+<div class="container">
+  <div class="row mt-5">
+
+    <mica-groups-search
+      class="col"
+      [searchQuery]="searchQuery"
+      [minSearchQueryLength]="minSearchQueryLength"
+      (record)="symptomInGroupsRecord($event)"
+      (searchQueryChanges)="onSearchQueryChanges($event)"
+      (searchResultsExistenceChanges)="onSearchResultsExistenceChanges($event)"
+      [showingResults]="resultShowing">
+    </mica-groups-search>
+
+    <div class="col">
+      <button class="btn btn-primary btn-lg" type="button" [disabled]="buttonsDisabled"  (click)="addGroup()">
+        Add Group
+      </button>
+      <button class="btn btn-danger btn-lg" type="button" [disabled]="buttonsDisabled"  (click)="clearSearch()">
+        Cancel
+      </button>
+    </div>
+
+  </div>
+
+  <div class="row my-5">
+    <mica-groups-list class="col"
+      [symptomsInGroupsList]="symptomsInGroupsList"
+      (deleteGroupCall)="deleteGroupCall($event)"
+      (record)="symptomInGroupsRecord($event)"
+      (showingResults)="onShowingResults($event)">
+    </mica-groups-list>
+  </div>
+</div>

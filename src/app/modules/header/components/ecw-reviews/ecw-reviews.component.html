@@ -1,0 +1,9 @@
+<button *ngIf="(icd10Code$ | async) as ecwCode; else review" mat-button class="text-center nav-link"
+   routerLink="ecw-reviews/editor/review">BACK TO REVIEW [ECW] {{ecwCode}}
+</button>
+
+<ng-template #review>
+  <button mat-button class="text-center nav-link" routerLink="/review">BACK TO REVIEW
+    <ng-container *ngIf="(activeIllnessCode$ | async) as micaCode">[MICA] {{micaCode}}</ng-container>
+  </button>
+</ng-template>

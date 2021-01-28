@@ -1,0 +1,44 @@
+@import "../../../styles/bootstrap/variables"
+
+.body-container
+  border: 1px solid $teal
+  border-radius: $border-radius
+  position: relative
+
+.reset-container
+  left: 50%
+  position: absolute
+  .reset
+    left: -50%
+    position: relative
+
+.zone-group
+  &:hover
+    .hoverable
+      opacity: .5
+
+.body-part
+  .selected
+    opacity: .8
+    stroke: $black
+    stroke-opacity: 1
+    stroke-width: 3px
+  path,
+  ellipse
+    display: inline
+    fill: $brand-success
+    fill-rule: evenodd
+    opacity: 0
+    pointer-events: all
+    stroke: $brand-success
+    stroke-linecap: butt
+    stroke-linejoin: miter
+    stroke-opacity: .8
+    stroke-width: 1px
+    transition: opacity .4s
+
+.body-view-buttons
+  max-width: 250px
+
+// .clip-chest
+//   clip-path: url("#chest")

@@ -1,0 +1,35 @@
+<div  class="dropdown searching" [class.show]="(searchResults | async).length && !noRecordFound && focusOnSearch">
+  <form class="form-inline d-block w-100">
+    <div  class="input-group mb-2 mb-sm-0" [ngClass]="{'has-danger': noRecordFound || hasBackendError, 'has-warning': searchTryGroup}">
+      <div  class="input-container d-flex w-100">
+        <input #input trim  type="text" [formControl]="searchCtrl" [ngClass]="{'form-control-lg': size === 'large', 'form-control-danger': noRecordFound}"
+        class="form-control search" [maxLength]="20" id="searchGroup" placeholder="Type Group Name" autocomplete="off">
+        <button *ngIf="input.value" type="button" class="close" (click)="onClose()">
+          <span>×</span>
+        </button>
+      </div>
+      <div  class="input-group-addon">
+        <button class="btn btn-primary d-flex align-items-center" (click)="onSearchByIcon()" [class.btn-lg]="size === 'large'">
+          <span *ngIf="!searching" class="material-icons search-icon">search</span>
+          <mica-inline-spinner *ngIf="searching" class="search-icon"></mica-inline-spinner>
+        </button>
+      </div>
+    </div>
+
+  </form>
+  <ul #ul class="dropdown-menu">
+    <li *ngFor="let result of searchResults | async" class="dropdown-item"
+      (click)="onSearch(result.value)">{{result.value}}: {{result.name}}</li>
+  </ul>
+</div>
+<div>
+  <span *ngIf="(!input.value || input.value.length < minSearchQueryLength) !searching" class="spec-char" >Group Names must be 3 - 20 Characters.</span>
+  <span *ngIf="input.value.length >= 15 && !searching" class="spec-char text-danger">{{input.value.length}} / 20 Characters</span>
+</div>
+<div  class="font-weight-bold">
+  <!--<span *ngIf="noRecordFound" class="text-warning">No Symptoms found in {{searchCtrl.value}}.</span>-->
+  <span *ngIf="hasBackendError" class="text-warning">There is a backend error. Please try again.</span>
+  <span *ngIf="searchTryGroup && searchResults.value && searchCtrl.value && input.value.length >= minSearchQueryLength" class="text-warning">No group found. Click Add Group to add.</span>
+  <span *ngIf="!searchTryGroup && noRecordFound && !showingResults" class="text-warning">No record was found. If you would like to add a group then enter the name and select the <em>Add Group</em> option.</span>
+  
+</div>

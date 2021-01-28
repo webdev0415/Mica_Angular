@@ -1,0 +1,16 @@
+<form [formGroup]="values" class="form-inline mica-range">
+  <div id="af6903f9-78c9-4bdc-8d2c-05e28d8fcc39" class="input-group left input-group-sm" [ngClass]="values.controls.min.valid ? 'has-success' : 'has-warning'">
+    <div id="24389f08-0ed7-4a44-88c0-c4a701819340" class="input-group-addon">MIN
+      <div id="5105824c-03c5-4d32-a002-0db29264b27e" class="arrow right"></div>
+    </div>
+    <input type="number" class="form-control" [max]="(values.controls.max.value || 0) - 0.1" [min]="validRange[0]" step="0.1" dir="rtl"
+      formControlName="min"/>
+  </div>
+  <div id="0acdc3d1-a0aa-471e-bba3-2fb566ff08e4" class="input-group right input-group-sm" [ngClass]="values.controls.max.valid ? 'has-success' : 'has-warning'">
+    <input type="number" class="form-control" [min]="(values.controls.min.value || 0) + 0.1" [max]="validRange[1]" step="0.1"
+      formControlName="max"/>
+    <div id="b3fe3cf2-a0a5-447b-b1aa-0dc4a963ff47" class="input-group-addon form-control-sm">MAX
+      <div id="9694123f-57a9-426c-b9b8-47898c1a6eb3" class="arrow left"></div>
+    </div>
+  </div>
+</form>

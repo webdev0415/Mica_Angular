@@ -1,0 +1,89 @@
+@import "../../../styles/bootstrap/variables"
+@import "../../../styles/bootstrap/mixins/breakpoints"
+@import "./symptom.variables"
+
+\:host
+  width: 100%
+
+.symptom-container
+  border: 1px solid $teal
+  padding: 10px 15px
+  transition: border-color .5s
+  &.invalid
+    border-color: $brand-danger
+
+::ng-deep
+  .mica-range
+    .input-group
+      height: $symptom-row-height
+      .form-control
+        width: 4.4rem
+      .input-group-addon
+        background-color: $brand-primary
+        color: $white
+        position: relative
+        width: 2.8rem
+        .arrow
+          border-style: solid
+          height: 0
+          position: absolute      
+          top: 0
+          width: 0
+          z-index: 3
+          &.right
+            border-width: 13px 0 13px 12px
+            right: -13px
+          &.left
+            border-width: 13px 12px 13px 0
+            left: -13px
+      &.has-warning
+        .input-group-addon
+          background-color: $brand-warning
+        .arrow
+          &.right
+            border-color: transparent transparent transparent $brand-warning
+          &.left
+            border-color: transparent $brand-warning transparent transparent
+        input
+          border-color: $brand-warning
+      &.has-success
+        .input-group-addon
+          background-color: $brand-success
+        .arrow
+          &.right
+            border-color: transparent transparent transparent $brand-success
+          &.left
+            border-color: transparent $brand-success transparent transparent
+        input
+          border-color: $brand-success
+      &.has-danger
+        .input-group-addon
+          background-color: $brand-danger
+        .arrow
+          &.right
+            border-color: transparent transparent transparent $brand-danger
+          &.left
+            border-color: transparent $brand-danger transparent transparent
+        input
+          border-color: $brand-danger
+      &.left
+        .input-group-addon
+          padding-right: 0
+        .form-control
+          border-bottom-right-radius: 0
+          border-top-right-radius: 0
+          z-index: 2
+      &.right
+        margin-left: -1px
+        .input-group-addon
+          padding-left: 0
+        .form-control
+          border-bottom-left-radius: 0
+          border-top-left-radius: 0
+
+// @include media-breakpoint-up(md)
+//   .col-buttons
+//     flex-direction: row
+//     height: $sec-row-height
+
+    

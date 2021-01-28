@@ -1,0 +1,82 @@
+<div class="row d-flex justify-content-end align-items-center">
+  <button (click)="closeModal()" style="outline: none;" mat-icon-button>
+    <mat-icon>close</mat-icon>
+  </button>
+</div>
+<mat-horizontal-stepper labelPosition="bottom" #stepper="matHorizontalStepper">
+<!-- Drug  -->
+  <mat-step *ngIf="!drugToEdit" label="Select Drug" [completed]="!!(selectedDrugInfo$ | async)">
+    <mica-select-drug [isPrescription]="isPrescription" (nextStep)="onNextStepClick()" (selectDosage)="onDosageSelected($event)">
+    </mica-select-drug>
+  </mat-step>
+<!-- Sources -->
+  <mat-step *ngIf="!drugToEdit" label="Add Sources">
+    <mica-add-drug-sources [drugName]="displayDrugName" [sourceCtrlArray]="sourceCtrlArray"></mica-add-drug-sources>
+    <div class="d-flex justify-content-end align-items-center mt-4">
+     <button mat-stroked-button matStepperPrevious color="primary">Previous</button>
+     <button class="ml-2" mat-stroked-button matStepperNext color="primary" [disabled]="sourceCtrlArray.invalid">Next</button>
+    </div>
+  </mat-step>
+    <mat-step *ngIf="drugToEdit" label="Edit Sources">
+      <mica-add-drug-sources
+        [drugName]="displayDrugName"
+        [sourceCtrlArray]="sourceCtrlArray"></mica-add-drug-sources>
+      <div class="d-flex justify-content-end align-items-center mt-4">
+        <button mat-stroked-button matStepperPrevious color="primary">Previous</button>
+        <button class="ml-2" mat-stroked-button matStepperNext color="primary"
+          [disabled]="sourceCtrlArray.invalid">Next</button>
+      </div>
+    </mat-step>
+<!-- Policies -->
+  <mat-step *ngIf="!drugToEdit" label="Add Policies">
+    <mica-add-policies [drugName]="displayDrugName" [policiesCtrlArray]="policiesCtrlArray"></mica-add-policies>
+    <div class="d-flex justify-content-end align-items-center mt-4">
+      <button mat-stroked-button matStepperPrevious color="primary">Previous</button>
+      <button class="ml-2" mat-stroked-button matStepperNext color="primary">Next</button>
+    </div>
+  </mat-step>
+  <mat-step *ngIf="drugToEdit" label="Edit Policies">
+    <mica-add-policies [editMode]="true" [drugName]="displayDrugName" [policiesCtrlArray]="policiesCtrlArray"></mica-add-policies>
+    <div class="d-flex justify-content-end align-items-center mt-4">
+      <button mat-stroked-button matStepperPrevious color="primary">Previous</button>
+      <button class="ml-2" mat-stroked-button matStepperNext color="primary">Next</button>
+    </div>
+  </mat-step>
+<!-- Prescription -->
+  <mat-step label="Prescription" *ngIf="isPrescription">
+    <mica-dosage [dosageInfo]="selectedDosage" [drugName]="displayDrugName"
+                 [policiesCtrlArray]="policiesCtrlArray" [dosageRecommendationCtrl]="dosageRecommendationCtrl">
+    </mica-dosage>
+    <div class="d-flex justify-content-end align-items-center mt-4">
+      <button mat-stroked-button matStepperPrevious color="primary">Previous</button>
+      <button class="ml-2" mat-stroked-button matStepperNext color="primary">Next</button>
+    </div>
+  </mat-step>
+<!-- Review -->
+  <mat-step label="Review">
+    <mica-drug-review
+      [drugName]="displayDrugName"
+      [sourceCtrlArray]="sourceCtrlArray"
+      [policyCtrlArray]="policiesCtrlArray"
+      [dosageRecommendationCtrl]="dosageRecommendationCtrl"
+      (stepperControl)="stepperControl($event)"></mica-drug-review>
+
+    <div *ngIf="(selectedDrugInfoGroups$ | async).length > 1" class="atc-groups-container">
+      <h5 class="mb-1">Select ATC group to save the drug to</h5>
+      <mat-form-field class="atc-groups-field">
+        <mat-select [formControl]="atcGroupCtrl">
+          <mat-option [value]="null">Not selected</mat-option>
+          <mat-option *ngFor="let atcGroup of selectedDrugInfoGroups$ | async;" [value]="atcGroup">
+            {{atcGroup.atcGroupName}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+
+    <div class="d-flex justify-content-end align-items-center mt-4">
+      <button mat-stroked-button matStepperPrevious color="primary">Previous</button>
+      <button class="ml-2" mat-raised-button color="primary" (click)="onSaveDrugClick()" [disabled]="atcGroupCtrl.invalid || atcGroup">Submit</button>
+    </div>
+  </mat-step>
+
+</mat-horizontal-stepper>

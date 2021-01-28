@@ -1,0 +1,17 @@
+<button
+  *ngFor="let item of navItems"
+  mat-button
+  class="nav-link"
+  [ngClass]="{'complete': isComplete(item.path) | async}"
+  routerLink="/workbench/{{item.path}}"
+  routerLinkActive="active">
+  {{item.name | correctSpelling}}
+</button>
+<button
+  *ngIf="activeIllnessValue | async"
+  mat-button
+  class="nav-link"
+  routerLink="/workbench/create-symptom"
+  routerLinkActive="active">
+  Create Symptom
+</button>

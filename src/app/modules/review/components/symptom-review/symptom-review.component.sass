@@ -1,0 +1,98 @@
+@import "../../../../../styles/bootstrap/variables"
+
+.bg-parts
+  background-color: #636c72
+.symptoms-table
+  margin-bottom: 0
+
+.split-heading-vertical
+  height: 50%
+  &.top
+    border-bottom: 3px solid $white
+
+.split-bottom-container
+  th
+    &:first-of-type
+      border-left: 3px solid $white
+    &:last-of-type
+      border-right: 3px solid $white
+
+.symptom-title
+  background-color: $gray-lighter
+  &:not(.collector)
+    cursor: pointer
+  &.collector
+    cursor: default
+  &.missing
+    background-color: $badge-danger-bg
+    .symptom-title-link
+      > a
+        color: inherit
+        &:hover
+          color: $black
+  .edit-icon
+    color: inherit
+    text-decoration: none
+    &:hover
+      color: $brand-info
+  .symptom-title-link
+    flex-basis: auto
+    > a
+      &.symptom-orange
+        color: $orange
+        &:hover
+          color: $mandarin-orange
+
+.cell-right
+  padding-right: 1rem
+  text-align: right
+
+.cell-edit
+  min-width: 215px
+  label,
+  .value,
+  .badge
+    align-items: center
+    display: flex
+    font-size: .8rem
+    margin: 0
+  label
+    font-size: initial
+    margin-right: .5rem
+  input,
+  .badge
+    height: 28px
+  .badge
+    padding: .6rem
+  .antithesis-input
+    max-width: 5rem
+  .material-icons
+    font-size: inherit
+    padding-top: .2rem
+  .value
+    cursor: pointer
+
+.illness-title-label
+  font-style: italic
+  font-weight: normal
+  margin-bottom: 0
+  margin-right: .5rem
+
+.row .no-gutters
+  mica-badge-icon
+    padding: 0.2%
+
+.row .no-gutters
+  width: 100%
+  label
+    font-size: small
+    font-weight: normal
+
+  .spacingDiag
+      input
+        margin-left: 3%
+
+.pointer
+  cursor: pointer
+  color: gray
+  color: 1.4rem

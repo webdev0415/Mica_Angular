@@ -1,0 +1,33 @@
+#=========================== Filebeat inputs =============================
+filebeat.inputs:
+- type: log
+  enabled: true
+  paths:
+    - /var/log/nginx/nginx_access.log
+#============================= Filebeat modules ===============================
+
+filebeat.config.modules:
+  # Glob pattern for configuration loading
+  path: /etc/filebeat/modules.d/*.yml
+
+  # Set to true to enable config reloading
+  reload.enabled: false
+
+  # Period on which files under path should be checked for changes
+  #reload.period: 10s
+
+#============================== Dashboards =====================================
+setup.dashboards.enabled: false
+# setup.dashboards.kibana_index: "test"
+#==================== Elasticsearch template setting ==========================
+
+setup.template.settings:
+  index.number_of_shards: 1
+
+# ============================== Kibana =====================================
+setup.kibana:
+  host: "kibana.advinow-utility.int:80"
+
+#================================ Outputs =====================================
+output.elasticsearch:
+    hosts: ["elasticsearch.advinow-utility.int:80"]

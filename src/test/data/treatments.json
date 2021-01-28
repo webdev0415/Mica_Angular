@@ -1,0 +1,14 @@
+[
+  {
+    "name": "treatment1",
+    "typeID": 1,
+    "treatmentTypeDesc": [
+      {
+        "shortName": "shortName1",
+        "longName": "longName1",
+        "typeDescID": 1,
+        "defaultValue": true
+      }
+    ]
+  }
+]

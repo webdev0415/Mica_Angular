@@ -1,0 +1,21 @@
+<div id="61c07e2a-3535-444c-9196-6699d9d8bc9f" class="likelihood">
+  <p *ngIf="!compact" class="title">Likelihood</p>
+  <div id="b38a9703-b26e-44b8-999e-a5110c9659cb" class="btn-group range-selector" data-toggle="buttons">
+    <label *ngIf="compact" class="btn btn-sm likelihood-label">
+      <div id="d179d0e2-3f98-434c-893f-53154fb124e5" class="badge badge-default">Likelihood</div>
+    </label>
+    <label *ngFor="let btn of btnValues; let last = last" class="btn btn-sm"
+      [ngClass]="btnType" [class.last-button]="last"
+      [class.btn-success]="btn.value === ctrl.value"
+      [class.disabled]="readOnly"
+    >
+      <input *ngIf="!readOnly" type="radio" [formControl]="ctrl" [value]="btn.value" (click)="likelihoodValue(btn.value)" />
+      {{btn.name}}
+    </label>
+    <label class="btn btn-sm likelihood-value">
+      <div id="4886cc66-39a7-4ece-bfb6-ba11af2107ff" class="badge badge-default">
+        <span *ngIf="ctrl.value >=0 && ctrl.value <= 100">{{ctrl.value}}%</span>
+      </div>
+    </label>
+  </div>
+</div>

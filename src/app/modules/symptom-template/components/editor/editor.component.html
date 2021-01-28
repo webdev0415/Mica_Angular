@@ -1,0 +1,35 @@
+<div id="4aff7e1e-a8d6-4d6d-bd8e-993e81ee4592" class="container">
+  <div id="26678c3d-5249-4dc4-a1e0-72573eeca720" class="row mt-5">
+    <mica-template-search class="col"></mica-template-search>
+    <div id="81925678-7533-4bb2-84f2-8274c9bfed2a" class="col">
+      <div id="7164e83b-a285-4d4b-ae29-6624acf62822" class="row justify-content-end">
+        <mica-inline-spinner *ngIf="saving$ | async" class="d-flex align-items-center mr-3"></mica-inline-spinner>
+        <button type="button" class="btn btn-success btn-lg mr-3"
+          (click)="onSubmit()" [disabled]="!sympTemplate || sympForm.invalid || sympForm.pristine || (saving$ | async)">save</button>
+        <button type="button" class="btn btn-danger btn-lg"
+          (click)="onCancel()" [disabled]="!sympTemplate || (saving$ | async)">cancel</button>
+      </div>
+    </div>
+  </div>
+  <div id="eca31d15-193e-4208-aaea-ae6de6054adc" class="row mt-5">
+    <div id="f47bdeca-7234-4510-a636-b52b9b54a3bc" class="col">
+      <div id="41aba280-d013-456e-a1ad-197bf87199d9" class="row">
+        <div id="cf5008b8-5e09-4e8a-805f-1d24bf880f3f" class="col text-center" *ngIf="sympTemplate">
+          <h2>{{sympTemplate.symptomID}} - {{sympTemplate.name}}</h2>
+        </div>
+        <div id="2a8eeb5e-be7e-419a-96c0-8e86b46c8c8b" class="col text-center" *ngIf="!sympTemplate">
+          <h2>SEARCH FOR A NEW SYMPTOM</h2>
+        </div>
+      </div>
+      <div id="8d57af06-48b7-4c69-a4b3-38b3491f28dd" class="row mt-5 mb-2 justify-content-center" *ngIf="sympTemplate">
+        <templates-table class="col col-md-12 col-lg-10" [sympForm]="sympForm" [sympData]="sympData" [isLabSymptom]="valueWithDefault?.labSymptom"></templates-table>
+      </div>
+    </div>
+  </div>
+  <div id="217a20d3-8049-443c-85a6-aa8c76d99818" class="row justify-content-center" *ngIf="sympTemplate">
+    <div id="bb0e413d-5941-41b8-ba13-4a0147e17851" *ngIf="shouldShow" class="debug-form bg-inverse text-white mt-4 debug-bx">
+      <h5 class="text-center mt-3 mb-3">Symptom Data</h5>
+      <pre><code>{{sympForm.value | json}}</code></pre>
+    </div>
+  </div>
+</div>

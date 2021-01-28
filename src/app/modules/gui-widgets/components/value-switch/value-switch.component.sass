@@ -1,0 +1,42 @@
+@import "../../../../../styles/bootstrap/variables"
+
+\:host
+  background-color: $gray-light
+  border-radius: $border-radius
+  color: $btn-success-color
+  display: block
+  // border: 1px solid $brand-success
+  height: $input-height
+  padding: 4px !important
+
+.switch-container
+  // height: calc(#{$input-height} - 2px)
+  position: relative
+  width: 100%
+  // &.lg
+    // height: calc(#{$input-height-lg} - 2px)
+  // &.sm
+    // height: calc(#{$input-height-sm} - 2px)
+
+  input
+    opacity: 0
+    position: absolute
+  .toggle
+    display: flex
+    height: 100%
+    .btn,
+    value
+      height: inherit
+    .btn
+      left: 0
+      position: absolute
+      width: 50%
+      z-index: 2
+    .value
+      align-items: center
+      cursor: default
+      display: flex
+      flex-basis: 2rem
+      justify-content: center
+      text-transform: uppercase
+      z-index: 3

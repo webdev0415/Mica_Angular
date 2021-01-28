@@ -1,0 +1,20 @@
+@import "../../../../../styles/bootstrap/variables"
+@import "../../../../../styles/bootstrap/mixins"
+
+.nav-link
+  outline: none
+  border-radius: 0
+
+  &.complete
+    background-color: $brand-success
+    color: $gray-lightest
+  &.active
+    background-color: $brand-primary
+    color: $white
+
+@include media-breakpoint-down(lg)
+  \:host
+    display: flex
+    flex-direction: column
+  .nav-link
+    width: 100%

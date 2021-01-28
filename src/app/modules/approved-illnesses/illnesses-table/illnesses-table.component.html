@@ -1,0 +1,42 @@
+<div id="34139432-1acb-45cb-a500-52d9db3938d2" class="row mt-2 ml-4 no-data" *ngIf="illnessData && illnessData.length == 0 && dataavail">
+  <p>The searched symptom {{symptomData.symptomID}} is not associated to any approved illness</p>
+</div>
+<div id="49a3fb05-d91f-4fbe-95a4-aca96eabf02e" class="row mt-3" *ngIf="illnessData.length">
+  <div id="0a67f626-bef3-4b1e-88ee-59b9cd034965" class="d-flex justify-content-between w-100">
+    <div id="cd2b6eae-9f0c-4968-aa99-b245ecd49df9" class="d-inline-block">
+      <ngb-pagination [collectionSize]="totalElements" [(page)]="page" [maxSize]="5" [pageSize]="pageSize" [rotate]="true" [boundaryLinks]="true" (pageChange)="changePage($event)"></ngb-pagination>
+      <p class="info"><span>Total approved illnesses: </span>{{totalElements}}</p>
+    </div>
+    <div id="28013499-3b88-4490-bf48-20e5e45c522c" ngbDropdown class="d-inline-block ml-2">
+      <button class="btn btn-secondary dropdown-toggle" id="itemsPerPageDropdown" ngbDropdownToggle>
+        {{pageSize}}
+      </button>
+      <div id="96d85576-005d-4dc5-887f-951954b72e15" class="dropdown-menu" aria-labelledby="itemsPerPageDropdown">
+        <button type="button" *ngFor="let itemsNumber of pageSizes" id="history-selector" class="dropdown-item" (click)="setPageSize(itemsNumber)">
+          {{itemsNumber}}
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+<div id="ee2aa6f0-702b-4ee1-a1a0-428632da5b43" class="row mt-1 mb-1 text-center font-weight-bold" *ngIf="symptomData.symptomID">
+  <span style="margin: auto;">Selected Symptom - {{symptomData.symptomID}}: {{symptomData.symptomName}}</span>
+</div>
+<div id="bacc065a-fd55-484a-b955-bf8a0cee9f20" class="row mt-3" *ngIf="illnessData.length">
+  <table class="table table-hover illness-blocks">
+    <thead>
+    <tr>
+      <th>Icd 10 Code</th>
+      <th>Name</th>
+      <th>Version</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let row of illnessData; let i=index" class="section-row">
+      <td>{{row.icd10Code}}</td>
+      <td>{{row.name}}</td>
+      <td>{{row.version}}</td>
+    </tr>
+    </tbody>
+  </table>
+</div>

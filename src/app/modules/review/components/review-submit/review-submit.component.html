@@ -1,0 +1,79 @@
+<div id="9ff753be-bfa3-4940-adf0-dc7d47fdb562" class="mb-4 text-center" *ngIf="!syncingIllness; else syncingButton">
+  <div id="071ad2b2-5c02-423c-85da-f163652c7b43" class="mb-4 text-center" *ngIf="isReviewer; else collectorSubmit">
+    <ng-container
+      *ngIf="!isUnique"
+      [ngTemplateOutletContext]="{$implicit: warningReason.notUnique}"
+      [ngTemplateOutlet]="disabledReason"
+    ></ng-container>
+    <button [disabled]="!(isActiveIllnessValid | async) || syncingIllness || rejectionCtrl || !(isActiveIllnessHasSymptoms | async) || !isUnique"
+      (click)="onSubmitCriticality(criticality)" class="btn btn-success">Approve</button>
+    <button [disabled]="!(isActiveIllnessValid | async) || syncingIllness || !(isActiveIllnessHasSymptoms | async) || !isUnique" type="button" class="btn btn-danger" (click)="onAboutToReject()">
+      <span *ngIf="rejectionCtrl">Do not </span>Reject
+    </button>
+    <button [disabled]="!(areSymptomsValid | async) || syncingIllness"
+      class="btn btn-secondary" (click)="onCheckUniqueness()">Check Uniqueness</button>
+    <div id="2fe3728d-f701-49da-9032-dc000da0b155" class="includeTime">
+      <input type="checkbox" id="includetime" [checked]="includeTime" (change)="includeTime = !includeTime"/><label for="includetime">Include Time</label>
+    </div>
+    <ng-container
+      *ngIf="!(isActiveIllnessHasSymptoms | async)"
+      [ngTemplateOutlet]="disabledReason"
+      [ngTemplateOutletContext]="{$implicit: warningReason.noSymptoms}"
+    ></ng-container>
+    <br /><span *ngIf="(isActiveIllnessValid | async) && !syncingIllness && !(isActiveIllnessHasSymptoms | async) && !isUnique" class="uniqueError">Cannot approve or reject the illness until it's unique</span>
+  </div>
+  <div id="0590d398-36df-4dcd-876e-db06639429a5" class="mb-4 w-50 mx-auto text-center" *ngIf="rejectionCtrl">
+    <div id="bc14e68a-c634-4031-8db1-02e288474882" class="form-group">
+      <label for="rejectionReason">Please specify why you are rejecting this illness.</label>
+      <textarea [formControl]="rejectionCtrl" name="rejectionReason"
+        class="form-control" id="rejectionReason" rows="3" required></textarea>
+    </div>
+    <button [disabled]="syncingIllness || rejectionCtrl.invalid" class="btn btn-danger"
+      (click)="onSubmitIllness('REJECTED')">Submit Rejection</button>
+  </div>
+</div>
+
+<ng-template #collectorSubmit>
+  <div id="79c556cd-e47d-4003-867c-6e6e48475815" class="mb-4 text-center complete-button-container">
+    <button [disabled]="!(isActiveIllnessValid | async) || syncingIllness || !(isActiveIllnessHasSymptoms | async)" class="btn btn-success"
+      (click)="onSubmitIllness('COMPLETE')">Complete</button>
+    <ng-container *ngIf="!(isActiveIllnessHasSymptoms | async)" [ngTemplateOutlet]="disabledReason" [ngTemplateOutletContext]="{$implicit: warningReason.noSymptoms}"></ng-container>
+  </div>
+</ng-template>
+
+<ng-template #syncingButton>
+  <review-syncing-btn></review-syncing-btn>
+</ng-template>
+
+<ng-template #criticality let-c="close" let-d="dismiss">
+  <div id="6ec1c590-736d-4f92-a98d-c4023750ede9" class="modal-header">
+    <h4 class="modal-title">Submission of {{(illnessValue | async)?.form.idIcd10Code}}</h4>
+    <button type="button" class="close" aria-label="Close" (click)="d('cancel')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div id="9b883f92-38ee-4495-8f10-b721a873c5ec" class="modal-body">
+    <p>Records don't have a criticality for {{(illnessValue | async)?.form.idIcd10Code}}. Please add it as a number between 1 to 9</p>
+    <div id="e701a891-1634-46db-b8b9-38f285e99cdc" class="row justify-content-center form-group">
+      <mica-criticality [formControl]="criticalityCtrl" [max]="9" ></mica-criticality>
+    </div>
+  </div>
+  <div id="eb558697-26d4-4eb4-94b3-653e0d0a48a7" class="modal-footer">
+    <button type="button" [disabled]="criticalityCtrl.invalid" class="btn btn-success"
+      (click)="c('APPROVED')">Approve</button>
+    <button type="button" class="btn btn-secondary" (click)="d('cancel')">Cancel</button>
+  </div>
+</ng-template>
+
+<ng-template #disabledReason let-reason>
+  <div id="300dbf8d-6618-4060-a9e5-1aff34241df0" class="warning-icon-container">
+    <i class="material-icons text-warning"
+       triggers="mouseenter:mouseleave"
+       [ngbPopover]="popContent" popoverTitle="{{reason.description}}">
+      warning
+    </i>
+  </div>
+  <ng-template #popContent>
+    <p>{{reason.suggestion}}</p>
+  </ng-template>
+</ng-template>

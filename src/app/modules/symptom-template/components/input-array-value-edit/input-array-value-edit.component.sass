@@ -1,0 +1,35 @@
+.input-container
+  display: flex
+  height: 36px
+  input
+    padding-right: 2rem
+  .input-group
+    margin-right: -2px
+    width: 100%
+    max-width: 150px
+    min-width: 100px
+    &.number
+      max-width: 6rem
+      input
+        padding-right: 2rem
+  .close
+    position: absolute
+    right: 7px
+    top: calc(50% - 12px)
+    z-index: 10
+    &:focus
+      outline: none
+
+.d-flex
+  flex-wrap: wrap
+.item
+  font-size: inherit
+  font-weight: normal
+  padding: 0.3rem 0.6rem
+.badge
+  align-items: center
+  display: flex
+  height: 36px
+
+.add-button
+  cursor: pointer

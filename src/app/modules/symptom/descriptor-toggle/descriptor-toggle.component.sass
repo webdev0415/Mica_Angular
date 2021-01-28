@@ -1,0 +1,39 @@
+@import "../../../../styles/bootstrap/variables"
+
+\:host
+  display: flex
+  height: inherit
+  overflow: hidden
+  width: 7rem
+
+.thumbnail
+  align-items: center
+  align-self: flex-end
+  background-repeat: no-repeat
+  background-size: cover
+  border-radius: 4px
+  cursor: pointer
+  display: flex
+  flex-direction: column
+  height: 64px
+  justify-content: center
+  position: relative
+  width: 100%
+  .overlay
+    background-color: $gray
+    border-radius: 4px
+    height: 100%
+    opacity: .6
+    position: absolute
+    top: 0
+    width: 100%
+    z-index: 2
+  i
+    color: $white
+    height: 18px
+    margin-top: 2px
+    z-index: 3
+  .text
+    color: $white
+    font-size: .8rem
+    z-index: 3

@@ -1,0 +1,28 @@
+FROM node:12.6.0
+
+RUN apt-get update && \
+    apt-get install -y xz-utils && \
+    apt-get install -y curl
+
+# Create private key file with argument passed in
+RUN mkdir ~/.ssh
+COPY id_rsa /root/.ssh/id_rsa
+RUN chmod 600 /root/.ssh/id_rsa
+RUN ssh-keyscan gitlab.com >> /root/.ssh/known_hosts
+
+RUN apt update -y && \
+    npm install -g @angular/cli
+
+COPY . /mica
+WORKDIR /mica
+
+RUN npm i
+RUN npm run version:up
+RUN npm run build
+
+RUN rm /root/.ssh/id_rsa
+
+COPY docker/entrypoint.sh /usr/local/bin/entrypoint.sh
+RUN chmod +x /usr/local/bin/entrypoint.sh
+
+ENTRYPOINT ["/usr/local/bin/entrypoint.sh"]

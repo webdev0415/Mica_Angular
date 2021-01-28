@@ -1,0 +1,11 @@
+<div id="398af47d-aad3-4d37-852e-8a43686027ef" class="switch-container" [ngClass]="size">
+  <strong>
+    {{title}}
+  </strong>
+  <div id="6f4bfe8d-ebe1-40b2-b54c-6ac6e66ce162" class="toggle row no-gutters">
+    <div id="8ba27095-e8a9-4f4b-9f99-5005392afd1d" class="value col" (click)="value = values[0]">{{values[0]}}</div>
+    <div id="c28a39fd-467d-42d2-b8c0-43a47a125b50" class="value col" (click)="value = values[1]">{{values[1]}}</div>
+    <a class="btn btn-success" [ngStyle]="{'left': togglePosition}"></a>
+  </div>
+</div>
+

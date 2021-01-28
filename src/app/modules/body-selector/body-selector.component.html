@@ -1,0 +1,44 @@
+<div id="533b19c8-8ed0-4b79-a40a-56fb7ee8eb40" class="body-container p-2">
+  <div id="76b7a31b-8bd1-4b27-9933-e29d159d886f" class="reset-container">
+    <button [@fadeIn] *ngIf="canResetZoom" type="button" (click)="resetZoom()" class="btn btn-secondary btn-sm reset">Reset Zoom</button>
+  </div>
+  <svg [attr.height]="svgConfig.height" [attr.width]="svgConfig.width">
+    <g *ngIf="!internalAnimationsOn && !!bodyImages">
+      <image *ngFor="let img of bodyImages" class="body-image"
+             [@perspective]="perspectiveAnimationState(img.name)" (@perspective.done)="onPerspectiveChangeEnd()" [@fadeIn]
+             (click)="onPerspectiveChange(img.name)" [attr.width]="svgConfig.bodyWidth"
+             [attr.preserveAspectRatio]="img.preserveAspectRatio" [attr.xlink:href]="img.href" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></image>
+    </g>
+    <g *ngIf="!!activeCloseUpImage">
+      <image [@fadeIn] [attr.width]="activeCloseUpImage.width || svgConfig.bodyWidth"
+        [attr.preserveAspectRatio]="activeCloseUpImage.preserveAspectRatio" [attr.xlink:href]="activeCloseUpImage.href"
+        [attr.transform]="activeCloseUpImage.transform" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></image>
+    </g>
+    <g *ngIf="showMappings && !!bodyImages" transform="translate(0,0)">
+      <g *ngFor="let zoneMapping of zoneSvgMappings" class="zone-group">
+        <g *ngFor="let shape of zoneMapping.shapes" (click)="onBodyPartClicked(shape.name, zoneMapping)" class="body-part">
+          <title *ngIf="!!shapeSelectedClass(shape.name,zoneMapping)" >{{shape.name | titleCase}}</title>
+          <path *ngIf="shape.type === 'path'" [id]="shape.name" [attr.d]="shape.d" [attr.transform]="shape.transform"
+            [ngClass]="shapeSelectedClass(shape.name,zoneMapping)"/>
+          <ellipse *ngIf="shape.type === 'ellipse'" [attr.cx]="shape.cx" [attr.cy]="shape.cy" [attr.rx]="shape.rx" [attr.ry]="shape.ry"
+            [attr.transform]="shape.transform" [ngClass]="shapeSelectedClass(shape.name,zoneMapping)"/>
+          <circle *ngIf="shape.type === 'circle'" [attr.cx]="shape.cx" [attr.cy]="shape.cy" [attr.r]="shape.r"
+            [attr.transform]="shape.transform" [ngClass]="shapeSelectedClass(shape.name,zoneMapping)"/>
+          <rect *ngIf="shape.type === 'rect'" [attr.x]="shape.x" [attr.y]="shape.y"
+            [attr.transform]="shape.transform" [ngClass]="shapeSelectedClass(shape.name,zoneMapping)"/>
+        </g>
+      </g>
+    </g>
+  </svg>
+  <div id="2353b32d-0892-4100-8401-ef5da7e99607" class="row no-gutters body-view-buttons" *ngIf="bodyViewsNames.length > 1">
+    <div id="5a0c6557-641f-43ca-8ac0-54ce22170ff3" *ngFor="let view of bodyViewsNames" class="col m-2">
+      <button type="button" class="col btn btn-sm" [ngClass]="selectedPath[0] === view ? 'btn-success' : 'btn-default'"
+        (click)="onBodyViewChange(view)">{{view}}</button>
+    </div>
+  </div>
+  <div id="94401e7c-b8c2-4d7f-a82e-6b25877cce8b" class="row no-gutters body-view-buttons" *ngIf="wholeBody == 'true'">
+    <div id="8d210615-6299-4eac-8281-b80ad54755b8" class="col m-2">
+      <button type="button" class="col btn btn-sm btn-primary" (click)="onBodyViewChange('Whole Body')">Whole Body</button>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,34 @@
+.toolbar-container
+  display: flex
+  justify-content: space-between
+
+.search-group
+  height: 40px
+  position: relative
+  border: 1px solid rgba(0, 0, 0, 0.15)
+  border-radius: 0.3rem
+  flex: 0.75
+  display: flex
+  & input
+    position: absolute
+    width: 80%
+    display: inline
+    border: none
+    left: 40px
+    top: 2px
+    padding-left: 0
+  &.invalid 
+    border-color: #d9534f
+
+.search-group
+  & span
+    position: absolute
+    opacity: 0.5
+    left: 10px
+    top: 25%
+
+.close
+  & span
+    position: absolute
+    left: 94%
+    opacity: 1

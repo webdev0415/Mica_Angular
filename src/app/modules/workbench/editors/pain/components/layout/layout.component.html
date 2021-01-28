@@ -1,0 +1,59 @@
+<div id="2cc1e88c-105e-45f2-9037-cc87098fd1f1" class="row pain-editor">
+  <div id="f7794d10-e3ed-4743-8ce0-e020b6ec2fb5" class="col col-sm-auto">
+    <mica-body-selector
+      [bodyViewsNames]="['exterior']"
+      [svgShapes]="svgShapes"
+      [defaultZone]="defaultBodyPart"
+      [selectionBehaviour]="'pick'"
+      (bodyPartChange)="onBodyPartSelect($event)"
+      [wholeBody]="'true'"></mica-body-selector>
+  </div>
+  <div id="57205c83-b320-43a9-979e-c7a927c10df6" class="col body-symptoms">
+    <div id="e13860e7-edb4-493f-8a41-0bd4ec623380">
+       <ul class="nav nav-tabs">
+        <li class="nav-item" *ngFor="let section of sectionIDs | async; let sectionIndex = index">
+          <a class="nav-link" [class.active]="(activeSectionData | async)?.sectionID === section" href="#"
+            (click)="onSectionChange(section, $event)">{{sectionNameFromID(section) | titleCase}}</a>
+        </li>
+      </ul>
+      <div id="918ecc1d-1ae6-424c-a81e-d00bcfe780c3" [@fadeIn]="categoryState" *ngIf="!selectedBodyParts?.length" class="alert alert-info text-center w-100 mt-3">
+        <i class="material-icons mi-48 d-block">accessibility</i>
+        Select at least one area in the image where the {{(activeSectionData | async)?.name}} is located.
+      </div>
+      <div id="a7a82892-1afc-4613-9ef8-ce51ebf12823" *ngIf="selectedBodyParts?.length" class="mt-3 alert alert-info text-center w-100 part-selection mt-3">
+        <h3 class="heading">AREAS OF {{(activeSectionData | async)?.name | uppercase}}</h3>
+        <div id="dc021f60-a0fe-4cb3-9cb8-ff1e88018cac" class="mt-1 mb-1">
+          <span *ngFor="let bodyPart of selectedBodyParts" class="badge badge-pill badge-success ml-2">{{bodyPart.name | titleCase}}</span>
+        </div>
+      </div>
+      <section [@fadeIn]="categoryState" *ngIf="selectedBodyParts?.length" class="mt-2">
+        <div id="f10ec90a-d2a9-49eb-86f6-9ddbb700c2a7" *ngFor="let bodyPart of selectedBodyParts" class="body-part rounded mb-2">
+          <div id="bee2e015-d645-454a-8f03-2bcdf617c23c" class="row justify-content-end heading">
+            <div id="5ca4a553-aa78-4346-bf4c-47e242764ab8" class="col content">
+              <h3 class="text mb-0">{{bodyPart.name | titleCase}} {{(activeSectionData | async)?.name | titleCase}} Analysis</h3>
+              <div id="7b974f07-14f1-4788-9c27-344cab18d58c" class="copy">
+                <div id="4081707e-c01d-4e09-867d-5d1730ea7fac" [@fadeInOut]="'in'" *ngIf="selectedBodyParts.length > 1">
+                  <form #copyTypeahead="ngForm" *ngIf="copy[1] === bodyPart.name; else copyBtn" class="row no-gutters copy-form">
+                    <mica-value-switch [(ngModel)]="copy[0]" class="direction" [values]="['from', 'into']" name="direction"></mica-value-switch>
+                    <mica-typeahead class="col search-copy" [items]="selectedBodyParts" [resultKey]="'name'"
+                      [excludeItems]="[bodyPart.value]" (close)="copy = defaultCopy"
+                      ngModel name="bodyPartSelected" required></mica-typeahead>
+                    <button [disabled]="!copyTypeahead.valid" type="button" class="btn btn-primary btn-sm btn-confirm ml-2"
+                      (click)="onCopySymptoms(copyTypeahead.value, copy[1])">copy</button>
+                  </form>
+                  <ng-template #copyBtn>
+                    <button type="button" class="btn btn-sm mr-2 btn-activate-copy" (click)="copy[1] = bodyPart.name">copy symptoms</button>
+                  </ng-template>
+                </div>
+              </div>
+            </div>
+            <div id="177745b1-a71f-4dd5-8701-6f5db496c347" class="col close pl-0" (click)="onBodyPartRemove(bodyPart)">
+              <span class="material-icons">delete</span>
+            </div>
+          </div>
+          <workbench-symptoms-list [categoryID]="bodyPart.value"></workbench-symptoms-list>
+        </div>
+      </section>
+    </div>
+  </div>
+</div>

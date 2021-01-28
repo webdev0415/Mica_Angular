@@ -1,0 +1,45 @@
+@import "../../../../../styles/bootstrap/variables"
+
+$toggle-padding: 3px
+$btn-size: calc(#{$input-height} - (#{$toggle-padding} * 2))
+
+\:host
+  cursor: default !important
+
+.switch-container
+  background-color: $gray
+  border-radius: $input-height
+  color: $white
+  display: block
+  height: $input-height
+  padding: $toggle-padding
+  transition: background-color .4s ease-in-out
+  width: min-content
+  &.on
+    background-color: $btn-success-bg
+    color: $btn-success-color
+
+.toggle
+  height: 100%
+  position: relative
+  .btn
+    background-color: $gray-lighter
+    border: 2px solid $white
+    border-radius: 100%
+    height: $btn-size
+    left: 0
+    padding: 0
+    position: absolute
+    top: 0
+    width: $btn-size
+    z-index: 2
+  .value
+    align-items: center
+    display: flex
+    height: inherit
+    min-width: 5rem
+    z-index: 3
+    &.off
+      justify-content: flex-end
+
+

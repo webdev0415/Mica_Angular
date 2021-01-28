@@ -1,0 +1,6 @@
+<ng-template ngbModalContainer></ng-template>
+<mica-header *ngIf="(bootstrapped$ | async) && (authenticated$ | async) && (currentApp$ | async)" id="header"></mica-header>
+<main>
+  <router-outlet></router-outlet>
+</main>
+<mica-notifier></mica-notifier>

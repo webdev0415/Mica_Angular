@@ -1,0 +1,24 @@
+.drug-list
+  //max-height: 265px
+  overflow-y: scroll
+  background-color: #f7f7f9
+  box-shadow: -1px 0 0 rgba(0, 0, 0, 0.125) inset
+
+.drug-item
+  background-color: #efefef
+  border-right: 1px solid rgba(0, 0, 0, 0.125)
+  border-bottom: 1px solid rgba(0, 0, 0, 0.125)
+
+  &:last-child:not(.cdk-drag-preview):not(:first-child)
+    border-bottom: none
+
+  &.cdk-drag-preview, &.cdk-drag-placeholder
+    background-color: #ececec
+
+  &.drug-item-selected
+    background-color: white
+    border-right-color: transparent
+
+  &.full-height:not(.drug-item-selected)
+    height: 100%
+    border-bottom: none

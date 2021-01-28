@@ -1,0 +1,126 @@
+[
+  {
+    "name": "Core Symptoms",
+    "categoryID": "SYMPTCG14",
+    "updatedDate": 1111111111111,
+    "dataStoreRefTypes": {
+      "RespiratorySounds": {
+        "title": "Respiratory Sounds",
+        "values": [
+          {
+            "code": "DS708",
+            "name": "Rhonchi",
+            "m_antithesis": 0.01
+          },
+          {
+            "code": "DS570",
+            "name": "Wheezing",
+            "m_antithesis": 0.01
+          },
+          {
+            "code": "DS603",
+            "name": "Clear",
+            "m_antithesis": 0.01
+          },
+          {
+            "code": "DS571",
+            "name": "Rales",
+            "m_antithesis": 0.01
+          },
+          {
+            "code": "DS604",
+            "name": "No Breath Sounds",
+            "m_antithesis": 0.01
+          },
+          {
+            "code": "DS572",
+            "name": "Crepitation",
+            "m_antithesis": 0.01
+          },
+          {
+            "code": "DS605",
+            "name": "Stridor",
+            "m_antithesis": 0.01
+          }
+        ]
+      },
+      "SmartBodyIndex": {
+        "title": "Index",
+        "values": [
+          {
+            "code": "DS188",
+            "name": "Very high",
+            "value": "very_high",
+            "m_antithesis": 0.01
+          },
+          {
+            "code": "DS189",
+            "name": "High",
+            "m_antithesis": 0.01
+          },
+          {
+            "code": "DS190",
+            "name": "Moderate",
+            "m_antithesis": 0.01
+          },
+          {
+            "code": "DS191",
+            "name": "Low",
+            "m_antithesis": 0.01
+          }
+        ]
+      },
+      "AbdomenSounds": {
+        "title": "Abdomen Sounds",
+        "values": [
+          {
+            "code": "DS617",
+            "name": "Normal Bowel Sounds",
+            "m_antithesis": 0.01
+          },
+          {
+            "code": "DS618",
+            "name": "High Pitched Bowel Sounds",
+            "m_antithesis": 0.01
+          },
+          {
+            "code": "DS619",
+            "name": "Silent Abdomen",
+            "m_antithesis": 0.01
+          },
+          {
+            "code": "DS620",
+            "name": "Bruit",
+            "m_antithesis": 0.01
+          }
+        ]
+      }
+    }
+  },
+  {
+    "name": "sg2",
+    "groupID": "sg2",
+    "updatedDate": 2222222222222,
+    "dataStoreRefTypes": {
+      "TimeUnit": {
+        "title": "TimeUnit"
+      },
+      "Slope": {
+        "title": "Slope"
+      }
+    }
+  },
+  {
+    "name": "sg3",
+    "groupID": "sg3",
+    "updatedDate": 3333333333333,
+    "dataStoreRefTypes": {
+      "TimeUnit": {
+        "title": "TimeUnit"
+      },
+      "Slope": {
+        "title": "Slope"
+      }
+    }
+  }
+]

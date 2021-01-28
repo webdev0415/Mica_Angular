@@ -1,0 +1,29 @@
+.drug-restriction-container
+  display: grid
+  align-content: start
+  grid-gap: 10px
+  grid-template-areas: 'restriction-form-header restriction-form-header' 'search-resume add-restriction-btn' 'rules likelihood' 'sources sources'
+  overflow: visible
+  min-height: 600px
+
+.restriction-form-header
+  grid-area: restriction-form-header
+
+.search-resume
+  grid-area: search-resume
+
+.add-restriction-btn
+  grid-area: add-restriction-btn
+  justify-self: end
+  height: 36px
+
+.rules
+  grid-area: rules
+  justify-self: start
+
+.likelihood
+  grid-area: likelihood
+  justify-self: end
+
+.sources
+  grid-area: sources

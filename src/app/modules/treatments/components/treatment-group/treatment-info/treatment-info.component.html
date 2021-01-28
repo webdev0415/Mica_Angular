@@ -1,0 +1,168 @@
+  <div class="treatment-info" *ngIf="treatment">
+      <!-- Drug Info -->
+      <div class="drug-info-section" *ngIf="treatment.rxcuiDesc">
+        <h6>Drug Info</h6>
+        <mat-list>
+          <mat-list-item>
+            {{ 'RXCUI: ' + treatment.rxcui }}
+          </mat-list-item>
+          <mat-list-item>
+            {{ 'RXCUI Description: ' + treatment.rxcuiDesc }}
+          </mat-list-item>
+        </mat-list>
+        <mat-divider></mat-divider>
+      </div>
+
+      <!-- Dosage Info -->
+      <div class="dosage-info-section m-3" *ngIf="isDosagePresent()">
+        <div class="row">
+          <h6>Dosage Info</h6>
+        </div>
+        <div class="row m-1">
+          <div class="col-6">
+            Strength: {{ treatment.dosageRecommendation.strength }}
+          </div>
+          <div class="col-6">
+            Unit: {{ treatment.dosageRecommendation.unit }}
+          </div>
+        </div>
+        <div class="row m-1">
+          <div class="col-4">
+            Amount: {{ treatment.dosageRecommendation.amount }}
+          </div>
+          <div class="col-4">
+            Form: {{ treatment.dosageRecommendation.form }}
+          </div>
+          <div class="col-4">
+            Route: {{ treatment.dosageRecommendation.route }}
+          </div>
+        </div>
+        <div class="row m-1">
+          <div class="col-4">
+            Frequency: {{ treatment.dosageRecommendation.frequency }}
+          </div>
+          <div class="col-4">
+            PRN: {{ treatment.dosageRecommendation.prn }}
+          </div>
+          <div class="col-4">
+            DAW: {{ treatment.dosageRecommendation.daw }}
+          </div>
+        </div>
+        <div class="row m-1">
+          <div class="col-6">
+            Quantity: {{ treatment.dosageRecommendation.quantity }}
+          </div>
+          <div class="col-6">
+            Dispense Form: {{ treatment.dosageRecommendation.dispenseForm }}
+          </div>
+        </div>
+        <div class="row m-1">
+          <div class="col-12">
+            Directions: {{ treatment.dosageRecommendation.directions }}
+          </div>
+        </div>
+        <mat-divider class="mt-5"></mat-divider>
+      </div>
+
+      <!-- Policy Info -->
+      <div class="policy-info-section m-3" *ngIf="!policiesPresent()">
+        <div class="row">
+          <h6>Policy Info</h6>
+        </div>
+        <div class="row m-2">
+          No policy data attached to drug.
+        </div>
+        <mat-divider class="mt-5"></mat-divider>
+      </div>
+
+      <div class="policy-info-section m-3" *ngIf="treatment.policies?.length >= 1">
+        <div class="row" [ngClass]="{'d-flex justify-content-between align-items-center' : checkForAlts() }">
+          <h6>Policy Info</h6>
+          <button style="outline: none" *ngIf="checkForAlts()" mat-stroked-button color="primary" (click)="viewAlt = !viewAlt">View Dosages</button>
+        </div>
+<!--        <div class="row" *ngIf="!checkForAlts()">-->
+<!--          <h6>Policy Info</h6>-->
+<!--        </div>-->
+        <div *ngFor="let policy of treatment.policies">
+        <div class="row m-2">
+          <div class="col-12">
+            <div class="">{{ policy | policyFormat: treatment.drugName }}</div>
+          </div>
+        </div>
+          <div class="row">
+            <div class="col-12 m-2" *ngIf="viewAlt">
+              <div class="row m-1">
+                <div class="col-6">
+                  Strength: {{ policy.alternative.dosageRecommendation.strength }}
+                </div>
+                <div class="col-6">
+                  Unit: {{ policy.alternative.dosageRecommendation.unit }}
+                </div>
+              </div>
+              <div class="row m-1">
+                <div class="col-4">
+                  Amount: {{ policy.alternative.dosageRecommendation.amount }}
+                </div>
+                <div class="col-4">
+                  Form: {{ policy.alternative.dosageRecommendation.form }}
+                </div>
+                <div class="col-4">
+                  Route: {{ policy.alternative.dosageRecommendation.route }}
+                </div>
+              </div>
+              <div class="row m-1">
+                <div class="col-4">
+                  Frequency: {{ policy.alternative.dosageRecommendation.frequency }}
+                </div>
+                <div class="col-4">
+                  PRN: {{ policy.alternative.dosageRecommendation.prn }}
+                </div>
+                <div class="col-4">
+                  DAW: {{ policy.alternative.dosageRecommendation.daw }}
+                </div>
+              </div>
+              <div class="row m-1">
+                <div class="col-6">
+                  Quantity: {{ policy.alternative.dosageRecommendation.quantity }}
+                </div>
+                <div class="col-6">
+                  Dispense Form: {{ policy.alternative.dosageRecommendation.dispenseForm }}
+                </div>
+              </div>
+              <div class="row m-1">
+                <div class="col-12">
+                  Directions: {{ policy.alternative.dosageRecommendation.directions }}
+                </div>
+              </div>
+            </div>
+          </div>
+      </div>
+        <mat-divider class="mt-5"></mat-divider>
+      </div>
+
+    <div class="source-info-section m-3" *ngIf="sources.length === 0">
+      <div class="row">
+        <h6>Source Info</h6>
+      </div>
+      <div class="row m-2">
+        No Sources Available.
+      </div>
+    </div>
+
+    <div class="source-info-section m-3" *ngIf="sources.length >= 1">
+      <div class="row">
+        <h6>Source Info</h6>
+      </div>
+      <div class="row d-flex justify-content-start align-items-center">
+        <div class="m-2">
+          <mica-source-form class="flex-fill"
+                            readOnly="true"
+                            [sourcesData]="sourcesData$ | async"
+                            [sourceCtrlArray]="sources"
+                            [recordType]="recordType$ | async"
+                            [noSourceRemovalOptions]="true">
+          </mica-source-form>
+        </div>
+      </div>
+    </div>
+    </div>

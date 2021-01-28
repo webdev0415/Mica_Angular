@@ -1,0 +1,128 @@
+
+<div *ngIf="!selectedDosageTarget" class="targets-container">
+  <div class="target-list drugs">
+    <span><b>Drug</b></span>
+    <mat-list>
+      <mat-list-item>
+        <div class="target-item">
+          <span>{{drugName}}</span>
+          <button mat-stroked-button color="accent" class="set-dosage-btn" (click)="onSetDosageClick()">
+            {{dosageRecommendationCtrl?.value ? 'Edit' : 'Set'}} dosage
+          </button>
+        </div>
+      </mat-list-item>
+      <mat-divider></mat-divider>
+    </mat-list>
+  </div>
+
+  <div *ngIf="policiesCtrlArray?.length" class="target-list policies">
+    <span><b>Policies</b></span>
+    <mat-list>
+      <ng-container *ngFor="let policy of policiesCtrlArray.value; let idx=index;">
+        <mat-list-item>
+          <div class="target-item">
+            <span>{{policy | policyFormat:drugName}}</span>
+            <button *ngIf="policy.action !== 'Exclude'" mat-stroked-button color="accent" class="set-dosage-btn" (click)="onSetDosageClick(idx)">
+              {{policy.alternative?.dosageRecommendation ? 'Edit' : 'Set'}} dosage
+            </button>
+            <button *ngIf="policy.action === 'Exclude'" mat-stroked-button color="accent" class="set-dosage-btn" (click)="onSetDosageClick(idx)" [disabled]="true">
+              {{policy.alternative?.dosageRecommendation ? 'Edit' : 'Set'}} alternative
+            </button>
+          </div>
+        </mat-list-item>
+        <mat-divider></mat-divider>
+      </ng-container>
+    </mat-list>
+  </div>
+</div>
+
+<div *ngIf="selectedDosageTarget" class="dosage-form">
+  <div class="form-header">
+    <span>Dosage for {{selectedDosageTarget}} <b>{{selectedDosageTarget === 'drug' ? drugName : (selectedTargetPolicyCtrl?.value | policyFormat:drugName)}}</b></span>
+  </div>
+  <mat-form-field class="strength">
+    <mat-label>Strength</mat-label>
+    <input type="text" matInput [formControl]="strengthCtrl">
+  </mat-form-field>
+  <mat-form-field class="unit">
+    <mat-label>Unit</mat-label>
+    <mat-select [formControl]="unitCtrl">
+      <mat-option *ngFor="let singleUnit of definedUnits" [value]="singleUnit">
+        {{ singleUnit }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  <mat-form-field class="amount">
+    <mat-label>Amount</mat-label>
+    <mat-select [formControl]="amountCtrl">
+      <mat-option *ngFor="let singleAmount of definedAmounts" [value]="singleAmount">
+        {{ singleAmount }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+<!-- form field -->
+  <mat-form-field class="form-item" *ngIf="!isFormPreset">
+    <mat-label>Form</mat-label>
+    <mat-select [formControl]="formCtrl">
+      <mat-option *ngFor="let singleForm of definedForms" [value]="singleForm">
+        {{ singleForm }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field class="form-item" *ngIf="isFormPreset">
+    <mat-label>Form</mat-label>
+    <input type="text" matInput [formControl]="formCtrl" name="form" [readonly]="true"/>
+  </mat-form-field>
+<!-- /form field -->
+<!-- route field -->
+  <mat-form-field class="route" *ngIf="!isRoutePreset">
+    <mat-label>Route</mat-label>
+    <mat-select [formControl]="routeCtrl">
+      <mat-option *ngFor="let singleRoute of definedRoutes" [value]="singleRoute">
+        {{ singleRoute }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field class="route" *ngIf="isRoutePreset">
+    <mat-label>Route</mat-label>
+    <input type="text" matInput [formControl]="routeCtrl" name="form" [readonly]="true"/>
+  </mat-form-field>
+<!-- /route field -->
+  <mat-form-field class="frequency">
+    <mat-label>Frequency</mat-label>
+    <mat-select [formControl]="frequencyCtrl">
+      <mat-option *ngFor="let singleFrequency of definedFrequency" [value]="singleFrequency">
+        {{ singleFrequency }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  <div class="checks">
+    <mat-checkbox class="mx-2" [formControl]="prnCtrl">PRN</mat-checkbox>
+    <mat-checkbox class="mx-2" [formControl]="dawCtrl">DAW</mat-checkbox>
+  </div>
+
+  <mat-form-field class="quantity">
+    <mat-label>Quantity</mat-label>
+    <input type="text" matInput [formControl]="quantityCtrl">
+  </mat-form-field>
+  <mat-form-field class="dispense">
+    <mat-label>Dispense Form</mat-label>
+    <mat-select [formControl]="dispenseFormCtrl">
+      <mat-option *ngFor="let singleDispenseForm of definedDispenseForm" [value]="singleDispenseForm">
+        {{ singleDispenseForm }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  <mat-form-field class="directions">
+    <mat-label>Directions</mat-label>
+    <textarea name="directions" matInput [formControl]="directionsCtrl"></textarea>
+  </mat-form-field>
+
+  <div class="form-footer">
+    <button mat-flat-button (click)="onBackClick()" color="primary" class="back-button"><mat-icon>keyboard_arrow_left</mat-icon></button>
+    <button mat-flat-button (click)="onSaveDosageClick()" color="primary" class="back-button">Save</button>
+  </div>
+</div>

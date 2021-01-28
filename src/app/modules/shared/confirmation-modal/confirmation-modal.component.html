@@ -1,0 +1,5 @@
+<div mat-dialog-title>{{messageText}}</div>
+<div mat-dialog-actions class="d-flex justify-content-end align-items-end">
+  <button mat-flat-button [mat-dialog-close]="" class="mr-2">{{cancelText || 'Cancel'}}</button>
+  <button mat-flat-button color="primary" [mat-dialog-close]="true">{{confirmText || 'OK'}}</button>
+</div>

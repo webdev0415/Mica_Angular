@@ -1,0 +1,44 @@
+<div id="c89c501d-a1b4-456e-8e56-841e52e8e8c6" class="row">
+  <error-illness-value *ngIf="showIllnessErrors | async" class="col"></error-illness-value>
+</div>
+
+<header class="pt-4 pb-2">
+  <div id="00a39b7b-7edd-492a-b083-05239ae3e2e5" class="align-middle justify-content-center mb-3">
+    <h2 class="mb-0 title align-middle">
+      <span class="mr-1">{{(illnessValue | async)?.form.idIcd10Code}}</span>
+      <span class="badge badge-default mr-1">v{{(illnessValue | async)?.form.version}}</span>
+      <span> - [MICA] {{(illnessValue | async)?.form.name}}</span>
+      <mica-validation-icon [idIcd10Code]="(illnessValue | async)?.form.idIcd10Code" [version]="(illnessValue | async)?.form.version"></mica-validation-icon>
+      <!-- <span class="badge badge-pill badge-danger">{{(activeIllnessValue | async).criticality}}</span> -->
+    </h2>
+    <div id="9f60bbc7-8df2-49d0-a40a-8b518073d5dc" *ngIf="!isEditor" class="d-block badge badge-default text-uppercase ml-2">{{(illnessValue | async)?.form.state}}</div>
+    <mica-illness-error-counter *ngIf="isEditor" class="m-2"></mica-illness-error-counter>
+  </div>
+  <review-submit [isUnique]="isUnique" [initial]="initial" *ngIf="isEditor" [syncingIllness]="syncingIllness" class="d-block"></review-submit>
+</header>
+
+<section *ngFor="let sgID of sgIDs" class="row review-group rounded mb-3">
+  <div id="81bf093a-18ca-4c81-adfb-b225122414a7" class="col">
+    <h4 class="text-center text-white pt-2 pb-2 m-0" [ngClass]="getSGClass(sgID)">
+      {{(sgID === "pain" ? "pain / swelling" : sgID)  | correctSpelling | uppercase}}
+    </h4>
+      <div id="2197dba7-614c-417a-b491-0bc2935739d6" *ngIf="hasSections(sgID); else basicSymptomGroup">
+        <div id="d1b0d82e-692e-4273-9db3-abc883787f05" *ngFor="let sectionID of sgSections(sgID); trackBy: trackSectionByFn">
+          <review-category-list
+            [readOnly]="readOnly"
+            [symptomGroupID]="sgID"
+            [sectionID]="sectionID"
+            [ecwValidationSymptoms]="ecwValidationSymptoms"></review-category-list>
+        </div>
+      </div>
+      <ng-template #basicSymptomGroup>
+        <review-category-list
+          [readOnly]="readOnly"
+          [symptomGroupID]="sgID"
+          [ecwValidationSymptoms]="ecwValidationSymptoms"></review-category-list>
+      </ng-template>
+  </div>
+</section>
+<div id="7855c0de-2229-4b19-9b52-213e00eafc7a" class="row" *ngIf="isEditor">
+  <review-submit [isUnique]="isUnique" [initial]="initial" [syncingIllness]="syncingIllness" class="col"></review-submit>
+</div>

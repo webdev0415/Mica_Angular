@@ -1,0 +1,14 @@
+<div class="row d-flex justify-conent-start align-items-center mt-3">
+  <h5>Add Sources for {{ drugName }}</h5>
+</div>
+
+<mica-source-form entityType="treatment"
+                  treatmentType="drug"
+                  [recordType]="recordType$ | async"
+                  [sourceCtrlArray]="sourceCtrlArray"
+                  [sourcesData]="sourcesData$ | async"
+                  [noSourceRemovalOptions]="true"
+                  [allowNewView]="true"
+                  (sourceAdded)="onSourceAdded($event)"
+                  (sourceRemoved)="onSourceRemoved($event)">
+</mica-source-form>

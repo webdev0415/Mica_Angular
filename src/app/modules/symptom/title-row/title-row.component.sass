@@ -1,0 +1,50 @@
+@import "../symptom.variables"
+
+.title
+  min-height: $symptom-row-height
+  position: relative
+
+.symptom-checkbox
+  align-items: center
+  display: flex
+  margin: 0
+
+.readOnly
+  cursor: not-allowed
+
+h5.custom-control-description
+  cursor: default
+  line-height: 1.5
+  white-space: nowrap
+
+.body-part
+  align-items: center
+  cursor: default
+  display: flex
+  flex: 0
+  font-size: .8rem
+  height: $symptom-row-height
+  justify-content: space-between
+  padding: .2rem .4rem
+  transition: opacity .5s
+  &.disabled
+    opacity: .5
+  // .close
+  //   margin-bottom: -.3rem
+
+.info-button
+  display: flex
+  background: none
+  outline: none
+  border: none
+  color: #626c71
+  padding: 0 5px
+  cursor: pointer
+
+.diagCriteria
+  //position: absolute
+  //right: 0
+  //width: 55%
+  div
+    margin-right: 10px
+

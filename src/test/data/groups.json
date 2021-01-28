@@ -1,0 +1,22 @@
+[
+  {
+    "name": "Mole",
+    "groupID": 1
+    },
+    {
+    "name": "Sweats",
+    "groupID": 2
+    },
+    {
+    "name": "Changes in Rash",
+    "groupID": 3
+    },
+    {
+    "name": "Rash",
+    "groupID": 4
+    },
+    {
+    "name": "Burns",
+    "groupID": 5
+    }
+]

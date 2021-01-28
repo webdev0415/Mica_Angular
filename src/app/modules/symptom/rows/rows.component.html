@@ -1,0 +1,17 @@
+<div id="77c14b52-c1fd-4850-b938-4fe1ad4dc8a2" class="row"
+    *ngFor="let rowCtrl of rowsFormArray.controls; let rowIndex = index; let first = first;"
+    [@slideInOutSymptom]="rowAnimateState(rowIndex)"
+    (@slideInOutSymptom.done)="onRowAnimationEnd(rowIndex)"
+>
+    <mica-symptom-row class="col-12"
+        [readOnly]="readOnly"
+        [rowCtrl]="rowCtrl"
+        (errors)="onRowError($event, rowIndex)"
+        [removable]="!first"
+        [rowIndex]="rowIndex"
+        [symptomData]="symptomData"
+        [allMultiplierValues]="allMultiplierValues"
+        [dataStoreRefTypes]="dataStoreRefTypes"
+        (removeRow)="onRemoveRow(rowIndex)">
+    </mica-symptom-row>
+</div>

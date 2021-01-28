@@ -1,0 +1,161 @@
+[
+  {
+    "entities": {
+      "categories": {
+        "SYMPTCG01": {
+          "name": "Abdomen",
+          "categoryID": "SYMPTCG01",
+          "symptoms": ["SYMPT0000223"]
+        },
+        "SYMPTCG02": {
+          "name": "Head",
+          "categoryID": "SYMPTCG02",
+          "symptoms": ["SYMPT0000224"]
+        }
+      },
+      "sections": {
+        "SC003": {
+          "name": "pain",
+          "sectionID": "SC003",
+          "categories": [
+            "SYMPTCG01",
+            "SYMPTCG02"
+          ]
+        }
+      },
+      "symptoms": {
+        "SYMPT0000223": {
+          "name": "Supa Bad Symptom",
+          "symptomID": "SYMPT0000223",
+          "bodyParts": ["Abdomen"],
+          "symptomsModel": {
+            "bias": true,
+            "rangeValues": [97.5, 105],
+            "descriptors": "description1",
+            "descriptorFile": "none",
+            "dataStoreTypes": [
+              "Importance",
+              "Likelihood",
+              "TimeUnit",
+              "Slope",
+              "Ethnicity",
+              "PatientFever"
+            ]
+          },
+          "rows": [
+            {
+              "bias": true,
+              "modifierValues": [
+                {
+                  "name": "Age",
+                  "likelihood": 20,
+                  "scale": {
+                    "upperTimeLimit": 30,
+                    "scaleTimeLimitStart": 0,
+                    "value": 8,
+                    "slope": "Flat",
+                    "timeUnit": "Hours"
+                  }
+                }
+              ],
+              "likelihood": 20,
+              "multiplier": ["one", "two", "three"],
+              "sources": []
+            },
+            {
+              "bias": true,
+              "modifierValues": [
+                {
+                  "name": "Time",
+                  "likelihood": 20,
+                  "scale": {
+                    "upperTimeLimit": 30,
+                    "scaleTimeLimitStart": 0,
+                    "value": 8,
+                    "slope": "Flat",
+                    "timeUnit": "Hours"
+                  }
+                }
+              ],
+              "likelihood": 20,
+              "multiplier": ["one", "two", "three"]
+            }
+          ],
+          "painSwellingID": 1
+        },
+        "SYMPT0000224": {
+          "name": "Supa Good Symptom",
+          "symptomID": "SYMPT0000224",
+          "bodyParts": ["Head"],
+          "symptomsModel": {
+            "bias": true,
+            "rangeValues": [97.5, 105],
+            "descriptors": "description1",
+            "descriptorFile": "none",
+            "dataStoreTypes": [
+              "Importance",
+              "Likelihood",
+              "TimeUnit",
+              "Slope",
+              "Ethnicity",
+              "PatientFever"
+            ]
+          },
+          "rows": [
+            {
+              "bias": false,
+              "modifierValues": [
+                {
+                  "name": "Age",
+                  "likelihood": 20,
+                  "scale": {
+                    "upperTimeLimit": 30,
+                    "scaleTimeLimitStart": 0,
+                    "value": 8,
+                    "slope": "Flat",
+                    "timeUnit": "Hours"
+                  }
+                }
+              ],
+              "likelihood": 20,
+              "multiplier": ["one", "two", "three"]
+            },
+            {
+              "bias": true,
+              "modifierValues": [
+                {
+                  "name": "Time",
+                  "likelihood": 20,
+                  "scale": {
+                    "upperTimeLimit": 30,
+                    "scaleTimeLimitStart": 0,
+                    "value": 8,
+                    "slope": "Flat",
+                    "timeUnit": "Hours"
+                  }
+                }
+              ],
+              "likelihood": 20,
+              "multiplier": ["one", "two", "three"]
+            }
+          ],
+          "painSwellingID": 1
+        }
+      },
+      "symptomGroups": {
+        "measurements":{
+          "categories":["Core Symptoms"]
+        }
+      }
+    },
+    "form": {
+      "name": "name1",
+      "criticality": 352,
+      "state": "PENDING",
+      "idIcd10Code": "H35.733",
+      "groupsComplete": ["Measurements"],
+      "symptomGroups": ["measurements"],
+      "version": 1
+    }
+  }
+]

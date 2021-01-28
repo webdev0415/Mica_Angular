@@ -1,0 +1,12 @@
+@import "./bootstrap/variables"
+@import "./bootstrap/buttons"
+
+$btn-padding-x-xs:               .2rem !default
+$btn-padding-y-xs:               .1rem !default
+// $font-size-xs-btn:               .5rem !default
+$btn-border-radius-xs:           $border-radius-sm
+
+.btn-xs
+  // line-height: ensure proper height of button next to small input
+  @include button-size($btn-padding-y-xs, $btn-padding-x-xs, $font-size-xs, $btn-border-radius-sm)
+  line-height: .5

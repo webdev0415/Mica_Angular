@@ -1,0 +1,112 @@
+
+<ng-container *ngFor="let g of groupedSymptoms">
+  <h4 *ngIf="g.name !== 'root'" class="text-center bg-parts text-white pt-2 pb-2 m-0">{{g.name}}</h4>
+  <table summary="Symptoms within category" class="table table-sm symptoms-table">
+    <thead *ngIf="g.name !== 'Machine Learning Required Symptom'">
+      <tr>
+        <th [attr.rowspan]="2" class="cell-right">Value</th>
+        <th [attr.rowspan]="2" *ngFor="let th of tableHeadings" scope="col">{{th | titleCase}}</th>
+        <th [attr.colspan]="2" class="split-heading-vertical top text-center">Modifiers</th>
+        <th [attr.rowspan]="2" class="text-center">Source</th>
+      </tr>
+      <tr class="split-bottom-container">
+        <th *ngFor="let th of modifierHeadings" scope="col" class="split-heading-vertical bottom">{{th | titleCase}}</th>
+      </tr>
+    </thead>
+    <tbody [@fadeOut]="symptomStates[si]" (@fadeOut.done)="symptomDelDispatch(si, s.symptomID)"
+      *ngFor="let s of g.symptoms; let si = index; trackBy: trackByFn">
+      <tr>
+        <th id="{{s.symptomID}}" colspan="10" class="symptom-title" [class.collector]="!isReviewer" scope="colgroup" [ngClass]="{ 'missing' : s.isMissing }">
+          <div id="a7cc2cce-008c-4619-8ba0-1428f23a9c97" class="row no-gutters align-items-center">
+            <div id="dd5d6ee3-21bf-496c-a518-dd39c35757bb" *ngIf="isReadOnlyMode | async; else editModeTitle" class="ml-1 symptom-title-link">
+              {{getSymptomProp(s.symptomID, 'name') | async | uppercase}}
+            </div>
+            <ng-template #editModeTitle>
+              <div id="e5bd44df-8561-441d-9933-abae8c15e00f" class="align-middle symptom-title-link">
+              <span *ngIf="!s.isMissing" class="material-icons" (click)="onSymptomDel(si, s.symptomID)"
+                    title="Click to delete {{getSymptomProp(s.symptomID, 'name') | async | titleCase}}">delete_forever</span>
+                <a (click)="onEditSymptomWorkbench(s.symptomID, $event)" class="ml-1 mr-1 {{symptomColorClass(s.symptomID)}}" href=""
+                  title="Click to edit {{getSymptomProp(s.symptomID, 'name') | async | titleCase}}">
+                  {{getSymptomProp(s.symptomID, 'name') | async | uppercase}}
+                </a>
+              </div>
+            </ng-template>
+            <div id="4773ecc9-1b9b-480e-ba67-ce479014e117" *ngIf="!s.isMissing" class="row no-gutters align-items-center">
+              <mica-badge-icon class="mr-1" [title]="'criticality'" [value]="getSymptomProp(s.symptomID, 'criticality') | async"></mica-badge-icon>
+              <mica-badge-icon class="mr-1" [title]="'antithesis'" [value]="getSymptomProp(s.symptomID, 'antithesis') | async"></mica-badge-icon>
+              <mica-badge-icon [title]="'question'" [value]="getSymptomProp(s.symptomID, 'question') | async"></mica-badge-icon>
+              <mica-badge-icon [title]="'question'" [value]="getSymptomProp(s.symptomID, 'es_question') | async"></mica-badge-icon>
+              <div id="237132f2-0690-4f84-8371-9db60a4ad729" class="col spacingDiag form-inline align-middle">
+                <input #minDiagCriteria type="checkbox" id="minDiagCriteria" disabled="true" [checked]="s.minDiagCriteria"/>
+                <label for="minDiagCriteria">Min Diagnostic Criteria</label>
+                <input #medNecessary type="checkbox" id="medNecessary" disabled="true" [checked]="s.medNecessary"/>
+                <label for="medNecessary">Medically Necessary</label>
+              </div>
+            </div>
+            <div id="337a45aa-0138-4721-a6c4-df9a0e495c11" *ngIf="s.isMissing" class="row no-gutters align-items-center">
+              <span>Machine Learning Required Symptom - Please ADD</span>
+            </div>
+          </div>
+        </th>
+      </tr>
+      
+      <!-- Collector View -->
+      <ng-container *ngIf="!isReviewer; else reviewerView">
+        <tr *ngFor="let row of s.rows; let i = index">
+          <td *ngFor="let v of rowValues(row); let first = first" [class.cell-right]="first">{{v | titleCase}}</td>
+          <td *ngFor="let v of modifierDisplayValues(row)">{{v | titleCase}}</td>
+          <td class="text-center"><source-tooltip *ngIf="row.sources" [info]="row" ></source-tooltip></td>
+        </tr>
+      </ng-container>
+
+      <!-- Reviewer View -->
+      <ng-template #reviewerView>
+        <ng-container *ngFor="let row of s.rows; let i=index;">
+          <ng-container *ngIf="row!.bias">
+            <tr>
+              <td>{{row.multiplier}}</td>
+              <td>{{row.bias}}</td>
+              <td>
+                <mica-dropdown *ngIf="isInteger(row.likelihood)" [size]="'sm'" [controlDisabled]="isReadOnlyMode | async"
+                  [items]="s.symptomID !== 'SYMPT0000002' ?  likelihoodValues : likelihoodValues100"
+                  [formControl]="getLikelihoodCtrl(s.symptomID, isInteger(row.rowIndex) ? row.rowIndex : i)"
+                ></mica-dropdown>
+              </td>
+              <!-- <td>i={{i}}</td><td>j={{j}}</td><td>rowIndex={{row.rowIndex}}</td> -->
+              <td *ngFor="let el of ['', '', '', '', '', '']"></td>
+              <td class="text-center">
+                <source-tooltip *ngIf="row.sources?.length" [info]="row" ></source-tooltip>
+              </td>
+            </tr>
+          </ng-container>
+          <ng-container *ngFor="let mod of row.modifierValues; let j = index">
+            <tr>
+              <!-- <td>i={{i}}, j={{j}}</td><td>modIndex={{mod.modIndex}} row.rowIndex={{row.rowIndex}} </td> -->
+              <td></td><td></td>
+              <td>
+                <mica-dropdown *ngIf="isInteger(mod.likelihood)" [items]="likelihoodValues" [size]="'sm'" [controlDisabled]="isReadOnlyMode | async"
+                  [formControl]="getLikelihoodCtrl(s.symptomID, isInteger(row.rowIndex) ? row.rowIndex : i, isInteger(mod.modIndex) ? mod.modIndex : j)">
+                </mica-dropdown>
+              </td>
+              <td>{{mod.name}}</td>
+              <ng-container *ngIf="mod.name==='Ethnicity' || mod.name==='Recurs'; else scaleValue" >
+                <td>{{mod.modifierValue}}</td>
+                <td *ngFor="let el of ['', '', '', '']"></td>
+                <td></td>
+              </ng-container>
+              <ng-template #scaleValue let-scale="mod.scale">
+                <td>{{mod.scale.timeFrame}}</td>
+                <td></td>
+              </ng-template>
+            </tr>
+          </ng-container>
+        </ng-container>
+      </ng-template>
+      <!-- End Reviewer View -->
+
+    </tbody>
+  </table>
+</ng-container>
+
+
+

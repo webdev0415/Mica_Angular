@@ -1,0 +1,85 @@
+.target-item {
+  display: grid;
+  grid-template-columns: auto auto;
+  grid-gap: 20px;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.target-list.policies {
+  margin-top: 30px;
+}
+
+.dosage-form {
+  display: grid;
+  width: 80%;
+  margin-left: 10%;
+  grid-template-columns: 200px 200px 200px;
+  grid-template-rows: auto;
+  grid-template-areas:
+    "form-header form-header form-header"
+    "strength strength unit"
+    "amount form route"
+    "frequency checks ."
+    "quantity dispense ."
+    "directions directions directions"
+    "form-footer form-footer form-footer";
+  align-items: center;
+  justify-content: center;
+  grid-column-gap: 10px;
+  margin-top: 15px;
+
+}
+
+.form-header {
+  grid-area: form-header;
+  font-size: 18px;
+}
+
+.strength {
+  grid-area: strength;
+}
+
+.unit {
+  grid-area: unit;
+}
+
+.amount {
+  grid-area: amount;
+}
+
+.form-item {
+  grid-area: form;
+}
+
+.route {
+  grid-area: route;
+}
+
+.frequency {
+  grid-area: frequency;
+}
+
+.checks {
+  grid-area: checks;
+}
+
+.quantity {
+  grid-area: quantity;
+}
+
+.dispense {
+  grid-area: dispense;
+}
+
+.directions {
+  grid-area: directions;
+}
+
+.form-footer {
+  grid-area: form-footer;
+  display: grid;
+  grid-template-columns: auto auto;
+  justify-content: space-between;
+}

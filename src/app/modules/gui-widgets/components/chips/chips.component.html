@@ -1,0 +1,6 @@
+<div id="b6be7814-67d7-439c-90de-8a05d64e64d3" *ngFor="let v of values" class="badge ml-2" [ngClass]="chipsClass">
+  {{v | uppercase}}
+  <button (click)="remove.emit(v)" type="button" class="close ml-3" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>

@@ -1,0 +1,99 @@
+<ng-container *ngIf="showSearchFlag">
+  <div class="drug-search-bar">
+    <mat-form-field >
+      <mat-label>Drug name</mat-label>
+      <input [autofocus]="true" type="text" matInput [formControl]="drugSearchCtrl" [errorStateMatcher]="searchErrorStateMatcher" #drugSearch="matInput" #initialField/>
+      <mat-hint *ngIf="drugSearchCtrl.invalid && drugSearch.focused">Type at least 3 symbols</mat-hint>
+    </mat-form-field>
+    <button mat-flat-button color="primary" class="search-button" (click)="onDrugSearch()" [disabled]="drugSearchCtrl.invalid">
+      Search
+    </button>
+    <mat-button-toggle [checked]="showAdvancedFlag" class="search-button" (click)="advancedSearchToggle()">
+      Advanced search
+    </mat-button-toggle>
+  </div>
+
+  <div *ngIf="showAdvancedFlag" class="advanced-panel">
+
+    <div class="panel-block">
+      <mat-label>Select Source</mat-label>
+      <mat-radio-group aria-label="Select Source" [formControl]="drugSourceCtrl">
+        <mat-radio-button class="radio-btn" value="FDA">FDA</mat-radio-button>
+        <mat-radio-button class="radio-btn" value="RXNORM">RxNorm</mat-radio-button>
+        <mat-radio-button class="radio-btn" value="ALL">All</mat-radio-button>
+      </mat-radio-group>
+    </div>
+
+    <div class="panel-block">
+      <mat-label>Select Cardinality</mat-label>
+      <mat-radio-group aria-label="Cardinality" [formControl]="cardinalityCtrl">
+        <mat-radio-button class="radio-btn" value="SINGLE">Single</mat-radio-button>
+        <mat-radio-button class="radio-btn" value="MULTI">Multi</mat-radio-button>
+      </mat-radio-group>
+    </div>
+
+    <div class="panel-block">
+      <mat-checkbox [formControl]="ndcCtrl">NDC</mat-checkbox>
+    </div>
+
+  </div>
+</ng-container>
+
+<div class="search-results">
+
+  <ng-container *ngIf="!showDosagesFlag">
+    <span *ngIf="firstSearchTriggered && noResultsFound$ | async" class="search-results-header">No results found for your search</span>
+    <span *ngIf="!(noResultsFound$ | async)" class="search-results-header">Select drug from the list below</span>
+
+    <mat-list class="drug-list">
+      <ng-container *ngFor="let drug of drugs$ | async">
+        <mat-list-item (click)="onDrugSelectClick(drug.productIds[0])" style="cursor: pointer;">
+          <div class="drug-list-item-content">
+            <span>{{drug.name}}</span>
+            <div class="drug-actions">
+              <button mat-stroked-button color="accent" class="drug-button" (click)="onDosageClick(drug.productIds[0])">
+                Dosage
+              </button>
+              <button mat-stroked-button color="accent" class="drug-button" (click)="onDrugSelectClick(drug.productIds[0])">
+                Select
+              </button>
+            </div>
+          </div>
+        </mat-list-item>
+        <mat-divider></mat-divider>
+      </ng-container>
+    </mat-list>
+  </ng-container>
+
+  <ng-container *ngIf="showDosagesFlag">
+    <span *ngIf="(selectedDrugInfo$ | async) && !(selectedDrugInfo$ | async)?.genericRxcui?.length; else noDosagesFound" class="search-results-header">
+      No dosages found
+    </span>
+    <ng-template #noDosagesFound>
+      <span *ngIf="!(noResultsFound$ | async)" class="search-results-header">Select dosage from the list below</span>
+    </ng-template>
+
+    <mat-list class="drug-list">
+      <ng-container *ngFor="let genericRxcui of (selectedDrugInfo$ | async)?.genericRxcui">
+        <ng-container *ngFor="let item of genericRxcui.groupInformation">
+          <mat-list-item (click)="onDosageSelectClick(item)" style="cursor: pointer">
+            <div class="dosage-list-item-content">
+              <div class="dosage-info">
+                <span>{{item.dosageForm || '-'}}</span>
+                <span>{{item.description}}</span>
+              </div>
+              <div class="drug-actions">
+                <button matLine mat-stroked-button color="accent" class="drug-button" (click)="onDosageSelectClick(item)">
+                  Select
+                </button>
+              </div>
+            </div>
+          </mat-list-item>
+          <mat-divider></mat-divider>
+        </ng-container>
+      </ng-container>
+    </mat-list>
+    <button mat-flat-button (click)="onBackClick()" color="primary" class="back-button">Previous</button>
+  </ng-container>
+
+</div>

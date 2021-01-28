@@ -1,0 +1,10 @@
+<div id="e90250a3-350e-44ef-9315-a895ae0f2390" class="thumbnail" [ngStyle]="{'background-image': descriptorBackground}">
+  <div id="8a6f19b3-b681-46d3-b8a6-1a34a5c9f0b0" class="overlay"></div>
+  <i class="material-icons mi-18">add_to_photos</i>
+  <span class="text text-center" *ngIf="!value">Click for visual descriptors</span>
+  <span class="text badge badge-info align-middle" *ngIf="value">
+    {{value | uppercase}}
+    <span *ngIf="antithesis" class="text material-icons ml-1 mr-1">settings_ethernet</span>
+    <span *ngIf="antithesis">{{antithesis}}</span>
+  </span>
+</div>

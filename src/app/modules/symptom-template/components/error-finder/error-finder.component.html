@@ -1,0 +1,49 @@
+<div id="23582479-fd7d-4d8c-a5b6-4769b134f8de" class="container">
+  <header class="mt-5">
+    <h2 class="text-center">ERRORS IN SYMPTOM TEMPLATES</h2>
+  </header>
+  <ng-container *ngIf="loading"><mica-page-spinner></mica-page-spinner></ng-container>
+  <div id="4ca22ffd-0e9c-497c-ae24-7a62d61191ef" class="row mt-5"  *ngIf="(errors | async)?.length">
+    <div id="7ecba204-d964-492e-8ff3-113a63bfcc11" class="col">
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Invalid Attributes</th>
+            <th>Invalid Multipliers</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let error of errors | async; trackBy: trackByFn">
+            <td>
+              <a class="align-middle" href="#" (click)="onEditSymptom(error.symptomID, $event)">
+                <span class="material-icons mr-1">edit</span>{{error.symptomID}}
+              </a>
+            </td>
+            <td>{{error.name}}</td>
+            <td>
+              <ul *ngIf="error.dataInvalidAttributes">
+                <li *ngFor="let attr of error.dataInvalidAttributes">{{attr}}</li>
+              </ul>
+            </td>
+            <td>
+              <ul *ngIf="error.multiplier">
+                <li *ngFor="let multiplierName of error.multiplier | keys">
+                  {{multiplierName}}
+                  <ul>
+                    <li *ngFor="let v of error.multiplier[multiplierName]">{{v}}</li>
+                  </ul>
+                </li>
+              </ul>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    </div>
+    <div *ngIf="(errors | async)?.length == 0" class="text-center mt-5 font-weight-bold">
+        <span  class="text-warning">No Errors were found.</span>
+    </div>
+    
+

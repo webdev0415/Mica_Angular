@@ -1,0 +1,80 @@
+<div class="row">
+<div id="e9b01ae7-6f8f-427e-831e-7a94d9d59e3b" class="col form-inline align-middle diagCriteria" *ngIf="symptomData">
+  <div [@flyInOut] class="form-group">
+    <input class="mr-1" type="checkbox" (change)="checkBoxChange('minDiagCriteria')" id="minDiagCriteria{{rowIndex}}{{symptomData.name}}" [formControl]="rowCtrl.get('minDiagCriteria')" [value]="rowCtrl.get('minDiagCriteria')?.value"/>
+    <label for="minDiagCriteria{{rowIndex}}{{symptomData.name}}">Min Diagnostic Criteria</label>
+  </div>
+  <div [@flyInOut] class="form-group">
+    <input class="mr-1" type="checkbox" (change)="checkBoxChange('medNecessary')" id="medNecessary{{rowIndex}}{{symptomData.name}}" [formControl]="rowCtrl.get('medNecessary')" [value]="rowCtrl.get('medNecessary')?.value"/>
+    <label for="medNecessary{{rowIndex}}{{symptomData.name}}">Medically Necessary</label>
+  </div>
+  <div [@flyInOut] class="form-group">
+    <input class="mr-1" type="checkbox" (change)="checkBoxChange('must')" id="must{{rowIndex}}{{symptomData.name}}" [formControl]="rowCtrl.get('must')" [value]="rowCtrl.get('must')?.value"/>
+    <label for="must{{rowIndex}}{{symptomData.name}}">Must</label>
+  </div>
+  <div [@flyInOut] class="form-group">
+    <input class="mr-1" type="checkbox" (change)="checkBoxChange('ruleOut')" id="ruleOut{{rowIndex}}{{symptomData.name}}" [formControl]="rowCtrl.get('ruleOut')" [value]="rowCtrl.get('ruleOut')?.value"/>
+    <label for="ruleOut{{rowIndex}}{{symptomData.name}}">Rule Out</label>
+  </div>
+</div>
+</div>
+
+<div id="d0335d6d-5ea4-4117-b1a9-f3ce7e45cf1d" #row class="row no-gutters symptom-row mt-2" [ngClass]="horizontalFit">
+  <div id="50c7ea38-f714-48cf-b6a4-5c89d7b29bbc" class="col col-buttons mr-2">
+    <div id="9fb2c914-a85c-48e2-86ea-06c0a76edb19" class="btn-container">
+      <mica-bias class="btn-left"
+        [formControl]="biasCtrl"
+        [readOnly]="readOnly"
+      ></mica-bias>
+    </div>
+    <div id="03a0dc18-b675-425b-a453-c200e273b4a3" class="btn-container text-center">
+      <button (click)="showSource = !showSource" type="button" title="Toggle Source Information"
+        class="btn btn-sm btn-primary rounded-circle" [ngClass]="{'btn-warning': !rowCtrl.get('sourceInfo')?.value.length}"
+      >S</button>
+    </div>
+  </div>
+  <mica-multiplier *ngIf="!!multiplierValue && !!multiplierDataStore" class="multiplier mr-2" [class.h-100]="horizontalFit === 'horizontal'"
+    [symptomData]="symptomData"
+    [readOnly]="readOnly"
+    [multiplierDataStore]="multiplierDataStore"
+    [formControl]="multiplierCtrl"
+    [allMultiplierValues]="allMultiplierValues"
+    [removable]="removable"
+    [rowIndex]="rowIndex"
+    (toggleDescriptor)="onToggleDescriptor()"
+    [hasBodySelector]="hasBodySelector"
+    (removeRow)="removeRow.emit(true)">
+  </mica-multiplier>
+  <mica-likelihood *ngIf="!hasScale && !!rowCtrl.get('likelihood')" class="col h-100 ml-2"
+    [readOnly]="readOnly"
+    [formControl]="likelihoodCtrl"
+    [symptomData]="symptomData"
+  ></mica-likelihood>
+  <div id="466e8435-4bb5-4279-9225-7c6adbaae7a3" *ngIf="hasScale" class="col h-100">
+    <mica-modifier class="row no-gutters h-100"
+      [symptomData]="symptomData" [dataStoreRefTypes]="dataStoreRefTypes"
+      [readOnly]="readOnly"
+      [modifierCtrlArray]="modifierValuesCtrl"
+      [alwaysControlIsVisible]="horizontalFit === 'horizontal'"
+      (errors)="onModifierErrors($event)">
+    </mica-modifier>
+  </div>
+</div>
+<div id="03f0a551-1f81-44b2-ac12-d3d10e538231" class="toggles mt-3" *ngIf="!!descriptorFile || hasBodySelector">
+  <symptom-descriptor-image [descriptorFile]="descriptorFile" [rowIndex]="rowIndex"
+    [id]="symptomID" [value]="multiplierValue[0]"
+    [bodyPart]="multiplierValue ? multiplierValue[0] : categoryName"
+    [hasBodySelector]="hasBodySelector"
+    (select)="onMultiplierSelect([$event])" (close)="onToggleDescriptor()"
+  ></symptom-descriptor-image>
+</div>
+<mica-source-form
+  *ngIf="showSource"
+  [sourceCtrlArray]="sourceInfoCtrl"
+  [readOnly]="readOnly"
+  [entityType]="'record'"
+  [recordType]="'symptom'"
+  [sourcesData]="sourcesData$ | async"
+  (sourceAdded)="onSourceAdded($event)"
+  (sourceRemoved)="removeSource($event)"
+></mica-source-form>

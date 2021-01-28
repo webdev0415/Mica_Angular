@@ -1,0 +1,104 @@
+<div class="review-container">
+  <div class="drug-container">
+    <div class="row d-flex justify-content-between align-items-center">
+      <h5 class="my-1">Drug</h5>
+      <div class="my-1">
+        <button mat-button color="primary" (click)="stepperControl.emit(0)">Edit</button>
+      </div>
+    </div>
+    <mat-card>
+      <div class="row d-flex justify-content-start align-items-center">
+        <div class="m-2">{{drugName}}</div>
+      </div>
+    </mat-card>
+  </div>
+  <div class="source-container">
+    <div class="row d-flex justify-content-between align-items-center">
+      <h5 class="my-1">Sources</h5>
+      <div class="my-1">
+        <button mat-button color="primary" (click)="stepperControl.emit(1)">Edit</button>
+      </div>
+    </div>
+    <mat-card>
+      <div class="row d-flex justify-content-start align-items-center">
+        <div class="m-2">
+          <mica-source-form class="flex-fill"
+                            readOnly="true"
+                            [sourcesData]="sourcesData$ | async"
+                            [sourceCtrlArray]="sourceCtrlArray"
+                            [recordType]="recordType$ | async"
+                            [noSourceRemovalOptions]="true">
+          </mica-source-form>
+        </div>
+      </div>
+    </mat-card>
+  </div>
+  <div class="policy-container">
+    <div class="row d-flex justify-content-between align-items-center">
+      <h5 class="my-1">Policies</h5>
+      <div class="my-1">
+        <button mat-button color="primary" (click)="stepperControl.emit(2)">Edit</button>
+      </div>
+    </div>
+    <mat-card>
+      <div class="row d-flex justify-content-start align-items-center" *ngFor="let policy of policyCtrlArray?.controls">
+        <div class="m-2">
+          {{ policy.value | policyFormat: drugName }}
+        </div>
+      </div>
+    </mat-card>
+  </div>
+  <div class="dosage-container" *ngIf="dosageRecommendationCtrl.value !== null">
+    <div class="row d-flex justify-content-between align-items-center">
+      <h5 class="my-1">Dosage</h5>
+      <div class="my-1">
+        <button mat-button color="primary" (click)="stepperControl.emit(3)">Edit</button>
+      </div>
+    </div>
+    <mat-card>
+      <div class="row m-1">
+        <div class="col-6">
+          Strength: {{ dosageRecommendationCtrl?.value['strength'] }}
+        </div>
+        <div class="col-6">
+          Unit: {{ dosageRecommendationCtrl?.value['unit'] }}
+        </div>
+      </div>
+      <div class="row m-1">
+        <div class="col-4">
+          Amount: {{ dosageRecommendationCtrl?.value['amount'] }}
+        </div>
+        <div class="col-4">
+          Form: {{ dosageRecommendationCtrl?.value['form'] }}
+        </div>
+        <div class="col-4">
+          Route: {{ dosageRecommendationCtrl?.value['route'] }}
+        </div>
+      </div>
+      <div class="row m-1">
+        <div class="col-4">
+          Frequency: {{ dosageRecommendationCtrl?.value['frequency'] }}
+        </div>
+        <div class="col-4">
+          PRN: {{ dosageRecommendationCtrl?.value['prn'] }}
+        </div>
+        <div class="col-4">
+          DAW: {{ dosageRecommendationCtrl?.value['daw'] }}
+        </div>
+      </div>
+      <div class="row m-1">
+        <div class="col-6">
+          Quantity: {{ dosageRecommendationCtrl?.value['quantity'] }}
+        </div>
+        <div class="col-6">
+          Dispense Form: {{ dosageRecommendationCtrl?.value['dispenseForm'] }}
+        </div>
+      </div>
+      <div class="row m-1">
+        <div class="col-12">
+          Directions: {{ dosageRecommendationCtrl?.value['directions'] }}
+        </div>
+      </div>
+    </mat-card>
+  </div>
+</div>

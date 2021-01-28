@@ -1,0 +1,142 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ include "mica-application.fullname" . }}
+  labels:
+    app: {{ include "mica-application.fullname" .}}
+    chart: {{ include "mica-application.fullname" . }}
+
+spec:
+  replicas: {{ .Values.replicaCount }}
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 50%
+  selector:
+    matchLabels:
+      app: {{ include "mica-application.fullname" . }}
+  template:
+    metadata:
+      labels:
+        app: {{ include "mica-application.fullname" . }}
+      annotations:
+        iam.amazonaws.com/role: {{ .Values.service.role }}
+    spec:
+      serviceAccountName: vault-auth
+      imagePullSecrets:
+        - name: {{ .Values.image.imagePullSecrets }}
+      volumes:
+        - name: vault-token
+          emptyDir:
+            medium: Memory
+
+        - name: config
+          configMap:
+            name: {{ .Chart.Name }}-configmap
+            items:
+              - key: vault-agent-config-{{ .Values.service.environment }}.hcl
+                path: vault-agent-config-{{ .Values.service.environment }}.hcl
+
+              - key: consul-template-config-{{ .Values.service.environment }}.hcl
+                path: consul-template-config-{{ .Values.service.environment }}.hcl
+
+        - name: shared-data
+          emptyDir: {}
+
+        - name: static-content
+          emptyDir: {}
+
+      initContainers:
+        # Vault container
+        - name: vault-agent-auth
+          image: vault
+
+          volumeMounts:
+            - name: config
+              mountPath: /etc/vault
+            - name: vault-token
+              mountPath: /home/vault
+
+          # This assumes Vault running on local host and K8s running in Minikube using VirtualBox
+          env:
+            - name: VAULT_ADDR
+              value: {{ .Values.service.vault }}
+
+          # Run the Vault agent
+          args:
+            [
+              "agent",
+              "-config=/etc/vault/vault-agent-config-{{ .Values.service.environment }}.hcl",
+              #"-log-level=debug",
+            ]
+
+        # Consul Template container
+        - name: consul-vault
+          image: hashicorp/consul-template:alpine
+          imagePullPolicy: Always
+
+          volumeMounts:
+            - name: vault-token
+              mountPath: /home/vault
+
+            - name: config
+              mountPath: /etc/consul-template
+
+            - name: shared-data
+              mountPath: /etc/secrets
+
+          env:
+            - name: ENVIRONMENT
+              value: {{ .Values.service.environment }}
+
+            - name: HOME
+              value: /home/vault
+
+            - name: VAULT_ADDR
+              value: {{ .Values.service.vault }}
+
+          # Consul-Template looks in $HOME/.vault-token, $VAULT_TOKEN, or -vault-token (via CLI)
+          args:
+            [
+              "-config=/etc/consul-template/consul-template-config-{{ .Values.service.environment }}.hcl",
+              "-once"
+              #"-log-level=debug",
+            ]
+
+        - name: {{ .Chart.Name }}
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          volumeMounts:
+            - name: shared-data
+              mountPath: /usr/share/env
+            - name: static-content
+              mountPath: /usr/share/nginx/html/MICA
+          env:
+            - name: ENVIRONMENT
+              value: {{ .Values.service.environment }}
+            - name: SERVICE_NAME
+              value: {{ include "mica-application.fullname" . }}
+            - name: AWS_REGION
+              value: {{ .Values.service.region }}
+
+      containers:
+
+        - name: {{ .Chart.Name }}-nginx
+          image: "{{ .Values.image.repository }}:{{ .Values.image.nginxtag }}"
+          volumeMounts:
+            - name: shared-data
+              mountPath: /usr/share/env
+            - name: static-content
+              mountPath: /usr/share/nginx/html/MICA
+          ports:
+            - name: http
+              containerPort: {{ .Values.service.port }}
+              protocol: TCP
+          env:
+            - name: ENVIRONMENT
+              value: {{ .Values.service.environment }}
+            - name: SERVICE_NAME
+              value: {{ include "mica-application.fullname" . }}
+            - name: AWS_REGION
+              value: {{ .Values.service.region }}

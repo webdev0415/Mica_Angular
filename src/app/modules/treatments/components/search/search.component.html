@@ -1,0 +1,33 @@
+<div id="e85d4303-cb85-4981-bec8-6257d1e5c3f6" class="dropdown searching" [class.show]="(searchResults | async).length && !noRecordFound && focusOnSearch">
+  <form class="form-inline d-block w-100">
+    <label class="sr-only" for="searchTreatment">Search Symptom or Illness</label>
+    <div id="ef601cb3-3903-4643-89fa-d94a97aa7cba" class="input-group mb-sm-0" [ngClass]="{'has-danger': noRecordFound || hasBackendError, 'has-warning': searchTryIllness}">
+      <div id="2e9b5a66-df47-428c-937d-e5aeea9b9a01" class="input-container d-flex w-100">
+        <input #input trim uppercase type="text" [formControl]="searchCtrl" [ngClass]="{'form-control-danger': noRecordFound}"
+        class="form-control search form-control-sm" id="searchTreatment" placeholder="Search Symptom or Illness" autocomplete="off">
+        <button *ngIf="input.value" type="button" class="close" (click)="onClose()">
+          <span>×</span>
+        </button>
+      </div>
+      <div id="54e4349b-d94a-4858-a579-8e5ebcf76dfe" class="input-group-addon">
+        <button class="btn btn-primary d-flex align-items-center" (click)="onSearchByIcon()" [class.btn-lg]="size === 'large'">
+          <span *ngIf="!searching" class="material-icons search-icon">search</span>
+          <mica-inline-spinner *ngIf="searching" class="search-icon"></mica-inline-spinner>
+        </button>
+      </div>
+    </div>
+  </form>
+  <ul #ul class="dropdown-menu">
+    <li *ngFor="let result of searchResults | async" class="dropdown-item"
+      (click)="onSearch(result.value)">{{result.value}}: {{result.name}}</li>
+  </ul>
+</div>
+<div>
+  <span *ngIf="input.value.length < 3" class="spec-char">To begin search type 3 characters or more.</span>
+</div>
+<div id="05d77dd3-61a2-4626-ba93-43493be38828" class="font-weight-bold">
+  <span *ngIf="noRecordFound" class="text-warning">No record found. Please try again or create new illness record for {{searchCtrl.value}}.</span>
+  <span *ngIf="hasBackendError" class="text-warning">There is a backend error. Please try again or create new illness record for {{searchCtrl.value}}.</span>
+  <span *ngIf="searchTryIllness && focusOnSearch && !noRecordFound && !hasBackendError" class="text-warning">No symptom found. Press ENTER or click search to check for illness.</span>
+  <span *ngIf="!noRecordFound">&nbsp;</span>
+</div>

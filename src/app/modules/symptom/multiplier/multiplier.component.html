@@ -1,0 +1,53 @@
+<div id="5a3549d5-e4b1-44f8-aa4c-bbd95a904f6a" *ngIf="multiplierType !== 'pop-up' || ((descriptorToggled | async) && descriptorFile); else descriptorToggle">
+  <div id="a0f3d6c2-4e4e-4b82-bf40-51eb01bfc0e7" class="multiplier-container">
+    <div id="34e08552-d1d7-489e-b09f-57b495432452" class="header">
+      <div id="2447480c-1ea1-4df8-9a61-713fcc48807a" class="header-content">
+        <p class="title">{{title | titleCase}}</p>
+        <button *ngIf="!readOnly && removable" (click)="removeRow.emit(true)" type="button"
+                class="btn btn-sm btn-outline-danger remove-row">
+          <i class="material-icons">remove</i>
+        </button>
+      </div>
+    </div>
+    <mica-multiplier-loader *ngIf="loadingData"></mica-multiplier-loader>
+    <div id="71391338-a95d-407e-833f-503f01c84a38" *ngIf="!loadingData" class="input-container">
+      <symptom-multiplier-input *ngIf="multiplierType === 'input'"
+        [formControl]="ctrlSingle" [placeholder]="title"></symptom-multiplier-input>
+      <mica-dropdown *ngIf="multiplierType === 'dropdown' || descriptorFile"
+        [title]="'Multiplier'" [items]="selectables"
+        [formControl]="ctrlSingle"
+        [controlDisabled]="readOnly"
+        [size]="'sm'"
+        [excludeItems]="allMultiplierValues"
+        [multiSelect]="true"></mica-dropdown>
+      <mica-typeahead *ngIf="multiplierType === 'typeahead'"
+        [canClose]="false" [valueValid]="ctrlSingle.valid" [typeAheadMin]="3"
+        [removeSelectedValues]="false" [items]="multiplierItems | async"
+        [excludeItems]="allMultiplierValues"
+        [liveSearchType]="multiplierSearchName | async"
+        [formControl]="ctrlSingle"
+        [readOnly]="readOnly"
+        [icd10CodeSearch]="(symptomData.symptomID === 'SYMPT0003408' || symptomData.symptomID === 'SYMPT0002070')"></mica-typeahead>
+      <span *ngIf="!readOnly && multiplierType === 'typeahead' && (symptomData.symptomID === 'SYMPT0003408' || symptomData.symptomID === 'SYMPT0002070')" class="search-text">Minimum of 3 characters(ICD10 Code) needed</span>
+      <mica-country *ngIf="multiplierType === 'country'"
+        [excludeValues]="allMultiplierValues"
+        [readOnly]="readOnly"
+        [formControl]="ctrlMultiple"></mica-country>
+      <mica-ranger *ngIf="multiplierType === 'ranger'"
+        [formControl]="ctrlMultiple"
+        [readOnly]="readOnly"
+        [validRange]="rangeValues"></mica-ranger>
+    </div>
+  </div>
+  <mica-badge-icon class="antithesis w-100" [title]="'antithesis'" [value]="antithesis"></mica-badge-icon>
+</div>
+<ng-template #descriptorToggle>
+  <div id="b96a2af3-de0c-4abb-b644-bd51ed92551a" class="header-content align-items-start">
+    <mica-descriptor-toggle [descriptorFile]="descriptorFile" [value]="ctrlSingle.value" [hasBodySelector]="hasBodySelector"
+      [antithesis]="antithesis" (toggleDescriptor)="onToggleDescriptor()">
+    </mica-descriptor-toggle>
+    <button *ngIf="!readOnly || removable" (click)="removeRow.emit(true)" type="button" class="btn btn-sm btn-outline-danger remove-row">
+      <i class="material-icons">remove</i>
+    </button>
+  </div>
+</ng-template>

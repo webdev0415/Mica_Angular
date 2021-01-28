@@ -1,0 +1,13 @@
+<div id="84c99f71-f131-444e-bc39-f6d43949dc19" class="modal-header">
+  <h4 class="modal-title text-center">{{data.title}}</h4>
+  <button type="button" class="close" aria-label="Close" (click)="activeModal.dismiss('Cross click')">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+<div id="5be5386a-bfee-4dfb-af02-87447d02aa94" class="modal-body">
+  <p>{{data.body}}</p>
+</div>
+<div id="d9bd1b87-2e4b-41b5-af48-f68a8adb40b9" class="modal-footer">
+  <button type="button" class="btn btn-success" (click)="activeModal.close(data.actionName || 'yes')">{{data.actionTxt || 'Ok' }}</button>
+  <button type="button" class="btn btn-danger" (click)="activeModal.dismiss('cancel')">{{data.cancelTxt || 'Cancel'}}</button>
+</div>

@@ -1,0 +1,5 @@
+<mat-button-toggle-group class="likelihood-group" [formControl]="likelihoodCtrl">
+  <mat-button-toggle class="likelihood-btn" *ngFor="let likelihood of likelihoods;" [value]="likelihood.value">
+    {{likelihood.name}}
+  </mat-button-toggle>
+</mat-button-toggle-group>

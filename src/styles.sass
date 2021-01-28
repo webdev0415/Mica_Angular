@@ -1,0 +1,98 @@
+/* You can add global styles to this file, and also import other style files */
+@import "./styles/material-icons"
+@import "./styles/bootstrap/bootstrap"
+@import "./styles/bootstrap/variables"
+@import "./styles/spinner.css"
+@import "./styles/buttons"
+@import "../node_modules/dragula/dist/dragula"
+
+body
+  overflow-y: scroll
+  &.modal-open
+    overflow-x: hidden
+    overflow-y: scroll
+
+
+[role="tab"]
+  a
+    text-decoration: none
+//   &.active
+//     border: 2px solid $brand-primary
+
+.btn
+  text-transform: uppercase
+
+.dropdown
+  .btn
+    text-transform: inherit
+  .dropdown-items-container
+    max-height: 205px
+    overflow-y: scroll
+
+.btn-icon
+  align-items: center
+  display: flex
+
+.btn-icon-inline
+  align-items: center
+  display: inline-flex
+  i
+    margin-right: .2rem
+    margin-top: -1px
+
+.alert
+  &.mica
+    align-items: center
+    display: flex
+    font-size: 1.5rem
+    justify-content: center
+    margin-bottom: 3rem
+    min-height: 5rem
+    i
+      font-size: 1.5rem
+      margin-right: .5rem
+
+.custom-select
+  &.has-warning
+    border-color: $brand-warning
+  &.has-success
+    border-color: $brand-success
+
+// dragula dragging boxes
+.gu-mirror
+  cursor: grabbing !important
+  display: flex
+  > *
+    align-items: center
+    background-color: $gray-lighter
+    display: flex
+    flex: 1
+  th
+    flex: 0
+    padding-right: 1rem
+  .treatment-heading
+    border: 0
+  .treatment-body
+    align-items: baseline
+    flex-direction: column
+    justify-content: center
+    .cell
+      min-width: 150px
+
+.no-grow
+  flex-grow: 0
+
+.align-middle
+  align-items: center
+  display: flex
+
+.auth0-lock-html .auth0-lock-close-button
+  display: none
+
+.logout.auth0-lock-html .auth0-lock-close-button
+  display: block
+
+.mat-tooltip
+  font-size: 14px !important
+
+  @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,700;1,400&display=swap')

@@ -1,0 +1,106 @@
+<div class="row justify-content-center mt-3">
+    <h2 class="text-center">{{showResults ? "Group Listing" : "Search for or select a Group" }}</h2>
+  </div>
+  <div *ngIf="!showResults && !loading">
+    <div class="card card-default" >
+      <div class="card-header d-flex justify-content-between align-items-center">
+        <h3>Groups</h3>
+        <div class="d-flex justify-content-end">
+          <div (click)="sortBy = 'asc'"><span class="material-icons" style="font-size: 2rem; cursor: pointer; margin-right: 5px" [class.text-primary]="sortBy === 'asc'" placement="top" ngbTooltip="Sort by Ascending Order" container="body">arrow_downward</span></div>
+          <div (click)="sortBy = 'desc'"><span class="material-icons" style="font-size: 2rem; cursor: pointer; margin-left: 5px" [class.text-primary]="sortBy === 'desc'" placement="top" ngbTooltip="Sort by Descending Order" container="body">arrow_upward</span></div>
+        </div>
+      </div>
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item list-group-item-action" (click)="viewGroup(group)" *ngFor="let group of allGroups | slice: (page-1) * pageSize : (page-1) * pageSize + pageSize ">{{group.name}}</li>
+      </ul>
+    </div>
+    <div class="d-flex justify-content-between w-100 mt-3">
+      <div></div>
+      <ngb-pagination
+        [(page)]="page"
+        [pageSize]="pageSize"
+        [collectionSize]="allGroups.length"></ngb-pagination>
+    </div>
+  </div>
+
+  <div *ngIf="loading">
+    <mica-page-spinner></mica-page-spinner>
+  </div>
+
+  <div class="card card-default" *ngIf="showResults && !loading" >
+    <div class="card-header">
+      <div class="row">
+        <div class="col">
+          <h3>{{allGroupList | optionName: symptomsInGroupsList.groupID }} <span class="material-icons" ngbTooltip="Core Symptoms are denoted by a Green Check - while Non-Core Symptoms are denoted by a Red Check. You can click to toggle." placement="right" container="body">info</span></h3>
+        </div>
+        <div class="col-2" *ngIf="!addingSymptoms">
+          <button class="btn btn-outline-primary" ngbTooltip="Show Input field" placement="left" container="body" (click)="showAddSymptoms(false)">Add Symptoms</button>
+        </div>
+        <div class="col-2" *ngIf="addingSymptoms">
+          <button class="btn btn-primary" ngbTooltip="Hide Input field" placement="left" container="body" (click)="showAddSymptoms(true)">Add Symptoms</button>
+        </div>
+        <div class="col-2 mr-3">
+          <button class="btn btn-outline-warning" (click)="clearFromView()">Clear from view</button>
+        </div>
+        <div class="col-2">
+          <button type="button" class="btn btn-outline-danger" (click)="removeGroup(symptomsInGroupsList.groupID)">Delete Group</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="card-body">
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item d-flex justify-content-center align-items-center" *ngIf="addingSymptoms">
+          <div class="container">
+            <div class="row mt-5">
+              <mica-template-search
+                class="col"
+                [clearSearchOnSelect]="false"
+                [searchQuery]="searchQuery"
+                (selectedItem)="onSelectValue($event)">
+              </mica-template-search>
+              <button class="btn btn-primary btn-md col-3 disabled" style="margin-bottom: 3rem; height: 49px;" type="button"
+                      *ngIf="!validItemToAdd || addingSymptomProcess"
+                      placement="bottom" container="body" ngbTooltip="Search for a symptom. A symptom may not appear twice within the group.">
+                Add to Group
+              </button>
+              <button class="btn btn-primary btn-md col-3" style="margin-bottom: 3rem; height: 49px;" type="button"
+                      *ngIf="validItemToAdd && !addingSymptomProcess"
+                      (click)="addSymptomsItem()">
+                Add to Group
+              </button>
+            </div>
+          </div>
+        </li>
+        <li *ngIf="symptomsInGroupsList?.symptoms.length === 0"
+            class="list-group-item d-flex justify-content-center align-items-center">
+          <div>Please add a symptom to the Group</div>
+        </li>
+        <li *ngFor="let item of symptomsInGroupsList?.symptoms | groupSort let index = index;"
+            class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
+          <div class="d-flex justify-content-center align-items-center">
+            <div *ngIf="item.groupFlag" [ngbTooltip]="item.groupFlag === 'C' ? 'Core Symptom' : 'Click to make a Core Symptom'" placement="left" container="body">
+              <span (click)="toggleGroupFlag(index)" class="material-icons mx-1" style="cursor: pointer;" [style.color]="item.groupFlag === 'C' ? 'green' : '#F0AD4D' ">check</span>
+            </div>
+            <div>
+              {{item.symptomID}} : {{ allSymptomList | optionName: item}}
+            </div>
+          </div>
+            <div *ngIf="symptomsInGroupsList?.symptoms.length > 1; else disabledDelete"
+                 (click)="removeSymptomsItem(item.symptomID)"
+                 class=""
+                 style="cursor: pointer;">
+
+              <span class="material-icons">delete</span>
+            </div>
+          <ng-template #disabledDelete>
+            <div>
+              <span class="material-icons" placement="right" container="body" [autoClose]="true" ngbTooltip="A group must contain at least one symptom. If you want to delete this then please delete the entire Group.">info</span>
+            </div>
+          </ng-template>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+

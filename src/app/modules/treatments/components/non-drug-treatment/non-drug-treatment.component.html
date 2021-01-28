@@ -1,0 +1,23 @@
+<div class="row d-flex align-items-center justify-content-end">
+  <div class="m-3">
+    <button class="btn btn-primary btn-sm" style="outline: none;" (click)="openNonDrugForm()">Add non-drug</button>
+    <button mat-icon-button [matTooltip]="helpText">
+      <mat-icon>help</mat-icon>
+    </button>
+  </div>
+</div>
+
+<div class="row" cdkDropListGroup style="min-height: 550px;">
+  <mica-treatment-group
+    class="col-12"
+    *ngFor="let group of groups; let groupIdx = index; trackBy: trackByFunc"
+    [group]="group"
+    (deleteGroup)="deleteGroup(groupIdx)"
+    (deleteTreatment)="deleteNonDrug(groupIdx, $event)"
+    (saveChanges)="saveChanges()"
+    (editTreatment)="openNonDrugForm({ nonDrugToEdit: $event, atcGroup: group })"
+    (drop)="drop($event, groupIdx)"
+    [template]="template"
+    [isDrugTreatment]="false">
+  </mica-treatment-group>
+</div>

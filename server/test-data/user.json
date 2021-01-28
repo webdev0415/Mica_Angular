@@ -1,0 +1,257 @@
+{
+  "asignable": [
+    {
+      "userId": 1,
+      "role": {
+        "roleId": 1,
+        "name": "Collector",
+        "description": "Person completing illness form"
+      },
+      "name": "John",
+      "surname": "Doe"
+    },
+    {
+      "userId": 2,
+      "role": {
+        "roleId": 1,
+        "name": "Collector",
+        "description": "Person completing illness form"
+      },
+      "name": "Mary",
+      "surname": "Smith"
+    },
+    {
+      "userId": 3,
+      "role": {
+        "roleId": 1,
+        "name": "Collector",
+        "description": "Person completing illness form"
+      },
+      "name": "Juan",
+      "surname": "Jimenez"
+    },
+    {
+      "userId": 4,
+      "role": {
+        "roleId": 1,
+        "name": "Collector",
+        "description": "Person completing illness form"
+      },
+      "name": "Jim",
+      "surname": "Shelby"
+    },
+    {
+      "userId": 5,
+      "role": {
+        "roleId": 2,
+        "name": "Reviewer",
+        "description": "Person reviewing block jobs"
+      },
+      "name": "Laura",
+      "surname": "Fowler"
+    },
+    {
+      "userId": 6,
+      "role": {
+        "roleId": 2,
+        "name": "Reviewer",
+        "description": "Person reviewing block jobs"
+      },
+      "name": "Rod",
+      "surname": "Nelson"
+    },
+    {
+      "userId": 8,
+      "role": {
+        "roleId": 1,
+        "name": "Collector",
+        "description": "Person completing illness form"
+      },
+      "name": "James",
+      "surname": "Bates"
+    },
+    {
+      "userId": 9,
+      "role": {
+        "roleId": 2,
+        "name": "Reviewer",
+        "description": "Person reviewing block jobs"
+      },
+      "name": "Dr.",
+      "surname": "Bates"
+    }, {
+      "userId": 10,
+      "role": {
+        "roleId": 1,
+        "name": "Collector",
+        "description": "Person completing illness form"
+      },
+      "name": "Tom",
+      "surname": "Landon"
+    }, {
+      "userId": 11,
+      "role": {
+        "roleId": 1,
+        "name": "Collector",
+        "description": "Person completing illness form"
+      },
+      "name": "Dr.",
+      "surname": "Abe"
+    }, {
+      "userId": 12,
+      "role": {
+        "roleId": 1,
+        "name": "Collector",
+        "description": "Person completing illness form"
+      },
+      "name": "Dr.",
+      "surname": "Ryan"
+    }, {
+      "userId": 13,
+      "role": {
+        "roleId": 1,
+        "name": "Collector",
+        "description": "Person completing illness form"
+      },
+      "name": "Peter",
+      "surname": "Smith"
+    }, {
+      "userId": 14,
+      "role": {
+        "roleId": 1,
+        "name": "Collector",
+        "description": "Person completing illness form"
+      },
+      "name": "Alex",
+      "surname": "Carrie"
+    }, {
+      "userId": 15,
+      "role": {
+        "roleId": 2,
+        "name": "Reviewer",
+        "description": "Person reviewing block jobs"
+      },
+      "name": "Sam",
+      "surname": "Smart"
+    }
+  ],
+  "collector": [
+    {
+      "userId": 1,
+      "role": {
+        "roleId": 1,
+        "name": "Collector",
+        "description": "Person completing illness form"
+      },
+      "name": "John",
+      "surname": "Doe"
+    },
+    {
+      "userId": 2,
+      "role": {
+        "roleId": 1,
+        "name": "Collector",
+        "description": "Person completing illness form"
+      },
+      "name": "Mary",
+      "surname": "Smith"
+    },
+    {
+      "userId": 3,
+      "role": {
+        "roleId": 1,
+        "name": "Collector",
+        "description": "Person completing illness form"
+      },
+      "name": "Juan",
+      "surname": "Jimenez"
+    },
+    {
+      "userId": 4,
+      "role": {
+        "roleId": 1,
+        "name": "Collector",
+        "description": "Person completing illness form"
+      },
+      "name": "Jim",
+      "surname": "Shelby"
+    }
+  ],
+  "reviewer": [
+    {
+      "userId": 5,
+      "role": {
+        "roleId": 2,
+        "name": "Reviewer",
+        "description": "Person reviewing block jobs"
+      },
+      "name": "Laura",
+      "surname": "Fowler"
+    },
+    {
+      "userId": 6,
+      "role": {
+        "roleId": 2,
+        "name": "Reviewer",
+        "description": "Person reviewing block jobs"
+      },
+      "name": "Rod",
+      "surname": "Nelson"
+    }
+  ],
+  "collector-selectable": [
+    {
+      "id": 1,
+      "text": "John Doe"
+    },
+    {
+      "id": 2,
+      "text": "Mary Smith"
+    },
+    {
+      "id": 3,
+      "text": "Juan Jimenez"
+    },
+    {
+      "id": 4,
+      "text": "Jim Shelby"
+    }
+  ],
+  "rating": [
+    {
+      "userId": 1,
+      "roleId": 1,
+      "name": "John",
+      "surname": "Doe",
+      "rating": 67
+    },
+    {
+      "userId": 2,
+      "roleId": 1,
+      "name": "Mary",
+      "surname": "Smith",
+      "rating": 100
+    },
+    {
+      "userId": 3,
+      "roleId": 1,
+      "name": "Juan",
+      "surname": "Jimenez",
+      "rating": 100
+    },
+    {
+      "userId": 4,
+      "roleId": 1,
+      "name": "Jim",
+      "surname": "Shelby",
+      "rating": 100
+    },
+    {
+      "userId": 5,
+      "roleId": 1,
+      "name": "Zero",
+      "surname": "Last",
+      "rating": 100
+    }
+  ]
+}

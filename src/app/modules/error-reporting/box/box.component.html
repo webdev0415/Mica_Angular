@@ -1,0 +1,9 @@
+<div id="c563ff48-d681-4d30-85ca-41ceae8fcf9e" class="alert alert-danger mt-5 text-center" role="alert">
+  <i class="material-icons">error</i>
+  <ng-content></ng-content>
+  <div id="754ab029-e7a5-45b2-b565-442bd69a2a82" class="row no-gutters justify-content-center">
+    <a class="btn btn-primary" href="mailto:shelbyzgow@gmail.com?subject=Report for error in MICA&body={{emailBody}}">Report</a>
+    <button *ngIf="retryAllowed" class="btn btn-primary ml-3" (click)="retry.emit(true)">Try Again</button>
+  </div>
+  <code class="d-block mt-4">{{message}}</code>
+</div>

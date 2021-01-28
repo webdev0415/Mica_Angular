@@ -1,0 +1,34 @@
+<div id="199a282a-8aef-49fa-b266-1955292eac64" class="alert alert-info text-center">
+  You are editing symptoms for a body area with two sides. All <strong>newly checked</strong> symptoms will apply to:
+  <div id="86880766-81e9-49a5-b3a6-9409d53eaded" class="mt-2 mb-1">
+    <mica-chips
+      *ngIf="bodyPartsAll.length <= 2; else breasts"
+      [values]="ctrl.value" [badgeClass]="'success'"
+      [pill]="true"
+      (remove)="onBodyPartRemove($event)"
+      class="d-flex justify-content-center"
+    ></mica-chips>
+  </div>
+</div>
+
+<ng-template #breasts>
+  <div id="e9372105-0f0e-4171-8b72-344694321d51" class="row no-gutters">
+    <div
+      *ngFor="let s of ['left', 'right']; first as first;"
+      [class.offset-xl-2]="!first"
+      id="8fedfe60-5940-41f9-9b67-73a6f774db56"
+      class="col-12 col-xl-5 mt-2">
+
+      <h5 class="text-center text-uppercase">{{s}}</h5>
+      <div id="3459d27a-2ebe-49e8-a364-b847e2729df2" class="row no-gutters justify-content-center">
+        <div id="cf80438d-fbcf-4a48-8f52-205b0c04e554" class="col col-xl-6 chips-container" *ngFor="let p of filterParts(s)">
+          <mica-chips *ngIf="partIsActive(p)" class="mt-2"
+            [values]="[p]" [badgeClass]="'success'" [pill]="true"
+            (remove)="onBodyPartRemove(p)"></mica-chips>
+          <span *ngIf="!partIsActive(p)">&nbsp;</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</ng-template>

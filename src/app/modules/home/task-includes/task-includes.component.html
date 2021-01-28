@@ -1,0 +1,75 @@
+<div id="b0a6c253-1d7d-465b-8b8a-2666fd3d51d8" *ngIf="!allIllnessesComplete; else allComplete">
+  <div id="3817f520-3504-4383-b171-0a04e7df9653" *ngFor="let chapter of chapters; let first = first; trackBy: trackByFn">
+    <hr *ngIf="!first">
+    <h5 class="chapter" [class.first]="first"><strong>{{chapter | titleCase}}</strong></h5>
+    <div id="78d2458e-79cc-4c3c-bcc8-301e449c3566" *ngFor="let illness of groupedIllnesses[chapter]; let first = first; let odd = odd; trackBy: trackByFn"
+      [ngClass]="{
+        'mt-2': !first,
+        'odd': odd
+      }"
+      class="row illness align-items-center rounded">
+      <div id="2adff64e-73f6-44af-b752-8ad3f072e669" class="col no-grow code">{{illness.idIcd10Code}}</div>
+      <div id="9c637ddd-a44b-41b1-b6a6-35f6cab168ae" class="name" class="col align-middle">
+        <span class="mr-2">[MICA] {{illness.name}}</span>
+        <span class="badge badge-default mr-2">v{{illness.version}}</span>
+        <mica-validation-icon [idIcd10Code]="illness.idIcd10Code" [version]="illness.version"></mica-validation-icon>
+      </div>
+      <div id="1d2d1575-6cde-4808-8c49-8aa0266d8ae4" *ngIf="!isReviewer; else reviewerButtons" class="actions col text-right">
+        <div id="0476d2a4-a98f-4efd-933b-8eb6c5dab441" class="row no-gutters justify-content-end btn-row">
+          <mica-copy-illness [illness]="illness"></mica-copy-illness>
+          <button (click)="onRevertData(illness.idIcd10Code, illness.version)"
+                  [disabled]="!hasSyncedData(illness.idIcd10Code, illness.version)"
+                  type="button" class="col no-grow btn btn-default btn-sm btn-icon-inline">
+                  <i class="material-icons">replay</i>
+                  Revert
+          </button>
+          <button *ngIf="currentCode !== illness.idIcd10Code && !hasData(illness.idIcd10Code, illness.version)"
+                  (click)="onEdit(illness.idIcd10Code, illness.name, illness.version)"
+                  [disabled]="!removeEnabled"
+                  type="button" class="col no-grow btn btn-success btn-sm btn-icon-inline">
+                  <i class="material-icons">mode_edit</i>
+                  Edit
+          </button>
+          <button *ngIf="isActiveIllness(illness.idIcd10Code, illness.version)"
+                  (click)="goToEdit()"
+                  [disabled]="!removeEnabled"
+                  type="button" class="col no-grow btn btn-warning btn-sm btn-icon-inline current">
+                  <i class="material-icons">mode_edit</i>
+                  Resume
+          </button>
+          <button *ngIf="!isActiveIllness(illness.idIcd10Code, illness.version) && hasData(illness.idIcd10Code, illness.version)"
+                  (click)="onEdit(illness.idIcd10Code, illness.name, illness.version)"
+                  [disabled]="!removeEnabled"
+                  type="button" class="col no-grow btn btn-warning btn-sm btn-icon-inline current">
+                  <i class="material-icons">mode_edit</i>
+                  Continue
+          </button>
+          <button type="button" class="col no-grow btn btn-danger btn-sm btn-icon-inline"
+                  [disabled]="!removeEnabled"
+                  (click)="onSkipIllness(illness, $event)">
+                  <i class="material-icons">delete_forever</i>
+                  Remove
+          </button>
+        </div>
+      </div>
+      <ng-template #reviewerButtons>
+        <div id="b35cde6e-35f2-4d54-8b25-10b9f27c84a3" class="actions col text-right">
+          <div id="0d891f4b-e460-4a3c-a1bd-3885043473e0" class="row no-gutters justify-content-end">
+            <mica-copy-illness [illness]="illness"></mica-copy-illness>
+            <button type="button" [disabled]="!hasSyncedData(illness.idIcd10Code, illness.version)"
+              (click)="onEdit(illness.idIcd10Code, illness.name, illness.version)"
+              class="btn btn-success btn-sm btn-icon-inline">
+              <i class="material-icons">rate_review</i>
+              Review
+            </button>
+          </div>
+        </div>
+      </ng-template>
+    </div>
+  </div>
+</div>
+<ng-template #allComplete>
+  <div id="6102cf6a-1504-49db-937d-e9bd1a47eef8" class="alert alert-success">
+    It appears you have completed all illnesses for this task.
+  </div>
+</ng-template>

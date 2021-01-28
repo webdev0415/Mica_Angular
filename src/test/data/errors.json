@@ -1,0 +1,6 @@
+{
+  "basicError": {
+    "status": 400,
+    "message": "Basic Error"
+  }
+}

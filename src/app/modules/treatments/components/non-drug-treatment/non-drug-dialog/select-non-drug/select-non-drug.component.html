@@ -1,0 +1,10 @@
+<div class="non-drug-search-bar">
+  <mat-form-field *ngIf="nonDrugTypeDescCtrl">
+    <mat-label>Select non-drug</mat-label>
+    <mat-select [formControl]="nonDrugTypeDescCtrl">
+      <mat-option *ngFor="let nonDrugTypeDesc of nonDrugTypeDescList | sortBy:'asc':'priority'" [value]="nonDrugTypeDesc">
+        {{nonDrugTypeDesc.shortName}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+</div>

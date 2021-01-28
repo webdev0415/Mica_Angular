@@ -1,0 +1,107 @@
+@import "../../../../../styles/bootstrap/variables"
+
+\:host
+  display: block
+  min-height: 800px
+
+.button-bar-button
+  width: 200px
+  max-width: 200px
+  min-width: 200px
+  font-size: 12px
+
+.btn-copy
+  align-items: center
+  border-radius: 50%
+  display: flex
+  height: 40px
+  justify-content: center
+  width: 40px
+
+::ng-deep
+  .active-non-drug-form
+    width: 100%
+    padding: 0 15px
+  .btn-add-row,
+  .btn-add-treatment,
+  .btn-add-column,
+  .btn-reset
+    border-radius: 50%
+    height: 40px
+    width: 40px
+
+  .btn-add-row
+    line-height: 18px
+    padding: 11px 13px
+  .btn-reset,
+  .btn-add-column,
+  .btn-add-treatment
+    padding: 7px 8px
+
+  .treatment-table
+    border-bottom: 2px solid $gray-light
+    flex: 1
+    margin-bottom: 0
+    .col
+      flex-direction: column
+      &.ranking
+        flex-grow: 0
+    .cell
+      align-items: center
+      display: flex
+      height: calc(48px + #{$table-cell-padding})
+      padding: $table-cell-padding
+      &.dark
+        background-color: $table-bg-accent
+
+  .treatment-heading
+    border-bottom: 3px solid $gray-light
+    border-top: 2px solid $gray-light
+    .cell
+      font-size: 110%
+      font-weight: bold
+      padding: 1rem 15px
+
+  .treatment-body
+    .dropdown-toggle,
+    .value,
+    .dropdown-item
+      cursor: pointer
+    .dropdown-toggle
+      white-space: initial
+    .cell
+      align-items: center
+      background-clip: padding-box
+      background-color: $table-bg-accent
+      border-bottom: none
+      border-color: $table-bg-accent
+      border-style: solid
+      border-width: 2px
+      display: flex
+      height: calc(48px + #{$table-cell-padding})
+      margin-bottom: 3px
+      padding: $table-cell-padding
+      transition: all .7s .2s
+      &.dark
+        background-color: $table-bg-accent
+      &.ranking
+        font-weight: bold
+      &:nth-of-type(2n)
+        background-color: $white
+        border-color: $white
+      &.ranking,
+      .value
+        align-items: center
+        display: flex
+        min-height: $input-height //same as if there was the typeahead
+        overflow-x: hidden
+        overflow-y: auto
+      &.draggable
+        &:hover
+          // background-color: $gray-dark
+          // color: white
+          border-color: $white
+          box-shadow: 0 10px 6px -6px $gray
+          // opacity: .7
+          &:nth-of-type(2n)
+            border-color: $table-bg-accent

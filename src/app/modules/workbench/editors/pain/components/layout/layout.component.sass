@@ -1,0 +1,65 @@
+@import "../../../../../../../styles/bootstrap/variables"
+
+.pain-editor
+  flex-wrap: nowrap
+
+.part-selection
+  .heading
+    font-size: 1.35rem
+
+.body-part
+  border: 2px solid $gray-dark
+  padding: 0 .5rem .5rem
+  .heading
+    align-items: center
+    background-color: $gray-dark
+    border-bottom: $gray-dark solid 1px
+    color: $white
+    margin: 0 -.5rem 1rem
+    min-height: 64px
+    padding: .8rem 0
+
+    .text
+      margin-right: auto
+    .col
+      align-items: center
+      display: flex
+      justify-content: flex-end
+      &.content
+        min-height: 48px
+    .close
+      color: $white
+      flex-grow: 0
+      padding-right: 20px
+  .group
+    color: $gray-light
+    margin: 1rem 0 1rem 1rem
+  mica-workbench-symptoms-list
+    background: $white
+
+.copy-form
+  height: 38px
+  position: relative
+  .search-copy
+    height: inherit
+  .direction
+    left: 2px
+    position: absolute
+    top: 3px
+    width: 9rem
+    z-index: 10
+
+.copy
+  z-index: 999
+
+::ng-deep
+  .copy-input
+    .dropdown-menu
+      right: 0
+
+::ng-deep
+  .search-copy
+    input
+      padding-left: 9.5rem
+    .dropdown-menu
+      right: -100px !important

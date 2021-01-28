@@ -1,0 +1,46 @@
+.search-icon
+  font-size: 16px
+  height: 16px
+  width: 16px
+::ng-deep
+  .cssload-loader
+    display: inline-block
+    height: 16px !important
+    width: 16px !important
+.form-control
+  &.search
+    padding-right: 36px // make it the same as having error class
+.dropdown-menu
+  min-width: 100%
+.dropdown-item
+  cursor: default
+.spinner
+  position: absolute
+  right: 5px
+  top: calc(50% - 16px)
+  z-index: 2
+.form-control-danger
+  background-image: none
+.input-container
+  position: relative
+.close
+  position: absolute
+  right: 2px
+  top: 0
+  bottom: 0
+  left: initial
+  margin: auto 0
+  width: 22px
+  z-index: 100
+  &:focus
+    outline: none
+
+.searching
+  text-align: center
+  .spec-char
+    font-size: small
+    color: gray
+
+.dropdown-menu
+  max-height: 312px
+  overflow-y: auto

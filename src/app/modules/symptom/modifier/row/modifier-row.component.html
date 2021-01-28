@@ -1,0 +1,54 @@
+<div id="e74f76c5-b0e4-4214-b31d-864a8ab1c03f" class="row no-gutters align-items-end modifier">
+  <div id="c2c01ba7-cfd4-4ad2-ac32-0f3abc1b2657" class="mr-1">
+    <p class="m-0 text-center">Modifier</p>
+    <mica-dropdown
+      [title]="modifierName"
+      [formControl]="modifierNameCtrl" [controlDisabled]="readOnly"
+      [items]="modifierNames" [size]="'sm'">
+    </mica-dropdown>
+  </div>
+  <button *ngIf="!readOnly && removable" (click)="removeRow.emit(true)" type="button"
+          class="btn btn-sm btn-outline-danger remove-row mr-1">
+    <i class="material-icons">remove</i>
+  </button>
+  <button
+    *ngIf="!readOnly && moreRowsAllowed" (click)="addRow.emit(true)" type="button"
+    class="btn btn-sm btn-outline-success add-row mr-1">
+    <i class="material-icons">add</i>
+  </button>
+  <mica-dropdown
+    *ngIf="hasEthnicity" class="align-self-end mr-1 ethnicity"
+    [formControl]="modifierCtrl.get('modifierValue')" [controlDisabled]="readOnly"
+    [items]="ethnicityDataStore" [title]="'Modifier Ethnicity'"
+    [multiSelect]="true" size="sm">
+  </mica-dropdown>
+  <mica-dropdown
+    *ngIf="hasRecurs" class="align-self-end mr-1 ethnicity"
+    [formControl]="modifierCtrl.get('modifierValue')" [controlDisabled]="readOnly"
+    [items]="recursDataStore" [title]="'Modifier Recurs'"
+    [multiSelect]="true" size="sm">
+  </mica-dropdown>
+  <mica-likelihood
+    class="likelihood"
+    [formControl]="modifierCtrl.get('likelihood')"
+    [compact]="true"
+    [readOnly]="readOnly"
+  >
+  </mica-likelihood>
+</div>
+<div id="0f5d0a73-7e54-4f29-ad8d-35c7027f4b11" class="row no-gutters" *ngIf="!!scaleCtrl">
+  <mica-scale
+    *ngIf="modifierName === 'Time'" class="col-12"
+    [readOnly]="readOnly"
+    [modifierIndex]="modifierIndex"
+    [symptomsModel]="symptomData.symptomsModel"
+    [symptomData]="symptomData"
+    [scaleDataStore]="scaleDataStore"
+    [selectedTimeRanges]="selectedTimeRanges"
+    [validTimeRanges]="validTimeRanges"
+    [scaleFormGroup]="scaleCtrl"
+    [alwaysControlIsVisible]="alwaysControlIsVisible"
+    [likelihood]="likelihoodCtrl.value"
+    (error)="onScaleError($event)">
+  </mica-scale>
+</div>

@@ -1,0 +1,22 @@
+# Default values for Treatment engine.
+replicaCount: 3
+
+image:
+  repository: registry.gitlab.com/advinow/angular-applications/mica
+  pullPolicy: Always
+  tag: nclouds-mica-kube_latest
+  nginxtag: kubernetes-nginx-kube_latest
+  imagePullSecrets: regcred-brayest
+
+service:
+  vault: http://vault.advinow-utility.int:8200
+  role: arn:aws:iam::160988838899:role/role-s3RoleServices-ADVINOW-DEV-S3Role-00a6fae
+  region: us-west-2
+  environment: environment
+  type: NodePort
+  port: 80
+
+hpa:
+  min: 3
+  max: 3
+  cpu: 50

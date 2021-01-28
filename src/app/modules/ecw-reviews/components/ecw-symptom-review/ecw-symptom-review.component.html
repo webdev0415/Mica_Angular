@@ -1,0 +1,42 @@
+<table summary="Symptoms within category" class="table table-sm symptoms-table">
+  <thead>
+    <tr>
+      <th [attr.rowspan]="2" class="cell-right">Value</th>
+      <th [attr.rowspan]="2" *ngFor="let th of tableHeadings" scope="col">{{th}}</th>
+      <th [attr.colspan]="modifierHeadings?.length" class="split-heading-vertical top text-center">Modifiers</th>
+    </tr>
+    <tr class="split-bottom-container">
+      <th *ngFor="let th of modifierHeadings" scope="col" class="split-heading-vertical bottom">{{th}}</th>
+    </tr>
+  </thead>
+  <tbody [@fadeOut]="symptomStates[si]" (@fadeOut.done)="symptomDelDispatch(si, s.symptomID)"
+    *ngFor="let s of symptomsValues; let si = index; trackBy: trackByFn">
+     <tr>
+       <th id="s.symptomID" colspan="9" class="symptom-title" [class.collector]="!isReviewer" scope="colgroup">
+        <div id="1c8cb89b-54dc-464d-bd8f-49f075efc025" class="row no-gutters align-items-center">
+          <div id="e7cef5d1-d8ec-47ba-a775-9d3fb08b8da1" *ngIf="0; else editModeTitle" class="ml-1 symptom-title-link">
+            {{symptomMeta(s.symptomID, 'name') | async | uppercase}}
+          </div>
+          <ng-template #editModeTitle>
+            <div id="772aed73-2f00-4444-b5c4-1ad4539f154b" class="align-middle symptom-title-link">
+              <span class="material-icons" (click)="onSymptomDel(si, s.symptomID)" title="Click to delete {{symptomMeta(s.symptomID, 'name') | async | titleCase}}">delete_forever</span>
+              <span class="ml-1 mr-1">{{symptomMeta(s.symptomID, 'name') | async | uppercase}}</span>
+            </div>
+          </ng-template>
+          <div id="a1a79447-a19e-4b20-b74d-c7b93ee64c8c" class="row no-gutters align-items-center">
+            <mica-badge-icon class="mr-1" [title]="'criticality'" [value]="symptomMeta(s.symptomID, 'criticality') | async"></mica-badge-icon>
+            <mica-badge-icon class="mr-1" [title]="'antithesis'" [value]="symptomMeta(s.symptomID, 'antithesis') | async"></mica-badge-icon>
+            <mica-badge-icon class="mr-1" [title]="'question'" [value]="symptomMeta(s.symptomID, 'question') | async"></mica-badge-icon>
+            <mica-badge-icon [title]="'question'" [value]="symptomMeta(s.symptomID, 'es_question') | async"></mica-badge-icon>
+          </div>
+        </div>
+      </th>
+    </tr>
+    <tr *ngFor="let row of calculateRows(s.rows); let i = index">
+      <td *ngFor="let v of rowValues(row); let first = first; let last = last"
+        [class.cell-right]="first" [attr.colspan]="last ? 8 : 1">{{v | titleCase}}</td>
+       <td *ngFor="let v of modifierDisplayValues(row)">{{v | titleCase}}</td>
+    </tr>
+  </tbody>
+</table>
+

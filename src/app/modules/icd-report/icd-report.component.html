@@ -1,0 +1,34 @@
+<div id="71c75f53-c5b7-4ef1-9959-7a5669a9ec20" class="row justify-content-center mt-4">
+  <mica-typeahead #typeaheadChild
+    [placeholder]="'Enter ICD Code'"
+    [canClose]="false"
+    [typeAheadMin]="3"
+    [liveSearchType]="'remoteIllnessValue'"
+    [icd10CodeSearch]="true"
+    [templateRef]="results"
+    >
+  </mica-typeahead>
+  <span class="search-text">Minimum of 3 characters(ICD10 Code) needed</span>
+  <!--  -->
+  <div id="113717c5-6d5a-4c72-aeeb-d55b61e4fc44" class="btn-group" role="group" aria-label="Basic example">
+    <button type="button" [disabled]="!fileName || downloadClicked"
+      class="btn btn-primary align-middle download" (click)="downloadCSV()">
+      <span class="material-icons mr-2">get_app</span>{{fileName || 'DOWNLOAD' }}
+    </button>
+  </div>
+</div>
+
+<ng-template #results let-items="items" let-emitterClose="emitterClose" >
+  <div id="20807027-47ae-42dc-ac3f-2f5b49dfac8e" class="scroll-container" >
+    <div id="016e2e46-a68f-4428-a110-f7e0e7731390" *ngIf="checkItems(items); else noItemsFound" class="dropdown-items-container">
+      <button class="dropdown-item align-middle" type="button" *ngFor="let item of filterItems(items);"
+          (click)="onSelectItems(emitterClose)">
+        {{item.idIcd10Code}} <span class="badge badge-default ml-1 mr-1">v{{item.version}}</span> - {{item.name}}
+      </button>
+    </div>
+  </div>
+</ng-template>
+
+<ng-template #noItemsFound>
+  <button class="dropdown-item" type="button" disabled>Your search didn't return any results.</button>
+</ng-template>

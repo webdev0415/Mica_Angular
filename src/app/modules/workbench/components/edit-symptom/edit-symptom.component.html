@@ -1,0 +1,255 @@
+<div id="4295cdd7-5cbb-4f1f-8400-63abc17e2e11" class="container">
+  <div id="a9babffa-b678-4151-b5c6-68f630ecd5e0" class="row-mt-5">
+    <h3 class="col text-center h3-head">Review External Symptoms</h3>
+    <h4 class="col text-center" *ngIf="!router.url.includes('/edit-symptom/new-symptom')">{{data.symptomID}} - {{data.name}}</h4>
+  </div>
+  <div id="d66505b7-9cd2-43ce-8f94-400033acb297" class="row-mt-4 spacing">
+    <div id="f0cf4915-f513-46f7-80bc-fabced7a9d49" class="col">
+      <div id="ca4af979-bc2c-4cc8-a6cb-1ccf725514cf" class="row mt-5 mb-2 justify-content-center">
+        <div id="3446d20b-6f42-41a8-8e35-ae9d2f6f742e" class="col col-md-10 col-lg-8">
+          <form [formGroup]="snoMedForm" (ngSubmit)="onSubmit(snoMedForm.value)">
+            <div id="1cd1400f-350d-41ab-bd47-8df1b7252430" class="row">
+              <div id="4f2f345c-7fdd-4f6f-95b7-b9d50b354c75" class="col col-md-10 col-lg-8">
+                <h4 class="col">Symptom Category: {{symptomGroup | async}}</h4>
+              </div>
+              <div id="cfc6d44d-229c-491d-922c-e43aed81b997" class="col col-md-2 col-lg-4">
+                <button type="submit" class="btn btn-success btn-lg mr-3" [disabled]="snoMedForm.invalid || snoMedForm.pristine">save</button>
+              </div>
+            </div>
+          <table class="table table-striped spacing-up">
+            <thead>
+            <tr>
+              <th>Property</th>
+              <th>Value</th>
+            </tr>
+            </thead>
+            <tbody>
+            <ng-container *ngFor="let row of rows">
+              <!--<tr *ngIf="row[0] === 'definition'">-->
+                <!--<th>Definition</th>-->
+                <!--<edit-input [title]="'definition'" [formControlName]="row[0]" (close)="rowEdit = ''"></edit-input>-->
+              <!--</tr>-->
+
+              <tr *ngIf="row[0] === 'definition'">
+                <th>Definition</th>
+                <td>
+                  <div id="9df233e3-c467-4abe-90b7-198b4bc29cae" *ngIf="rowEdit !== row[0]; else editDef" (click)="rowEdit = row[0]">
+                    <edit-table-value
+                      [value]="snoMedForm.get(row[0]).value"
+                      [label]="'Add Definition'">
+                    </edit-table-value>
+                  </div>
+                </td>
+                <ng-template #editDef>
+                  <edit-input [title]="'Definition'" [formControlName]="row[0]" (close)="rowEdit = ''"></edit-input>
+                </ng-template>
+              </tr>
+              <tr *ngIf="row[0] === 'antithesis'" [formGroupName]="row[0]">
+                <th>Antithesis</th>
+                <td>
+                  <edit-table-value *ngIf="rowEdit !== row[0]; else editAntithesis"
+                                    [value]="snoMedForm.get(row[0]+'.root').value" [required]="true"
+                                    (click)="rowEdit = row[0]"
+                                         [label]="'Add Antithesis for the Symptom'"></edit-table-value>
+                  <ng-template #editAntithesis>
+                    <edit-antithesis formControlName="root" (close)="rowEdit = ''"
+                                          [minMaxRange]="minMax"></edit-antithesis>
+                  </ng-template>
+                </td>
+              </tr>
+              <tr *ngIf="row[0] === 'criticality'">
+                <th>Criticality</th>
+                <td>
+                  <mica-criticality [max]="max" [formControlName]="row[0]"></mica-criticality>
+                </td>
+              </tr>
+              <tr *ngIf="row[0] === 'displayListValues'" [formGroupName]="row[0]">
+                <th>Display Symptom</th>
+                <td>
+                  <mica-check-switch formControlName="root" [valueNames]="['yes', 'no']"></mica-check-switch>
+                </td>
+              </tr>
+              <tr *ngIf="row[0] === 'icd10RCodes'" [formGroupName]="row[0]">
+                <th>ICD Symptom Code</th>
+                <td>
+                  <div id="849fcf18-9249-4af9-856a-3079fbd9d958" *ngIf="rowEdit !== row[0]; else editRCode" (click)="rowEdit = row[0]">
+                    <edit-table-value
+                      [value]="snoMedForm.get(row[0]+'.root').value"
+                      [label]="'Add ICD symptom code'">
+                    </edit-table-value>
+                  </div>
+                  <ng-template #editRCode>
+                    <edit-input [title]="'ICD Symptom Code'" formControlName="root"
+                                     (close)="rowEdit = ''" [validator]="snoMedForm.get(row[0]+'.root').validator">
+                    </edit-input>
+                  </ng-template>
+                </td>
+              </tr>
+              <tr *ngIf="row[0] === 'question'">
+                <th>Question</th>
+                <td>
+                    <div id="2e2c1b51-a009-4a60-ad42-ffa67a4acc18" *ngIf="rowEdit !== row[0]; else editQuestion" (click)="rowEdit = row[0]">
+                      <edit-table-value
+                        [value]="snoMedForm.get(row[0]).value"
+                        [label]="'Add Question'">
+                      </edit-table-value>
+                    </div>
+                </td>
+                <ng-template #editQuestion>
+                  <edit-input [title]="'question'" [formControlName]="row[0]" (close)="rowEdit = ''"></edit-input>
+                </ng-template>
+              </tr>
+              <tr *ngIf="row[0] === 'multipleValues'">
+                <th>Multiple Values</th>
+                <td>
+                  <!--<div id="01c8d8e1-de8c-4c23-877c-97f471817bae" class="dropdown" [class.show]="isActive" (click)="isActive = !isActive">-->
+                    <!--<button class="btn btn-secondary dropdown-toggle" type="button" [ngClass]="dropdownToggleClass"-->
+                            <!--aria-haspopup="true" [attr.aria-expanded]="isActive">-->
+                      <!--<span *ngIf="snoMedForm.get(row[0]).value">{{snoMedForm.get(row[0]).value}}</span>-->
+                      <!--<Span *ngIf="!snoMedForm.get(row[0]).value">Select Multiple Values</Span>-->
+                    <!--</button>-->
+                    <!--<div id="37d178ed-0338-4c45-9d74-03365efbff02" class="dropdown-menu" [attr.aria-labelledby]="title">-->
+                      <!--<button class="dropdown-item" type="button" *ngFor="let item of mulValues"-->
+                              <!--(click)="selectValue(row[0], item)">{{item}}</button>-->
+                    <!--</div>-->
+                  <!--</div>-->
+
+                  <ng2-completer [inputClass]="'form-control'" [formControlName]="row[0]" [datasource]="mulValues" [minSearchLength]="0"></ng2-completer>
+                  <!--<ngx-select-dropdown (change)="selectionChanged($event)" [multiple]="true"-->
+                                       <!--[config]="config" [options]="mulValues"></ngx-select-dropdown>-->
+                </td>
+
+              </tr>
+              <tr *ngIf="row[0] === 'questionInSpanish'">
+                <th>Question in Spanish</th>
+                <td>
+                  <div id="eb693250-615b-4e35-8980-49e427fd0f37" *ngIf="rowEdit !== row[0]; else editEsQuestion" (click)="rowEdit = row[0]">
+                    <edit-table-value
+                      [value]="snoMedForm.get(row[0]).value"
+                      [label]="'Add Question in Spanish'">
+                    </edit-table-value>
+                  </div>
+                </td>
+                <ng-template #editEsQuestion>
+                  <edit-input [title]="'question in Spanish'" [formControlName]="row[0]" (close)="rowEdit = ''"></edit-input>
+                </ng-template>
+              </tr>
+              <tr *ngIf="row[0] === 'treatable'">
+                <th>Treatable</th>
+                <td>
+                  <mica-check-switch [formControlName]="row[0]" [valueNames]="['yes', 'no']"></mica-check-switch>
+                </td>
+              </tr>
+              <tr *ngIf="row[0] === 'displayDrApp'">
+                <th>Display Doctor App</th>
+                <td>
+                  <mica-check-switch [formControlName]="row[0]" [valueNames]="['yes', 'no']"></mica-check-switch>
+                </td>
+              </tr>
+              <tr *ngIf="row[0] === 'snomedCodes'">
+                <th>SNOMED Codes</th>
+                <td>
+                  <div id="ae006791-850d-4dbd-80c4-965b5b6c8a9b" *ngIf="rowEdit !== row[0]; else editSnoMedCodes" (click)="rowEdit = row[0]">
+                    <edit-table-value
+                      [value]="snoMedForm.get(row[0]).value"
+                      [label]="'Add SNOMED Codes'">
+                    </edit-table-value>
+                  </div>
+                </td>
+                <ng-template #editSnoMedCodes>
+                  <edit-input [title]="'SnoMed Codes'" [formControlName]="row[0]" (close)="rowEdit = ''"></edit-input>
+                </ng-template>
+              </tr>
+            </ng-container>
+            <ng-container>
+              <tr>
+                <td colspan=2 class="multiplier">
+                  <table class="table table-striped multiplier-table">
+                    <thead>
+                      <tr>
+                        <th colspan="5" class="text-center">Row-specific values
+                        <button class="btn btn-primary add-list" (click)="showModel = true">Add Row</button></th>
+                      </tr>
+                      <tr *ngIf="multipleValues.length">
+                        <th width="20px"></th>
+                        <th width="200px">Row Value</th>
+                        <th width="250px">Antithesis</th>
+                        <th width="300px">ICD Symptom Code</th>
+                        <th width="100px">Display</th>
+                      </tr>
+                    </thead>
+                    <tbody *ngIf="multipleValues.length">
+                      <tr *ngFor="let item of multipleValues">
+                        <td>
+                          <button type="button" (click)="removeRow(item)" class="btn btn-sm btn-outline-danger remove-row mr-1">
+                            <i class="material-icons symp-temp">remove</i>
+                          </button>
+                        </td>
+                        <td>{{item}}</td>
+                        <td formGroupName="antithesis">
+                          <edit-table-value *ngIf="rowEdit !== 'antithesis.'+item; else editChildAntithesis"
+                                            [value]="snoMedForm.get('antithesis.'+item).value" [required]="true"
+                                            (click)="rowEdit = 'antithesis.'+item"
+                                            [label]="'Add Antithesis'"></edit-table-value>
+                          <ng-template #editChildAntithesis>
+                            <edit-antithesis [formControlName]="item" (close)="rowEdit = ''"
+                                             [minMaxRange]="minMax"></edit-antithesis>
+                          </ng-template>
+                        </td>
+                        <td formGroupName="icd10RCodes">
+                          <div id="b3a4eb19-df25-46b2-ba3a-f9ce5c29dbd8" *ngIf="rowEdit !== 'icd10RCodes.'+item; else editChildRCode" (click)="rowEdit = 'icd10RCodes.'+item">
+                            <edit-table-value
+                              [value]="snoMedForm.get('icd10RCodes.'+item).value"
+                              [label]="'Add ICD symptom code'">
+                            </edit-table-value>
+                          </div>
+                          <ng-template #editChildRCode>
+                            <edit-input [title]="'ICD Symptom Code'" [formControlName]="item"
+                                        (close)="rowEdit = ''" [validator]="snoMedForm.get('icd10RCodes.'+item).validator">
+                            </edit-input>
+                          </ng-template>
+
+                        </td>
+                        <td formGroupName="displayListValues">
+                          <mica-check-switch [formControlName]="item" [valueNames]="['yes', 'no']"></mica-check-switch>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </td>
+              </tr>
+            </ng-container>
+            </tbody>
+          </table>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div id="c5d8f0f8-f5e2-43ab-af89-a8f7cc2b28f9" class="row justify-content-center">
+    <div id="17c2bea1-0870-4d00-be75-225ac4e287be" *ngIf="shouldShow" class="debug-form bg-inverse text-white mt-4 debug-bx">
+      <h5 class="text-center mt-3 mb-3">Symptom Data</h5>
+      <pre><code>{{snoMedForm.value | json}}</code></pre>
+    </div>
+  </div>
+</div>
+<div id="97ccac38-3eb0-4082-a9fe-994d0809c7c1" class="modal-backdrop show" [style.display]="showModel ? 'block' : 'none'"></div>
+<div id="f831d8b1-e151-40aa-b8ad-b162319c3042" class="modal show min-ht" tabindex="-1" role="dialog" style="display: block" [style.display]="showModel ? 'block' : 'none'">
+  <div id="3f6fde92-e13a-4723-8f6e-a8a8a960c430" class="modal-dialog">
+    <div id="4be2ba1e-5eff-42d7-97e5-34e93d393c16" class="modal-popup">
+      <div id="ad9391f6-fbe2-48d8-ab9e-51589839c9f2" class="popup-title">
+        <div id="09528378-db32-4a42-9b54-0112d66f35db">
+          <h4>Adding Row Specific Value</h4>
+        </div>
+        <div id="b69c8bc2-959f-41bf-8015-80e0f42ff522">
+          <p>Enter Row Value</p>
+          <input type="text" required #rowValue (keyup)="enterInput(rowValue.value)"/>
+        </div>
+        <div id="e8f19435-5219-4f5c-8da8-24f8ef1a1b69" class="options">
+          <button class="btn btn-success" type="submit" (click)="createList(rowValue.value)" [disabled]="rowInput">Add</button>
+          <button class="btn btn-danger" (click)="showModel = false">Cancel</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

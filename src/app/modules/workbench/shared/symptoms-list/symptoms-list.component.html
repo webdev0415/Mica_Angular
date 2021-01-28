@@ -1,0 +1,80 @@
+<section class="mt-4 mb-2">
+  <div *ngIf="nlpGroupIsActive" class="toolbar-container">
+    <ng-container *ngIf="nlpGroupIsActive; then nlpPagination"></ng-container>
+    <div class="search-group" [class.invalid]="searchControl.invalid">
+      <span class="material-icons">search</span>
+      <input [formControl]="searchControl" placeholder="Search for Symptom" type="text" class="form-control">
+      <button *ngIf="searchControl.value.length" (click)="clearSearchField()" class="close">
+        <span>×</span>
+      </button>
+    </div>
+  </div>
+  <div id="d7f60fb2-7a05-4cb7-aad1-5c94bfb4c190" *ngIf="!bodyView; else physicalSymptoms">
+    <!-- Symptoms here will have a first subGroup as ""  -->
+
+    <mica-page-spinner *ngIf="navigating; else generalSymptoms"
+      [message]="'Loading symptoms...'">
+    </mica-page-spinner>
+
+    <ng-template #generalSymptoms>
+      <ng-container *ngIf="(groups | async) as allGroups">
+        <ng-container *ngIf="allGroups['!ungrouped']?.length; else noResults">
+          <div id="cb12e963-3752-408f-a716-3d5edc70634d" *ngFor="let group1 of allGroups['!ungrouped']; trackBy: trackByFn;">
+            <h3 *ngIf="group1.title !== '!ungrouped'" class="subgroupTitle1">{{group1.title | titleCase}}</h3>
+            <div id="8b1794d1-e4b6-4bb1-a607-af27acad7fff" *ngFor="let group2 of group1.subgroup2; trackBy: trackByFn">
+              <h4 *ngIf="group2.title !== '!ungrouped'" class="subgroupTitle2">{{group2.title | titleCase}}</h4>
+              <mica-symptom
+                *ngFor="let symptom of group2.symptoms; let i = index; trackBy: trackByFn"
+                [symptomID]="symptom.symptomID" [basicSymptomID]="getBasicSymptomFromSubGroup(group1, group2)"
+                [nlpSymptom]="symptom.code"
+                [indexVal]="group2.title+i">
+              </mica-symptom>
+            </div>
+          </div>
+        </ng-container>
+      </ng-container>
+    </ng-template>
+
+    <ng-template #noResults>
+      <div class="alert alert-info pt-4 pb-4 text-center w-100">
+        <span>No symptoms found</span>
+      </div>
+    </ng-template>
+  </div>
+  <ng-container *ngIf="nlpGroupIsActive; then nlpPagination"></ng-container>
+</section>
+
+<ng-template #nlpPagination>
+  <ngb-pagination
+    [disabled]="navigating"
+    [collectionSize]="total"
+    [maxSize]="10"
+    [rotate]="true"
+    [page]="page"
+    [pageSize]="50"
+    (pageChange)="pageChanged($event)"
+    [boundaryLinks]="true"
+  >
+  </ngb-pagination>
+</ng-template>
+
+<ng-template #physicalSymptoms>
+  <div id="a66dfef5-41e5-4a9b-8588-c5412d31ff4a" *ngIf="activeBodyViewSymptoms | async; else noPhysicalSymptomsFound">
+     <div id="b0e6bfea-1e25-49ba-91f2-3e5c85a69e18" *ngFor="let group1 of activeBodyViewSymptoms | async; trackBy: trackByFn">
+       <h3 *ngIf="group1.title !== '!ungrouped'" class="subgroupTitle1">{{group1.title | titleCase}}</h3>
+      <div id="189fd870-aaaa-4f2b-9600-00e4d9553f99" *ngFor="let group2 of group1.subgroup2; trackBy: trackByFn">
+        <h4 *ngIf="group2.title !== '!ungrouped'" class="subgroupTitle2">{{group2.title | titleCase}}</h4>
+        <mica-symptom *ngFor="let symptom of group2.symptoms; trackBy: trackByFn; let i = index" [bodyParts]="bodyParts"
+          [bodyPartsAll]="bodyPartsAll" [symptomID]="symptom.symptomID"
+          [indexVal]="group2.title+i"  (focus)="focuseOnSymptom($event)"
+          [basicSymptomID]="getBasicSymptomFromSubGroup(group1, group2)"></mica-symptom>
+      </div>
+    </div>
+  </div>
+</ng-template>
+<ng-template #noPhysicalSymptomsFound>
+  <div id="6333e708-190f-4ec2-818d-d6ccc12b3b72" class="alert alert-info text-center w-100">
+    <i class="material-icons mi-48 d-block">accessibility</i>
+    <span>No {{bodyView}} symptoms found in {{(activeCatData | async)?.name | titleCase}}</span>
+  </div>
+</ng-template>

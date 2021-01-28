@@ -1,0 +1,38 @@
+<div id="5d78dcee-ce96-4e77-9de1-22e967a99cec" [id]="symptomData.symptomID" class="symptom-container rounded mb-2"
+     [class.invalid]="symptomFormGroup?.status === 'INVALID'">
+  <mica-symptom-title-row
+    [bodyParts]="bodyPartsValue"
+    [bodyPartsAll]="bodyPartsAll"
+    [maxRowsReached]="maxRowsReached"
+    [symptomData]="symptomData"
+    [symptomFormGroup]="symptomFormGroup"
+    [isChecked]="isChecked"
+    [indexVal]="indexVal"
+    (toggleBodyPart)="onToggleBodyPart($event)"
+    (addRow)="onAddRow()"
+    (check)="onCheck($event)"
+    (toggleQuestion)="showQ = !showQ"
+    [readOnly]="readOnly"
+    [basicSymptomID]="basicSymptomID"
+  >
+  </mica-symptom-title-row>
+  <mica-symptom-rows
+    *ngIf="isChecked"
+    [rowsFormArray]="symptomFormGroup?.get('rows')"
+    [symptomData]="symptomData"
+    [dataStoreRefTypes]="dataStoreRefTypes"
+    (errors)="onSymptomError($event, null)"
+    [maxRowsReached]="maxRowsReached"
+    [readOnly]="readOnly">
+  </mica-symptom-rows>
+  <div id="f77b4027-a6c1-4525-8514-10c9b5d8fc32" [@slideInOutQuick]="showQ"
+       *ngIf="showQ && symptomData.question == undefined && symptomData.es_question == undefined"
+       class="alert alert-info mb-0 mt-2">No question for this symptom
+  </div>
+  <div id="7a44a4fd-2400-4e34-aeed-7c537116aacc" [@slideInOutQuick]="showQ" *ngIf="showQ && symptomData.question != undefined" class="alert alert-info mb-0 mt-2">
+    {{symptomData.question}}
+  </div>
+  <div id="418cb563-d424-4cde-af2b-aff6a41d4548" [@slideInOutQuick]="showQ" *ngIf="showQ && symptomData.es_question != undefined"
+       class="alert alert-info mb-0 mt-2">{{symptomData.es_question}}
+  </div>
+</div>

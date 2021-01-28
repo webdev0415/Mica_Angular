@@ -1,0 +1,31 @@
+@import "../../symptom.variables"
+
+\:host
+  display: block
+  min-width: 10rem
+
+.dropdown
+  button
+    width: 100%
+
+.dropdown-menu
+  min-width: inherit
+.levels
+  display: flex
+  ul
+    padding: 0
+    &:not(:last-child)
+      .dropdown-item
+        padding-right: 5px
+  .dropdown-item
+    cursor: pointer
+    &.selector
+      align-items: center
+      display: flex
+      justify-content: space-between
+      .next
+        flex-basis: 20px
+        font-size: $symptom-row-height
+.states, .country
+  height: 300px
+  overflow: auto

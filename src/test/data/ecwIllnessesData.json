@@ -1,0 +1,1233 @@
+{
+    "userData": [
+        {
+            "name": "Hordeolum externum right eye, unspecified eyelid",
+            "idIcd10Code": "H00.013",
+            "version": 1,
+            "state": "LOADED",
+            "source": "ECW",
+            "criticality": 0,
+            "prior": 0.000231738,
+            "groupsComplete": [],
+            "symptomGroups": [
+                {
+                    "name": "General",
+                    "groupID": "general",
+                    "categories": [
+                        {
+                            "categoryID": "SYMPTCG01",
+                            "symptoms": []
+                        },
+                        {
+                            "categoryID": "SYMPTCG02",
+                            "symptoms": []
+                        },
+                        {
+                            "categoryID": "SYMPTCG03",
+                            "symptoms": []
+                        },
+                        {
+                            "categoryID": "SYMPTCG04",
+                            "symptoms": []
+                        }
+                    ]
+                },
+                {
+                    "name": "Behaviour",
+                    "groupID": "behaviour",
+                    "categories": [
+                        {
+                            "categoryID": "SYMPTCG15",
+                            "symptoms": []
+                        },
+                        {
+                            "categoryID": "SYMPTCG05",
+                            "symptoms": []
+                        },
+                        {
+                            "categoryID": "SYMPTCG06",
+                            "symptoms": []
+                        },
+                        {
+                            "categoryID": "SYMPTCG07",
+                            "symptoms": []
+                        },
+                        {
+                            "categoryID": "SYMPTCG09",
+                            "symptoms": []
+                        },
+                        {
+                            "categoryID": "SYMPTCG10",
+                            "symptoms": []
+                        }
+                    ]
+                },
+                {
+                    "name": "Neurological",
+                    "groupID": "neurological",
+                    "categories": [
+                        {
+                            "categoryID": "SYMPTCG12",
+                            "symptoms": []
+                        },
+                        {
+                            "categoryID": "SYMPTCG13",
+                            "symptoms": []
+                        },
+                        {
+                            "categoryID": "SYMPTCG11",
+                            "symptoms": []
+                        }
+                    ]
+                },
+                {
+                    "name": "Physical",
+                    "groupID": "physical",
+                    "categories": [
+                        {
+                            "categoryID": "BODYPART56",
+                            "symptoms": []
+                        },
+                        {
+                            "categoryID": "BODYPART57",
+                            "symptoms": []
+                        },
+                        {
+                            "categoryID": "BODYPART01",
+                            "symptoms": [
+                                {
+                                    "symptomID": "SYMPT0000535",
+                                    "rows": [
+                                        {
+                                            "bias": true,
+                                            "modifierValues": [
+                                                {
+                                                    "name": "Time",
+                                                    "likelihood": 80,
+                                                    "scale": {
+                                                        "upperTimeLimit": 99,
+                                                        "scaleTimeLimitStart": 0,
+                                                        "value": 99,
+                                                        "slope": "Flat",
+                                                        "timeUnit": "Years"
+                                                    }
+                                                }
+                                            ]
+                                        }
+                                    ],
+                                    "bodyParts": [
+                                        "Whole Body"
+                                    ],
+                                    "snomedCodes": []
+                                },
+                                {
+                                    "symptomID": "SYMPT0000574",
+                                    "rows": [
+                                        {
+                                            "bias": true,
+                                            "modifierValues": [
+                                                {
+                                                    "name": "Time",
+                                                    "likelihood": 80,
+                                                    "scale": {
+                                                        "upperTimeLimit": 99,
+                                                        "scaleTimeLimitStart": 0,
+                                                        "value": 99,
+                                                        "slope": "Flat",
+                                                        "timeUnit": "Years"
+                                                    }
+                                                }
+                                            ]
+                                        }
+                                    ],
+                                    "bodyParts": [
+                                        "Whole Body"
+                                    ],
+                                    "snomedCodes": []
+                                },
+                                {
+                                    "symptomID": "SYMPT0000521",
+                                    "rows": [
+                                        {
+                                            "bias": true,
+                                            "multiplier": [
+                                                "Red Patches"
+                                            ],
+                                            "modifierValues": [
+                                                {
+                                                    "name": "Time",
+                                                    "likelihood": 80,
+                                                    "scale": {
+                                                        "upperTimeLimit": 99,
+                                                        "scaleTimeLimitStart": 0,
+                                                        "value": 99,
+                                                        "slope": "Flat",
+                                                        "timeUnit": "Years"
+                                                    }
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "bias": true,
+                                            "multiplier": [
+                                                "Dull Red patches"
+                                            ],
+                                            "modifierValues": [
+                                                {
+                                                    "name": "Time",
+                                                    "likelihood": 80,
+                                                    "scale": {
+                                                        "upperTimeLimit": 99,
+                                                        "scaleTimeLimitStart": 0,
+                                                        "value": 99,
+                                                        "slope": "Flat",
+                                                        "timeUnit": "Years"
+                                                    }
+                                                }
+                                            ]
+                                        }
+                                    ],
+                                    "bodyParts": [
+                                        "Whole Body"
+                                    ],
+                                    "snomedCodes": []
+                                },
+                                {
+                                    "symptomID": "SYMPT0000782",
+                                    "rows": [
+                                        {
+                                            "bias": true,
+                                            "multiplier": [
+                                                "Unspecified"
+                                            ],
+                                            "modifierValues": [
+                                                {
+                                                    "name": "Time",
+                                                    "likelihood": 80,
+                                                    "scale": {
+                                                        "upperTimeLimit": 99,
+                                                        "scaleTimeLimitStart": 0,
+                                                        "value": 99,
+                                                        "slope": "Flat",
+                                                        "timeUnit": "Years"
+                                                    }
+                                                }
+                                            ]
+                                        }
+                                    ],
+                                    "bodyParts": [
+                                        "Whole Body"
+                                    ],
+                                    "snomedCodes": []
+                                }
+                            ]
+                        },
+                        {
+                            "categoryID": "BODYPART02",
+                            "symptoms": []
+                        },
+                        {
+                            "categoryID": "BODYPART03",
+                            "symptoms": []
+                        },
+                        {
+                            "categoryID": "BODYPART04",
+                            "symptoms": []
+                        },
+                        {
+                            "categoryID": "BODYPART41",
+                            "symptoms": []
+                        },
+                        {
+                            "categoryID": "BODYPART05",
+                            "symptoms": []
+                        },
+                        {
+                            "categoryID": "BODYPART06",
+                            "symptoms": []
+                        },
+                        {
+                            "categoryID": "BODYPART07",
+                            "symptoms": []
+                        },
+                        {
+                            "categoryID": "BODYPART08",
+                            "symptoms": []
+                        },
+                        {
+                            "categoryID": "BODYPART09",
+                            "symptoms": []
+                        },
+                        {
+                            "categoryID": "BODYPART10",
+                            "symptoms": []
+                        },
+                        {
+                            "categoryID": "BODYPART11",
+                            "symptoms": []
+                        },
+                        {
+                            "categoryID": "BODYPART12",
+                            "symptoms": []
+                        },
+                        {
+                            "categoryID": "BODYPART13",
+                            "symptoms": []
+                        },
+                        {
+                            "categoryID": "BODYPART14",
+                            "symptoms": []
+                        },
+                        {
+                            "categoryID": "BODYPART15",
+                            "symptoms": []
+                        },
+                        {
+                            "categoryID": "BODYPART16",
+                            "symptoms": []
+                        },
+                        {
+                            "categoryID": "BODYPART17",
+                            "symptoms": []
+                        },
+                        {
+                            "categoryID": "BODYPART44",
+                            "symptoms": []
+                        },
+                        {
+                            "categoryID": "BODYPART18",
+                            "symptoms": []
+                        },
+                        {
+                            "categoryID": "BODYPART19",
+                            "symptoms": []
+                        },
+                        {
+                            "categoryID": "BODYPART20",
+                            "symptoms": []
+                        },
+                        {
+                            "categoryID": "BODYPART21",
+                            "symptoms": []
+                        },
+                        {
+                            "categoryID": "BODYPART22",
+                            "symptoms": []
+                        },
+                        {
+                            "categoryID": "BODYPART23",
+                            "symptoms": []
+                        },
+                        {
+                            "categoryID": "BODYPART26",
+                            "symptoms": []
+                        },
+                        {
+                            "categoryID": "BODYPART27",
+                            "symptoms": []
+                        },
+                        {
+                            "categoryID": "BODYPART29",
+                            "symptoms": []
+                        },
+                        {
+                            "categoryID": "BODYPART31",
+                            "symptoms": []
+                        },
+                        {
+                            "categoryID": "BODYPART32",
+                            "symptoms": []
+                        },
+                        {
+                            "categoryID": "BODYPART34",
+                            "symptoms": []
+                        },
+                        {
+                            "categoryID": "BODYPART35",
+                            "symptoms": []
+                        },
+                        {
+                            "categoryID": "BODYPART42",
+                            "symptoms": []
+                        },
+                        {
+                            "categoryID": "BODYPART43",
+                            "symptoms": []
+                        },
+                        {
+                            "categoryID": "BODYPART45",
+                            "symptoms": []
+                        },
+                        {
+                            "categoryID": "BODYPART46",
+                            "symptoms": []
+                        },
+                        {
+                            "categoryID": "BODYPART50",
+                            "symptoms": []
+                        },
+                        {
+                            "categoryID": "BODYPART36",
+                            "symptoms": []
+                        },
+                        {
+                            "categoryID": "BODYPART51",
+                            "symptoms": []
+                        },
+                        {
+                            "categoryID": "BODYPART53",
+                            "symptoms": []
+                        },
+                        {
+                            "categoryID": "BODYPART52",
+                            "symptoms": []
+                        },
+                        {
+                            "categoryID": "BODYPART55",
+                            "symptoms": []
+                        },
+                        {
+                            "categoryID": "BODYPART40",
+                            "symptoms": []
+                        },
+                        {
+                            "categoryID": "BODYPART54",
+                            "symptoms": []
+                        },
+                        {
+                            "categoryID": "BODYPART49",
+                            "symptoms": []
+                        },
+                        {
+                            "categoryID": "BODYPART39",
+                            "symptoms": [
+                                {
+                                    "symptomID": "SYMPT0000864",
+                                    "rows": [
+                                        {
+                                            "bias": true,
+                                            "modifierValues": [
+                                                {
+                                                    "name": "Time",
+                                                    "likelihood": 2,
+                                                    "scale": {
+                                                        "upperTimeLimit": 99,
+                                                        "scaleTimeLimitStart": 0,
+                                                        "value": 99,
+                                                        "slope": "Flat",
+                                                        "timeUnit": "Years"
+                                                    }
+                                                }
+                                            ]
+                                        }
+                                    ],
+                                    "bodyParts": [
+                                        "Right Upper Eyelid,Right Lower Eyelid"
+                                    ],
+                                    "snomedCodes": []
+                                },
+                                {
+                                    "symptomID": "SYMPT0000440",
+                                    "rows": [
+                                        {
+                                            "bias": true,
+                                            "modifierValues": [
+                                                {
+                                                    "name": "Time",
+                                                    "likelihood": 2,
+                                                    "scale": {
+                                                        "upperTimeLimit": 99,
+                                                        "scaleTimeLimitStart": 0,
+                                                        "value": 99,
+                                                        "slope": "Flat",
+                                                        "timeUnit": "Years"
+                                                    }
+                                                }
+                                            ]
+                                        }
+                                    ],
+                                    "bodyParts": [
+                                        "Right Upper Eyelid,Right Lower Eyelid"
+                                    ],
+                                    "snomedCodes": []
+                                }
+                            ]
+                        },
+                        {
+                            "categoryID": "BODYPART38",
+                            "symptoms": []
+                        },
+                        {
+                            "categoryID": "BODYPART37",
+                            "symptoms": []
+                        },
+                        {
+                            "categoryID": "BODYPART48",
+                            "symptoms": []
+                        },
+                        {
+                            "categoryID": "BODYPART47",
+                            "symptoms": []
+                        }
+                    ]
+                },
+                {
+                    "name": "Pain/Swelling",
+                    "groupID": "pain",
+                    "sections": [
+                        {
+                            "sectionID": "SC001",
+                            "categories": [
+                                {
+                                    "categoryID": "PAIN_BODYPART94",
+                                    "symptoms": []
+                                },
+                                {
+                                    "categoryID": "PAIN_BODYPART93",
+                                    "symptoms": []
+                                },
+                                {
+                                    "categoryID": "PAIN_BODYPART92",
+                                    "symptoms": []
+                                },
+                                {
+                                    "categoryID": "PAIN_BODYPART91",
+                                    "symptoms": []
+                                },
+                                {
+                                    "categoryID": "PAIN_BODYPART89",
+                                    "symptoms": []
+                                },
+                                {
+                                    "categoryID": "PAIN_BODYPART90",
+                                    "symptoms": []
+                                },
+                                {
+                                    "categoryID": "PAIN_BODYPART87",
+                                    "symptoms": []
+                                },
+                                {
+                                    "categoryID": "PAIN_BODYPART88",
+                                    "symptoms": []
+                                },
+                                {
+                                    "categoryID": "PAIN_BODYPART84",
+                                    "symptoms": []
+                                },
+                                {
+                                    "categoryID": "PAIN_BODYPART83",
+                                    "symptoms": []
+                                },
+                                {
+                                    "categoryID": "PAIN_BODYPART86",
+                                    "symptoms": []
+                                },
+                                {
+                                    "categoryID": "PAIN_BODYPART85",
+                                    "symptoms": []
+                                },
+                                {
+                                    "categoryID": "PAIN_BODYPART80",
+                                    "symptoms": []
+                                },
+                                {
+                                    "categoryID": "PAIN_BODYPART79",
+                                    "symptoms": []
+                                },
+                                {
+                                    "categoryID": "PAIN_BODYPART82",
+                                    "symptoms": []
+                                },
+                                {
+                                    "categoryID": "PAIN_BODYPART81",
+                                    "symptoms": []
+                                },
+                                {
+                                    "categoryID": "PAIN_BODYPART74",
+                                    "symptoms": []
+                                },
+                                {
+                                    "categoryID": "PAIN_BODYPART75",
+                                    "symptoms": []
+                                },
+                                {
+                                    "categoryID": "PAIN_BODYPART76",
+                                    "symptoms": []
+                                },
+                                {
+                                    "categoryID": "PAIN_BODYPART77",
+                                    "symptoms": []
+                                },
+                                {
+                                    "categoryID": "PAIN_BODYPART70",
+                                    "symptoms": []
+                                },
+                                {
+                                    "categoryID": "PAIN_BODYPART71",
+                                    "symptoms": []
+                                },
+                                {
+                                    "categoryID": "PAIN_BODYPART72",
+                                    "symptoms": []
+                                },
+                                {
+                                    "categoryID": "PAIN_BODYPART73",
+                                    "symptoms": []
+                                },
+                                {
+                                    "categoryID": "PAIN_BODYPART68",
+                                    "symptoms": []
+                                },
+                                {
+                                    "categoryID": "PAIN_BODYPART69",
+                                    "symptoms": []
+                                },
+                                {
+                                    "categoryID": "PAIN_BODYPART78",
+                                    "symptoms": []
+                                },
+                                {
+                                    "categoryID": "PAIN_BODYPART66",
+                                    "symptoms": []
+                                },
+                                {
+                                    "categoryID": "PAIN_BODYPART67",
+                                    "symptoms": []
+                                },
+                                {
+                                    "categoryID": "PAIN_BODYPART64",
+                                    "symptoms": []
+                                },
+                                {
+                                    "categoryID": "PAIN_BODYPART65",
+                                    "symptoms": []
+                                },
+                                {
+                                    "categoryID": "PAIN_BODYPART59",
+                                    "symptoms": []
+                                },
+                                {
+                                    "categoryID": "PAIN_BODYPART62",
+                                    "symptoms": []
+                                },
+                                {
+                                    "categoryID": "PAIN_BODYPART63",
+                                    "symptoms": []
+                                },
+                                {
+                                    "categoryID": "PAIN_BODYPART60",
+                                    "symptoms": []
+                                },
+                                {
+                                    "categoryID": "PAIN_BODYPART61",
+                                    "symptoms": []
+                                },
+                                {
+                                    "categoryID": "PAIN_BODYPART01",
+                                    "symptoms": []
+                                },
+                                {
+                                    "categoryID": "PAIN_BODYPART08",
+                                    "symptoms": []
+                                },
+                                {
+                                    "categoryID": "PAIN_BODYPART09",
+                                    "symptoms": []
+                                },
+                                {
+                                    "categoryID": "PAIN_BODYPART06",
+                                    "symptoms": []
+                                },
+                                {
+                                    "categoryID": "PAIN_BODYPART07",
+                                    "symptoms": []
+                                },
+                                {
+                                    "categoryID": "PAIN_BODYPART04",
+                                    "symptoms": []
+                                },
+                                {
+                                    "categoryID": "PAIN_BODYPART05",
+                                    "symptoms": []
+                                },
+                                {
+                                    "categoryID": "PAIN_BODYPART02",
+                                    "symptoms": []
+                                },
+                                {
+                                    "categoryID": "PAIN_BODYPART03",
+                                    "symptoms": []
+                                },
+                                {
+                                    "categoryID": "PAIN_BODYPART58",
+                                    "symptoms": []
+                                },
+                                {
+                                    "categoryID": "PAIN_BODYPART53",
+                                    "symptoms": []
+                                },
+                                {
+                                    "categoryID": "PAIN_BODYPART52",
+                                    "symptoms": []
+                                },
+                                {
+                                    "categoryID": "PAIN_BODYPART51",
+                                    "symptoms": []
+                                },
+                                {
+                                    "categoryID": "PAIN_BODYPART50",
+                                    "symptoms": []
+                                },
+                                {
+                                    "categoryID": "PAIN_BODYPART57",
+                                    "symptoms": []
+                                },
+                                {
+                                    "categoryID": "PAIN_BODYPART56",
+                                    "symptoms": []
+                                },
+                                {
+                                    "categoryID": "PAIN_BODYPART55",
+                                    "symptoms": []
+                                },
+                                {
+                                    "categoryID": "PAIN_BODYPART54",
+                                    "symptoms": []
+                                },
+                                {
+                                    "categoryID": "PAIN_BODYPART27",
+                                    "symptoms": []
+                                },
+                                {
+                                    "categoryID": "PAIN_BODYPART26",
+                                    "symptoms": []
+                                },
+                                {
+                                    "categoryID": "PAIN_BODYPART29",
+                                    "symptoms": []
+                                },
+                                {
+                                    "categoryID": "PAIN_BODYPART28",
+                                    "symptoms": []
+                                },
+                                {
+                                    "categoryID": "PAIN_BODYPART31",
+                                    "symptoms": []
+                                },
+                                {
+                                    "categoryID": "PAIN_BODYPART30",
+                                    "symptoms": []
+                                },
+                                {
+                                    "categoryID": "PAIN_BODYPART33",
+                                    "symptoms": []
+                                },
+                                {
+                                    "categoryID": "PAIN_BODYPART32",
+                                    "symptoms": []
+                                },
+                                {
+                                    "categoryID": "PAIN_BODYPART19",
+                                    "symptoms": []
+                                },
+                                {
+                                    "categoryID": "PAIN_BODYPART18",
+                                    "symptoms": []
+                                },
+                                {
+                                    "categoryID": "PAIN_BODYPART21",
+                                    "symptoms": []
+                                },
+                                {
+                                    "categoryID": "PAIN_BODYPART20",
+                                    "symptoms": []
+                                },
+                                {
+                                    "categoryID": "PAIN_BODYPART23",
+                                    "symptoms": []
+                                },
+                                {
+                                    "categoryID": "PAIN_BODYPART22",
+                                    "symptoms": []
+                                },
+                                {
+                                    "categoryID": "PAIN_BODYPART25",
+                                    "symptoms": []
+                                },
+                                {
+                                    "categoryID": "PAIN_BODYPART24",
+                                    "symptoms": []
+                                },
+                                {
+                                    "categoryID": "PAIN_BODYPART48",
+                                    "symptoms": []
+                                },
+                                {
+                                    "categoryID": "PAIN_BODYPART49",
+                                    "symptoms": []
+                                },
+                                {
+                                    "categoryID": "PAIN_BODYPART34",
+                                    "symptoms": []
+                                },
+                                {
+                                    "categoryID": "PAIN_BODYPART35",
+                                    "symptoms": []
+                                },
+                                {
+                                    "categoryID": "PAIN_BODYPART36",
+                                    "symptoms": []
+                                },
+                                {
+                                    "categoryID": "PAIN_BODYPART37",
+                                    "symptoms": []
+                                },
+                                {
+                                    "categoryID": "PAIN_BODYPART38",
+                                    "symptoms": []
+                                },
+                                {
+                                    "categoryID": "PAIN_BODYPART39",
+                                    "symptoms": []
+                                },
+                                {
+                                    "categoryID": "PAIN_BODYPART40",
+                                    "symptoms": []
+                                },
+                                {
+                                    "categoryID": "PAIN_BODYPART41",
+                                    "symptoms": []
+                                },
+                                {
+                                    "categoryID": "PAIN_BODYPART11",
+                                    "symptoms": []
+                                },
+                                {
+                                    "categoryID": "PAIN_BODYPART10",
+                                    "symptoms": []
+                                },
+                                {
+                                    "categoryID": "PAIN_BODYPART13",
+                                    "symptoms": []
+                                },
+                                {
+                                    "categoryID": "PAIN_BODYPART12",
+                                    "symptoms": []
+                                },
+                                {
+                                    "categoryID": "PAIN_BODYPART15",
+                                    "symptoms": []
+                                },
+                                {
+                                    "categoryID": "PAIN_BODYPART14",
+                                    "symptoms": []
+                                },
+                                {
+                                    "categoryID": "PAIN_BODYPART17",
+                                    "symptoms": []
+                                },
+                                {
+                                    "categoryID": "PAIN_BODYPART16",
+                                    "symptoms": []
+                                }
+                            ]
+                        },
+                        {
+                            "sectionID": "SC002",
+                            "categories": [
+                                {
+                                    "categoryID": "SW_BODYPART92",
+                                    "symptoms": []
+                                },
+                                {
+                                    "categoryID": "SW_BODYPART93",
+                                    "symptoms": []
+                                },
+                                {
+                                    "categoryID": "SW_BODYPART91",
+                                    "symptoms": []
+                                },
+                                {
+                                    "categoryID": "SW_BODYPART94",
+                                    "symptoms": []
+                                },
+                                {
+                                    "categoryID": "SW_BODYPART79",
+                                    "symptoms": []
+                                },
+                                {
+                                    "categoryID": "SW_BODYPART90",
+                                    "symptoms": []
+                                },
+                                {
+                                    "categoryID": "SW_BODYPART89",
+                                    "symptoms": []
+                                },
+                                {
+                                    "categoryID": "SW_BODYPART86",
+                                    "symptoms": []
+                                },
+                                {
+                                    "categoryID": "SW_BODYPART85",
+                                    "symptoms": []
+                                },
+                                {
+                                    "categoryID": "SW_BODYPART88",
+                                    "symptoms": []
+                                },
+                                {
+                                    "categoryID": "SW_BODYPART87",
+                                    "symptoms": []
+                                },
+                                {
+                                    "categoryID": "SW_BODYPART82",
+                                    "symptoms": []
+                                },
+                                {
+                                    "categoryID": "SW_BODYPART81",
+                                    "symptoms": []
+                                },
+                                {
+                                    "categoryID": "SW_BODYPART84",
+                                    "symptoms": []
+                                },
+                                {
+                                    "categoryID": "SW_BODYPART83",
+                                    "symptoms": []
+                                },
+                                {
+                                    "categoryID": "SW_BODYPART80",
+                                    "symptoms": []
+                                },
+                                {
+                                    "categoryID": "SW_BODYPART78",
+                                    "symptoms": []
+                                },
+                                {
+                                    "categoryID": "SW_BODYPART74",
+                                    "symptoms": []
+                                },
+                                {
+                                    "categoryID": "SW_BODYPART73",
+                                    "symptoms": []
+                                },
+                                {
+                                    "categoryID": "SW_BODYPART76",
+                                    "symptoms": []
+                                },
+                                {
+                                    "categoryID": "SW_BODYPART75",
+                                    "symptoms": []
+                                },
+                                {
+                                    "categoryID": "SW_BODYPART77",
+                                    "symptoms": []
+                                },
+                                {
+                                    "categoryID": "SW_BODYPART68",
+                                    "symptoms": []
+                                },
+                                {
+                                    "categoryID": "SW_BODYPART69",
+                                    "symptoms": []
+                                },
+                                {
+                                    "categoryID": "SW_BODYPART71",
+                                    "symptoms": []
+                                },
+                                {
+                                    "categoryID": "SW_BODYPART70",
+                                    "symptoms": []
+                                },
+                                {
+                                    "categoryID": "SW_BODYPART72",
+                                    "symptoms": []
+                                },
+                                {
+                                    "categoryID": "SW_BODYPART61",
+                                    "symptoms": []
+                                },
+                                {
+                                    "categoryID": "SW_BODYPART62",
+                                    "symptoms": []
+                                },
+                                {
+                                    "categoryID": "SW_BODYPART59",
+                                    "symptoms": []
+                                },
+                                {
+                                    "categoryID": "SW_BODYPART60",
+                                    "symptoms": []
+                                },
+                                {
+                                    "categoryID": "SW_BODYPART66",
+                                    "symptoms": []
+                                },
+                                {
+                                    "categoryID": "SW_BODYPART65",
+                                    "symptoms": []
+                                },
+                                {
+                                    "categoryID": "SW_BODYPART64",
+                                    "symptoms": []
+                                },
+                                {
+                                    "categoryID": "SW_BODYPART63",
+                                    "symptoms": []
+                                },
+                                {
+                                    "categoryID": "SW_BODYPART67",
+                                    "symptoms": []
+                                },
+                                {
+                                    "categoryID": "SW_BODYPART13",
+                                    "symptoms": []
+                                },
+                                {
+                                    "categoryID": "SW_BODYPART12",
+                                    "symptoms": []
+                                },
+                                {
+                                    "categoryID": "SW_BODYPART15",
+                                    "symptoms": []
+                                },
+                                {
+                                    "categoryID": "SW_BODYPART14",
+                                    "symptoms": []
+                                },
+                                {
+                                    "categoryID": "SW_BODYPART09",
+                                    "symptoms": []
+                                },
+                                {
+                                    "categoryID": "SW_BODYPART08",
+                                    "symptoms": []
+                                },
+                                {
+                                    "categoryID": "SW_BODYPART11",
+                                    "symptoms": []
+                                },
+                                {
+                                    "categoryID": "SW_BODYPART10",
+                                    "symptoms": []
+                                },
+                                {
+                                    "categoryID": "SW_BODYPART21",
+                                    "symptoms": []
+                                },
+                                {
+                                    "categoryID": "SW_BODYPART58",
+                                    "symptoms": []
+                                },
+                                {
+                                    "categoryID": "SW_BODYPART57",
+                                    "symptoms": []
+                                },
+                                {
+                                    "categoryID": "SW_BODYPART56",
+                                    "symptoms": []
+                                },
+                                {
+                                    "categoryID": "SW_BODYPART37",
+                                    "symptoms": []
+                                },
+                                {
+                                    "categoryID": "SW_BODYPART36",
+                                    "symptoms": []
+                                },
+                                {
+                                    "categoryID": "SW_BODYPART39",
+                                    "symptoms": []
+                                },
+                                {
+                                    "categoryID": "SW_BODYPART38",
+                                    "symptoms": []
+                                },
+                                {
+                                    "categoryID": "SW_BODYPART33",
+                                    "symptoms": []
+                                },
+                                {
+                                    "categoryID": "SW_BODYPART32",
+                                    "symptoms": []
+                                },
+                                {
+                                    "categoryID": "SW_BODYPART35",
+                                    "symptoms": []
+                                },
+                                {
+                                    "categoryID": "SW_BODYPART34",
+                                    "symptoms": []
+                                },
+                                {
+                                    "categoryID": "SW_BODYPART29",
+                                    "symptoms": []
+                                },
+                                {
+                                    "categoryID": "SW_BODYPART28",
+                                    "symptoms": []
+                                },
+                                {
+                                    "categoryID": "SW_BODYPART31",
+                                    "symptoms": []
+                                },
+                                {
+                                    "categoryID": "SW_BODYPART30",
+                                    "symptoms": []
+                                },
+                                {
+                                    "categoryID": "SW_BODYPART25",
+                                    "symptoms": []
+                                },
+                                {
+                                    "categoryID": "SW_BODYPART24",
+                                    "symptoms": []
+                                },
+                                {
+                                    "categoryID": "SW_BODYPART27",
+                                    "symptoms": []
+                                },
+                                {
+                                    "categoryID": "SW_BODYPART26",
+                                    "symptoms": []
+                                },
+                                {
+                                    "categoryID": "SW_BODYPART52",
+                                    "symptoms": []
+                                },
+                                {
+                                    "categoryID": "SW_BODYPART53",
+                                    "symptoms": []
+                                },
+                                {
+                                    "categoryID": "SW_BODYPART54",
+                                    "symptoms": []
+                                },
+                                {
+                                    "categoryID": "SW_BODYPART55",
+                                    "symptoms": []
+                                },
+                                {
+                                    "categoryID": "SW_BODYPART48",
+                                    "symptoms": []
+                                },
+                                {
+                                    "categoryID": "SW_BODYPART49",
+                                    "symptoms": []
+                                },
+                                {
+                                    "categoryID": "SW_BODYPART50",
+                                    "symptoms": []
+                                },
+                                {
+                                    "categoryID": "SW_BODYPART51",
+                                    "symptoms": []
+                                },
+                                {
+                                    "categoryID": "SW_BODYPART40",
+                                    "symptoms": []
+                                },
+                                {
+                                    "categoryID": "SW_BODYPART41",
+                                    "symptoms": []
+                                },
+                                {
+                                    "categoryID": "SW_BODYPART03",
+                                    "symptoms": []
+                                },
+                                {
+                                    "categoryID": "SW_BODYPART02",
+                                    "symptoms": []
+                                },
+                                {
+                                    "categoryID": "SW_BODYPART01",
+                                    "symptoms": []
+                                },
+                                {
+                                    "categoryID": "SW_BODYPART07",
+                                    "symptoms": []
+                                },
+                                {
+                                    "categoryID": "SW_BODYPART06",
+                                    "symptoms": []
+                                },
+                                {
+                                    "categoryID": "SW_BODYPART05",
+                                    "symptoms": []
+                                },
+                                {
+                                    "categoryID": "SW_BODYPART04",
+                                    "symptoms": []
+                                },
+                                {
+                                    "categoryID": "SW_BODYPART18",
+                                    "symptoms": []
+                                },
+                                {
+                                    "categoryID": "SW_BODYPART19",
+                                    "symptoms": []
+                                },
+                                {
+                                    "categoryID": "SW_BODYPART16",
+                                    "symptoms": []
+                                },
+                                {
+                                    "categoryID": "SW_BODYPART17",
+                                    "symptoms": []
+                                },
+                                {
+                                    "categoryID": "SW_BODYPART22",
+                                    "symptoms": []
+                                },
+                                {
+                                    "categoryID": "SW_BODYPART23",
+                                    "symptoms": []
+                                },
+                                {
+                                    "categoryID": "SW_BODYPART20",
+                                    "symptoms": []
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "name": "Measurements",
+                    "groupID": "measurements",
+                    "categories": [
+                        {
+                            "categoryID": "SYMPTCG14",
+                            "symptoms": []
+                        }
+                    ]
+                },
+                {
+                    "name": "Labs",
+                    "groupID": "labs",
+                    "categories": [
+                        {
+                            "categoryID": "SYMPTCG18",
+                            "symptoms": []
+                        },
+                        {
+                            "categoryID": "SYMPTCG17",
+                            "symptoms": []
+                        },
+                        {
+                            "categoryID": "SYMPTCG16",
+                            "symptoms": []
+                        },
+                        {
+                            "categoryID": "SYMPTCG20",
+                            "symptoms": []
+                        },
+                        {
+                            "categoryID": "SYMPTCG19",
+                            "symptoms": []
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

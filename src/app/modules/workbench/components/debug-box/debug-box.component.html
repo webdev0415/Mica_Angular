@@ -1,0 +1,6 @@
+<!--TODO: change this to toggle between illness or symptom group value -->
+<div id="da8896c1-2555-4a57-b6e8-c81b94ebfbe3" *ngIf="shouldShow" class="debug-form bg-inverse text-white mt-4">
+  <mica-value-switch [formControl]="entity" class="entity-switch" [values]="['illness', 'symptom group']"></mica-value-switch> 
+  <h5 class="text-center mt-3 mb-3">{{title | async | uppercase}}</h5>
+   <pre><code>{{debugObject | async | json}}</code></pre> 
+</div>

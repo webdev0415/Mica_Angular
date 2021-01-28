@@ -1,0 +1,43 @@
+<div id="301e281a-8b7a-4047-a253-14f97bf0dc9a" class="row mt-3 mr-0 ml-0">
+  <treatments-record-selector class="col p-0"></treatments-record-selector>
+  <div id="a0a6d674-d467-449e-9953-5cacee110de2" class="col text-right">
+    <div id="1184c109-dd97-40b7-9366-b1af7bc0a9e3" class="row justify-content-end">
+      <mica-inline-spinner *ngIf="submitting" class="d-flex align-items-center mr-3"></mica-inline-spinner>
+      <button type="button" class="btn btn-danger btn-md" *ngIf="postAction | async"
+              (click)="onCancel()" [disabled]="submitting">Close
+      </button>
+      <div id="d0d234c8-c4fb-4e99-8cda-89b5a8e4d609" class="text-danger font-weight-bold"
+           *ngIf="showValidation$ | async">Please fix errors
+      </div>
+    </div>
+  </div>
+</div>
+<div class="row  justify-content-center">
+  <div class="col text-center">
+    <div class="row justify-content-center align-items-center">
+      <h2>{{(activeRecordCode$ | async | titleCase) || 'SEARCH FOR AN ILLNESS OR SYMPTOM'}}</h2>
+      <button type="button" *ngIf="(activeRecordCode$ | async)" class="btn btn-primary btn-copy ml-2"
+              (click)="copyActive = true" [disabled]="copyActive">
+        <span class="material-icons mi-18">content_copy</span>
+      </button>
+    </div>
+  </div>
+</div>
+<div class="row" *ngIf="(activeRecordCode$ | async)">
+  <div class="col-12 mt-3">
+    <div class="btn btn-primary m-2 button-bar-button" *ngFor="let a of drugTableTemplates$ | async | sortBy:'asc':'typeID'" (click)="setActive(a)"
+         [ngClass]="{'btn-outline-primary': activeTabName === a.name, 'btn-primary': activeTabName !== a.name }">{{a.name}}</div>
+    <div class="btn btn-primary m-2 button-bar-button" *ngFor="let b of nonDrugTableTemplates$ | async | sortBy:'asc':'name'" (click)="setActive(b)"
+         [ngClass]="{'btn-outline-primary': activeTabName === b.name, 'btn-primary': activeTabName !== b.name }">{{b.name}}</div>
+  </div>
+</div>
+<div *ngIf="(activeRecordCode$ | async) && activeTabName">
+  <mica-drug-treatment *ngIf="isDrugTab" [template]="activeTreatmentTemplate"
+                       [groups]="getGroupsForTemplate(activeTabName) | async"
+                       (treatmentChange)="onTreatmentChange($event)">
+  </mica-drug-treatment>
+  <mica-non-drug-treatment *ngIf="!isDrugTab" [template]="activeTreatmentTemplate"
+                           [groups]="getGroupsForTemplate(activeTabName) | async"
+                           (treatmentsChange)="onTreatmentChange($event)">
+  </mica-non-drug-treatment>
+</div>

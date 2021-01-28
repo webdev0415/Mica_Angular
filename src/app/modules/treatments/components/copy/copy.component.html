@@ -1,0 +1,18 @@
+<div id="a60a6563-56e8-4d4b-b786-0f726b80cfef" class="bg-faded rounded p-4">  
+  <div id="3ef2189e-cac1-4e3b-99bc-5e8dc3d1436d"  class="row justify-content-center align-items-center mt-3">
+    <div id="5293e231-c1e4-43b5-ab49-30292ec6141c" *ngIf="searchRecord; else infoText" class="col-12 col-md-10 alert alert-success">
+      <span>You're about to merge {{searchRecord.icd10Code || searchRecord.symptomID}} into {{newRecordName | async}}</span>
+      <button type="button" class="btn btn-danger btn-sm ml-2" (click)="close.emit(true)">cancel</button>
+      <button type="button" class="btn btn-primary btn-sm ml-2" (click)="onConfirmMerge()">confirm</button>
+    </div>
+    <ng-template #infoText>
+      <div id="adcb2c9c-b8e0-4efa-851a-8b1017dd0bbc" class="col-12 col-md-10 alert alert-info">
+        Search for a symptom or illness to copy into {{newRecordName | async}}
+        <button type="button" class="btn btn-danger btn-sm ml-2" (click)="close.emit(true)">cancel</button>
+      </div>
+    </ng-template>
+  </div>
+  <div id="e426d983-164e-4b19-bb2c-343b3f776810" class="row justify-content-center align-items-center">
+    <mica-treatment-search class="col-12 col-md-10 col-lg-8" (record)="onRecordChange($event)"></mica-treatment-search>  
+  </div>
+</div>

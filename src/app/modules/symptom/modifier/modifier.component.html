@@ -1,0 +1,20 @@
+<ng-container *ngFor="let ctrl of modifierCtrlArray.controls; let i = index; let first = first; let last = last;">
+  <mica-modifier-row
+    [modifierIndex]="i"
+    class="col-12" [class.mt-2]="!first"
+    [symptomData]="symptomData"
+    [dataStoreRefTypes]="dataStoreRefTypes"
+    [modifierCtrl]="ctrl"
+    [modifierNames]="modifierNames"
+    [allModifierNames]="allModifierNameValues"
+    [removable]="!first"
+    [moreRowsAllowed]="areMoreRowsAllowed(i)"
+    [alwaysControlIsVisible]="alwaysControlIsVisible"
+    [selectedTimeRanges]="selectedTimeRanges"
+    [validTimeRanges]="validTimeRanges"
+    [readOnly]="readOnly"
+    (addRow)="onAddRow(i)"
+    (removeRow)="onRemoveRow(i)"
+    (error)="onModifierError($event, i)">
+  </mica-modifier-row>
+</ng-container>

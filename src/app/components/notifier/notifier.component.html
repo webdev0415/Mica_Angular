@@ -1,0 +1,10 @@
+<div id="c72b7ca3-6c3d-4b8b-a882-0bb82ef50b3c" class="message-container">
+  <div id="68a0cce7-1d06-4caf-860c-fea6cd499146" *ngFor="let m of (publisher | async); trackBy: trackByFunc;" [@messageInOut]="'in'" class="row no-gutters align-items-center justify-content-between rounded msg-box"
+   [ngClass]="getAlertClass(m.options)">
+    <div id="7bda24b7-9159-42d0-808e-983ed11b0cd4" class="col">{{m.text}}</div>
+    <button *ngIf="m.options.undo" class="btn ml-3" [ngClass]="getBtnClass(m.options)" (click)="onUndo(m)">UNDO</button>
+    <button type="button" class="ml-4 close" data-dismiss="alert" aria-label="Close" (click)="delMessage(m.id)">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+</div>

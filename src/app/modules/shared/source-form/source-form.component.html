@@ -1,0 +1,128 @@
+<ng-container *ngIf="allowNewView; then newView else oldView"></ng-container>
+
+<ng-template #oldView>
+  <div *ngIf="!readOnly" id="48814f81-fe1d-4f9d-a111-ad60547edb19" class="row no-gutters symptom-row mt-4 mb-2 align-items-end">
+    <div id="6f4e5487-2c13-4ed4-97e8-b6aa64c256a2" class="mr-2 col-7 d-flex flex-column">
+      <label>Source URL:</label>
+      <input type="text" class="form-control" [formControl]="sourceCtrl" placeholder="Start typing..." [maxLength]="210"/>
+      <div *ngIf="suggestions?.length" class="dropdown autocomplete" (micaClickOutside)="hideAutoCompete()">
+        <button *ngFor="let info of suggestions" id="history-selector" class="dropdown-item"
+                (click)="onSelectSource(info)">
+          {{info.source}}
+        </button>
+      </div>
+    </div>
+    <div id="21e6e156-dff4-435e-89f4-0251220d5a79" class="d-flex flex-column mr-2">
+      <label>Hyperlink text:</label>
+      <input type="text" class="form-control" [formControl]="sourceTypeCtrl" [maxLength]="50"/>
+    </div>
+
+    <button class="btn btn-sm btn-primary" [disabled]="!sourceCtrl.value || sourceCtrl.invalid || sourceTypeCtrl.invalid || isSavingData"
+            (click)="onAddSourceClick()">
+      Add
+    </button>
+  </div>
+  <span class="alert-msg">{{sourceCtrl.errors?.minlength ? 'Min length - 3' : ''}}</span>
+
+  <table *ngIf="sourcesInfoTypes?.length" class="table table-sm table-striped table-fixed">
+    <thead>
+    <tr>
+      <th></th>
+      <th>Source URL</th>
+      <th>Hyperlink text</th>
+      <th>Added by</th>
+      <th>Verified</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let source of sourcesInfoTypes; let index=index;" [ngClass]="{'odd': index%2}">
+      <td>
+        <button class="mat-icon-button border-0 remove-source-btn" (click)="removeSource(index)">
+          <i class="material-icons" title="Click to delete Source">delete_forever</i>
+        </button>
+      </td>
+      <td class="source" *ngIf="getSourceData(source.sourceID)?.source !== 'PREVIOUS-NLP-MAPPING-UPDATE-SOURCES'"><a href="{{getSourceData(source.sourceID)?.source}}" target="_blank">{{getSourceData(source.sourceID)?.source}}</a></td>
+      <td class="source" *ngIf="getSourceData(source.sourceID)?.source === 'PREVIOUS-NLP-MAPPING-UPDATE-SOURCES'">{{getSourceData(source.sourceID)?.source}}</td>
+
+      <td>{{getSourceData(source.sourceID)?.sourceType}}</td>
+      <td>{{source.addedBy}}</td>
+      <td class="text-center">
+        <ng-container *ngIf="source.addedBy === 'NLP'; else disabledCheckbox;">
+          <input
+            *ngIf="getVerifiedCtrl(index).dirty || !source.verified; else disabledCheckbox;"
+            type="checkbox"
+            [formControl]="getVerifiedCtrl(index)"
+          />
+        </ng-container>
+        <ng-template #disabledCheckbox>
+          <input type="checkbox" [disabled]="true" [checked]="true"/>
+        </ng-template>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</ng-template>
+
+<ng-template #newView>
+  <div *ngIf="!readOnly" class="source-form-container">
+    <mat-form-field>
+      <mat-label>Source URL:</mat-label>
+      <input type="text" matInput [formControl]="sourceAutoCtrl" placeholder="Start typing..." [maxLength]="210" [matAutocomplete]="auto"/>
+      <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayWithFn">
+        <mat-option *ngFor=" let suggestion of suggestions" [value]="suggestion">
+          {{suggestion.source}}
+        </mat-option>
+      </mat-autocomplete>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Hyperlink text:</mat-label>
+      <input type="text" matInput [formControl]="sourceTypeCtrl" [maxLength]="50"/>
+    </mat-form-field>
+
+    <button mat-flat-button color="primary" [disabled]="!sourceCtrl.value || sourceCtrl.invalid || sourceTypeCtrl.invalid || isSavingData"
+            (click)="onAddSourceClick()">
+      Add
+    </button>
+  </div>
+  <span class="alert-msg">{{sourceCtrl.errors?.minlength ? 'Min length - 3' : ''}}</span>
+
+  <table *ngIf="sourcesInfoTypes?.length" class="table table-sm table-striped table-fixed">
+    <thead>
+      <tr>
+        <th></th>
+        <th>Source URL</th>
+        <th>Hyperlink text</th>
+        <th>Added by</th>
+        <th>Verified</th>
+      </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let source of sourcesInfoTypes; let index=index;" [ngClass]="{'odd': index%2}">
+      <td>
+        <button class="mat-icon-button border-0 remove-source-btn" (click)="removeSource(index)">
+          <i class="material-icons" title="Click to delete Source">delete_forever</i>
+        </button>
+      </td>
+      <td class="source" *ngIf="getSourceData(source.sourceID)?.source !== 'PREVIOUS-NLP-MAPPING-UPDATE-SOURCES'"><a href="{{getSourceData(source.sourceID)?.source}}" target="_blank">{{getSourceData(source.sourceID)?.source}}</a></td>
+      <td class="source" *ngIf="getSourceData(source.sourceID)?.source === 'PREVIOUS-NLP-MAPPING-UPDATE-SOURCES'">{{getSourceData(source.sourceID)?.source}}</td>
+
+      <td>{{getSourceData(source.sourceID)?.sourceType}}</td>
+      <td>{{source.addedBy}}</td>
+      <td class="text-center">
+        <ng-container *ngIf="source.addedBy === 'NLP'; else disabledCheckbox;">
+          <input
+            *ngIf="getVerifiedCtrl(index).dirty || !source.verified; else disabledCheckbox;"
+            type="checkbox"
+            [formControl]="getVerifiedCtrl(index)"
+          />
+        </ng-container>
+        <ng-template #disabledCheckbox>
+          <input type="checkbox" [disabled]="true" [checked]="true"/>
+        </ng-template>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+
+</ng-template>

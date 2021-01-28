@@ -1,0 +1,10 @@
+/// <reference path='./illness.d.ts'/>
+/// <reference path='./MICA.d.ts'/>
+/// <reference path='./state.d.ts'/>
+/// <reference path='./symptom.d.ts'/>
+/// <reference path='./task.d.ts'/>
+/// <reference path='./workbench.d.ts'/>
+/// <reference path='./ecw.d.ts'/>
+/// <reference path='./source.d.ts'/>
+/// <reference path='./laborders.d.ts'/>
+/// <reference path='../app/modules/treatments/models/index.ts'/>

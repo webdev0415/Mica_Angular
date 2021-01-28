@@ -1,0 +1,50 @@
+@import "../../../../styles/bootstrap/variables"
+@import "../symptom.variables"
+
+\:host
+  display: flex
+
+.likelihood
+  width: 100%
+  .range-selector
+    display: flex
+    height: $symptom-row-height
+    width: 100%
+  label
+    flex: 1
+    height: 100%
+    margin-bottom: 0
+    min-width: 4rem
+    &.active
+      background: $btn-success-bg
+      border-color: $btn-success-border
+    &.likelihood-label,
+    &.likelihood-value
+      border: 0
+      height: 100%
+      padding: 0
+      .badge
+        align-items: center
+        display: flex
+        height: 100%
+        justify-content: center
+        margin-top: 1px
+        width: 100%
+    &.likelihood-label
+      margin-right: -3px
+      padding-right: 2px
+      text-transform: initial
+    &.likelihood-value
+      margin-left: -3px
+
+.title
+  margin-bottom: 0
+  text-align: center
+
+.last-button
+  border-bottom-right-radius: 4px !important
+  border-top-right-radius: 4px !important
+
+.likelihood-label, .likelihood-value
+  &:hover
+    z-index: 0

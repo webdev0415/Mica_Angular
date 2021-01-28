@@ -1,0 +1,67 @@
+{
+  "userData": [
+     {
+      "userID": 104,
+      "criticality": 352,
+      "idIcd10Code": "H35.722",
+      "symptomGroups": [
+        {
+          "groupID": "general",
+          "categories": [
+            {
+              "categoryID": "SYMPTCG01",
+              "symptoms": [
+                {
+                  "symptomID": "SYMPT0000008",
+                  "rows": [
+                    {
+                      "bias": true,
+                      "modifierValues": [
+                        {
+                          "name": "Age",
+                          "likelihood": 20,
+                          "scale": {
+                            "upperTimeLimit": 30,
+                            "scaleTimeLimitStart": 0,
+                            "value": 8,
+                            "slope": "Flat",
+                            "timeUnit": "Hours"
+                          }
+                        }
+                      ]
+                    },
+                     {
+                      "bias": true,
+                      "modifierValues": [
+                        {
+                          "name": "Time",
+                          "likelihood": 20,
+                          "scale": {
+                            "upperTimeLimit": 30,
+                            "scaleTimeLimitStart": 0,
+                            "value": 8,
+                            "slope": "Flat",
+                            "timeUnit": "Hours"
+                          }
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "categoryID": "SYMPTCG02"
+            },
+            {
+              "categoryID": "SYMPTCG03"
+            },
+            {
+              "categoryID": "SYMPTCG04"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

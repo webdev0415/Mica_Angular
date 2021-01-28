@@ -1,0 +1,37 @@
+<span *ngIf="!isReviewer || (thereAreIllnessesToCopy(illness.idIcd10Code) | async)" [ngClass]="{'edit': edit}">
+  <button *ngIf="!edit; else typeahead" type="button" (click)="edit = true"
+    class="btn btn-sm btn-icon-inline">
+    <i class="material-icons">content_copy</i>
+    Copy Data
+  </button>
+</span>
+<ng-template #typeahead>
+  <mica-typeahead [items]="illnessesToCopy(illness.idIcd10Code) | async" class="typeahead" [dropdownAlignment]="'right'"
+    [placeholder]="'Search Code(Min 3chars)'" [templateRef]="results"
+    [icd10CodeSearch]="true"
+    [liveSearchType]="'remoteIllnessValue'" [typeAheadMin]="3" [sortByKey]="'value.idIcd10Code'"
+    (close)="edit = false"></mica-typeahead>
+</ng-template>
+<ng-template #noItemsFound>
+  <button class="dropdown-item" type="button" disabled>Your search didn't return any results.</button>
+</ng-template>
+<ng-template #results let-items="items" let-emitter="emitter">
+  <div id="877efdb9-c15b-40f8-b38c-88f6ccd6fcbe" class="scroll-container">
+    <h6 class="dropdown-header">SAVED LOCALLY</h6>
+    <div id="693d1e12-9d4c-4f46-962e-bf10678ce7c2" *ngIf="filterCopyItems(items, 'static').length; else noItemsFound" class="dropdown-items-container">
+      <button class="dropdown-item" type="button" *ngFor="let item of filterCopyItems(items, 'static'); trackBy: trackByFn"
+              (click)="onCopySelect(emitter, item)">
+        {{item.value.idIcd10Code}}: {{item.value.name}}
+      </button>
+    </div>
+    <div id="12557c2b-905b-43d6-bd7e-8eaaabc013db" class="dropdown-divider"></div>
+    <h6 class="dropdown-header">SAVED REMOTELY</h6>
+    <div id="f4c66262-baa8-4566-9440-23aaa49790c9" *ngIf="filterCopyItems(items, 'remoteIllnessValue').length; else noItemsFound" class="dropdown-items-container">
+      <button class="dropdown-item align-middle" type="button" *ngFor="let item of filterCopyItems(items, 'remoteIllnessValue'); trackBy: trackByFn"
+              (click)="onCopySelect(emitter, item)">
+        {{item.value.idIcd10Code}} <span class="badge badge-default ml-1 mr-1">v{{item.value.version}}</span> -
+        {{item.value.name}}
+      </button>
+    </div>
+  </div>
+</ng-template>

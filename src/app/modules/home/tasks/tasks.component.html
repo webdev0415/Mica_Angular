@@ -1,0 +1,39 @@
+<h2 class="text-center mb-4">{{title}}
+  <span *ngIf="queue_tasks > 0" class="tasksList">({{queue_tasks}} tasks in queue)</span>
+  <!-- <span *ngIf="queue_tasks === 0 && num_illness !== 0" class="tasksList">({{num_illness}} illnesses in queue)</span> -->
+</h2>
+<div id="01475c50-91df-4b8c-8b6f-c705ae4383b0" *ngIf="!tasks || tasks.length === 0" class="bg-info text-white empty-box rounded">
+  <i class="material-icons">done</i>You have no {{title}}
+</div>
+<div id="cc4d4f6c-3fa7-4e2e-a451-ac74102b2e2b" *ngIf="tasks && tasks.length > 0" role="tablist" aria-multiselectable="true"
+    class="tasks-container" [class.disabled]="disabledAccordion">
+  <div id="11538d93-55ca-4c37-9936-6d7ad331cbad" *ngFor="let task of tasks; let i = index; trackBy: trackByFn" class="card task" [class.disabled]="disabledAccordion">
+    <div id="769617a9-e286-4c71-a5db-00527f77abb5" class="card-header" role="tab">
+      <div id="777d258e-ab2b-46a7-b227-a2727b753d6a" class="title d-inline-block">
+        <h5 class="mb-0">
+          <a href="" *ngIf="!disabledAccordion" (click)="expand(task.taskId, $event)"
+            aria-expanded="true" [attr.aria-controls]="task.taskId">
+            {{task.taskId > -1 ? 'TASK ' + task.taskId : 'EDITS'}}
+          </a>
+          <span *ngIf="disabledAccordion">{{task.taskId > -1 ? 'TASK ' + task.taskId : 'EDITS'}}</span>
+        </h5>
+      </div>
+      <div id="bc102762-3939-4b53-873d-90429c96d76a" *ngIf="task.dateComplete" class="ml-2 d-inline-block">
+        <div id="c8ecf178-42e8-479a-a794-7fa5b83c1bb0" class="badge badge-pill badge-success badge-complete">
+          <span class="material-icons">done_all</span>
+          {{task.dateComplete | date}}
+        </div>
+      </div>
+    </div>
+
+    <div id="31267196-8519-48e9-ace9-f83881538874" *ngIf="!disabledAccordion && isPanelActive(task.taskId)"
+      [@slideInOut]="isPanelActive(task.taskId)"
+      class="collapse show" role="tabpanel" aria-labelledby="headingOne">
+      <div class="card-block" id="task-{{task.taskId}}">
+        <mica-task-includes *ngIf="syncedIllnesses" [task]="task" [syncedIllnesses]="syncedIllnesses" [removeEnabled]="removeEnabled"
+          (skipIllness)="onSkipIllness($event)"
+          (reviewerIllnessMissing)="onReviewerIllnessMissing($event, task)"></mica-task-includes>
+      </div>
+    </div>
+  </div>
+</div>

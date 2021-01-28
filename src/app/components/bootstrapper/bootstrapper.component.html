@@ -1,0 +1,41 @@
+<div id="287a953b-46ea-4b0f-b531-26d5657e7ef9" class="container">
+  <div id="7de260ef-0310-4110-a7ce-fb360af0e958" class="row justify-content-between align-items-center">
+    <div id="6fd66703-3668-42ba-a63e-b8961508850f" class="sm-col-12 md-col-4">
+      <h1>MICA</h1>
+    </div>
+    <div id="f7d8d39e-b358-4055-b9ec-bfa87ee06ff1" class="sm-col-12 md-col-4">
+      <p class="subtitle">Initialising the application</p>
+    </div>
+  </div>
+  <div id="64a5e73a-7d2b-4f71-95df-040ca6b96337" class="row">
+    <section *ngIf="!bootstrapError" class="col-12 alert alert-info">
+      <h2 class="text-center">Your Progress</h2>
+      <div id="499a668b-f973-4330-833a-fcf4daba2459" class="progress">
+        <div id="76a20f45-2715-40bb-b3b0-8fcee55d9b36" class="progress-bar progress-bar-striped progress-bar-animated bg-success" role="progressbar"
+          aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" [ngStyle]="{width: (progress|async).progress + '%'}"></div>
+      </div>
+      <ul class="messages list-group p-4">
+        <li class="list-group-item" [ngClass]="actionCSSClass(steps.identity, (progress | async))">
+          <span class="material-icons mr-2">{{actionLabel(steps.identity, (progress | async))}}</span>
+          Analysing your local data.
+        </li>
+        <li class="list-group-item" [ngClass]="actionCSSClass(steps.stateVersion, (progress | async))">
+          <span class="material-icons mr-2">{{actionLabel(steps.stateVersion, (progress | async))}}</span>
+          Checking for application upgrades.
+        </li>
+        <li class="list-group-item" [ngClass]="actionCSSClass(steps.sg, (progress | async))">
+          <span class="material-icons mr-2">{{actionLabel(steps.sg, (progress | async))}}</span>
+          Loaded {{(progress | async).symptomGroupsLoaded}} symptom group<span *ngIf="(progress | async).symptomGroupsLoaded > 0">s</span>
+        </li>
+        <li class="list-group-item" [ngClass]="actionCSSClass(steps.sync, (progress | async))">
+          <span class="material-icons mr-2">{{actionLabel(steps.sync, (progress | async))}}</span>
+          Syncing your saved data
+        </li>
+      </ul>
+    </section>
+    <mica-error-box *ngIf="bootstrapError" [message]="bootstrapError" class="d-block w-100">
+        <p><strong>Sorry, something went wrong when trying to bootstrap.</strong></p>
+        <p>Please report this error by clicking below.</p>
+    </mica-error-box>
+  </div>
+</div>

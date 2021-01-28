@@ -1,0 +1,7 @@
+<p class="name">Bias</p>
+<button (click)="toggleValue()"
+        type="button" class="btn btn-xs bias"
+        [ngClass]="{ 'btn-success': ctrl.value, 'btn-danger': !ctrl.value, 'disabled': readOnly}">
+  <i *ngIf="ctrl.value" class="material-icons mi-12">add</i>
+  <i *ngIf="ctrl.value === false" class="material-icons mi-12">remove</i>
+</button>

@@ -1,0 +1,18 @@
+<div id="ea942d06-e20b-4358-9042-36169fecd036" *ngIf="active | async" class="pl-4 pr-4 pb-2">
+  <div id="7f013878-74ee-45e8-8b66-189f5a91db69" class="text-center mb-3">
+    <span class="badge badge-success current-value">{{valueText | uppercase}}</span>
+  </div>
+    <div id="750f343b-cc1c-466e-b821-6a655f747678" class="descriptor-container">
+      <button type="button" class="close" aria-label="Close" (click)="onCloseDescriptor()">
+        <span aria-hidden="true">&times;</span>
+      </button>
+      <mica-body-selector *ngIf="hasBodySelector" [bodyViewsNames]="['exterior']"
+        [svgShapes]="svgShapes"
+        [defaultZone]="bodyPart"
+        [defaultBodyPart]="bodyPart"
+        [defaultViewName]="'general'"
+        [selectionBehaviour]="'pick'"
+        (bodyPartChange)="onBodyPartSelect($event)"></mica-body-selector>
+      <img *ngIf="!hasBodySelector" [src]="descriptorBackground" alt="Descriptor">
+    </div>
+</div>

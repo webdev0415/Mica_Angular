@@ -1,0 +1,13 @@
+<div id="2f3545e8-e549-4a23-a6be-5c4807ea6442" class="container">
+  <div id="a0f289f7-35e6-4547-af09-b04f3cf264c1" class="row" *ngIf="dataCorruptMsg | async; else inspectorContent">
+    <reviewer-data-validation class="col"></reviewer-data-validation>
+  </div>
+</div>
+<ng-template #inspectorContent>
+  <div id="f19e897b-c86a-4512-9098-69defa2ec7a0" class="row justify-content-center mt-4">
+    <review-illness-search></review-illness-search>
+  </div>
+  <div id="3ec3dd42-10cb-4633-95f8-04392581317f" class="row mt-4" *ngIf="readOnlyIllness | async">
+    <review-symptom-groups class="col" [readOnly]="true"></review-symptom-groups>
+  </div>
+</ng-template>  

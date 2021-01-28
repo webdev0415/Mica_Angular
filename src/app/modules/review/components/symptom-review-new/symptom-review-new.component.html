@@ -1,0 +1,40 @@
+<ng-container *ngFor="let g of groupedSymptoms; trackBy: trackByGroupName">
+  <h4 *ngIf="g.name !== 'root'" class="text-center bg-parts text-white pt-2 pb-2 m-0">{{g.name}}</h4>
+  <table summary="Symptoms within category" class="table table-sm symptoms-table">
+    <tbody>
+      <tr *ngFor="let s of g.symptoms; trackBy: trackBySymptomId; let si = index;">
+          <!-- Machine Learning Required Symptom -->
+        <th id="{{s.symptomID}}" *ngIf="s.isMissing; else symptomView" colspan="10" class="symptom-title"
+          [class.collector]="!isReviewer" scope="colgroup" [ngClass]="{ 'missing' : s.isMissing }">
+          <div id="a7cc2cce-008c-4619-8ba0-1428f23a9" class="row no-gutters align-items-center">
+            <div id="337a45aa-0138-4721-a6c4-df9a0e495c11" class="row no-gutters align-items-center mt-1 mb-2">
+              <span>Machine Learning Required Symptom - Please ADD</span>
+            </div>
+              <mica-symptom
+                [symptomID]="s.symptomID"
+                [readOnly]="readOnly"
+                [bodyParts]="getBodypart(s.symptomID)"
+                [nlpSymptom]="symptomGroupID === 'nlp'"
+              ></mica-symptom>
+          </div>
+        </th>
+        <!-- General Symptoms -->
+        <ng-template #symptomView>
+          <td  colspan="10">
+            <div id="a7cc2cce-008c-4619-8ba0-1428f23a9c97" class="row no-gutters align-items-center" [ngClass]="{'pt-2' : si === 0}">
+              <mica-symptom
+                [symptomID]="s.symptomID"
+                [readOnly]="readOnly"
+                [nlpSymptom]="symptomGroupID === 'nlp'"
+                [bodyPartsAll]="getBodypart(s.symptomID)"
+              ></mica-symptom>
+            </div>
+          </td>
+        </ng-template>
+      </tr>
+    </tbody>
+  </table>
+</ng-container>
+
+
+

@@ -1,0 +1,35 @@
+<div id="5424dab5-9ddb-4861-a5d3-4e363b70d6f3" class="row physical-editor">
+  <div id="70f1d9bf-e001-4222-89c3-2a1aa728e9b4" class="col col-sm-auto body-selector">
+    <mica-body-selector
+      [svgShapes]="svgShapes"
+      (bodyPartChange)="onBodyPartSelect($event)"
+      [selectedBodyParts]="bodyPartsSelected"
+      [defaultZone]="defaultBodyPart"
+    >
+    </mica-body-selector>
+    <h5 class="text-center mt-2">
+      <strong>
+        <span *ngIf="!bodyPartActiveData?.name && !noBodyPartMatch">NO BODY PART SELECTED</span>
+        <span *ngIf="!bodyPartActiveData && !!noBodyPartMatch">NO SYMPTOMS FOUND FOR {{noBodyPartMatch | uppercase}}</span>
+        <span *ngIf="!!bodyPartActiveData?.name && !noBodyPartMatch">{{bodyPartActiveData.name | uppercase}}</span>
+      </strong>
+    </h5>
+  </div>
+  <div id="d0ddffdd-7340-425a-9ec3-14862e705d72" class="col body-symptoms">
+    <div id="8f42a703-dd8d-4924-bac2-0ef494bec941" *ngIf="!bodyPartActiveData || (!bodyPartActiveData.name || !!noBodyPartMatch)" [@fadeIn]="categoryState" class="alert alert-info text-center w-100">
+      <i class="material-icons mi-48 d-block">accessibility</i>
+      <span *ngIf="!noBodyPartMatch">Select an area in the image to start editing symptoms.</span>
+      <span *ngIf="!!noBodyPartMatch">No symptoms found for {{noBodyPartMatch}}</span>
+    </div>
+    <section *ngIf="bodyPartActiveData">
+      <div id="de5450cc-b906-46cc-8f5a-f99cf93e8927" [@fadeIn]="categoryState">
+        <workbench-body-part-selector
+          *ngIf="hasMultiPartSelection"
+          [(ngModel)]="bodyPartsSelected"
+          [bodyPartsAll]="bodyPartsAll">
+        </workbench-body-part-selector>
+        <workbench-symptoms-list [bodyView]="activeView" [bodyParts]="bodyPartsSelected" [bodyPartsAll]="bodyPartsAll"></workbench-symptoms-list>
+      </div>
+    </section>
+  </div>
+</div>

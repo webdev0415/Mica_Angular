@@ -1,0 +1,13 @@
+<div id="1489b254-3ffb-4576-9f39-43b1d2731f3e" class="input-container">
+  <div id="1de3a16c-f065-4cf5-a126-e93969a2ddf6" class="input-group" [ngClass]="{'has-success': ctrl.valid && !ctrl.pristine,
+                                      'has-danger': ctrl.invalid}">
+    <input #inputEl type="text" class="form-control" [formControl]="ctrl" placeholder="{{title}}"
+      (keydown.enter)="close.emit(true)">
+    <button type="button" class="close" aria-label="Close" (click)="writeValue('')">
+      <span class="material-icons">delete</span>
+    </button>
+  </div>
+  <button type="button" class="btn btn-primary btn-sm btn-confirm" (click)="close.emit(true)">
+    <span class="material-icons">check</span>
+  </button>
+</div>

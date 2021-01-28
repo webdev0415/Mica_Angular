@@ -1,0 +1,13 @@
+<div id="45b39831-1bbe-45bc-9d6f-e396cbabc62e" class="value" 
+*ngIf="value; else noValueBadge" placement="top">{{value}}</div>
+
+<ng-template #noValueBadge>
+  <div id="b3519831-1bbe-45bc-9d6f-e396cbabc62e" class="d-flex">
+    <div id="978f3f8e-162d-4d74-84e6-26e49c55f581" class="badge badge-default" [class.readOnly]="controlDisabled" [class.badge-danger]="required">
+    <span *ngIf="controlDisabled; else editIcon" class="material-icons mr-2">not_interested</span>
+    <ng-template #editIcon>
+      <span class="material-icons mr-2">edit</span>
+    </ng-template>
+      {{label}}</div>
+  </div>
+</ng-template>

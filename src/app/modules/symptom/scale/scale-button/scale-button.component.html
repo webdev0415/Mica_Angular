@@ -1,0 +1,8 @@
+<button class="btn btn-sm"
+        type="radio" autocomplete="off"
+        title="{{tooltip | titleCase}}"
+        [disabled]="isDisabled || !isAvailable"
+        (click)="onClick()"
+        [ngClass]="btnClass">
+  {{transformRangeName(range?.name)}}
+</button>

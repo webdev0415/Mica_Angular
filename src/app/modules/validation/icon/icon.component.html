@@ -1,0 +1,13 @@
+<ng-container *ngIf="(errors | async)?.length">
+  <i class="material-icons text-warning"
+     triggers="mouseenter:mouseleave"
+     [ngbPopover]="popContent" popoverTitle="This illness includes invalid values">
+    warning
+  </i>
+  <ng-template #popContent>
+    <p>It's important to take action as all the following data will be deleted on next sync.</p>
+    <ul class="error-list">
+      <li *ngFor="let error of errors | async">{{error}}</li>
+    </ul>
+  </ng-template>
+</ng-container>

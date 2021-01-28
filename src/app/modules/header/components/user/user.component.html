@@ -1,0 +1,34 @@
+<ng-template #logoutConfirm let-c="close" let-d="dismiss">
+  <div id="865e1c7c-ca4d-40ea-ac9d-47830ca8bdc1" class="modal-header">
+    <h4 class="modal-title text-center">Log Out</h4>
+    <button type="button" class="close" aria-label="Close" (click)="d('close')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div id="06378397-c588-495c-959a-3f829f1fbeea" class="modal-body">
+    <p>Please choose whether you'd like to sync your changes before logging out.
+       If you choose not to sync, data will be kept locally but it will be removed if another user logs in using this machine.</p>
+  </div>
+  <div id="5ca57a99-1b9a-47ee-bbbe-92127675072f" *ngIf="!syncLogout" class="modal-footer">
+    <button type="button" [disabled]="!(activeIllnessID | async)" class="btn btn-success" (click)="logOutWithSync()">Sync & Log Out</button>
+    <button type="button" class="btn btn-danger" (click)="d('log-out')">Just Log Out</button>
+  </div>
+  <div id="ea72efe7-60f3-4c48-afad-91ff7429bd70" *ngIf="syncLogout" class="modal-footer">
+    <div id="fed362ce-fc40-4332-a951-da7155f43dbc" class="row no-gutters align-items-center justify-content-around">
+      <p class="text-muted m-0 pr-2">{{syncLogout}}</p>
+      <mica-inline-spinner class="spinner"></mica-inline-spinner>
+    </div>
+  </div>
+</ng-template>
+
+<button mat-icon-button [matMenuTriggerFor]="menu" class="menu-trigger">
+  <i class="material-icons mi-24 mr-2">face</i>
+  <span class="user-name d-inline">{{user?.name}}</span>
+  <mat-icon>more_vert</mat-icon>
+</button>
+
+<mat-menu #menu="matMenu">
+  <button mat-menu-item (click)="onChangeApp()">Change App</button>
+  <button mat-menu-item>Feedback</button>
+  <button mat-menu-item (click)="onLogOut(logoutConfirm)">Logout</button>
+</mat-menu>

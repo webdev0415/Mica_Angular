@@ -1,0 +1,35 @@
+[
+  {
+    "symptomID": "SYMPT0000223",
+    "Definition": "Definition",
+    "displayDrApp": true,
+    "criticality": 6,
+    "treatable": true,
+    "question": "Are you having coughing spasms?",
+    "antithesis": 0.01,
+    "additionalInfo": [
+      {
+        "optionCode": null,
+        "optionDescription": null,
+        "snomedCodes": null,
+        "icd10RCodes": null
+      },{
+        "optionCode": "code",
+        "optionDescription": "description",
+        "snomedCodes": [{
+          "snomedCodes": [],
+          "snomedName": "name"
+        }],
+        "icd10RCodes": [] 
+      },{
+        "optionCode": "code2",
+        "optionDescription": "description2",
+        "snomedCodes": [{
+          "snomedCodes": [106403001],
+          "snomedName": "name"
+        }],
+        "icd10RCodes": ["code"] 
+      }
+    ]
+  }
+]

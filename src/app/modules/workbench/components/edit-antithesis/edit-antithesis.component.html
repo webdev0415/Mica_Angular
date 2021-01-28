@@ -1,0 +1,13 @@
+<div id="a405d05a-c0c0-4de3-8720-1971701104db" class="input-container">
+  <div id="688c10cc-0292-46c5-a489-611001d5e8d1" class="input-group number" [ngClass]="{'has-success': value.valid && !value.pristine,
+                                              'has-danger': value.invalid && !value.pristine}">
+    <input type="number" [min]="minMaxRange[0]" [max]="minMaxRange[1]" step='0.01' [formControl]="value"
+      class="form-control" (keydown.enter)="close.emit(true)">
+    <button type="button" class="close" aria-label="Close" (click)="close.emit(true)">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <button [disabled]="!value.valid" type="button" class="btn btn-primary btn-sm btn-confirm" (click)="close.emit(true)">
+    <span class="material-icons">check</span>
+  </button>
+</div>

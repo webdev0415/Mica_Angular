@@ -1,0 +1,55 @@
+<section class="mt-4 mb-2 section-container">
+    <h3 class="text-center">Creating {{symptomGroup | async}} Symptom</h3>
+    <div id="88611e9f-7df1-4070-b963-53fb62dafeb6" class="row-mt-5 snomedSearch">
+      <p>Please Enter a minimum of 3 characters</p>
+      <input type="text" placeholder="Search for a SnoMed Symptom" [formControl]="searchCtrl" [class.form-control-danger]="searchFailed"
+             class="form-control form-control-lg search" (keypress)="filterSymptoms($event)">
+      <button class="btn btn-primary new-symp"><a routerLinkActive="active" routerLink="/workbench/edit-symptom/new-symptom">Add SnoMed Symptom</a></button>
+    </div>
+  <!--<div id="25d9d184-2605-4a97-9a80-c3cd947bbbea" class="row-mt-5">-->
+    <!--<input  ng2-auto-complete-->
+            <!--[formControl]="continent"-->
+            <!--[source]="continents"-->
+            <!--[list-formatter]="autocompleListFormatter"-->
+            <!--value-property-name="id"-->
+            <!--display-property-name="name"-->
+            <!--placeholder="Contients"-->
+            <!--class="form-control">-->
+  <!--</div>-->
+  <div id="b564589d-ebac-4dba-bd22-21f0776caa69" class="row mt-5" *ngIf="snoMedSymptoms.length > 25">
+    <div id="9eb85b52-7971-4a04-8776-b148ca395f5b" class="d-flex justify-content-between w-100">
+      <ngb-pagination [collectionSize]="totalElements" [(page)]="page" [maxSize]="5" [pageSize]="pageSize" [rotate]="true" [boundaryLinks]="true" (pageChange)="changePage($event)"></ngb-pagination>
+      <div id="06f48dcb-f336-4d42-b297-fb2a2c405bd7" ngbDropdown class="d-inline-block ml-2">
+        <button class="btn btn-secondary dropdown-toggle" id="itemsPerPageDropdown" ngbDropdownToggle>
+          {{pageSize}}
+        </button>
+        <div id="bafdaec6-dac3-4aab-b415-4d1c1e1213be" class="dropdown-menu" aria-labelledby="itemsPerPageDropdown">
+          <button type="button" *ngFor="let itemsNumber of pageSizes" id="history-selector" class="dropdown-item" (click)="setPageSize(itemsNumber)">
+            {{itemsNumber}}
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div id="800cf725-f8d8-4a28-bac5-71052273b1ff" class="row mt-4 justify-content-center">
+    <table class="table table-striped col col-md-10 col-lg-8">
+      <thead>
+      <tr>
+        <th>Symptom ID</th>
+        <th>Symptom Name</th>
+      </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let symp of snoMedSymptoms" (click)="editSymptom(symp)">
+            <td>{{symp.symptomId}}</td>
+            <td>{{symp.name}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <!--<div id="9bdbac31-000d-4cda-a23e-7494f8909873" class="row mt-5">-->
+    <!--<ngb-pagination *ngIf="!loadingData && !!illnesses.length" [collectionSize]="totalElements" [(page)]="page" [maxSize]="5" [pageSize]="pageSize" [rotate]="true" [boundaryLinks]="true" (pageChange)="changePage($event)"></ngb-pagination>-->
+  <!--</div>-->
+</section>
+
+<!--<ng-template #spinner><mica-page-spinner></mica-page-spinner></ng-template>-->

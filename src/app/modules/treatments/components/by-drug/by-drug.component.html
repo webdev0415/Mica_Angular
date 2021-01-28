@@ -1,0 +1,11 @@
+<mica-drug-search [drugList]="drugSearchResults$ | async"
+                  [useAutocomplete]="true"
+                  (searchDrugs)="searchDrugs($event)"
+                  (selectDrug)="loadDrugInfo($event)">
+</mica-drug-search>
+
+<h3 class="row justify-content-center text-center w-100 m-0 mt-3">{{((activeDrugInfo$ | async)?.header.drugName | titleCase) || 'SEARCH FOR A DRUG'}}</h3>
+
+<div *ngIf="activeDrugInfo$ | async" class="selected-drug-container mt-3">
+  <mica-drug-restrictions-form [drugInfo]="activeDrugInfo$ | async"></mica-drug-restrictions-form>
+</div>

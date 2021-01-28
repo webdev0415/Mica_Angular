@@ -1,0 +1,32 @@
+<div id="11a8d8c3-3c59-45fc-bd2a-d378f1d56014" class="container">
+  <div id="d2194804-6361-46f3-806a-e23c9105c9ec" *ngIf="activeIllnessValue | async" class="mt-4 mb-2" >
+    <mica-symptom-search></mica-symptom-search>
+  </div>
+  <section class="mt-4 mb-2 section-container">
+    <div id="8c8d8db0-1036-4277-a832-424bd0b04095" *ngIf="!router.url.includes('/create-symptom') && !router.url.includes('/edit-symptom')">
+    <header class="align-middle justify-content-center spacing-main" *ngIf="activeIllnessValue | async">
+      <h2 class="title align-middle m-0 mr-2">
+        {{(activeIllnessValue | async).form.idIcd10Code}} <span class="badge badge-default ml-1 mr-1">v{{(activeIllnessValue | async).form.version}}</span> :
+        [MICA] {{(activeIllnessValue | async).form.name}}
+        <!-- <span class="badge badge-pill badge-danger">{{(activeIllnessValue | async).criticality}}</span> -->
+      </h2>
+      <a [routerLink]="['/review']" class="btn btn-outline-primary btn-sm mr-2">Review</a>
+      <mica-illness-error-counter></mica-illness-error-counter>
+    </header>
+    <error-illness-value *ngIf="showIllnessErrors | async"></error-illness-value>
+    </div>
+    <router-outlet></router-outlet>
+    <div id="663461b3-eec6-498c-b758-580aadc1c1ad" *ngIf="!router.url.includes('/create-symptom') && !router.url.includes('/edit-symptom')">
+    <div id="195688b3-f85c-47b2-9546-072bb8c3ae25" class="row mt-4 mb-4" *ngIf="activeIllnessValue | async">
+      <div id="2f3a9baa-73be-4764-a97a-b8b85d855da0" class="col">
+        <workbench-submit-group></workbench-submit-group>
+      </div>
+    </div>
+    </div>
+  </section>
+  <div id="356ed5ed-8918-432b-91da-50dcfc616be4" *ngIf="!router.url.includes('/create-symptom') && !router.url.includes('/edit-symptom')">
+    <div id="afc10414-af68-4588-bfbf-ad24201f3a37" class="row" *ngIf="activeIllnessValue | async">
+      <workbench-debug-box class="col"></workbench-debug-box>
+    </div>
+  </div>
+</div>

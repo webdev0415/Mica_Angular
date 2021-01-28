@@ -1,0 +1,176 @@
+<form [formGroup]="sympForm" *ngIf="!isLoading && !!sympData" (ngSubmit)="onSubmit(sympForm.value)">
+  <table class="table table-striped">
+    <thead>
+      <tr><th>Property</th><th>Value</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th>{{ ctx.antithesis.name }}</th>
+        <td><ng-container *ngTemplateOutlet="antithesisValue; context: ctx.antithesis"></ng-container></td>
+      </tr>
+      <tr>
+        <th>{{ ctx.criticality.name }}</th>
+        <td><mica-criticality [max]="getMinMax('criticality')[1]" [formControl]="ctx.criticality.ctrl"></mica-criticality></td>
+      </tr>
+      <tr>
+        <th>{{ ctx.definition.name }}</th>
+        <td><ng-container *ngTemplateOutlet="stringValue; context: ctx.definition"></ng-container></td>
+      </tr>
+      <tr>
+        <th>{{ ctx.question.name }}</th>
+        <td><ng-container *ngTemplateOutlet="stringValue; context: ctx.question"></ng-container></td>
+      </tr>
+      <tr>
+        <th>{{ ctx.es_question.name }}</th>
+        <td><ng-container *ngTemplateOutlet="stringValue; context: ctx.es_question"></ng-container></td>
+      </tr>
+      <tr>
+        <th>{{ ctx.displaySymptom.name }}</th>
+        <td><ng-container *ngTemplateOutlet="booleanValue; context: ctx.displaySymptom"></ng-container></td>
+      </tr>
+      <tr>
+        <th>{{ ctx.displayDrApp.name }}</th>
+        <td><ng-container *ngTemplateOutlet="booleanValue; context: ctx.displayDrApp"></ng-container></td>
+      </tr>
+      <tr>
+        <th>{{ ctx.treatable.name }}</th>
+        <td><ng-container *ngTemplateOutlet="booleanValue; context: ctx.treatable"></ng-container></td>
+      </tr>
+      <tr>
+        <th>{{ ctx.cardinality.name }}</th>
+        <td><ng-container *ngTemplateOutlet="booleanValue; context: ctx.cardinality"></ng-container></td>
+      </tr>
+      <tr>
+        <th>{{ ctx.genderGroup.name }}</th>
+        <td><ng-container *ngTemplateOutlet="genderGroupValue; context: ctx.genderGroup"></ng-container></td>
+      </tr>
+      <tr>
+        <th>{{ ctx.groupID.name }}</th>
+        <td><ng-container *ngTemplateOutlet="symptomGroupValue; context: ctx.groupID"></ng-container></td>
+      </tr>
+      <tr>
+        <th>{{ ctx.labsOrdered.name }}</th>
+        <td><ng-container *ngTemplateOutlet="labsOrderedValue; context: ctx.labsOrdered"></ng-container></td>
+      </tr>
+      <tr>
+        <th>{{ ctx.icd10RCodes.name }}</th>
+        <td><ng-container *ngTemplateOutlet="icd10RCodes; context: ctx.icd10RCodes"></ng-container></td>
+      </tr>
+      <tr class="white" *ngIf="ctx.snomedCodes">
+        <td colspan="2" class="multiplier">
+          <ng-container *ngTemplateOutlet="snomedCodes; context: ctx.snomedCodes"></ng-container>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <table *ngIf="ctx.additionalValues" class="table table-striped">
+    <tbody>
+      <tr class="white">
+          <td colspan=2 class="multiplier">
+            <ng-container *ngTemplateOutlet="additionalValues; context: ctx.additionalValues"></ng-container>
+          </td>
+        </tr>
+    </tbody>
+  </table>
+</form>
+<div id="ea13f773-8f29-450c-9ea1-b5745c96bc8e" *ngIf="isLoading" class="cssload-loader form-loader"></div>
+
+
+<ng-template #stringValue let-ctrl="ctrl" let-name="name" let-editable="editable">
+    <templates-table-value *ngIf="!(editable && rowEdit === name); else editValue" (click)="rowEdit = name"
+      [value]="ctrl.value"
+      [label]="'Add ' + name | titleCase">
+    </templates-table-value>
+    <ng-template #editValue>
+      <templates-input [title]="name" [formControl]="ctrl" (close)="rowEdit = ''"></templates-input>
+    </ng-template>
+  </ng-template>
+
+  <ng-template #booleanValue let-ctrl="ctrl">
+      <mica-check-switch [formControl]="ctrl" [valueNames]="['yes', 'no']"></mica-check-switch>
+  </ng-template>
+
+  <ng-template #antithesisValue let-ctrl="ctrl" let-name="name">
+    <templates-table-value *ngIf="rowEdit !== name; else editAntithesis" (click)="rowEdit = name"
+      [value]="ctrl.value" [required]="true"
+      [label]="'Add Antithesis for the Symptom'">
+    </templates-table-value>
+    <ng-template #editAntithesis>
+      <templates-antithesis [formControl]="ctrl" (close)="rowEdit = ''"
+        [minMaxRange]="getMinMax('antithesis')"></templates-antithesis>
+    </ng-template>
+  </ng-template>
+
+  <ng-template #genderGroupValue let-ctrl="ctrl" let-name="name">
+    <templates-table-value *ngIf="rowEdit !== name; else editGenderGroup" (click)="rowEdit = name"
+      [label]="'Select Gender Group for the Symptom'"
+      [value]="ctrl.value === 'null' ? 'Not Set' : sympForm.get('genderGroup').value">
+    </templates-table-value>
+    <ng-template #editGenderGroup>
+      <mica-dropdown
+        [formControl]="ctrl" [title]="name" [size]="'sm'" class="dropdown"
+        [emptyItem] ="{name: 'Not Set', value: 'null'}"
+        [items]="[{name: 'Male', value: 'M'}, {name: 'Female', value: 'F'}]">
+      </mica-dropdown>
+    </ng-template>
+  </ng-template>
+
+  <ng-template #symptomGroupValue let-ctrl="ctrl" let-name="name">
+    <templates-table-value *ngIf="rowEdit !== name; else editSymptomGroup" (click)="rowEdit = name"
+      [label]="'Select  Group for the Symptom'"
+      [value]="ctrl.value === 'null' ? 'Not Set' : symptomGroups | optionName: sympForm.get('groupID').value: true">
+    </templates-table-value>
+    <ng-template #editSymptomGroup>
+      <mica-dropdown
+        [formControl]="ctrl" [title]="name" [size]="'sm'" class="dropdown"
+        [emptyItem] ="{name: 'Not Set', value: 'null'}"
+        [items]="symptomGroups"
+        [multiSelect]="true">
+      </mica-dropdown>
+    </ng-template>
+  </ng-template>
+
+  <ng-template #labsOrderedValue let-ctrl="ctrl" let-name="name">
+    <ng-container *ngIf="!isLabSymptom; else isLabSymptomText">
+      <templates-table-value
+        [label]="'Not available for Non Lab Symptoms'"
+        [controlDisabled]="true">
+      </templates-table-value>
+    </ng-container>
+    <ng-template #isLabSymptomText>
+        <ng-container *ngIf="rowEdit !== name; else editlabsOrdered">
+            <templates-table-value (click)="rowEdit = name"
+            [label]="'Select  LabOrders for the Symptom'"
+            [value]="ctrl.value === 'null' ? 'Not Set' : labordered | optionName: sympForm.get('labsOrdered').value: true">
+          </templates-table-value>
+        </ng-container>
+    </ng-template>
+    <ng-template #editlabsOrdered>
+        <mica-dropdown
+        [formControl]="ctrl" [title]="name" [size]="'sm'" class="dropdown"
+        [emptyItem] ="{name: 'Not Set', value: ''}"
+        [items]="labordered"
+        [multiSelect]="true"
+        [controlDisabled]="!isLabSymptom">
+      </mica-dropdown>
+    </ng-template>
+  </ng-template>
+
+  <ng-template #icd10RCodes let-ctrl="ctrl" let-name="name">
+      <templates-array-input
+        [title]="'ICD Code'"
+        (close)="rowEdit = ''"
+        [formControl]="ctrl"
+        [type]="'illnessNode'"
+        >
+      </templates-array-input>
+  </ng-template>
+
+  <ng-template #snomedCodes let-ctrl="ctrl" let-name="name">
+      <templates-snomed-codes [ctrl]="ctrl" [title]="name"></templates-snomed-codes>
+  </ng-template>
+
+  <ng-template #additionalValues let-ctrl="ctrl" let-name="name">
+    <templates-multiplier-value [arrCtrl]="ctrl" [title]="name"></templates-multiplier-value>
+  </ng-template>

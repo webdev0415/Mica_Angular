@@ -1,0 +1,3888 @@
+{
+  "symptompsGroups": [{
+    "name": "General",
+    "categories": [{
+      "name": "Core Symptoms",
+      "symptoms": [{
+        "title": "Patient Age",
+        "components": [{
+          "type": "bias",
+          "value": true
+        }, {
+          "type": "importance"
+        }, {
+          "type": "likelihood"
+        }, {
+          "type": "scale",
+          "title": "",
+          "tooltip": "amount of time",
+          "time": true,
+          "timeUnit": "years",
+          "upperLimit": 10
+        }],
+        "multiplier": false,
+        "scale": true,
+        "required": false,
+        "criticality": 897,
+        "data": {
+          "rows": [{
+            "likelihood": "",
+            "bias": true,
+            "importance": "medium",
+            "scale": {
+              "value": "",
+              "slope": "flat",
+              "timeUnit": "weeks"
+            }
+          }]
+        }
+      }, {
+        "title": "Patient Sex",
+        "components": [{
+          "type": "bias",
+          "value": true
+        }, {
+          "type": "importance"
+        }, {
+          "type": "likelihood"
+        }, {
+          "type": "multiplier",
+          "multiplierType": "dropdown",
+          "title": "Gender",
+          "values": ["Male", "Female", "Transgender"]
+        }],
+        "multiplier": true,
+        "scale": false,
+        "required": false,
+        "criticality": 116,
+        "data": {
+          "rows": [{
+            "likelihood": "",
+            "bias": true,
+            "importance": "medium",
+            "multiplier": ""
+          }]
+        }
+      }, {
+        "title": "Patient Sexual Orientation",
+        "components": [{
+          "type": "bias",
+          "value": true
+        }, {
+          "type": "importance"
+        }, {
+          "type": "likelihood"
+        }, {
+          "type": "multiplier",
+          "multiplierType": "dropdown",
+          "title": "Sexual Orientation",
+          "values": ["Heterosexual", "Homosexual", "Bisexual"]
+        }],
+        "multiplier": true,
+        "scale": false,
+        "required": false,
+        "criticality": 541,
+        "data": {
+          "rows": [{
+            "likelihood": "",
+            "bias": true,
+            "importance": "medium",
+            "multiplier": ""
+          }]
+        }
+      }, {
+        "title": "Seasonality",
+        "components": [{
+          "type": "bias",
+          "value": true
+        }, {
+          "type": "importance"
+        }, {
+          "type": "likelihood"
+        }, {
+          "type": "multiplier",
+          "multiplierType": "dropdown",
+          "title": "Seasonality",
+          "values": ["Spring", "Summer", "Winter", "Fall"]
+        }],
+        "multiplier": true,
+        "scale": false,
+        "required": false,
+        "criticality": 930,
+        "data": {
+          "rows": [{
+            "likelihood": "",
+            "bias": true,
+            "importance": "medium",
+            "multiplier": ""
+          }]
+        }
+      }, {
+        "title": "Ethnicity/Genetics",
+        "components": [{
+          "type": "bias",
+          "value": true
+        }, {
+          "type": "importance"
+        }, {
+          "type": "likelihood"
+        }, {
+          "type": "multiplier",
+          "multiplierType": "dropdown",
+          "title": "Ethnicity/Genetics",
+          "values": ["White", "Black/African American", "Asian", "American Indian", "Mediterranean", "Pacific Islander", "Hispanic"]
+        }],
+        "multiplier": true,
+        "scale": false,
+        "required": false,
+        "criticality": 215,
+        "data": {
+          "rows": [{
+            "likelihood": "",
+            "bias": true,
+            "importance": "medium",
+            "multiplier": ""
+          }]
+        }
+      }, {
+        "title": "Current Tobacco Consumer",
+        "components": [{
+          "type": "bias",
+          "value": true
+        }, {
+          "type": "importance"
+        }, {
+          "type": "likelihood"
+        }, {
+          "type": "scale",
+          "title": "",
+          "tooltip": "amount of time",
+          "time": true,
+          "timeUnit": "years",
+          "upperLimit": 10
+        }],
+        "multiplier": false,
+        "scale": true,
+        "required": false,
+        "criticality": 200,
+        "data": {
+          "rows": [{
+            "likelihood": "",
+            "bias": true,
+            "importance": "medium",
+            "scale": {
+              "value": "",
+              "slope": "flat",
+              "timeUnit": "weeks"
+            }
+          }]
+        }
+      }, {
+        "title": "Was a Tobacco User",
+        "components": [{
+          "type": "bias",
+          "value": true
+        }, {
+          "type": "importance"
+        }, {
+          "type": "likelihood"
+        }, {
+          "type": "scale",
+          "title": "",
+          "tooltip": "total amount of packs",
+          "time": false,
+          "timeUnit": "years",
+          "upperLimit": 100
+        }],
+        "multiplier": false,
+        "scale": true,
+        "required": false,
+        "criticality": 261,
+        "data": {
+          "rows": [{
+            "likelihood": "",
+            "bias": true,
+            "importance": "medium",
+            "scale": {
+              "value": "",
+              "slope": "flat",
+              "timeUnit": "weeks"
+            }
+          }]
+        }
+      }, {
+        "title": "Current Alcohol Consumer",
+        "components": [{
+          "type": "bias",
+          "value": true
+        }, {
+          "type": "importance"
+        }, {
+          "type": "likelihood"
+        }, {
+          "type": "scale",
+          "title": "Drinks per Week",
+          "tooltip": "amount of time",
+          "time": true,
+          "timeUnit": "years",
+          "upperLimit": 30
+        }],
+        "multiplier": false,
+        "scale": true,
+        "required": false,
+        "criticality": 315,
+        "data": {
+          "rows": [{
+            "likelihood": "",
+            "bias": true,
+            "importance": "medium",
+            "scale": {
+              "value": "",
+              "slope": "flat",
+              "timeUnit": "weeks"
+            }
+          }]
+        }
+      }, {
+        "title": "Time since last drink",
+        "components": [{
+          "type": "bias",
+          "value": true
+        }, {
+          "type": "importance"
+        }, {
+          "type": "likelihood"
+        }, {
+          "type": "scale",
+          "title": "",
+          "tooltip": "amount of time",
+          "time": true,
+          "timeUnit": "days",
+          "upperLimit": 5
+        }],
+        "multiplier": false,
+        "scale": true,
+        "required": false,
+        "criticality": 972,
+        "data": {
+          "rows": [{
+            "likelihood": "",
+            "bias": true,
+            "importance": "medium",
+            "scale": {
+              "value": "",
+              "slope": "flat",
+              "timeUnit": "weeks"
+            }
+          }]
+        }
+      }, {
+        "title": "Current Caffeine Consumer",
+        "components": [{
+          "type": "bias",
+          "value": true
+        }, {
+          "type": "importance"
+        }, {
+          "type": "likelihood"
+        }, {
+          "type": "scale",
+          "title": "",
+          "tooltip": "drinks per",
+          "time": true,
+          "timeUnit": "days",
+          "upperLimit": 10
+        }],
+        "multiplier": false,
+        "scale": true,
+        "required": false,
+        "criticality": 130,
+        "data": {
+          "rows": [{
+            "likelihood": "",
+            "bias": true,
+            "importance": "medium",
+            "scale": {
+              "value": "",
+              "slope": "flat",
+              "timeUnit": "weeks"
+            }
+          }]
+        }
+      }, {
+        "title": "Illicit Drug User/Type",
+        "components": [{
+          "type": "bias",
+          "value": true
+        }, {
+          "type": "importance"
+        }, {
+          "type": "likelihood"
+        }, {
+          "type": "multiplier",
+          "multiplierType": "dropdown",
+          "title": "Drug",
+          "values": ["Narcotic", "Stimulants", "Cannabis", "Opioids", "Hallucinations", "Other"]
+        }, {
+          "type": "scale",
+          "title": "",
+          "tooltip": "usage per",
+          "time": true,
+          "timeUnit": "weeks",
+          "upperLimit": 10
+        }],
+        "multiplier": true,
+        "scale": true,
+        "required": false,
+        "criticality": 944,
+        "data": {
+          "rows": [{
+            "likelihood": "",
+            "bias": true,
+            "importance": "medium",
+            "multiplier": "",
+            "scale": {
+              "value": "",
+              "slope": "flat",
+              "timeUnit": "weeks"
+            }
+          }]
+        }
+      }, {
+        "title": "Illness related to an Allergy",
+        "components": [{
+          "type": "bias",
+          "value": true
+        }, {
+          "type": "importance"
+        }, {
+          "type": "likelihood"
+        }, {
+          "type": "multiplier",
+          "multiplierType": "dropdown",
+          "title": "Allergy",
+          "values": ["Antibiotic", "Antiperspirant", "Apple", "Aspirin", "Blepharitis", "Broccoli", "Celery", "Citrus fruits", "Coconut", "Contact dermatitis", "Cooking Oils", "Corn", "Cotton", "Drug", "Dust", "Dust mite", "Egg", "Emollients", "Essential oils", "Fish", "Food additives and preservatives", "Fragrance", "Gelatin", "Gold", "Hair coloring products.", "Household chemicals", "Insect Sting", "Insulin", "Kiwi fruit", "Lactose Intolerance", "Latex", "Leather", "Leather tanning chemicals", "Meat", "Metal", "Milk", "Mold", "MSG", "Oral Allergy Syndrome (OAS)", "Peanut", "Penicillin", "Perfume", "Plastic", "Poison ivy, oak and sumac", "Pollen ", "Poppy seeds", "Pumpkin seeds", "Rhinitis", "Salicylates", "Seed ", "Sesame", "Shampoo", "Shellfish", "Soy", "SPF", "Spice", "Strawberry", "Sunflower seeds", "Tree Nut", "Wheat", "Avocado", "Latex fruit syndrome", "Silk", "Wool", "Adhesive", "Sun", "Dyes", "Mushroom", "Caffeine", "Tea", "Blackberries", "Raspberries", "Peaches", "Cherries", "Pears", "Pineapple"]
+        }, {
+          "type": "scale",
+          "title": "",
+          "tooltip": "usage per",
+          "time": true,
+          "timeUnit": "weeks",
+          "upperLimit": 10
+        }],
+        "multiplier": true,
+        "scale": true,
+        "required": false,
+        "criticality": 332,
+        "data": {
+          "rows": [{
+            "likelihood": "",
+            "bias": true,
+            "importance": "medium",
+            "multiplier": "",
+            "scale": {
+              "value": "",
+              "slope": "flat",
+              "timeUnit": "weeks"
+            }
+          }]
+        }
+      }]
+    }, {
+      "name": "Family History",
+      "symptoms": [{
+        "title": "Allergies",
+        "components": [{
+          "type": "bias",
+          "value": true
+        }, {
+          "type": "importance"
+        }, {
+          "type": "likelihood"
+        }, {
+          "type": "multiplier",
+          "multiplierType": "dropdown",
+          "title": "Allergy",
+          "values": ["Antibiotic", "Antiperspirant", "Apple", "Aspirin", "Blepharitis", "Broccoli", "Celery", "Citrus fruits", "Coconut", "Contact dermatitis", "Cooking Oils", "Corn", "Cotton", "Drug", "Dust", "Dust mite", "Egg", "Emollients", "Essential oils", "Fish", "Food additives and preservatives", "Fragrance", "Gelatin", "Gold", "Hair coloring products.", "Household chemicals", "Insect Sting", "Insulin", "Kiwi fruit", "Lactose Intolerance", "Latex", "Leather", "Leather tanning chemicals", "Meat", "Metal", "Milk", "Mold", "MSG", "Oral Allergy Syndrome (OAS)", "Peanut", "Penicillin", "Perfume", "Plastic", "Poison ivy, oak and sumac", "Pollen ", "Poppy seeds", "Pumpkin seeds", "Rhinitis", "Salicylates", "Seed ", "Sesame", "Shampoo", "Shellfish", "Soy", "SPF", "Spice", "Strawberry", "Sunflower seeds", "Tree Nut", "Wheat", "Avocado", "Latex fruit syndrome", "Silk", "Wool", "Adhesive", "Sun", "Dyes", "Mushroom", "Caffeine", "Tea", "Blackberries", "Raspberries", "Peaches", "Cherries", "Pears", "Pineapple"]
+        }],
+        "multiplier": true,
+        "scale": false,
+        "required": false,
+        "criticality": 614,
+        "data": {
+          "rows": [{
+            "likelihood": "",
+            "bias": true,
+            "importance": "medium",
+            "multiplier": ""
+          }]
+        }
+      }, {
+        "title": "Arthritis",
+        "components": [{
+          "type": "bias",
+          "value": true
+        }, {
+          "type": "importance"
+        }, {
+          "type": "likelihood"
+        }],
+        "multiplier": false,
+        "scale": false,
+        "required": false,
+        "criticality": 246,
+        "data": {
+          "rows": [{
+            "likelihood": "",
+            "bias": true,
+            "importance": "medium"
+          }]
+        }
+      }, {
+        "title": "Asthma",
+        "components": [{
+          "type": "bias",
+          "value": true
+        }, {
+          "type": "importance"
+        }, {
+          "type": "likelihood"
+        }],
+        "multiplier": false,
+        "scale": false,
+        "required": false,
+        "criticality": 739,
+        "data": {
+          "rows": [{
+            "likelihood": "",
+            "bias": true,
+            "importance": "medium"
+          }]
+        }
+      }, {
+        "title": "Blood Clots",
+        "components": [{
+          "type": "bias",
+          "value": true
+        }, {
+          "type": "importance"
+        }, {
+          "type": "likelihood"
+        }],
+        "multiplier": false,
+        "scale": false,
+        "required": false,
+        "criticality": 503,
+        "data": {
+          "rows": [{
+            "likelihood": "",
+            "bias": true,
+            "importance": "medium"
+          }]
+        }
+      }, {
+        "title": "Blood Disease",
+        "components": [{
+          "type": "bias",
+          "value": true
+        }, {
+          "type": "importance"
+        }, {
+          "type": "likelihood"
+        }],
+        "multiplier": false,
+        "scale": false,
+        "required": false,
+        "criticality": 920,
+        "data": {
+          "rows": [{
+            "likelihood": "",
+            "bias": true,
+            "importance": "medium"
+          }]
+        }
+      }, {
+        "title": "Bone/Joint Issues",
+        "components": [{
+          "type": "bias",
+          "value": true
+        }, {
+          "type": "importance"
+        }, {
+          "type": "likelihood"
+        }],
+        "multiplier": false,
+        "scale": false,
+        "required": false,
+        "criticality": 521,
+        "data": {
+          "rows": [{
+            "likelihood": "",
+            "bias": true,
+            "importance": "medium"
+          }]
+        }
+      }, {
+        "title": "Cancer",
+        "components": [{
+          "type": "bias",
+          "value": true
+        }, {
+          "type": "importance"
+        }, {
+          "type": "likelihood"
+        }, {
+          "type": "multiplier",
+          "multiplierType": "typeahead",
+          "title": "Cancer",
+          "values": ["Acute granulocytic leukemia", "Acute lymphocytic leukemia", "Acute myelogenous leukemia", "Adenocarcinoma", "Adenosarcoma", "Adrenal cancer", "Adrenocortical carcinoma", "Anal cancer", "Anaplastic astrocytoma", "Angiosarcoma", "Appendix cancer", "Astrocytoma", "Basal cell carcinoma", "B-Cell lymphoma", "Bile duct cancer", "Bladder cancer", "Bone cancer", "Bone marrow cancer", "Bowel cancer", "Brain cancer", "Brain stem glioma", "Brain tumor", "Breast cancer", "Carcinoid tumors", "Cervical cancer", "Cholangiocarcinoma", "Chondrosarcoma", "Chronic lymphocytic leukemia", "Chronic myelogenous leukemia", "Colon cancer", "Colorectal cancer", "Craniopharyngioma", "Cutaneous lymphoma", "Cutaneous melanoma", "Diffuse astrocytoma", "Ductal carcinoma in situ", "Endometrial cancer", "Ependymoma", "Epithelioid sarcoma", "Esophageal cancer", "Ewing sarcoma", "Extrahepatic bile duct cancer", "Eye cancer", "Fallopian tube cancer", "Fibrosarcoma", "Gallbladder cancer", "Gastric cancer", "Gastrointestinal cancer", "Gastrointestinal carcinoid cancer", "Gastrointestinal stromal tumors (GIST)", "Germ cell tumor", "Glioblastoma multiforme (GBM)", "Glioma", "Hairy cell leukemia", "Head and neck cancer", "Hemangioendothelioma", "Hodgkin lymphoma", "Hodgkin's disease", "Hodgkin's lymphoma", "Hypopharyngeal cancer", "Infiltrating ductal carcinoma (IDC)", "Infiltrating lobular carcinoma (ILC)", "Inflammatory breast cancer (IBC)", "Intestinal Cancer", "Intrahepatic bile duct cancer", "Invasive / infiltrating breast cancer", "Islet cell cancer", "Jaw cancer", "Kaposi sarcoma", "Kidney cancer", "Laryngeal cancer", "Leiomyosarcoma", "Leptomeningeal metastases", "Leukemia", "Lip cancer", "Liposarcoma", "Liver cancer", "Lobular carcinoma in situ", "Low-grade astrocytoma", "Lung cancer", "Lymph node cancer", "Lymphoma", "Male breast cancer", "Medullary carcinoma", "Medulloblastoma", "Melanoma", "Meningioma", "Merkel cell carcinoma", "Mesenchymal chondrosarcoma", "Mesenchymous", "Mesothelioma", "Metastatic breast cancer", "Metastatic melanoma", "Metastatic squamous neck cancer", "Mixed gliomas", "Mouth cancer", "Mucinous carcinoma", "Mucosal melanoma", "Multiple myeloma", "Mycosis Fungoides", "Myelodysplastic Syndrome", "Nasal cavity cancer", "Nasopharyngeal cancer", "Neck cancer", "Neuroblastoma", "Neuroendocrine tumors (NETs)", "Non-Hodgkin lymphoma (NHL)", "Non-Hodgkin's lymphoma", "Non-small cell lung cancer (NSCLC)", "Oat cell cancer", "Ocular cancer", "Ocular melanoma", "Oligodendroglioma", "Oral cancer", "Oral cavity cancer", "Oropharyngeal cancer", "Osteogenic sarcoma", "Osteosarcoma", "Ovarian cancer", "Ovarian epithelial cancer", "Ovarian germ cell tumor", "Ovarian primary peritoneal carcinoma", "Ovarian sex cord stromal tumor", "Paget's disease", "Pancreatic cancer", "Papillary carcinoma", "Paranasal sinus cancer", "Parathyroid cancer", "Pelvic cancer", "Penile cancer", "Peripheral nerve cancer", "Peritoneal cancer", "Pharyngeal cancer", "Pheochromocytoma", "Pilocytic astrocytoma", "Pineal region tumor", "Pineoblastoma", "Pituitary gland cancer", "Primary central nervous system (CNS) lymphoma", "Prostate cancer", "Rectal cancer", "Renal cell carcinoma", "Renal pelvis cancer", "Rhabdomyosarcoma", "Salivary gland cancer", "Sarcoma", "Sarcoma, bone", "Sarcoma, soft tissue", "Sarcoma, uterine", "Sinus cancer", "Skin cancer", "Small cell lung cancer (SCLC)", "Small intestine cancer", "Soft tissue sarcoma", "Spinal cancer", "Spinal column cancer", "Spinal cord cancer", "Spinal tumor", "Squamous cell carcinoma", "Stomach cancer", "Synovial sarcoma", "T-cell lymphoma", "Testicular cancer", "Throat cancer", "Thymoma carcinoma", "Thyroid cancer", "Tongue cancer", "Tonsil cancer", "Transitional cell cancer", "Triple-negative breast cancer", "Tubal cancer", "Tubular carcinoma", "Undiagnosed Cancer", "Ureteral cancer", "Uterine adenocarcinoma", "Uterine cancer", "Uterine sarcoma", "Vaginal cancer", "Vulvar cancer"]
+        }],
+        "multiplier": true,
+        "scale": false,
+        "required": false,
+        "criticality": 750,
+        "data": {
+          "rows": [{
+            "likelihood": "",
+            "bias": true,
+            "importance": "medium",
+            "multiplier": ""
+          }]
+        }
+      }, {
+        "title": "Chicken Pox",
+        "components": [{
+          "type": "bias",
+          "value": true
+        }, {
+          "type": "importance"
+        }, {
+          "type": "likelihood"
+        }],
+        "multiplier": false,
+        "scale": false,
+        "required": false,
+        "criticality": 9,
+        "data": {
+          "rows": [{
+            "likelihood": "",
+            "bias": true,
+            "importance": "medium"
+          }]
+        }
+      }, {
+        "title": "Chronic Cough",
+        "components": [{
+          "type": "bias",
+          "value": true
+        }, {
+          "type": "importance"
+        }, {
+          "type": "likelihood"
+        }],
+        "multiplier": false,
+        "scale": false,
+        "required": false,
+        "criticality": 756,
+        "data": {
+          "rows": [{
+            "likelihood": "",
+            "bias": true,
+            "importance": "medium"
+          }]
+        }
+      }, {
+        "title": "Cystic Fibrosis",
+        "components": [{
+          "type": "bias",
+          "value": true
+        }, {
+          "type": "importance"
+        }, {
+          "type": "likelihood"
+        }],
+        "multiplier": false,
+        "scale": false,
+        "required": false,
+        "criticality": 692,
+        "data": {
+          "rows": [{
+            "likelihood": "",
+            "bias": true,
+            "importance": "medium"
+          }]
+        }
+      }, {
+        "title": "Dementia/Alzheimer's",
+        "components": [{
+          "type": "bias",
+          "value": true
+        }, {
+          "type": "importance"
+        }, {
+          "type": "likelihood"
+        }],
+        "multiplier": false,
+        "scale": false,
+        "required": false,
+        "criticality": 688,
+        "data": {
+          "rows": [{
+            "likelihood": "",
+            "bias": true,
+            "importance": "medium"
+          }]
+        }
+      }, {
+        "title": "Depression",
+        "components": [{
+          "type": "bias",
+          "value": true
+        }, {
+          "type": "importance"
+        }, {
+          "type": "likelihood"
+        }],
+        "multiplier": false,
+        "scale": false,
+        "required": false,
+        "criticality": 930,
+        "data": {
+          "rows": [{
+            "likelihood": "",
+            "bias": true,
+            "importance": "medium"
+          }]
+        }
+      }, {
+        "title": "Diabetes",
+        "components": [{
+          "type": "bias",
+          "value": true
+        }, {
+          "type": "importance"
+        }, {
+          "type": "likelihood"
+        }, {
+          "type": "multiplier",
+          "multiplierType": "dropdown",
+          "title": "Type",
+          "values": ["Type 1", "Type 2"]
+        }],
+        "multiplier": true,
+        "scale": false,
+        "required": false,
+        "criticality": 109,
+        "data": {
+          "rows": [{
+            "likelihood": "",
+            "bias": true,
+            "importance": "medium",
+            "multiplier": ""
+          }]
+        }
+      }, {
+        "title": "Fractures",
+        "components": [{
+          "type": "bias",
+          "value": true
+        }, {
+          "type": "importance"
+        }, {
+          "type": "likelihood"
+        }],
+        "multiplier": false,
+        "scale": false,
+        "required": false,
+        "criticality": 650,
+        "data": {
+          "rows": [{
+            "likelihood": "",
+            "bias": true,
+            "importance": "medium"
+          }]
+        }
+      }, {
+        "title": "Hay Fever",
+        "components": [{
+          "type": "bias",
+          "value": true
+        }, {
+          "type": "importance"
+        }, {
+          "type": "likelihood"
+        }],
+        "multiplier": false,
+        "scale": false,
+        "required": false,
+        "criticality": 398,
+        "data": {
+          "rows": [{
+            "likelihood": "",
+            "bias": true,
+            "importance": "medium"
+          }]
+        }
+      }, {
+        "title": "High Blood Pressure",
+        "components": [{
+          "type": "bias",
+          "value": true
+        }, {
+          "type": "importance"
+        }, {
+          "type": "likelihood"
+        }],
+        "multiplier": false,
+        "scale": false,
+        "required": false,
+        "criticality": 610,
+        "data": {
+          "rows": [{
+            "likelihood": "",
+            "bias": true,
+            "importance": "medium"
+          }]
+        }
+      }, {
+        "title": "Heart Disease",
+        "components": [{
+          "type": "bias",
+          "value": true
+        }, {
+          "type": "importance"
+        }, {
+          "type": "likelihood"
+        }],
+        "multiplier": false,
+        "scale": false,
+        "required": false,
+        "criticality": 863,
+        "data": {
+          "rows": [{
+            "likelihood": "",
+            "bias": true,
+            "importance": "medium"
+          }]
+        }
+      }, {
+        "title": "Lung Infections",
+        "components": [{
+          "type": "bias",
+          "value": true
+        }, {
+          "type": "importance"
+        }, {
+          "type": "likelihood"
+        }],
+        "multiplier": false,
+        "scale": false,
+        "required": false,
+        "criticality": 427,
+        "data": {
+          "rows": [{
+            "likelihood": "",
+            "bias": true,
+            "importance": "medium"
+          }]
+        }
+      }, {
+        "title": "Nose Bleeds",
+        "components": [{
+          "type": "bias",
+          "value": true
+        }, {
+          "type": "importance"
+        }, {
+          "type": "likelihood"
+        }],
+        "multiplier": false,
+        "scale": false,
+        "required": false,
+        "criticality": 887,
+        "data": {
+          "rows": [{
+            "likelihood": "",
+            "bias": true,
+            "importance": "medium"
+          }]
+        }
+      }, {
+        "title": "Requiring C-Sections",
+        "components": [{
+          "type": "bias",
+          "value": true
+        }, {
+          "type": "importance"
+        }, {
+          "type": "likelihood"
+        }],
+        "multiplier": false,
+        "scale": false,
+        "required": false,
+        "criticality": 948,
+        "data": {
+          "rows": [{
+            "likelihood": "",
+            "bias": true,
+            "importance": "medium"
+          }]
+        }
+      }, {
+        "title": "Seizures",
+        "components": [{
+          "type": "bias",
+          "value": true
+        }, {
+          "type": "importance"
+        }, {
+          "type": "likelihood"
+        }],
+        "multiplier": false,
+        "scale": false,
+        "required": false,
+        "criticality": 599,
+        "data": {
+          "rows": [{
+            "likelihood": "",
+            "bias": true,
+            "importance": "medium"
+          }]
+        }
+      }, {
+        "title": "Skin Disorders",
+        "components": [{
+          "type": "bias",
+          "value": true
+        }, {
+          "type": "importance"
+        }, {
+          "type": "likelihood"
+        }],
+        "multiplier": false,
+        "scale": false,
+        "required": false,
+        "criticality": 369,
+        "data": {
+          "rows": [{
+            "likelihood": "",
+            "bias": true,
+            "importance": "medium"
+          }]
+        }
+      }, {
+        "title": "Spinal Issues",
+        "components": [{
+          "type": "bias",
+          "value": true
+        }, {
+          "type": "importance"
+        }, {
+          "type": "likelihood"
+        }],
+        "multiplier": false,
+        "scale": false,
+        "required": false,
+        "criticality": 580,
+        "data": {
+          "rows": [{
+            "likelihood": "",
+            "bias": true,
+            "importance": "medium"
+          }]
+        }
+      }, {
+        "title": "Strokes",
+        "components": [{
+          "type": "bias",
+          "value": true
+        }, {
+          "type": "importance"
+        }, {
+          "type": "likelihood"
+        }],
+        "multiplier": false,
+        "scale": false,
+        "required": false,
+        "criticality": 234,
+        "data": {
+          "rows": [{
+            "likelihood": "",
+            "bias": true,
+            "importance": "medium"
+          }]
+        }
+      }, {
+        "title": "Thyroid Disease",
+        "components": [{
+          "type": "bias",
+          "value": true
+        }, {
+          "type": "importance"
+        }, {
+          "type": "likelihood"
+        }],
+        "multiplier": false,
+        "scale": false,
+        "required": false,
+        "criticality": 226,
+        "data": {
+          "rows": [{
+            "likelihood": "",
+            "bias": true,
+            "importance": "medium"
+          }]
+        }
+      }, {
+        "title": "TMJ",
+        "components": [{
+          "type": "bias",
+          "value": true
+        }, {
+          "type": "importance"
+        }, {
+          "type": "likelihood"
+        }],
+        "multiplier": false,
+        "scale": false,
+        "required": false,
+        "criticality": 330,
+        "data": {
+          "rows": [{
+            "likelihood": "",
+            "bias": true,
+            "importance": "medium"
+          }]
+        }
+      }, {
+        "title": "Tuberculosis",
+        "components": [{
+          "type": "bias",
+          "value": true
+        }, {
+          "type": "importance"
+        }, {
+          "type": "likelihood"
+        }],
+        "multiplier": false,
+        "scale": false,
+        "required": false,
+        "criticality": 911,
+        "data": {
+          "rows": [{
+            "likelihood": "",
+            "bias": true,
+            "importance": "medium"
+          }]
+        }
+      }, {
+        "title": "Upper Respiratory Infections",
+        "components": [{
+          "type": "bias",
+          "value": true
+        }, {
+          "type": "importance"
+        }, {
+          "type": "likelihood"
+        }],
+        "multiplier": false,
+        "scale": false,
+        "required": false,
+        "criticality": 788,
+        "data": {
+          "rows": [{
+            "likelihood": "",
+            "bias": true,
+            "importance": "medium"
+          }]
+        }
+      }]
+    }, {
+      "name": "Personal History",
+      "symptoms": [{
+        "title": "AIDS/HIV",
+        "components": [{
+          "type": "bias",
+          "value": true
+        }, {
+          "type": "importance"
+        }, {
+          "type": "likelihood"
+        }, {
+          "type": "scale",
+          "title": "",
+          "tooltip": "Diagnosed in last",
+          "time": true,
+          "timeUnit": "years",
+          "upperLimit": 10
+        }],
+        "multiplier": false,
+        "scale": true,
+        "required": false,
+        "criticality": 947,
+        "data": {
+          "rows": [{
+            "likelihood": "",
+            "bias": true,
+            "importance": "medium",
+            "scale": {
+              "value": "",
+              "slope": "flat",
+              "timeUnit": "weeks"
+            }
+          }]
+        }
+      }, {
+        "title": "Allergies",
+        "components": [{
+          "type": "bias",
+          "value": true
+        }, {
+          "type": "importance"
+        }, {
+          "type": "likelihood"
+        }, {
+          "type": "multiplier",
+          "multiplierType": "dropdown",
+          "title": "Allergy",
+          "values": ["Antibiotic", "Antiperspirant", "Apple", "Aspirin", "Blepharitis", "Broccoli", "Celery", "Citrus fruits", "Coconut", "Contact dermatitis", "Cooking Oils", "Corn", "Cotton", "Drug", "Dust", "Dust mite", "Egg", "Emollients", "Essential oils", "Fish", "Food additives and preservatives", "Fragrance", "Gelatin", "Gold", "Hair coloring products.", "Household chemicals", "Insect Sting", "Insulin", "Kiwi fruit", "Lactose Intolerance", "Latex", "Leather", "Leather tanning chemicals", "Meat", "Metal", "Milk", "Mold", "MSG", "Oral Allergy Syndrome (OAS)", "Peanut", "Penicillin", "Perfume", "Plastic", "Poison ivy, oak and sumac", "Pollen ", "Poppy seeds", "Pumpkin seeds", "Rhinitis", "Salicylates", "Seed ", "Sesame", "Shampoo", "Shellfish", "Soy", "SPF", "Spice", "Strawberry", "Sunflower seeds", "Tree Nut", "Wheat", "Avocado", "Latex fruit syndrome", "Silk", "Wool", "Adhesive", "Sun", "Dyes", "Mushroom", "Caffeine", "Tea", "Blackberries", "Raspberries", "Peaches", "Cherries", "Pears", "Pineapple"]
+        }],
+        "multiplier": true,
+        "scale": false,
+        "required": false,
+        "criticality": 472,
+        "data": {
+          "rows": [{
+            "likelihood": "",
+            "bias": true,
+            "importance": "medium",
+            "multiplier": ""
+          }]
+        }
+      }, {
+        "title": "Arthritis",
+        "components": [{
+          "type": "bias",
+          "value": true
+        }, {
+          "type": "importance"
+        }, {
+          "type": "likelihood"
+        }],
+        "multiplier": false,
+        "scale": false,
+        "required": false,
+        "criticality": 27,
+        "data": {
+          "rows": [{
+            "likelihood": "",
+            "bias": true,
+            "importance": "medium"
+          }]
+        }
+      }, {
+        "title": "Asthma",
+        "components": [{
+          "type": "bias",
+          "value": true
+        }, {
+          "type": "importance"
+        }, {
+          "type": "likelihood"
+        }],
+        "multiplier": false,
+        "scale": false,
+        "required": false,
+        "criticality": 427,
+        "data": {
+          "rows": [{
+            "likelihood": "",
+            "bias": true,
+            "importance": "medium"
+          }]
+        }
+      }, {
+        "title": "Blood Clots",
+        "components": [{
+          "type": "bias",
+          "value": true
+        }, {
+          "type": "importance"
+        }, {
+          "type": "likelihood"
+        }],
+        "multiplier": false,
+        "scale": false,
+        "required": false,
+        "criticality": 402,
+        "data": {
+          "rows": [{
+            "likelihood": "",
+            "bias": true,
+            "importance": "medium"
+          }]
+        }
+      }, {
+        "title": "Blood Disease",
+        "components": [{
+          "type": "bias",
+          "value": true
+        }, {
+          "type": "importance"
+        }, {
+          "type": "likelihood"
+        }],
+        "multiplier": false,
+        "scale": false,
+        "required": false,
+        "criticality": 610,
+        "data": {
+          "rows": [{
+            "likelihood": "",
+            "bias": true,
+            "importance": "medium"
+          }]
+        }
+      }, {
+        "title": "Bone/Joint Issues",
+        "components": [{
+          "type": "bias",
+          "value": true
+        }, {
+          "type": "importance"
+        }, {
+          "type": "likelihood"
+        }],
+        "multiplier": false,
+        "scale": false,
+        "required": false,
+        "criticality": 350,
+        "data": {
+          "rows": [{
+            "likelihood": "",
+            "bias": true,
+            "importance": "medium"
+          }]
+        }
+      }, {
+        "title": "Cancer",
+        "components": [{
+          "type": "bias",
+          "value": true
+        }, {
+          "type": "importance"
+        }, {
+          "type": "likelihood"
+        }, {
+          "type": "multiplier",
+          "multiplierType": "typeahead",
+          "title": "Cancer",
+          "values": ["Acute granulocytic leukemia", "Acute lymphocytic leukemia", "Acute myelogenous leukemia", "Adenocarcinoma", "Adenosarcoma", "Adrenal cancer", "Adrenocortical carcinoma", "Anal cancer", "Anaplastic astrocytoma", "Angiosarcoma", "Appendix cancer", "Astrocytoma", "Basal cell carcinoma", "B-Cell lymphoma", "Bile duct cancer", "Bladder cancer", "Bone cancer", "Bone marrow cancer", "Bowel cancer", "Brain cancer", "Brain stem glioma", "Brain tumor", "Breast cancer", "Carcinoid tumors", "Cervical cancer", "Cholangiocarcinoma", "Chondrosarcoma", "Chronic lymphocytic leukemia", "Chronic myelogenous leukemia", "Colon cancer", "Colorectal cancer", "Craniopharyngioma", "Cutaneous lymphoma", "Cutaneous melanoma", "Diffuse astrocytoma", "Ductal carcinoma in situ", "Endometrial cancer", "Ependymoma", "Epithelioid sarcoma", "Esophageal cancer", "Ewing sarcoma", "Extrahepatic bile duct cancer", "Eye cancer", "Fallopian tube cancer", "Fibrosarcoma", "Gallbladder cancer", "Gastric cancer", "Gastrointestinal cancer", "Gastrointestinal carcinoid cancer", "Gastrointestinal stromal tumors (GIST)", "Germ cell tumor", "Glioblastoma multiforme (GBM)", "Glioma", "Hairy cell leukemia", "Head and neck cancer", "Hemangioendothelioma", "Hodgkin lymphoma", "Hodgkin's disease", "Hodgkin's lymphoma", "Hypopharyngeal cancer", "Infiltrating ductal carcinoma (IDC)", "Infiltrating lobular carcinoma (ILC)", "Inflammatory breast cancer (IBC)", "Intestinal Cancer", "Intrahepatic bile duct cancer", "Invasive / infiltrating breast cancer", "Islet cell cancer", "Jaw cancer", "Kaposi sarcoma", "Kidney cancer", "Laryngeal cancer", "Leiomyosarcoma", "Leptomeningeal metastases", "Leukemia", "Lip cancer", "Liposarcoma", "Liver cancer", "Lobular carcinoma in situ", "Low-grade astrocytoma", "Lung cancer", "Lymph node cancer", "Lymphoma", "Male breast cancer", "Medullary carcinoma", "Medulloblastoma", "Melanoma", "Meningioma", "Merkel cell carcinoma", "Mesenchymal chondrosarcoma", "Mesenchymous", "Mesothelioma", "Metastatic breast cancer", "Metastatic melanoma", "Metastatic squamous neck cancer", "Mixed gliomas", "Mouth cancer", "Mucinous carcinoma", "Mucosal melanoma", "Multiple myeloma", "Mycosis Fungoides", "Myelodysplastic Syndrome", "Nasal cavity cancer", "Nasopharyngeal cancer", "Neck cancer", "Neuroblastoma", "Neuroendocrine tumors (NETs)", "Non-Hodgkin lymphoma (NHL)", "Non-Hodgkin's lymphoma", "Non-small cell lung cancer (NSCLC)", "Oat cell cancer", "Ocular cancer", "Ocular melanoma", "Oligodendroglioma", "Oral cancer", "Oral cavity cancer", "Oropharyngeal cancer", "Osteogenic sarcoma", "Osteosarcoma", "Ovarian cancer", "Ovarian epithelial cancer", "Ovarian germ cell tumor", "Ovarian primary peritoneal carcinoma", "Ovarian sex cord stromal tumor", "Paget's disease", "Pancreatic cancer", "Papillary carcinoma", "Paranasal sinus cancer", "Parathyroid cancer", "Pelvic cancer", "Penile cancer", "Peripheral nerve cancer", "Peritoneal cancer", "Pharyngeal cancer", "Pheochromocytoma", "Pilocytic astrocytoma", "Pineal region tumor", "Pineoblastoma", "Pituitary gland cancer", "Primary central nervous system (CNS) lymphoma", "Prostate cancer", "Rectal cancer", "Renal cell carcinoma", "Renal pelvis cancer", "Rhabdomyosarcoma", "Salivary gland cancer", "Sarcoma", "Sarcoma, bone", "Sarcoma, soft tissue", "Sarcoma, uterine", "Sinus cancer", "Skin cancer", "Small cell lung cancer (SCLC)", "Small intestine cancer", "Soft tissue sarcoma", "Spinal cancer", "Spinal column cancer", "Spinal cord cancer", "Spinal tumor", "Squamous cell carcinoma", "Stomach cancer", "Synovial sarcoma", "T-cell lymphoma", "Testicular cancer", "Throat cancer", "Thymoma carcinoma", "Thyroid cancer", "Tongue cancer", "Tonsil cancer", "Transitional cell cancer", "Triple-negative breast cancer", "Tubal cancer", "Tubular carcinoma", "Undiagnosed Cancer", "Ureteral cancer", "Uterine adenocarcinoma", "Uterine cancer", "Uterine sarcoma", "Vaginal cancer", "Vulvar cancer"]
+        }, {
+          "type": "scale",
+          "title": "",
+          "tooltip": "Time since diagnosis",
+          "time": true,
+          "timeUnit": "years",
+          "upperLimit": 10
+        }],
+        "multiplier": true,
+        "scale": true,
+        "required": false,
+        "criticality": 632,
+        "data": {
+          "rows": [{
+            "likelihood": "",
+            "bias": true,
+            "importance": "medium",
+            "multiplier": "",
+            "scale": {
+              "value": "",
+              "slope": "flat",
+              "timeUnit": "weeks"
+            }
+          }]
+        }
+      }, {
+        "title": "Chicken Pox",
+        "components": [{
+          "type": "bias",
+          "value": true
+        }, {
+          "type": "importance"
+        }, {
+          "type": "likelihood"
+        }],
+        "multiplier": false,
+        "scale": false,
+        "required": false,
+        "criticality": 543,
+        "data": {
+          "rows": [{
+            "likelihood": "",
+            "bias": true,
+            "importance": "medium"
+          }]
+        }
+      }, {
+        "title": "Chronic Cough",
+        "components": [{
+          "type": "bias",
+          "value": true
+        }, {
+          "type": "importance"
+        }, {
+          "type": "likelihood"
+        }],
+        "multiplier": false,
+        "scale": false,
+        "required": false,
+        "criticality": 290,
+        "data": {
+          "rows": [{
+            "likelihood": "",
+            "bias": true,
+            "importance": "medium"
+          }]
+        }
+      }, {
+        "title": "Cystic Fibrosis",
+        "components": [{
+          "type": "bias",
+          "value": true
+        }, {
+          "type": "importance"
+        }, {
+          "type": "likelihood"
+        }],
+        "multiplier": false,
+        "scale": false,
+        "required": false,
+        "criticality": 294,
+        "data": {
+          "rows": [{
+            "likelihood": "",
+            "bias": true,
+            "importance": "medium"
+          }]
+        }
+      }, {
+        "title": "Dementia/Alzheimer's",
+        "components": [{
+          "type": "bias",
+          "value": true
+        }, {
+          "type": "importance"
+        }, {
+          "type": "likelihood"
+        }, {
+          "type": "scale",
+          "title": "",
+          "tooltip": "Diagnosed in last",
+          "time": true,
+          "timeUnit": "years",
+          "upperLimit": 10
+        }],
+        "multiplier": false,
+        "scale": true,
+        "required": false,
+        "criticality": 5,
+        "data": {
+          "rows": [{
+            "likelihood": "",
+            "bias": true,
+            "importance": "medium",
+            "scale": {
+              "value": "",
+              "slope": "flat",
+              "timeUnit": "weeks"
+            }
+          }]
+        }
+      }, {
+        "title": "Depression",
+        "components": [{
+          "type": "bias",
+          "value": true
+        }, {
+          "type": "importance"
+        }, {
+          "type": "likelihood"
+        }, {
+          "type": "scale",
+          "title": "",
+          "tooltip": "Treatment for how long",
+          "time": true,
+          "timeUnit": "years",
+          "upperLimit": 10
+        }],
+        "multiplier": false,
+        "scale": true,
+        "required": false,
+        "criticality": 38,
+        "data": {
+          "rows": [{
+            "likelihood": "",
+            "bias": true,
+            "importance": "medium",
+            "scale": {
+              "value": "",
+              "slope": "flat",
+              "timeUnit": "weeks"
+            }
+          }]
+        }
+      }, {
+        "title": "Diabetes",
+        "components": [{
+          "type": "bias",
+          "value": true
+        }, {
+          "type": "importance"
+        }, {
+          "type": "likelihood"
+        }, {
+          "type": "multiplier",
+          "multiplierType": "dropdown",
+          "title": "Type",
+          "values": ["Type 1", "Type 2"]
+        }, {
+          "type": "scale",
+          "title": "",
+          "tooltip": "Diagnosed in last",
+          "time": true,
+          "timeUnit": "years",
+          "upperLimit": 10
+        }],
+        "multiplier": true,
+        "scale": true,
+        "required": false,
+        "criticality": 648,
+        "data": {
+          "rows": [{
+            "likelihood": "",
+            "bias": true,
+            "importance": "medium",
+            "multiplier": "",
+            "scale": {
+              "value": "",
+              "slope": "flat",
+              "timeUnit": "weeks"
+            }
+          }]
+        }
+      }, {
+        "title": "Fractures",
+        "components": [{
+          "type": "bias",
+          "value": true
+        }, {
+          "type": "importance"
+        }, {
+          "type": "likelihood"
+        }],
+        "multiplier": false,
+        "scale": false,
+        "required": false,
+        "criticality": 302,
+        "data": {
+          "rows": [{
+            "likelihood": "",
+            "bias": true,
+            "importance": "medium"
+          }]
+        }
+      }, {
+        "title": "Hay Fever",
+        "components": [{
+          "type": "bias",
+          "value": true
+        }, {
+          "type": "importance"
+        }, {
+          "type": "likelihood"
+        }],
+        "multiplier": false,
+        "scale": false,
+        "required": false,
+        "criticality": 567,
+        "data": {
+          "rows": [{
+            "likelihood": "",
+            "bias": true,
+            "importance": "medium"
+          }]
+        }
+      }, {
+        "title": "High Blood Pressure",
+        "components": [{
+          "type": "bias",
+          "value": true
+        }, {
+          "type": "importance"
+        }, {
+          "type": "likelihood"
+        }, {
+          "type": "scale",
+          "title": "",
+          "tooltip": "Diagnosed in last",
+          "time": true,
+          "timeUnit": "years",
+          "upperLimit": 10
+        }],
+        "multiplier": false,
+        "scale": true,
+        "required": false,
+        "criticality": 541,
+        "data": {
+          "rows": [{
+            "likelihood": "",
+            "bias": true,
+            "importance": "medium",
+            "scale": {
+              "value": "",
+              "slope": "flat",
+              "timeUnit": "weeks"
+            }
+          }]
+        }
+      }, {
+        "title": "High Cholesterol",
+        "components": [{
+          "type": "bias",
+          "value": true
+        }, {
+          "type": "importance"
+        }, {
+          "type": "likelihood"
+        }, {
+          "type": "scale",
+          "title": "",
+          "tooltip": "amount of time",
+          "time": true,
+          "timeUnit": "years",
+          "upperLimit": 10
+        }],
+        "multiplier": false,
+        "scale": true,
+        "required": false,
+        "criticality": 130,
+        "data": {
+          "rows": [{
+            "likelihood": "",
+            "bias": true,
+            "importance": "medium",
+            "scale": {
+              "value": "",
+              "slope": "flat",
+              "timeUnit": "weeks"
+            }
+          }]
+        }
+      }, {
+        "title": "Heart Disease",
+        "components": [{
+          "type": "bias",
+          "value": true
+        }, {
+          "type": "importance"
+        }, {
+          "type": "likelihood"
+        }],
+        "multiplier": false,
+        "scale": false,
+        "required": false,
+        "criticality": 438,
+        "data": {
+          "rows": [{
+            "likelihood": "",
+            "bias": true,
+            "importance": "medium"
+          }]
+        }
+      }, {
+        "title": "Lung Infections",
+        "components": [{
+          "type": "bias",
+          "value": true
+        }, {
+          "type": "importance"
+        }, {
+          "type": "likelihood"
+        }],
+        "multiplier": false,
+        "scale": false,
+        "required": false,
+        "criticality": 589,
+        "data": {
+          "rows": [{
+            "likelihood": "",
+            "bias": true,
+            "importance": "medium"
+          }]
+        }
+      }, {
+        "title": "Nose Bleeds",
+        "components": [{
+          "type": "bias",
+          "value": true
+        }, {
+          "type": "importance"
+        }, {
+          "type": "likelihood"
+        }],
+        "multiplier": false,
+        "scale": false,
+        "required": false,
+        "criticality": 542,
+        "data": {
+          "rows": [{
+            "likelihood": "",
+            "bias": true,
+            "importance": "medium"
+          }]
+        }
+      }, {
+        "title": "Requiring C-Sections",
+        "components": [{
+          "type": "bias",
+          "value": true
+        }, {
+          "type": "importance"
+        }, {
+          "type": "likelihood"
+        }],
+        "multiplier": false,
+        "scale": false,
+        "required": false,
+        "criticality": 263,
+        "data": {
+          "rows": [{
+            "likelihood": "",
+            "bias": true,
+            "importance": "medium"
+          }]
+        }
+      }, {
+        "title": "Seizures",
+        "components": [{
+          "type": "bias",
+          "value": true
+        }, {
+          "type": "importance"
+        }, {
+          "type": "likelihood"
+        }, {
+          "type": "scale",
+          "title": "",
+          "tooltip": "Diagnosed in last",
+          "time": true,
+          "timeUnit": "years",
+          "upperLimit": 10
+        }],
+        "multiplier": false,
+        "scale": true,
+        "required": false,
+        "criticality": 23,
+        "data": {
+          "rows": [{
+            "likelihood": "",
+            "bias": true,
+            "importance": "medium",
+            "scale": {
+              "value": "",
+              "slope": "flat",
+              "timeUnit": "weeks"
+            }
+          }]
+        }
+      }, {
+        "title": "Skin Disorders",
+        "components": [{
+          "type": "bias",
+          "value": true
+        }, {
+          "type": "importance"
+        }, {
+          "type": "likelihood"
+        }],
+        "multiplier": false,
+        "scale": false,
+        "required": false,
+        "criticality": 1,
+        "data": {
+          "rows": [{
+            "likelihood": "",
+            "bias": true,
+            "importance": "medium"
+          }]
+        }
+      }, {
+        "title": "Spinal Issues",
+        "components": [{
+          "type": "bias",
+          "value": true
+        }, {
+          "type": "importance"
+        }, {
+          "type": "likelihood"
+        }],
+        "multiplier": false,
+        "scale": false,
+        "required": false,
+        "criticality": 619,
+        "data": {
+          "rows": [{
+            "likelihood": "",
+            "bias": true,
+            "importance": "medium"
+          }]
+        }
+      }, {
+        "title": "Strokes",
+        "components": [{
+          "type": "bias",
+          "value": true
+        }, {
+          "type": "importance"
+        }, {
+          "type": "likelihood"
+        }],
+        "multiplier": false,
+        "scale": false,
+        "required": false,
+        "criticality": 198,
+        "data": {
+          "rows": [{
+            "likelihood": "",
+            "bias": true,
+            "importance": "medium"
+          }]
+        }
+      }, {
+        "title": "Surgery",
+        "components": [{
+          "type": "bias",
+          "value": true
+        }, {
+          "type": "importance"
+        }, {
+          "type": "likelihood"
+        }, {
+          "type": "scale",
+          "title": "",
+          "tooltip": "Time since",
+          "time": true,
+          "timeUnit": "years",
+          "upperLimit": 10
+        }],
+        "multiplier": false,
+        "scale": true,
+        "required": false,
+        "criticality": 114,
+        "data": {
+          "rows": [{
+            "likelihood": "",
+            "bias": true,
+            "importance": "medium",
+            "scale": {
+              "value": "",
+              "slope": "flat",
+              "timeUnit": "weeks"
+            }
+          }]
+        }
+      }, {
+        "title": "Thyroid Disease",
+        "components": [{
+          "type": "bias",
+          "value": true
+        }, {
+          "type": "importance"
+        }, {
+          "type": "likelihood"
+        }],
+        "multiplier": false,
+        "scale": false,
+        "required": false,
+        "criticality": 769,
+        "data": {
+          "rows": [{
+            "likelihood": "",
+            "bias": true,
+            "importance": "medium"
+          }]
+        }
+      }, {
+        "title": "TMJ",
+        "components": [{
+          "type": "bias",
+          "value": true
+        }, {
+          "type": "importance"
+        }, {
+          "type": "likelihood"
+        }],
+        "multiplier": false,
+        "scale": false,
+        "required": false,
+        "criticality": 604,
+        "data": {
+          "rows": [{
+            "likelihood": "",
+            "bias": true,
+            "importance": "medium"
+          }]
+        }
+      }, {
+        "title": "Tuberculosis",
+        "components": [{
+          "type": "bias",
+          "value": true
+        }, {
+          "type": "importance"
+        }, {
+          "type": "likelihood"
+        }],
+        "multiplier": false,
+        "scale": false,
+        "required": false,
+        "criticality": 826,
+        "data": {
+          "rows": [{
+            "likelihood": "",
+            "bias": true,
+            "importance": "medium"
+          }]
+        }
+      }, {
+        "title": "Upper Respiratory Infections",
+        "components": [{
+          "type": "bias",
+          "value": true
+        }, {
+          "type": "importance"
+        }, {
+          "type": "likelihood"
+        }],
+        "multiplier": false,
+        "scale": false,
+        "required": false,
+        "criticality": 301,
+        "data": {
+          "rows": [{
+            "likelihood": "",
+            "bias": true,
+            "importance": "medium"
+          }]
+        }
+      }]
+    }]
+  }, {
+    "name": "Behavior",
+    "categories": [{
+      "name": "Dietary",
+      "symptoms": [{
+        "title": "Patient not eating properly",
+        "components": [{
+          "type": "bias",
+          "value": true
+        }, {
+          "type": "importance"
+        }, {
+          "type": "likelihood"
+        }],
+        "multiplier": false,
+        "scale": false,
+        "required": false,
+        "criticality": 346,
+        "data": {
+          "rows": [{
+            "likelihood": "",
+            "bias": true,
+            "importance": "medium"
+          }]
+        }
+      }, {
+        "title": "Patient recently ate questionable food",
+        "components": [{
+          "type": "bias",
+          "value": true
+        }, {
+          "type": "importance"
+        }, {
+          "type": "likelihood"
+        }, {
+          "type": "scale",
+          "title": "",
+          "tooltip": "amount of time ago",
+          "time": true,
+          "timeUnit": "days",
+          "upperLimit": 8
+        }],
+        "multiplier": false,
+        "scale": true,
+        "required": false,
+        "criticality": 845,
+        "data": {
+          "rows": [{
+            "likelihood": "",
+            "bias": true,
+            "importance": "medium",
+            "scale": {
+              "value": "",
+              "slope": "flat",
+              "timeUnit": "weeks"
+            }
+          }]
+        }
+      }, {
+        "title": "Patient recently ate unwashed food",
+        "components": [{
+          "type": "bias",
+          "value": true
+        }, {
+          "type": "importance"
+        }, {
+          "type": "likelihood"
+        }, {
+          "type": "scale",
+          "title": "",
+          "tooltip": "amount of time ago",
+          "time": true,
+          "timeUnit": "days",
+          "upperLimit": 8
+        }],
+        "multiplier": false,
+        "scale": true,
+        "required": false,
+        "criticality": 436,
+        "data": {
+          "rows": [{
+            "likelihood": "",
+            "bias": true,
+            "importance": "medium",
+            "scale": {
+              "value": "",
+              "slope": "flat",
+              "timeUnit": "weeks"
+            }
+          }]
+        }
+      }, {
+        "title": "Patient recently exposed to raw foods",
+        "components": [{
+          "type": "bias",
+          "value": true
+        }, {
+          "type": "importance"
+        }, {
+          "type": "likelihood"
+        }, {
+          "type": "scale",
+          "title": "",
+          "tooltip": "amount of time ago",
+          "time": true,
+          "timeUnit": "days",
+          "upperLimit": 8
+        }],
+        "multiplier": false,
+        "scale": true,
+        "required": false,
+        "criticality": 743,
+        "data": {
+          "rows": [{
+            "likelihood": "",
+            "bias": true,
+            "importance": "medium",
+            "scale": {
+              "value": "",
+              "slope": "flat",
+              "timeUnit": "weeks"
+            }
+          }]
+        }
+      }, {
+        "title": "Patient following a high fiber diet",
+        "components": [{
+          "type": "bias",
+          "value": true
+        }, {
+          "type": "importance"
+        }, {
+          "type": "likelihood"
+        }],
+        "multiplier": false,
+        "scale": false,
+        "required": false,
+        "criticality": 573,
+        "data": {
+          "rows": [{
+            "likelihood": "",
+            "bias": true,
+            "importance": "medium"
+          }]
+        }
+      }, {
+        "title": "Patient dieting",
+        "components": [{
+          "type": "bias",
+          "value": true
+        }, {
+          "type": "importance"
+        }, {
+          "type": "likelihood"
+        }, {
+          "type": "scale",
+          "title": "",
+          "tooltip": "amount of time",
+          "time": true,
+          "timeUnit": "weeks",
+          "upperLimit": 12
+        }],
+        "multiplier": false,
+        "scale": true,
+        "required": false,
+        "criticality": 711,
+        "data": {
+          "rows": [{
+            "likelihood": "",
+            "bias": true,
+            "importance": "medium",
+            "scale": {
+              "value": "",
+              "slope": "flat",
+              "timeUnit": "weeks"
+            }
+          }]
+        }
+      }, {
+        "title": "Patient always feels full",
+        "components": [{
+          "type": "bias",
+          "value": true
+        }, {
+          "type": "importance"
+        }, {
+          "type": "likelihood"
+        }, {
+          "type": "scale",
+          "title": "",
+          "tooltip": "amount of time",
+          "time": true,
+          "timeUnit": "weeks",
+          "upperLimit": 12
+        }],
+        "multiplier": false,
+        "scale": true,
+        "required": false,
+        "criticality": 848,
+        "data": {
+          "rows": [{
+            "likelihood": "",
+            "bias": true,
+            "importance": "medium",
+            "scale": {
+              "value": "",
+              "slope": "flat",
+              "timeUnit": "weeks"
+            }
+          }]
+        }
+      }, {
+        "title": "Unusual Cravings",
+        "components": [{
+          "type": "bias",
+          "value": true
+        }, {
+          "type": "importance"
+        }, {
+          "type": "likelihood"
+        }, {
+          "type": "scale",
+          "title": "",
+          "tooltip": "amount of time",
+          "time": true,
+          "timeUnit": "weeks",
+          "upperLimit": 12
+        }],
+        "multiplier": false,
+        "scale": true,
+        "required": false,
+        "criticality": 810,
+        "data": {
+          "rows": [{
+            "likelihood": "",
+            "bias": true,
+            "importance": "medium",
+            "scale": {
+              "value": "",
+              "slope": "flat",
+              "timeUnit": "weeks"
+            }
+          }]
+        }
+      }]
+    }, {
+      "name": "Environment",
+      "symptoms": [{
+        "title": "Exposure to Others",
+        "components": [{
+          "type": "bias",
+          "value": true
+        }, {
+          "type": "importance"
+        }, {
+          "type": "likelihood"
+        }, {
+          "type": "multiplier",
+          "multiplierType": "dropdown",
+          "title": "Locations",
+          "values": ["TODO"]
+        }, {
+          "type": "scale",
+          "title": "",
+          "tooltip": "number of",
+          "time": true,
+          "timeUnit": "weeks",
+          "upperLimit": 12
+        }],
+        "multiplier": true,
+        "scale": true,
+        "required": false,
+        "criticality": 476,
+        "data": {
+          "rows": [{
+            "likelihood": "",
+            "bias": true,
+            "importance": "medium",
+            "multiplier": "",
+            "scale": {
+              "value": "",
+              "slope": "flat",
+              "timeUnit": "weeks"
+            }
+          }]
+        }
+      }, {
+        "title": "Exposure to Carcinogens/Poisons",
+        "components": [{
+          "type": "bias",
+          "value": true
+        }, {
+          "type": "importance"
+        }, {
+          "type": "likelihood"
+        }, {
+          "type": "multiplier",
+          "multiplierType": "dropdown",
+          "title": "TODO",
+          "values": ["TODO"]
+        }, {
+          "type": "scale",
+          "title": "",
+          "tooltip": "amount of time ago",
+          "time": true,
+          "timeUnit": "weeks",
+          "upperLimit": 10
+        }],
+        "multiplier": true,
+        "scale": true,
+        "required": false,
+        "criticality": 614,
+        "data": {
+          "rows": [{
+            "likelihood": "",
+            "bias": true,
+            "importance": "medium",
+            "multiplier": "",
+            "scale": {
+              "value": "",
+              "slope": "flat",
+              "timeUnit": "weeks"
+            }
+          }]
+        }
+      }, {
+        "title": "Recent Foreign Travel",
+        "components": [{
+          "type": "bias",
+          "value": true
+        }, {
+          "type": "importance"
+        }, {
+          "type": "likelihood"
+        }, {
+          "type": "multiplier",
+          "multiplierType": "country",
+          "title": "Geography",
+          "values": []
+        }],
+        "multiplier": true,
+        "scale": false,
+        "required": false,
+        "criticality": 688,
+        "data": {
+          "rows": [{
+            "likelihood": "",
+            "bias": true,
+            "importance": "medium",
+            "multiplier": ""
+          }]
+        }
+      }, {
+        "title": "Recent Exposure to High Altitude",
+        "components": [{
+          "type": "bias",
+          "value": true
+        }, {
+          "type": "importance"
+        }, {
+          "type": "likelihood"
+        }, {
+          "type": "scale",
+          "title": "",
+          "tooltip": "amount of time ago",
+          "time": true,
+          "timeUnit": "weeks",
+          "upperLimit": 16
+        }],
+        "multiplier": false,
+        "scale": true,
+        "required": false,
+        "criticality": 610,
+        "data": {
+          "rows": [{
+            "likelihood": "",
+            "bias": true,
+            "importance": "medium",
+            "scale": {
+              "value": "",
+              "slope": "flat",
+              "timeUnit": "weeks"
+            }
+          }]
+        }
+      }, {
+        "title": "Exposure to Animals/Pets",
+        "components": [{
+          "type": "bias",
+          "value": true
+        }, {
+          "type": "importance"
+        }, {
+          "type": "likelihood"
+        }, {
+          "type": "multiplier",
+          "multiplierType": "dropdown",
+          "title": "Animals",
+          "values": ["Birds", "Cats", "Dogs", "Rats and Mice"]
+        }, {
+          "type": "scale",
+          "title": "",
+          "tooltip": "amount of time ago",
+          "time": true,
+          "timeUnit": "weeks",
+          "upperLimit": 8
+        }],
+        "multiplier": true,
+        "scale": true,
+        "required": false,
+        "criticality": 570,
+        "data": {
+          "rows": [{
+            "likelihood": "",
+            "bias": true,
+            "importance": "medium",
+            "multiplier": "",
+            "scale": {
+              "value": "",
+              "slope": "flat",
+              "timeUnit": "weeks"
+            }
+          }]
+        }
+      }, {
+        "title": "Sensitivity to Temps",
+        "components": [{
+          "type": "bias",
+          "value": true
+        }, {
+          "type": "importance"
+        }, {
+          "type": "likelihood"
+        }, {
+          "type": "multiplier",
+          "multiplierType": "dropdown",
+          "title": "Temperature",
+          "values": ["hot", "cold"]
+        }, {
+          "type": "scale",
+          "title": "",
+          "tooltip": "amount of time",
+          "time": true,
+          "timeUnit": "weeks",
+          "upperLimit": 12
+        }],
+        "multiplier": true,
+        "scale": true,
+        "required": false,
+        "criticality": 249,
+        "data": {
+          "rows": [{
+            "likelihood": "",
+            "bias": true,
+            "importance": "medium",
+            "multiplier": "",
+            "scale": {
+              "value": "",
+              "slope": "flat",
+              "timeUnit": "weeks"
+            }
+          }]
+        }
+      }]
+    }, {
+      "name": "Occupational Risk",
+      "symptoms": [{
+        "title": "Job Classifications",
+        "components": [{
+          "type": "bias",
+          "value": true
+        }, {
+          "type": "importance"
+        }, {
+          "type": "likelihood"
+        }, {
+          "type": "multiplier",
+          "multiplierType": "dropdown",
+          "title": "Classification",
+          "values": ["Agriculture", "Manufacturing", "Construction", "Music", "Healthcare", "Hospitality", "Transportation", "Computer", "Processing", "Healthcare", "Hospitality", "Landscaping", "Mining", "Transportation", "Food Processing", "Proximity to Animals", "Nuclear", "Underground Work", "Metallworks", "Plumbing", "Chemicals"]
+        }, {
+          "type": "scale",
+          "title": "",
+          "tooltip": "amount of time",
+          "time": true,
+          "timeUnit": "years",
+          "upperLimit": 5
+        }],
+        "multiplier": true,
+        "scale": true,
+        "required": false,
+        "criticality": 493,
+        "data": {
+          "rows": [{
+            "likelihood": "",
+            "bias": true,
+            "importance": "medium",
+            "multiplier": "",
+            "scale": {
+              "value": "",
+              "slope": "flat",
+              "timeUnit": "weeks"
+            }
+          }]
+        }
+      }, {
+        "title": "Job Behaviors",
+        "components": [{
+          "type": "bias",
+          "value": true
+        }, {
+          "type": "importance"
+        }, {
+          "type": "likelihood"
+        }, {
+          "type": "multiplier",
+          "multiplierType": "dropdown",
+          "title": "Behavior",
+          "values": ["Standing", "Sitting", "Computer Use", "Running", "Strenuous", "Awkward Positions"]
+        }, {
+          "type": "scale",
+          "title": "",
+          "tooltip": "amount of time",
+          "time": true,
+          "timeUnit": "years",
+          "upperLimit": 5
+        }],
+        "multiplier": true,
+        "scale": true,
+        "required": false,
+        "criticality": 199,
+        "data": {
+          "rows": [{
+            "likelihood": "",
+            "bias": true,
+            "importance": "medium",
+            "multiplier": "",
+            "scale": {
+              "value": "",
+              "slope": "flat",
+              "timeUnit": "weeks"
+            }
+          }]
+        }
+      }, {
+        "title": "Job Stress",
+        "components": [{
+          "type": "bias",
+          "value": true
+        }, {
+          "type": "importance"
+        }, {
+          "type": "likelihood"
+        }, {
+          "type": "multiplier",
+          "multiplierType": "dropdown",
+          "title": "Reason",
+          "values": ["Poor Work Relationships", "Increased Workload", "Forced Overtime", "Job Security", "Pay Concerns"]
+        }, {
+          "type": "scale",
+          "title": "",
+          "tooltip": "amount of time",
+          "time": true,
+          "timeUnit": "months",
+          "upperLimit": 12
+        }],
+        "multiplier": true,
+        "scale": true,
+        "required": false,
+        "criticality": 565,
+        "data": {
+          "rows": [{
+            "likelihood": "",
+            "bias": true,
+            "importance": "medium",
+            "multiplier": "",
+            "scale": {
+              "value": "",
+              "slope": "flat",
+              "timeUnit": "weeks"
+            }
+          }]
+        }
+      }, {
+        "title": "Job Exposures",
+        "components": [{
+          "type": "bias",
+          "value": true
+        }, {
+          "type": "importance"
+        }, {
+          "type": "likelihood"
+        }, {
+          "type": "multiplier",
+          "multiplierType": "dropdown",
+          "title": "Exposure To",
+          "values": ["Dust", "Asbestos", "Fumes", "Chemicals", "Radiation", "Loud Noises", "Biological Pathogens", "Diseases", "Illnesses", "Vibration", "Heat", "Cold", "Solvents", "Vapors"]
+        }, {
+          "type": "scale",
+          "title": "",
+          "tooltip": "amount of time",
+          "time": true,
+          "timeUnit": "months",
+          "upperLimit": 12
+        }],
+        "multiplier": true,
+        "scale": true,
+        "required": false,
+        "criticality": 278,
+        "data": {
+          "rows": [{
+            "likelihood": "",
+            "bias": true,
+            "importance": "medium",
+            "multiplier": "",
+            "scale": {
+              "value": "",
+              "slope": "flat",
+              "timeUnit": "weeks"
+            }
+          }]
+        }
+      }]
+    }, {
+      "name": "Physical Factors",
+      "symptoms": [{
+        "title": "Excessive Sweating",
+        "components": [{
+          "type": "bias",
+          "value": true
+        }, {
+          "type": "importance"
+        }, {
+          "type": "likelihood"
+        }, {
+          "type": "scale",
+          "title": "",
+          "tooltip": "amount of time",
+          "time": true,
+          "timeUnit": "days",
+          "upperLimit": 14
+        }],
+        "multiplier": false,
+        "scale": true,
+        "required": false,
+        "criticality": 894,
+        "data": {
+          "rows": [{
+            "likelihood": "",
+            "bias": true,
+            "importance": "medium",
+            "scale": {
+              "value": "",
+              "slope": "flat",
+              "timeUnit": "weeks"
+            }
+          }]
+        }
+      }, {
+        "title": "Reduced Sweating",
+        "components": [{
+          "type": "bias",
+          "value": true
+        }, {
+          "type": "importance"
+        }, {
+          "type": "likelihood"
+        }, {
+          "type": "scale",
+          "title": "",
+          "tooltip": "amount of time",
+          "time": true,
+          "timeUnit": "days",
+          "upperLimit": 14
+        }],
+        "multiplier": false,
+        "scale": true,
+        "required": false,
+        "criticality": 918,
+        "data": {
+          "rows": [{
+            "likelihood": "",
+            "bias": true,
+            "importance": "medium",
+            "scale": {
+              "value": "",
+              "slope": "flat",
+              "timeUnit": "weeks"
+            }
+          }]
+        }
+      }, {
+        "title": "Recent Body Trauma",
+        "components": [{
+          "type": "bias",
+          "value": true
+        }, {
+          "type": "importance"
+        }, {
+          "type": "likelihood"
+        }, {
+          "type": "scale",
+          "title": "",
+          "tooltip": "amount of time ago",
+          "time": true,
+          "timeUnit": "days",
+          "upperLimit": 31
+        }],
+        "multiplier": false,
+        "scale": true,
+        "required": false,
+        "criticality": 430,
+        "data": {
+          "rows": [{
+            "likelihood": "",
+            "bias": true,
+            "importance": "medium",
+            "scale": {
+              "value": "",
+              "slope": "flat",
+              "timeUnit": "weeks"
+            }
+          }]
+        }
+      }]
+    }, {
+      "name": "Sleeping Patterns",
+      "symptoms": [{
+        "title": "Excessive Fatigue",
+        "components": [{
+          "type": "bias",
+          "value": true
+        }, {
+          "type": "importance"
+        }, {
+          "type": "likelihood"
+        }, {
+          "type": "scale",
+          "title": "",
+          "tooltip": "amount of time",
+          "time": true,
+          "timeUnit": "weeks",
+          "upperLimit": 12
+        }],
+        "multiplier": false,
+        "scale": true,
+        "required": false,
+        "criticality": 448,
+        "data": {
+          "rows": [{
+            "likelihood": "",
+            "bias": true,
+            "importance": "medium",
+            "scale": {
+              "value": "",
+              "slope": "flat",
+              "timeUnit": "weeks"
+            }
+          }]
+        }
+      }, {
+        "title": "Irregular Sleeping Patterns",
+        "components": [{
+          "type": "bias",
+          "value": true
+        }, {
+          "type": "importance"
+        }, {
+          "type": "likelihood"
+        }, {
+          "type": "scale",
+          "title": "",
+          "tooltip": "amount of time",
+          "time": true,
+          "timeUnit": "weeks",
+          "upperLimit": 12
+        }],
+        "multiplier": false,
+        "scale": true,
+        "required": false,
+        "criticality": 77,
+        "data": {
+          "rows": [{
+            "likelihood": "",
+            "bias": true,
+            "importance": "medium",
+            "scale": {
+              "value": "",
+              "slope": "flat",
+              "timeUnit": "weeks"
+            }
+          }]
+        }
+      }, {
+        "title": "Reasons for Poor Sleep",
+        "components": [{
+          "type": "bias",
+          "value": true
+        }, {
+          "type": "importance"
+        }, {
+          "type": "likelihood"
+        }, {
+          "type": "multiplier",
+          "multiplierType": "dropdown",
+          "title": "Reason",
+          "values": ["Anxiety", "Fear", "Rest Room", "Stress"]
+        }, {
+          "type": "scale",
+          "title": "",
+          "tooltip": "amount of time",
+          "time": true,
+          "timeUnit": "weeks",
+          "upperLimit": 12
+        }],
+        "multiplier": true,
+        "scale": true,
+        "required": false,
+        "criticality": 56,
+        "data": {
+          "rows": [{
+            "likelihood": "",
+            "bias": true,
+            "importance": "medium",
+            "multiplier": "",
+            "scale": {
+              "value": "",
+              "slope": "flat",
+              "timeUnit": "weeks"
+            }
+          }]
+        }
+      }, {
+        "title": "Sleep Apnea",
+        "components": [{
+          "type": "bias",
+          "value": true
+        }, {
+          "type": "importance"
+        }, {
+          "type": "likelihood"
+        }, {
+          "type": "scale",
+          "title": "",
+          "tooltip": "amount of time",
+          "time": true,
+          "timeUnit": "weeks",
+          "upperLimit": 12
+        }],
+        "multiplier": false,
+        "scale": true,
+        "required": false,
+        "criticality": 121,
+        "data": {
+          "rows": [{
+            "likelihood": "",
+            "bias": true,
+            "importance": "medium",
+            "scale": {
+              "value": "",
+              "slope": "flat",
+              "timeUnit": "weeks"
+            }
+          }]
+        }
+      }, {
+        "title": "Snoring",
+        "components": [{
+          "type": "bias",
+          "value": true
+        }, {
+          "type": "importance"
+        }, {
+          "type": "likelihood"
+        }, {
+          "type": "scale",
+          "title": "",
+          "tooltip": "amount of time",
+          "time": true,
+          "timeUnit": "days",
+          "upperLimit": 365
+        }],
+        "multiplier": false,
+        "scale": true,
+        "required": false,
+        "criticality": 44,
+        "data": {
+          "rows": [{
+            "likelihood": "",
+            "bias": true,
+            "importance": "medium",
+            "scale": {
+              "value": "",
+              "slope": "flat",
+              "timeUnit": "weeks"
+            }
+          }]
+        }
+      }]
+    }, {
+      "name": "Other Factors",
+      "symptoms": [{
+        "title": "Dehydration",
+        "components": [{
+          "type": "bias",
+          "value": true
+        }, {
+          "type": "importance"
+        }, {
+          "type": "likelihood"
+        }, {
+          "type": "scale",
+          "title": "",
+          "tooltip": "amount of time",
+          "time": true,
+          "timeUnit": "weeks",
+          "upperLimit": 12
+        }],
+        "multiplier": false,
+        "scale": true,
+        "required": false,
+        "criticality": 947,
+        "data": {
+          "rows": [{
+            "likelihood": "",
+            "bias": true,
+            "importance": "medium",
+            "scale": {
+              "value": "",
+              "slope": "flat",
+              "timeUnit": "weeks"
+            }
+          }]
+        }
+      }]
+    }]
+  }, {
+    "name": "Neurological",
+    "categories": [{
+      "name": "Cognitive / Nervous System",
+      "symptoms": [{
+        "title": "Seizures",
+        "components": [{
+          "type": "bias",
+          "value": true
+        }, {
+          "type": "importance"
+        }, {
+          "type": "likelihood"
+        }, {
+          "type": "scale",
+          "title": "",
+          "tooltip": "amount of time",
+          "time": true,
+          "timeUnit": "weeks",
+          "upperLimit": 12
+        }],
+        "multiplier": false,
+        "scale": true,
+        "required": false,
+        "criticality": 318,
+        "data": {
+          "rows": [{
+            "likelihood": "",
+            "bias": true,
+            "importance": "medium",
+            "scale": {
+              "value": "",
+              "slope": "flat",
+              "timeUnit": "weeks"
+            }
+          }]
+        }
+      }, {
+        "title": "Confusion",
+        "components": [{
+          "type": "bias",
+          "value": true
+        }, {
+          "type": "importance"
+        }, {
+          "type": "likelihood"
+        }, {
+          "type": "scale",
+          "title": "",
+          "tooltip": "amount of time",
+          "time": true,
+          "timeUnit": "weeks",
+          "upperLimit": 12
+        }],
+        "multiplier": false,
+        "scale": true,
+        "required": false,
+        "criticality": 135,
+        "data": {
+          "rows": [{
+            "likelihood": "",
+            "bias": true,
+            "importance": "medium",
+            "scale": {
+              "value": "",
+              "slope": "flat",
+              "timeUnit": "weeks"
+            }
+          }]
+        }
+      }, {
+        "title": "Dizziness",
+        "components": [{
+          "type": "bias",
+          "value": true
+        }, {
+          "type": "importance"
+        }, {
+          "type": "likelihood"
+        }, {
+          "type": "scale",
+          "title": "",
+          "tooltip": "amount of time",
+          "time": true,
+          "timeUnit": "weeks",
+          "upperLimit": 12
+        }],
+        "multiplier": false,
+        "scale": true,
+        "required": false,
+        "criticality": 328,
+        "data": {
+          "rows": [{
+            "likelihood": "",
+            "bias": true,
+            "importance": "medium",
+            "scale": {
+              "value": "",
+              "slope": "flat",
+              "timeUnit": "weeks"
+            }
+          }]
+        }
+      }, {
+        "title": "Memory Issues",
+        "components": [{
+          "type": "bias",
+          "value": true
+        }, {
+          "type": "importance"
+        }, {
+          "type": "likelihood"
+        }, {
+          "type": "scale",
+          "title": "",
+          "tooltip": "amount of time",
+          "time": true,
+          "timeUnit": "weeks",
+          "upperLimit": 12
+        }],
+        "multiplier": false,
+        "scale": true,
+        "required": false,
+        "criticality": 209,
+        "data": {
+          "rows": [{
+            "likelihood": "",
+            "bias": true,
+            "importance": "medium",
+            "scale": {
+              "value": "",
+              "slope": "flat",
+              "timeUnit": "weeks"
+            }
+          }]
+        }
+      }, {
+        "title": "Fainting",
+        "components": [{
+          "type": "bias",
+          "value": true
+        }, {
+          "type": "importance"
+        }, {
+          "type": "likelihood"
+        }, {
+          "type": "scale",
+          "title": "",
+          "tooltip": "amount of time",
+          "time": true,
+          "timeUnit": "weeks",
+          "upperLimit": 12
+        }],
+        "multiplier": false,
+        "scale": true,
+        "required": false,
+        "criticality": 633,
+        "data": {
+          "rows": [{
+            "likelihood": "",
+            "bias": true,
+            "importance": "medium",
+            "scale": {
+              "value": "",
+              "slope": "flat",
+              "timeUnit": "weeks"
+            }
+          }]
+        }
+      }, {
+        "title": "Hallucinations",
+        "components": [{
+          "type": "bias",
+          "value": true
+        }, {
+          "type": "importance"
+        }, {
+          "type": "likelihood"
+        }, {
+          "type": "scale",
+          "title": "",
+          "tooltip": "amount of time",
+          "time": true,
+          "timeUnit": "weeks",
+          "upperLimit": 12
+        }],
+        "multiplier": false,
+        "scale": true,
+        "required": false,
+        "criticality": 486,
+        "data": {
+          "rows": [{
+            "likelihood": "",
+            "bias": true,
+            "importance": "medium",
+            "scale": {
+              "value": "",
+              "slope": "flat",
+              "timeUnit": "weeks"
+            }
+          }]
+        }
+      }]
+    }, {
+      "name": "Emotions",
+      "symptoms": [{
+        "title": "Emotional Control (Moods)",
+        "components": [{
+          "type": "bias",
+          "value": true
+        }, {
+          "type": "importance"
+        }, {
+          "type": "likelihood"
+        }, {
+          "type": "scale",
+          "title": "",
+          "tooltip": "amount of time",
+          "time": true,
+          "timeUnit": "weeks",
+          "upperLimit": 12
+        }],
+        "multiplier": false,
+        "scale": true,
+        "required": false,
+        "criticality": 554,
+        "data": {
+          "rows": [{
+            "likelihood": "",
+            "bias": true,
+            "importance": "medium",
+            "scale": {
+              "value": "",
+              "slope": "flat",
+              "timeUnit": "weeks"
+            }
+          }]
+        }
+      }, {
+        "title": "Anxiety",
+        "components": [{
+          "type": "bias",
+          "value": true
+        }, {
+          "type": "importance"
+        }, {
+          "type": "likelihood"
+        }, {
+          "type": "scale",
+          "title": "",
+          "tooltip": "amount of time",
+          "time": true,
+          "timeUnit": "weeks",
+          "upperLimit": 12
+        }],
+        "multiplier": false,
+        "scale": true,
+        "required": false,
+        "criticality": 246,
+        "data": {
+          "rows": [{
+            "likelihood": "",
+            "bias": true,
+            "importance": "medium",
+            "scale": {
+              "value": "",
+              "slope": "flat",
+              "timeUnit": "weeks"
+            }
+          }]
+        }
+      }, {
+        "title": "Depression",
+        "components": [{
+          "type": "bias",
+          "value": true
+        }, {
+          "type": "importance"
+        }, {
+          "type": "likelihood"
+        }, {
+          "type": "scale",
+          "title": "",
+          "tooltip": "amount of time",
+          "time": true,
+          "timeUnit": "weeks",
+          "upperLimit": 12
+        }],
+        "multiplier": false,
+        "scale": true,
+        "required": false,
+        "criticality": 619,
+        "data": {
+          "rows": [{
+            "likelihood": "",
+            "bias": true,
+            "importance": "medium",
+            "scale": {
+              "value": "",
+              "slope": "flat",
+              "timeUnit": "weeks"
+            }
+          }]
+        }
+      }, {
+        "title": "PMS",
+        "components": [{
+          "type": "bias",
+          "value": true
+        }, {
+          "type": "importance"
+        }, {
+          "type": "likelihood"
+        }, {
+          "type": "scale",
+          "title": "",
+          "tooltip": "amount of time",
+          "time": true,
+          "timeUnit": "months",
+          "upperLimit": 6
+        }],
+        "multiplier": false,
+        "scale": true,
+        "required": false,
+        "criticality": 921,
+        "data": {
+          "rows": [{
+            "likelihood": "",
+            "bias": true,
+            "importance": "medium",
+            "scale": {
+              "value": "",
+              "slope": "flat",
+              "timeUnit": "weeks"
+            }
+          }]
+        }
+      }]
+    }]
+  }, {
+    "name": "Physical and Pain",
+    "categories": [{
+      "name": "Eyes",
+      "symptoms": [{
+        "title": "Itching Eyes",
+        "components": [{
+          "type": "bias",
+          "value": true
+        }, {
+          "type": "importance"
+        }, {
+          "type": "likelihood"
+        }, {
+          "type": "scale",
+          "title": "",
+          "tooltip": "amount of time",
+          "time": true,
+          "timeUnit": "weeks",
+          "upperLimit": 6
+        }],
+        "multiplier": false,
+        "scale": true,
+        "required": false,
+        "criticality": 527,
+        "data": {
+          "rows": [{
+            "likelihood": "",
+            "bias": true,
+            "importance": "medium",
+            "scale": {
+              "value": "",
+              "slope": "flat",
+              "timeUnit": "weeks"
+            }
+          }]
+        }
+      }, {
+        "title": "Crusty Eyes",
+        "components": [{
+          "type": "bias",
+          "value": true
+        }, {
+          "type": "importance"
+        }, {
+          "type": "likelihood"
+        }, {
+          "type": "scale",
+          "title": "",
+          "tooltip": "amount of time",
+          "time": true,
+          "timeUnit": "weeks",
+          "upperLimit": 6
+        }],
+        "multiplier": false,
+        "scale": true,
+        "required": false,
+        "criticality": 511,
+        "data": {
+          "rows": [{
+            "likelihood": "",
+            "bias": true,
+            "importance": "medium",
+            "scale": {
+              "value": "",
+              "slope": "flat",
+              "timeUnit": "weeks"
+            }
+          }]
+        }
+      }, {
+        "title": "Red Eyes",
+        "components": [{
+          "type": "bias",
+          "value": true
+        }, {
+          "type": "importance"
+        }, {
+          "type": "likelihood"
+        }],
+        "multiplier": false,
+        "scale": false,
+        "required": false,
+        "criticality": 270,
+        "data": {
+          "rows": [{
+            "likelihood": "",
+            "bias": true,
+            "importance": "medium"
+          }]
+        }
+      }, {
+        "title": "Yellow Eyes",
+        "components": [{
+          "type": "bias",
+          "value": true
+        }, {
+          "type": "importance"
+        }, {
+          "type": "likelihood"
+        }],
+        "multiplier": false,
+        "scale": false,
+        "required": false,
+        "criticality": 550,
+        "data": {
+          "rows": [{
+            "likelihood": "",
+            "bias": true,
+            "importance": "medium"
+          }]
+        }
+      }, {
+        "title": "Vision Problems",
+        "components": [{
+          "type": "bias",
+          "value": true
+        }, {
+          "type": "importance"
+        }, {
+          "type": "likelihood"
+        }, {
+          "type": "scale",
+          "title": "",
+          "tooltip": "amount of time",
+          "time": true,
+          "timeUnit": "weeks",
+          "upperLimit": 2
+        }],
+        "multiplier": false,
+        "scale": true,
+        "required": false,
+        "criticality": 181,
+        "data": {
+          "rows": [{
+            "likelihood": "",
+            "bias": true,
+            "importance": "medium",
+            "scale": {
+              "value": "",
+              "slope": "flat",
+              "timeUnit": "weeks"
+            }
+          }]
+        }
+      }, {
+        "title": "Double Vision",
+        "components": [{
+          "type": "bias",
+          "value": true
+        }, {
+          "type": "importance"
+        }, {
+          "type": "likelihood"
+        }, {
+          "type": "scale",
+          "title": "",
+          "tooltip": "amount of time",
+          "time": true,
+          "timeUnit": "weeks",
+          "upperLimit": 2
+        }],
+        "multiplier": false,
+        "scale": true,
+        "required": false,
+        "criticality": 669,
+        "data": {
+          "rows": [{
+            "likelihood": "",
+            "bias": true,
+            "importance": "medium",
+            "scale": {
+              "value": "",
+              "slope": "flat",
+              "timeUnit": "weeks"
+            }
+          }]
+        }
+      }, {
+        "title": "Blurred Vision",
+        "components": [{
+          "type": "bias",
+          "value": true
+        }, {
+          "type": "importance"
+        }, {
+          "type": "likelihood"
+        }, {
+          "type": "scale",
+          "title": "",
+          "tooltip": "amount of time",
+          "time": true,
+          "timeUnit": "weeks",
+          "upperLimit": 12
+        }],
+        "multiplier": false,
+        "scale": true,
+        "required": false,
+        "criticality": 211,
+        "data": {
+          "rows": [{
+            "likelihood": "",
+            "bias": true,
+            "importance": "medium",
+            "scale": {
+              "value": "",
+              "slope": "flat",
+              "timeUnit": "weeks"
+            }
+          }]
+        }
+      }, {
+        "title": "Flashing Lights",
+        "components": [{
+          "type": "bias",
+          "value": true
+        }, {
+          "type": "importance"
+        }, {
+          "type": "likelihood"
+        }, {
+          "type": "scale",
+          "title": "",
+          "tooltip": "amount of time",
+          "time": true,
+          "timeUnit": "weeks",
+          "upperLimit": 12
+        }],
+        "multiplier": false,
+        "scale": true,
+        "required": false,
+        "criticality": 332,
+        "data": {
+          "rows": [{
+            "likelihood": "",
+            "bias": true,
+            "importance": "medium",
+            "scale": {
+              "value": "",
+              "slope": "flat",
+              "timeUnit": "weeks"
+            }
+          }]
+        }
+      }, {
+        "title": "Light Sensitivity",
+        "components": [{
+          "type": "bias",
+          "value": true
+        }, {
+          "type": "importance"
+        }, {
+          "type": "likelihood"
+        }, {
+          "type": "scale",
+          "title": "",
+          "tooltip": "amount of time",
+          "time": true,
+          "timeUnit": "weeks",
+          "upperLimit": 12
+        }],
+        "multiplier": false,
+        "scale": true,
+        "required": false,
+        "criticality": 963,
+        "data": {
+          "rows": [{
+            "likelihood": "",
+            "bias": true,
+            "importance": "medium",
+            "scale": {
+              "value": "",
+              "slope": "flat",
+              "timeUnit": "weeks"
+            }
+          }]
+        }
+      }, {
+        "title": "History of Glaucoma",
+        "components": [{
+          "type": "bias",
+          "value": true
+        }, {
+          "type": "importance"
+        }, {
+          "type": "likelihood"
+        }],
+        "multiplier": false,
+        "scale": false,
+        "required": false,
+        "criticality": 732,
+        "data": {
+          "rows": [{
+            "likelihood": "",
+            "bias": true,
+            "importance": "medium"
+          }]
+        }
+      }, {
+        "title": "History of Sunken Eyes",
+        "components": [{
+          "type": "bias",
+          "value": true
+        }, {
+          "type": "importance"
+        }, {
+          "type": "likelihood"
+        }],
+        "multiplier": false,
+        "scale": false,
+        "required": false,
+        "criticality": 832,
+        "data": {
+          "rows": [{
+            "likelihood": "",
+            "bias": true,
+            "importance": "medium"
+          }]
+        }
+      }, {
+        "title": "History of Miciosis",
+        "components": [{
+          "type": "bias",
+          "value": true
+        }, {
+          "type": "importance"
+        }, {
+          "type": "likelihood"
+        }],
+        "multiplier": false,
+        "scale": false,
+        "required": false,
+        "criticality": 944,
+        "data": {
+          "rows": [{
+            "likelihood": "",
+            "bias": true,
+            "importance": "medium"
+          }]
+        }
+      }, {
+        "title": "History of Drooping Eyelid",
+        "components": [{
+          "type": "bias",
+          "value": true
+        }, {
+          "type": "importance"
+        }, {
+          "type": "likelihood"
+        }],
+        "multiplier": false,
+        "scale": false,
+        "required": false,
+        "criticality": 742,
+        "data": {
+          "rows": [{
+            "likelihood": "",
+            "bias": true,
+            "importance": "medium"
+          }]
+        }
+      }]
+    }, {
+      "name": "Forehead & Scalp",
+      "symptoms": [{
+        "title": "Headache",
+        "components": [{
+          "type": "bias",
+          "value": true
+        }, {
+          "type": "importance"
+        }, {
+          "type": "likelihood"
+        }, {
+          "type": "scale",
+          "title": "",
+          "tooltip": "amount of time",
+          "time": true,
+          "timeUnit": "weeks",
+          "upperLimit": 12
+        }],
+        "multiplier": false,
+        "scale": true,
+        "required": false,
+        "criticality": 816,
+        "data": {
+          "rows": [{
+            "likelihood": "",
+            "bias": true,
+            "importance": "medium",
+            "scale": {
+              "value": "",
+              "slope": "flat",
+              "timeUnit": "weeks"
+            }
+          }]
+        }
+      }, {
+        "title": "Headache Reoccurance",
+        "components": [{
+          "type": "bias",
+          "value": true
+        }, {
+          "type": "importance"
+        }, {
+          "type": "likelihood"
+        }, {
+          "type": "scale",
+          "title": "",
+          "tooltip": "amount of time",
+          "time": true,
+          "timeUnit": "weeks",
+          "upperLimit": 12
+        }],
+        "multiplier": false,
+        "scale": true,
+        "required": false,
+        "criticality": 737,
+        "data": {
+          "rows": [{
+            "likelihood": "",
+            "bias": true,
+            "importance": "medium",
+            "scale": {
+              "value": "",
+              "slope": "flat",
+              "timeUnit": "weeks"
+            }
+          }]
+        }
+      }, {
+        "title": "Headache Association to Time",
+        "components": [{
+          "type": "bias",
+          "value": true
+        }, {
+          "type": "importance"
+        }, {
+          "type": "likelihood"
+        }, {
+          "type": "multiplier",
+          "multiplierType": "dropdown",
+          "title": "Time of Day",
+          "values": ["Wakeup", "Morning", "Afternoon", "Night", "Before Bed"]
+        }, {
+          "type": "scale",
+          "title": "",
+          "tooltip": "amount of time",
+          "time": true,
+          "timeUnit": "weeks",
+          "upperLimit": 12
+        }],
+        "multiplier": true,
+        "scale": true,
+        "required": false,
+        "criticality": 55,
+        "data": {
+          "rows": [{
+            "likelihood": "",
+            "bias": true,
+            "importance": "medium",
+            "multiplier": "",
+            "scale": {
+              "value": "",
+              "slope": "flat",
+              "timeUnit": "weeks"
+            }
+          }]
+        }
+      }, {
+        "title": "Headache Association to Stance",
+        "components": [{
+          "type": "bias",
+          "value": true
+        }, {
+          "type": "importance"
+        }, {
+          "type": "likelihood"
+        }, {
+          "type": "multiplier",
+          "multiplierType": "dropdown",
+          "title": "Stance",
+          "values": ["Sitting", "Lying Down", "Standing"]
+        }, {
+          "type": "scale",
+          "title": "",
+          "tooltip": "amount of time",
+          "time": true,
+          "timeUnit": "weeks",
+          "upperLimit": 12
+        }],
+        "multiplier": true,
+        "scale": true,
+        "required": false,
+        "criticality": 824,
+        "data": {
+          "rows": [{
+            "likelihood": "",
+            "bias": true,
+            "importance": "medium",
+            "multiplier": "",
+            "scale": {
+              "value": "",
+              "slope": "flat",
+              "timeUnit": "weeks"
+            }
+          }]
+        }
+      }, {
+        "title": "Headache Made Worse By",
+        "components": [{
+          "type": "bias",
+          "value": true
+        }, {
+          "type": "importance"
+        }, {
+          "type": "likelihood"
+        }, {
+          "type": "multiplier",
+          "multiplierType": "dropdown",
+          "title": "Headache Made Worse By",
+          "values": ["Coughing", "Sneezing", " Stooping/Bending", "Straining", "Lifting", "Sports", "Alcohol", "Lights", "Glare", "Stress", "Allergies", "Noise", "Perfume", "Tiredness", "Resting after stress or work", "Exercise", "Menstruation", "Neck Movement"]
+        }, {
+          "type": "scale",
+          "title": "",
+          "tooltip": "amount of time",
+          "time": true,
+          "timeUnit": "weeks",
+          "upperLimit": 12
+        }],
+        "multiplier": true,
+        "scale": true,
+        "required": false,
+        "criticality": 896,
+        "data": {
+          "rows": [{
+            "likelihood": "",
+            "bias": true,
+            "importance": "medium",
+            "multiplier": "",
+            "scale": {
+              "value": "",
+              "slope": "flat",
+              "timeUnit": "weeks"
+            }
+          }]
+        }
+      }, {
+        "title": "Headache Relief From",
+        "components": [{
+          "type": "bias",
+          "value": true
+        }, {
+          "type": "importance"
+        }, {
+          "type": "likelihood"
+        }, {
+          "type": "multiplier",
+          "multiplierType": "dropdown",
+          "title": "Headache Relief From",
+          "values": ["Sleeping", "Alcohol", "Heat", "Cold", "Medication"]
+        }, {
+          "type": "scale",
+          "title": "",
+          "tooltip": "amount of time",
+          "time": true,
+          "timeUnit": "weeks",
+          "upperLimit": 12
+        }],
+        "multiplier": true,
+        "scale": true,
+        "required": false,
+        "criticality": 624,
+        "data": {
+          "rows": [{
+            "likelihood": "",
+            "bias": true,
+            "importance": "medium",
+            "multiplier": "",
+            "scale": {
+              "value": "",
+              "slope": "flat",
+              "timeUnit": "weeks"
+            }
+          }]
+        }
+      }, {
+        "title": "Scalp Tenderness",
+        "components": [{
+          "type": "bias",
+          "value": true
+        }, {
+          "type": "importance"
+        }, {
+          "type": "likelihood"
+        }, {
+          "type": "scale",
+          "title": "",
+          "tooltip": "amount of time",
+          "time": true,
+          "timeUnit": "weeks",
+          "upperLimit": 12
+        }],
+        "multiplier": false,
+        "scale": true,
+        "required": false,
+        "criticality": 535,
+        "data": {
+          "rows": [{
+            "likelihood": "",
+            "bias": true,
+            "importance": "medium",
+            "scale": {
+              "value": "",
+              "slope": "flat",
+              "timeUnit": "weeks"
+            }
+          }]
+        }
+      }, {
+        "title": "Scalp Excessive Sweating",
+        "components": [{
+          "type": "bias",
+          "value": true
+        }, {
+          "type": "importance"
+        }, {
+          "type": "likelihood"
+        }, {
+          "type": "scale",
+          "title": "",
+          "tooltip": "amount of time",
+          "time": true,
+          "timeUnit": "weeks",
+          "upperLimit": 12
+        }],
+        "multiplier": false,
+        "scale": true,
+        "required": false,
+        "criticality": 526,
+        "data": {
+          "rows": [{
+            "likelihood": "",
+            "bias": true,
+            "importance": "medium",
+            "scale": {
+              "value": "",
+              "slope": "flat",
+              "timeUnit": "weeks"
+            }
+          }]
+        }
+      }, {
+        "title": "Hair Loss",
+        "components": [{
+          "type": "bias",
+          "value": true
+        }, {
+          "type": "importance"
+        }, {
+          "type": "likelihood"
+        }, {
+          "type": "scale",
+          "title": "",
+          "tooltip": "amount of time",
+          "time": true,
+          "timeUnit": "weeks",
+          "upperLimit": 12
+        }],
+        "multiplier": false,
+        "scale": true,
+        "required": false,
+        "criticality": 757,
+        "data": {
+          "rows": [{
+            "likelihood": "",
+            "bias": true,
+            "importance": "medium",
+            "scale": {
+              "value": "",
+              "slope": "flat",
+              "timeUnit": "weeks"
+            }
+          }]
+        }
+      }]
+    }, {
+      "name": "Head",
+      "symptoms": [{
+        "title": "Loss of Facial Control",
+        "components": [{
+          "type": "bias",
+          "value": true
+        }, {
+          "type": "importance"
+        }, {
+          "type": "likelihood"
+        }, {
+          "type": "scale",
+          "title": "",
+          "tooltip": "amount of time",
+          "time": true,
+          "timeUnit": "weeks",
+          "upperLimit": 12
+        }],
+        "multiplier": false,
+        "scale": true,
+        "required": false,
+        "criticality": 242,
+        "data": {
+          "rows": [{
+            "likelihood": "",
+            "bias": true,
+            "importance": "medium",
+            "scale": {
+              "value": "",
+              "slope": "flat",
+              "timeUnit": "weeks"
+            }
+          }]
+        }
+      }, {
+        "title": "Recent Trauma",
+        "components": [{
+          "type": "bias",
+          "value": true
+        }, {
+          "type": "importance"
+        }, {
+          "type": "likelihood"
+        }, {
+          "type": "scale",
+          "title": "",
+          "tooltip": "amount of time",
+          "time": true,
+          "timeUnit": "weeks",
+          "upperLimit": 12
+        }],
+        "multiplier": false,
+        "scale": true,
+        "required": false,
+        "criticality": 216,
+        "data": {
+          "rows": [{
+            "likelihood": "",
+            "bias": true,
+            "importance": "medium",
+            "scale": {
+              "value": "",
+              "slope": "flat",
+              "timeUnit": "weeks"
+            }
+          }]
+        }
+      }]
+    }, {
+      "name": "Whole Body",
+      "symptoms": [{
+        "title": "Seizures",
+        "components": [{
+          "type": "bias",
+          "value": true
+        }, {
+          "type": "importance"
+        }, {
+          "type": "likelihood"
+        }, {
+          "type": "scale",
+          "title": "",
+          "tooltip": "amount of time",
+          "time": true,
+          "timeUnit": "weeks",
+          "upperLimit": 8
+        }],
+        "multiplier": false,
+        "scale": true,
+        "required": false,
+        "criticality": 685,
+        "data": {
+          "rows": [{
+            "likelihood": "",
+            "bias": true,
+            "importance": "medium",
+            "scale": {
+              "value": "",
+              "slope": "flat",
+              "timeUnit": "weeks"
+            }
+          }]
+        }
+      }, {
+        "title": "History of Seizures",
+        "components": [{
+          "type": "bias",
+          "value": true
+        }, {
+          "type": "importance"
+        }, {
+          "type": "likelihood"
+        }, {
+          "type": "scale",
+          "title": "",
+          "tooltip": "amount of time",
+          "time": true,
+          "timeUnit": "weeks",
+          "upperLimit": 12
+        }],
+        "multiplier": false,
+        "scale": true,
+        "required": false,
+        "criticality": 398,
+        "data": {
+          "rows": [{
+            "likelihood": "",
+            "bias": true,
+            "importance": "medium",
+            "scale": {
+              "value": "",
+              "slope": "flat",
+              "timeUnit": "weeks"
+            }
+          }]
+        }
+      }]
+    }]
+  }, {
+    "name": "Measurements",
+    "categories": [{
+      "name": "TODO",
+      "symptoms": []
+    }]
+  }]
+}

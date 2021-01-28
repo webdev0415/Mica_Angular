@@ -1,0 +1,17 @@
+[
+  {
+    "userID": 1,
+    "roleID": 2,
+    "roleName": "collector",
+    "name": "John",
+    "surname": "Doe",
+    "email": "john@doe.com"
+  }, {
+    "userID": 2,
+    "roleID": 2,
+    "roleName": "collector",
+    "name": "Stephan",
+    "surname": "Curry",
+    "email": "steph@curry.com"
+  }
+]

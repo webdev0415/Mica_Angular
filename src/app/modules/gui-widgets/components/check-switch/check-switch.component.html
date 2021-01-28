@@ -1,0 +1,10 @@
+<div id="247caab4-7def-4abe-83a8-6821ba756b85" class="switch-container" [ngClass]="size" [class.on]="value">
+  <strong>
+    {{title}}
+  </strong>
+  <div id="a5c2a0a8-0b1c-427e-81c6-1e37bf4a4b5c" class="toggle" (click)="value = !value">
+    <div id="9af31014-0efe-4b3e-825f-71c560bb1f58" class="value pl-3" *ngIf="value">{{valueNames[0] | uppercase}}</div>
+    <div id="305088a9-9297-4586-a0a7-d1b9988a24f8" class="value off pr-3" *ngIf="!value">{{valueNames[1] | uppercase}}</div>
+    <a class="btn rounded" [ngStyle]="togglePosition"></a>
+  </div>
+</div>

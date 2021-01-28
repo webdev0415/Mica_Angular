@@ -1,0 +1,46 @@
+<div id="71955d61-44f8-4ee6-be1f-255bfca10452" *ngIf="!(isActiveIllnessValid | async)" class="alert alert-danger rounded p-4 mb-3">
+  <h5 class="text-center"><strong>Please complete the following:</strong></h5>
+  <div id="e46f8c99-337e-4bda-a2b5-c7943d786bac" *ngIf="(illRootErrors | async)?.length">
+    <h5 class="section-title">ILLNESS</h5>
+    <div id="a41bb9b7-f7fb-4187-aaa0-7fd763aac9d9" class="alert alert-warning w-100 p-2">
+      <ul class="mb-0">
+        <li *ngFor="let msg of illRootErrors | async">{{msg}}</li>
+      </ul>
+    </div>      
+  </div>
+  <div id="ed700a22-5ab5-4c51-ada5-86b9c5e303bd" *ngFor="let symptomGroup of symptomGroupsWithErrors | async" class="row no-gutters">
+    <div id="1128d304-9de7-4a3d-b8e8-3c57ad3da83c" class="col">
+      <div id="06d9898c-766d-4faa-bc88-3ff9d8a03686" class="row no-gutters">
+        <h5 class="section-title">{{symptomGroup | uppercase}} SYMPTOM GROUP</h5>  
+        <div id="d094f136-fe30-47f8-83e7-0b1c9b6b3749" *ngFor="let symptom of (symptomErrors | async)[symptomGroup]" class="col-12 col-md-6 p-2">
+          <div id="25150f84-4606-499a-8bbe-2939485b1099" class="alert alert-warning">
+            <h6>{{symptom.name | uppercase}}</h6>
+            <div id="628dc639-5007-4dc8-94f0-704c374ce3b2" *ngIf="symptom.bodyParts">
+              <ul>
+                <li>{{bodyPartsError(symptom.bodyParts)}}</li>
+              </ul>
+            </div>
+            <div id="d9c92c4a-c4f9-4ddf-a775-aa4d0bdb89ff" *ngFor="let row of symptom.rowErrors">
+              <div id="221ed7e5-930f-411c-97bf-7112c3a288ef">ROW {{row.index + 1}}</div>
+              <ul class="mb-0">
+                <li *ngFor="let error of symptomRootErrors(row)">{{error}}</li>                
+              </ul>
+              <ul *ngIf="row.modifierValues" class="mb-0">
+                <li *ngFor="let modifier of row.modifierValues">
+                  <p class="mb-0">Modifier {{modifier.index + 1}}: {{modifier.name}}</p>
+                  <ul class="mb-0">
+                    <li *ngFor="let error of modifierRootErrors(modifier)">{{error}}</li>                
+                  </ul>
+                  <ul class="mg-0" *ngIf="modifier.scale">
+                    <li *ngFor="let error of scaleErrors(modifier.scale)">{{error}}</li>
+                  </ul>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>      
+    </div>        
+  </div> 
+</div>
+

@@ -1,0 +1,32 @@
+[
+  {
+    "name": "Afghanistan",
+    "topLevelDomain": [".af"],
+    "alpha2Code": "AF",
+    "alpha3Code": "AFG",
+    "callingCodes": ["93"],
+    "capital": "Kabul",
+    "altSpellings": ["AF","Afġānistān"],
+    "relevance": "0",
+    "region": "Asia",
+    "subregion": "Southern Asia",
+    "population": 26023100,
+    "latlng": [33,65],
+    "demonym": "Afghan",
+    "area": 652230,
+    "gini": 27.8,
+    "timezones": ["UTC+04:30"],
+    "borders": ["IRN","PAK","TKM","UZB","TJK","CHN"],
+    "nativeName": "افغانستان",
+    "numericCode": "004",
+    "currencies": ["AFN"],
+    "languages": ["ps","uz","tk"],
+    "translations": {
+      "de": "Afghanistan",
+      "es": "Afganistán",
+      "fr": "Afghanistan",
+      "ja": "アフガニスタン",
+      "it": "Afghanistan"
+    }
+  }
+]

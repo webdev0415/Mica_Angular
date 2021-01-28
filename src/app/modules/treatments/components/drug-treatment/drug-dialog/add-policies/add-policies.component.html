@@ -1,0 +1,159 @@
+<div class="row d-flex justify-conent-start align-items-center mt-3">
+  <h5>Add Policies for {{ drugName }}</h5>
+</div>
+<div class="add-policy-bar">
+
+  <mat-form-field class="field field-md">
+    <mat-label>Action</mat-label>
+    <mat-select [(ngModel)]="action" name="action">
+      <mat-option *ngFor="let action of actions" [value]="action.value">
+        {{action.key}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field class="field field-md">
+    <mat-label>Target</mat-label>
+    <mat-select [formControl]="targetCtrl">
+      <mat-option *ngFor="let targetItem of targetOptions" [value]="targetItem.value">
+        {{ targetItem.key }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field *ngIf="target === 'PROPERTY'" class="field field-md">
+    <mat-label>Property Name</mat-label>
+    <mat-select [formControl]="propertyNameCtrl">
+      <mat-option *ngFor="let singleProperty of properties" [value]="singleProperty">
+        {{ singleProperty }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+<!-- symptom|illness autocomplete -->
+  <mat-form-field *ngIf="target !== 'PROPERTY'" class="field">
+    <mat-label>Search for {{ target }}</mat-label>
+    <input type="text" matInput [formControl]="propertyNameCtrl" [errorStateMatcher]="policyTargetErrorStateMatcher" [matAutocomplete]="propertyNameAuto">
+  </mat-form-field>
+
+  <mat-autocomplete #propertyNameAuto="matAutocomplete">
+    <ng-container *ngIf="target === 'ILLNESS'">
+      <mat-option *ngFor="let illness of filteredIllnesses$ | async" [value]="illness.name">
+        {{ illness.name }}
+      </mat-option>
+    </ng-container>
+    <ng-container *ngIf="target === 'SYMPTOM'">
+      <mat-option *ngFor="let symptom of filteredSymptoms$ | async" [value]="symptom">
+        {{ symptom }}
+      </mat-option>
+    </ng-container>
+  </mat-autocomplete>
+<!--  /symptom|illness autocomplete -->
+
+  <mat-form-field *ngIf="target !== 'ILLNESS'" class="field">
+    <mat-label>Compare</mat-label>
+    <mat-select [(ngModel)]="targetCompare" name="targetCompare">
+      <mat-option *ngFor="let targetCompare of targetComparisons" [value]="targetCompare.value">
+        {{ targetCompare.key }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+<!-- symptom target detail one autocomplete -->
+  <mat-form-field *ngIf="propertyNameCtrl.value && target === 'SYMPTOM'" class="field">
+    <mat-label>Detail</mat-label>
+    <input type="text" matInput
+           [formControl]="targetDetailCtrl"
+           [placeholder]="detailPlaceholder()"
+           [errorStateMatcher]="policyDetailErrorStateMatcher"
+           [matAutocomplete]="detailAuto">
+  </mat-form-field>
+
+  <mat-autocomplete #detailAuto="matAutocomplete" [displayWith]="displaySymptomDetailFn">
+    <mat-option *ngFor="let detail of filteredDetails$ | async" [value]="detail">
+      {{ detail.name }}
+    </mat-option>
+  </mat-autocomplete>
+<!-- /symptom target detail one autocomplete -->
+
+<!-- property target detail one -->
+  <mat-form-field *ngIf="propertyNameCtrl.value && target === 'PROPERTY'" class="field-sm" class="field">
+    <mat-label>Detail</mat-label>
+    <input type="text" matInput
+           [formControl]="targetDetailCtrl"
+           [placeholder]="detailPlaceholder()"
+           [errorStateMatcher]="policyDetailErrorStateMatcher">
+  </mat-form-field>
+<!-- /property target detail one -->
+
+  <mat-form-field *ngIf="(target === 'SYMPTOM' && targetDetailCtrl.value) || (target === 'ILLNESS' && propertyNameCtrl.value)" class="field field-sm">
+    <mat-label>Operator</mat-label>
+    <mat-select [(ngModel)]="targetOperator" name="targetOperator">
+      <mat-option *ngFor="let operator of targetOperators" [value]="operator.value">
+        {{ operator.key }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+<!-- symptom target detail two autocomplete -->
+  <mat-form-field *ngIf="propertyNameCtrl.value && target === 'SYMPTOM' && targetOperator !== 'NONE'" class="field">
+    <mat-label>Detail</mat-label>
+    <input type="text" matInput
+           [formControl]="targetDetailTwoCtrl"
+           [placeholder]="detailPlaceholder()"
+           [errorStateMatcher]="policyDetailErrorStateMatcher"
+           [matAutocomplete]="detailTwoAuto">
+  </mat-form-field>
+
+  <mat-autocomplete #detailTwoAuto="matAutocomplete" [displayWith]="displaySymptomDetailFn">
+    <mat-option *ngFor="let detail of filteredDetailsTwo$ | async" [value]="detail">
+      {{ detail.name }}
+    </mat-option>
+  </mat-autocomplete>
+<!-- /symptom target detail two autocomplete -->
+
+<!-- second illness autocomplete -->
+  <mat-form-field *ngIf="target === 'ILLNESS' && targetOperator !== 'NONE'" class="field">
+    <mat-label>Search for {{ target }}</mat-label>
+    <input type="text" matInput [formControl]="propertyNameTwoCtrl" [errorStateMatcher]="policyTargetErrorStateMatcher" [matAutocomplete]="propertyNameTwoAuto">
+  </mat-form-field>
+
+  <mat-autocomplete #propertyNameTwoAuto="matAutocomplete">
+    <mat-option *ngFor="let illness of filteredIllnessesTwo$ | async" [value]="illness.name">
+      {{ illness.name }}
+    </mat-option>
+  </mat-autocomplete>
+<!--  /second illness autocomplete -->
+</div>
+
+<div class="bottom-panel">
+  <div class="readable-policy">
+    <span><b>Readable Policy:</b></span>
+    <span class="readable-policy-content">{{formatPolicy()}}</span>
+  </div>
+
+  <button mat-raised-button color="primary" (click)="addPolicy()" class="policy-button" [disabled]="!formValid">Add</button>
+</div>
+
+<mat-divider class="divider"></mat-divider>
+
+<ng-container *ngIf="policiesCtrlArray?.length">
+  <span>
+    <b>Added policies:</b>
+  </span>
+
+  <mat-list>
+    <ng-container *ngFor="let policy of policiesCtrlArray.value; let idx=index;">
+      <mat-list-item>
+        <div class="policy-list-item-content">
+          <span>{{!editMode ? formatPolicy(policy) : (policy | policyFormat: drugName)}}</span>
+          <button matLine mat-stroked-button color="accent" class="policy-button" (click)="removePolicy(idx)">
+            Remove
+          </button>
+        </div>
+      </mat-list-item>
+      <mat-divider></mat-divider>
+    </ng-container>
+  </mat-list>
+</ng-container>
+

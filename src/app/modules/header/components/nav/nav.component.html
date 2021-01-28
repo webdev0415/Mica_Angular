@@ -1,0 +1,7 @@
+<nav [ngSwitch]="navBar$ | async"
+  [class.with-review]="isReviewer">
+  <header-symptoms *ngSwitchCase="'symptoms'" class="w-100"></header-symptoms>
+  <header-templates *ngSwitchCase="'templates'" class="d-block w-100"></header-templates>
+  <header-inspector *ngSwitchCase="'inspector'"></header-inspector>
+  <header-groups *ngSwitchCase="'groups'"></header-groups>
+</nav>

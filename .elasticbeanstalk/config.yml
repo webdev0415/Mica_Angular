@@ -1,0 +1,16 @@
+branch-defaults:
+  develop:
+    environment: MICA-dev
+    group_suffix: null
+  ill_versioning:
+    environment: MICA-versioning
+    group_suffix: null
+global:
+  application_name: MICA
+  branch: null
+  default_ec2_keyname: null
+  default_platform: node.js
+  default_region: us-west-2
+  profile: advinow
+  repository: null
+  sc: git

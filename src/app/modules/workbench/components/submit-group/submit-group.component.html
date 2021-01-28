@@ -1,0 +1,20 @@
+<span [ngSwitch]="btnType | async">
+  <button *ngSwitchCase="'submit'" type="button" class="btn btn-lg btn-primary w-100"
+    [disabled]="!(isSymptomGroupValid | async) || syncingIllness" (click)="onSGComplete()">
+    <span *ngIf="!syncingIllness">SAVE & COMPLETE {{symptomGroup | async}}</span>
+    <span *ngIf="syncingIllness" class="align-middle justify-content-center">
+      <mica-inline-spinner class="d-inline-block mr-2"></mica-inline-spinner>syncing
+    </span>
+  </button>
+  <div id="a404f553-0da7-4ae9-bf7f-a8e69a4eea75" *ngSwitchCase="'locked'" class="alert alert alert-info align-middle justify-content-center w-100">
+    <ng-container *ngIf="syncingIllness">
+      <span *ngIf="syncingIllness" class="align-middle justify-content-center">
+        <mica-inline-spinner class="d-inline-block mr-2"></mica-inline-spinner>syncing
+      </span>
+    </ng-container>
+    <ng-container *ngIf="!syncingIllness">
+      <span class="material-icons mr-2">lock</span>
+      {{symptomGroup | async | correctSpelling}} is marked complete
+    </ng-container>
+  </div>
+</span>

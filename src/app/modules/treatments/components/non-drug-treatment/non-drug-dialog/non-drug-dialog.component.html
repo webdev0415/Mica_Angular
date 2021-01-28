@@ -1,0 +1,45 @@
+<div class="row d-flex justify-content-end align-items-center">
+  <button (click)="closeModal()" style="outline: none;" mat-icon-button>
+    <mat-icon>close</mat-icon>
+  </button>
+</div>
+
+<mat-horizontal-stepper>
+
+<!-- treatment choose step -->
+  <mat-step label="Select Non-Drug" *ngIf="!nonDrugToEdit">
+    <mica-select-non-drug
+      [nonDrugTypeDescCtrl]="nonDrugTypeDescCtrl"
+      [nonDrugTypeDescList]="nonDrugTypeDescList">
+    </mica-select-non-drug>
+    <div class="d-flex justify-content-end align-items-center mt-4">
+      <button class="ml-2" mat-stroked-button matStepperNext color="primary">Next</button>
+    </div>
+  </mat-step>
+<!-- / -->
+
+<!-- sources step -->
+  <mat-step label="Add Sources">
+    <mica-add-non-drug-sources [sourceCtrlArray]="sourceCtrlArray" [nonDrugName]="nonDrugTypeDescCtrl.value?.shortName"></mica-add-non-drug-sources>
+    <div class="d-flex justify-content-end align-items-center mt-4">
+      <button mat-stroked-button matStepperPrevious color="primary">Previous</button>
+      <button class="ml-2" mat-stroked-button matStepperNext color="primary">Next</button>
+    </div>
+  </mat-step>
+<!-- / -->
+
+<!-- review step -->
+  <mat-step label="Review">
+    <mica-non-drug-review
+      [nonDrugName]="nonDrugTypeDescCtrl.value?.shortName"
+      [sourceCtrlArray]="sourceCtrlArray"
+      (stepperControl)="stepperControl($event)">
+    </mica-non-drug-review>
+    <div class="d-flex justify-content-end align-items-center mt-4">
+      <button mat-stroked-button matStepperPrevious color="primary">Previous</button>
+      <button class="ml-2" mat-raised-button color="primary" (click)="onSaveNonDrugClick()">Submit</button>
+    </div>
+  </mat-step>
+<!-- / -->
+
+</mat-horizontal-stepper>

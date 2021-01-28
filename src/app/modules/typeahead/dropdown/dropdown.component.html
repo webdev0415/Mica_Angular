@@ -1,0 +1,9 @@
+    <ng-template #default let-items="items" let-emitter="emitter">
+      <button class="dropdown-item" title="{{formatter(item)}}" type="button" role="option"
+        *ngFor="let item of items; index as i"
+        (click)="emitter.emit(item)" (blur)="onBlur()"
+        (mouseover)="onMouseOver(i)" (mouseout)="keepFocus = false"
+      >{{formatter(item)}}</button>
+    </ng-template>
+    <ng-template let-t="ngTemplateOutlet" [ngTemplateOutlet]="templateRef || default"
+        [ngTemplateOutletContext]="{items: items, emitter: optionSelect, emitterClose: outOfFocus}"></ng-template>

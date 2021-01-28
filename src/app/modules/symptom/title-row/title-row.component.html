@@ -1,0 +1,38 @@
+<div id="48f6ac47-0933-495c-9f1c-e255702cbc34" class="row title">
+  <div id="f32911cb-7397-4d31-9660-c70d3051f18a" class="col no-grow align-middle">
+    <label class="custom-control custom-checkbox symptom-checkbox"
+      [class.checked]="isChecked" [class.readOnly]="readOnly">
+      <input  [(ngModel)]="isChecked" type="checkbox" class="symptom-checkbox-in-list custom-control-input"
+        [checked]="isChecked" (click)="onCheckBoxClick($event)" [disabled]="readOnly"
+      >
+      <span class="custom-control-indicator"></span>
+    </label>
+    <h5 class="m-0 custom-control-description" placement="bottom" [ngbTooltip]="'ID: ' + symptomData.symptomID">{{symptomData.name | titleCase}}</h5>
+    <button *ngIf="isReviewer && symptomData.definition" class="info-button" [ngbTooltip]="symptomData.definition"
+            container="body" (click)="onDefinitionClick()">
+      <i class="material-icons mi-20">info</i>
+    </button>
+  </div>
+  <div id="0ba0dc18-b675-425b-a453-c200e273b4a0" *ngIf="isChecked" class="btn-container text-center align-middle ml-2 mr-2">
+    <button [@flyInOut] (click)="toggleQuestion.emit($event)" type="button" class="btn btn-sm btn-primary rounded-circle"
+      title="Toggle Question">Q</button>
+  </div>
+  <div id="e7ce772d-8494-476a-a4e9-5b568ef17aab" class="align-middle" *ngIf="isChecked">
+    <mica-badge-icon class="mr-1" [@flyInOut] [title]="'criticality'" [value]="symptomData.criticality"></mica-badge-icon>
+    <mica-badge-icon [@flyInOut] [title]="'antithesis'" [value]="symptomData.antithesis"></mica-badge-icon>
+    <div id="17347947-0c85-4992-8b12-c098a271177b" [@flyInOut] micaPreventDefault class="row no-gutters" *ngIf="bodyParts.length" >
+      <div id="6567c807-d887-4413-a61b-f9023727c6d6" class="col" [class.mt-2]="bodyPartsAll.length > 2" *ngFor="let part of bodyPartsAll" >
+        <div id="2599b9c6-12d6-4308-b972-d7da70ffc2ef" class="body-part badge badge-default ml-2" [class.disabled]="!isBodyPartActive(part)" (click)="onTogglePart(part)">
+          {{partTrimmed(part) | uppercase}}
+          <button type="button" class="close ml-3" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div id="bda61ebc-777f-43af-bb3a-0792bd27e652" class="col no-grow align-middle" *ngIf="moreThanOneRowAllowed && isChecked">
+    <button [@flyInOut] (click)="addRow.emit(true)"
+      type="button" [disabled]="readOnly || maxRowsReached" class="btn btn-sm btn-outline-success">[+ more]</button>
+  </div>
+</div>

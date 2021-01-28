@@ -1,0 +1,43 @@
+@import "../../../../styles/bootstrap/variables"
+@import "../symptom.variables"
+
+\:host
+  display: flex
+  flex-wrap: nowrap
+  height: $symptom-row-height
+  width: 100%
+
+select
+  flex: 1
+  &.custom-select
+    padding-top: 0
+    padding-bottom: 0
+    line-height: inherit
+
+.title
+  margin-bottom: 0
+
+.scale-buttons
+  height: 100%
+  flex-wrap: nowrap
+  border-radius: 4px
+  overflow: hidden
+  mica-scale-button
+    &:not(:last-child)
+      border-right: 2px solid #fff
+
+.mica-range
+  .input-group
+    .form-control
+       width: 3.2rem
+    &.right
+      margin-left: -2px
+    &.left
+      margin-right: -2px
+
+.container-hidden
+  visibility: hidden
+
+.warning-icon-container
+  padding: 0 10px
+

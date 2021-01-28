@@ -1,0 +1,28 @@
+.btn-group
+  .btn
+    &:first-child
+      border-bottom-left-radius: 0
+      border-top-left-radius: 0
+    &.sync
+      opacity: 0
+
+::ng-deep
+  .form-control
+    border-bottom-right-radius: 0
+    border-top-right-radius: 0
+
+review-syncing-btn
+  display: block
+  height: 100%
+  position: absolute
+  width: 100%
+  ::ng-deep
+    .mb-4
+      height: 100%
+      margin-bottom: 0 !important
+    .btn
+      border-bottom-left-radius: 0
+      border-top-left-radius: 0
+      height: 100%
+      margin: 0
+      width: 100%

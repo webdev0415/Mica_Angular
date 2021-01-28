@@ -1,0 +1,44 @@
+<table class="table table-striped">
+  <colgroup>
+    <col width="50%">
+    <col width="50%">
+    <col width="50px">
+  </colgroup>
+  <thead>
+    <tr *ngIf="title">
+      <th colspan="3" class="text-center">{{title}}</th>
+    </tr>
+    <tr>
+      <th>Snomed Code</th>
+      <th>Snomed Name</th>
+      <th><button type="button" class="btn btn-success btn-sm weight" (click)="addSnomedRow()">+</button></th>
+    </tr>
+  </thead>
+  <tbody>
+    <ng-container *ngFor="let snomedCtrl of ctrl.controls; let index=index" >
+      <tr *ngIf="snomedCtrl.get('snomedCodes')?.value">
+        <td>
+          <templates-array-input
+            [title]="'SnomedCode'"
+            [formControl]="snomedCtrl.get('snomedCodes')"
+            [type]="'snomedCode'"
+          >
+          </templates-array-input>
+        </td>
+        <td>
+          <templates-table-value *ngIf="index != editable; else editValue" (click)="editable = index"
+            [value]="snomedCtrl.get('snomedName')?.value"
+            [label]="'Add Name'">
+          </templates-table-value>
+          <ng-template #editValue>
+            <templates-input [title]="name"
+            [formControl]="snomedCtrl.get('snomedName')" (close)="editable = -1"></templates-input>
+          </ng-template>
+        </td>
+        <td class="text-center">
+          <button class="close" type="button" (click)="removeRow(index)"><span>×</span></button>
+        </td>
+      </tr>
+    </ng-container>
+  </tbody>
+</table>

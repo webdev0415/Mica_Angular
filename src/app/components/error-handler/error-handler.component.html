@@ -1,0 +1,13 @@
+<div id="8d1929dd-a6a9-41cc-9673-cb6414e9e6b9" class="modal-header">
+  <h5 class="modal-title">Something went wrong</h5>
+  <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="closeModal()">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+<div id="889eb4fa-64e0-4d00-bb1a-16822f06db2d" class="modal-body">
+  <p>{{errorMessage}}</p>
+</div>
+<div id="b6814341-e985-4529-9721-c11d5951e71b" class="modal-footer">
+  <button type="button" class="btn btn-secondary pointer" (click)="closeModal()">Close</button>
+  <a class="btn btn-primary" href="mailto:shelbyzgow@gmail.com?subject=Report for error in MICA&body={{emailBody || errorMessage}}">Report</a>
+</div>

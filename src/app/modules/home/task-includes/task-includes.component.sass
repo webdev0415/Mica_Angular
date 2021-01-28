@@ -1,0 +1,40 @@
+@import "../../../../styles/bootstrap/variables"
+@import "../../../../styles/bootstrap/mixins"
+
+
+.list-group-item
+  color: $body-color
+  // &:hover,
+  // &:focus
+  //   text-decoration: none
+
+button
+  min-width: 7.5rem
+  height: 33px
+.illness
+  &.odd
+    &:not(.bg-success)
+      background-color: $gray-lighter
+  .code
+    flex-basis: 80px
+  .name
+    flex-basis: 30%
+  .actions
+    padding: 0 .5rem
+    button,
+    mica-copy-illness
+      margin: .25rem .25rem .25rem 0
+      margin: .25rem .25rem .25rem 0
+
+.chapter
+  &:not(.first)
+    margin-top: 1rem
+
+.loader-container
+  min-height: 7rem
+  .cssload-loader
+    margin-top: 1rem
+
+@include media-breakpoint-up(md)
+  .btn-row
+    flex-wrap: nowrap

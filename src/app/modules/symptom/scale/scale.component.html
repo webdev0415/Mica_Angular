@@ -1,0 +1,36 @@
+<div id="59e168d2-ff46-42c1-8a74-6b36d43bf2aa" class="btn-group scale-buttons" data-toggle="buttons">
+  <ng-container *ngFor="let range of visibleRanges | orderBy: { property: 'count', direction: 1 };">
+    <mica-scale-button
+      [range]="range"
+      [isAvailable]="rangeAvailable(range)"
+      [isDisabled]="readOnly"
+      [isInvalid]="timeFrameControl.invalid"
+      [isSelected]="!!currentSelectedRanges[range.name]"
+      (toggleRange)="toggleRange(range)">
+    </mica-scale-button>
+  </ng-container>
+</div>
+<div class="warning-icon-container" id="49a48ed9-fb28-4c74-92e1-e95c3f17a1a9" *ngIf="(timeFrameControl && timeFrameControl.errors && timeFrameControl.errors['hasInvalidRange']) || !anyRangeAvailable">
+  <i class="material-icons text-warning"
+     triggers="mouseenter:mouseleave"
+     [ngbPopover]="popContent" [popoverTitle]="!anyRangeAvailable ? 'No more ranges are available.' : 'Invalid range is selected.' ">
+    warning
+  </i>
+  <ng-template #popContent>
+    <p>{{!anyRangeAvailable ? "There is no available range to select." : "Please select a continuous range."}}</p>
+  </ng-template>
+</div>
+<!--<select [formControl]="slopeCtrl" class="custom-select ml-2">-->
+  <!--<option *ngFor="let value of slopeValues" [value]="value">{{value | titleCase}}</option>-->
+<!--</select>-->
+<div *ngIf="!readOnly" id="165076c5-6ae6-41d4-8c22-bdafcdabbadd" class="form-inline ml-2" [class.container-hidden]="!isAlwaysCtrlVisible">
+    <input
+      class="mr-1"
+      type="checkbox"
+      id="always{{symptomData.symptomID}}"
+      [checked]="isAlwaysSet"
+      (click)="onAlwaysClick()"
+    />
+    <label for="always{{symptomData.symptomID}}">always</label>
+</div>
+

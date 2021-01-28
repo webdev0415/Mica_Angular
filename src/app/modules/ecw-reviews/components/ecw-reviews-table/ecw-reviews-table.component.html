@@ -1,0 +1,29 @@
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th class="code">ICD Code</th>
+      <th class="name">Name</th>
+      <th class="status">Status
+          <div id="a88e3ccb-c446-4957-a8d3-0030c33ee8f3" ngbDropdown class="d-inline-block ml-2">
+              <button class="btn btn-secondary dropdown-toggle" id="itemsPerPageDropdown" ngbDropdownToggle>
+                {{currentFilter}}
+              </button>
+              <div id="bc833188-7218-4f64-a7e5-75f71f3a5f53" class="dropdown-menu" aria-labelledby="itemsPerPageDropdown">
+                <button type="button"
+                *ngFor="let filter of filters"
+                id="history-selector" class="dropdown-item" (click)="setFilter(filter)">
+                  {{filter}}
+                </button>
+              </div>
+            </div>
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let illness of filteredIllnesses; trackBy: trackByFn" (click)="onSelect(illness)">
+      <td>{{illness.icd10Code}}</td>
+      <td>{{illness.name}}</td>
+      <td class="status">{{illness.status}}</td>
+    </tr>
+  </tbody>
+</table>

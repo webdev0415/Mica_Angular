@@ -1,0 +1,5 @@
+<div id="28783892-f145-4d93-9355-ac2d9718bcad" class="btn-group" data-toggle="buttons">
+  <label *ngFor="let v of values" class="btn" [ngClass]="{'btn-primary': value.value !== v, 'btn-success': value.value === v}">
+    <input type="radio" name="criticality" [formControl]="value" [value]="v">{{v}}
+  </label>
+</div>

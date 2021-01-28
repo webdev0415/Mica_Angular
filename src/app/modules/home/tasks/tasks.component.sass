@@ -1,0 +1,55 @@
+@import "../../../../styles/bootstrap/variables"
+
+.badge-complete
+  align-items: center
+  display: flex
+
+.empty-box
+  display: flex
+  align-items: center
+  justify-content: center
+  font-size: 1.5rem
+  margin-bottom: 3rem
+  min-height: 5rem
+  i
+    border: 2px solid $white
+    border-radius: 100%
+    font-size: 1.5rem
+    margin-right: .5rem
+
+
+.tasks-container
+  border: 1px solid $teal
+  border-bottom: 0
+  border-radius: $border-radius
+
+.task
+  border: 0
+  border-bottom: 1px solid $teal
+  &.disabled
+    .card-header
+      background-color: $gray-lighter
+      color: $gray
+  &:not(:last-of-type)
+    border-bottom-left-radius: 0
+    border-bottom-right-radius: 0
+  &:last-of-type
+    border-radius: $border-radius
+  .card-header
+    align-items: center
+    background-color: $white
+    border: 0
+    display: flex
+    padding: .25rem 1.25rem
+    .title
+      padding: .25rem 0
+      margin-left: .5rem
+      h5
+        font-size: 1rem
+  .card-block
+    padding: 0 1.5rem .5rem
+
+.tasksList
+  margin-left: 1%
+  font-size: 25px
+  font-weight: normal

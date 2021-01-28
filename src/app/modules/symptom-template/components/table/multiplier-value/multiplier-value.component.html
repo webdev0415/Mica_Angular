@@ -1,0 +1,112 @@
+<ng-container *ngFor="let optionFG of arrCtrl; index as index; trackBy: trackByFn">
+  <table class="table table-multiplier">
+    <colgroup>
+      <col width="150px">
+      <col>
+    </colgroup>
+    <tbody>
+      <tr class="dark">
+        <th colspan="2" class="text-center ">
+          <span class="d-flex justify-content-between">
+              <h3>{{optionFG.get('optionDescription').value}} </h3>
+              <mica-check-switch [formControl]="optionFG.get('displaySymptom')" [valueNames]="['yes', 'no']"></mica-check-switch>
+          </span>
+        </th>
+      </tr>
+      <tr>
+        <th>Antithesis</th>
+        <td [ngClass]="{'pt-0 pb-0': isCellEdit([index, 1])}">
+          <templates-antithesis *ngIf="isCellEdit([index, 1]); else antithesisValue"
+              [formControl]="optionFG.get('antithesis')"
+              (close)="cellEdit = [-1, -1]"
+              [minMaxRange]="antithesisMinMax"></templates-antithesis>
+            <ng-template #antithesisValue>
+              <templates-table-value [value]="optionFG.get('antithesis').value" required
+                (click)="cellEdit = [index, 1]"
+                [label]="'Add Antithesis'">
+              </templates-table-value>
+            </ng-template>
+          </td>
+        </tr>
+      <tr *ngIf="optionFG.get('anyOption')">
+        <th>Any Option</th>
+        <td>
+            <mica-check-switch [formControl]="optionFG.get('anyOption')" [valueNames]="['yes', 'no']"></mica-check-switch>
+        </td>
+      </tr>
+      <tr *ngIf="optionFG.get('lowerLimit')">
+        <th>Lower Limit</th>
+
+        <td [ngClass]="{'pt-0 pb-0': isCellEdit([index, 2])}">
+          <templates-antithesis *ngIf="isCellEdit([index, 2]); else lowerLimit"
+                                [formControl]="optionFG.get('lowerLimit')"
+                                (close)="cellEdit = [-1, -1]"
+                                [minMaxRange]="[0, 1000]"></templates-antithesis>
+          <ng-template #lowerLimit>
+            <templates-table-value [value]="optionFG.get('lowerLimit').value === '' ? null : optionFG.get('lowerLimit').value" required
+                                   (click)="cellEdit = [index, 2]"
+                                   [label]="'Add Lower Limit'">
+            </templates-table-value>
+          </ng-template>
+        </td>
+
+      </tr>
+      <tr *ngIf="optionFG.get('lowerLimitCondition')">
+        <th>Lower Limit Condition</th>
+        <td>
+          {{ optionFG.get('lowerLimitCondition').value === '' ? 'None' : optionFG.get('lowerLimitCondition').value }}
+        </td>
+      </tr>
+      <tr *ngIf="optionFG.get('upperLimit')">
+        <th>Upper Limit</th>
+        <td [ngClass]="{'pt-0 pb-0': isCellEdit([index, 3])}">
+          <templates-antithesis *ngIf="isCellEdit([index, 3]); else upperLimit"
+                                [formControl]="optionFG.get('upperLimit')"
+                                (close)="cellEdit = [-1, -1]"
+                                [minMaxRange]="[0, 1000]"></templates-antithesis>
+          <ng-template #upperLimit>
+            <templates-table-value [value]="optionFG.get('upperLimit').value === '' ? null : optionFG.get('upperLimit').value" required
+                                   (click)="cellEdit = [index, 3]"
+                                   [label]="'Add Upper Limit'">
+            </templates-table-value>
+          </ng-template>
+        </td>
+      </tr>
+      <tr *ngIf="optionFG.get('upperLimitCondition')">
+        <th>Upper Limit</th>
+        <td>
+          {{ optionFG.get('upperLimitCondition').value === '' ? 'None' : optionFG.get('upperLimitCondition').value }}
+        </td>
+      </tr>
+      <tr *ngIf="optionFG.get('isNormal')">
+        <th>Normal</th>
+        <td>
+          <mica-check-switch [formControl]="optionFG.get('isNormal')" [valueNames]="['yes', 'no']"></mica-check-switch>
+        </td>
+      </tr>
+      <tr>
+        <th>ICD Code</th>
+        <td>
+          <templates-table-array-value *ngIf="isCellEdit([index, 4]); else editIcd10RCodes" (click)="cellEdit = [index, 4]"
+            [formControl]="optionFG.get('icd10RCodes')"
+            [label]="'Add ICD symptom code' | titleCase">
+          </templates-table-array-value>
+          <ng-template #editIcd10RCodes>
+            <templates-array-input
+              [title]="'ICD Code'"
+              (close)="cellEdit = [-1, -1]"
+              [formControl]="optionFG.get('icd10RCodes')"
+              [type]="'illnessNode'"
+              >
+            </templates-array-input>
+          </ng-template>
+        </td>
+      </tr>
+      <tr class="white"><td colspan="2">
+        <templates-snomed-codes
+        [ctrl]="optionFG.get('snomedCodes')" [title]="'SnoMed Codes'"></templates-snomed-codes>
+      </td></tr>
+    </tbody>
+  </table>
+</ng-container>
+

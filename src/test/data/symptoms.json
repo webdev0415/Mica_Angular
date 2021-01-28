@@ -1,0 +1,25 @@
+[
+  {
+    "name": "Patient Fever",
+    "symptomID": "SYMPT0000223",
+    "multipleValues": "PatientFever",
+    "criticality": 7,
+    "treatable": true,
+    "question": "Do you have a fever?",
+    "antithesis": 0.1,
+    "symptomsModel": {
+      "bias": true,
+      "rangeValues": [97.5, 105],
+      "descriptors": "description1",
+      "descriptorFile": "none",
+      "dataStoreTypes": [
+        "Importance",
+        "Likelihood",
+        "TimeUnit",
+        "Slope",
+        "Ethnicity",
+        "PatientFever"
+      ]
+    }
+  }
+]

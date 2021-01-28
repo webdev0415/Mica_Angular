@@ -1,0 +1,22 @@
+<div id="13aef41a-b3a7-4b41-a57f-367b11235c6e" class="modal-header">
+  <h4 class="modal-title">Uniqueness Check</h4>
+  <button type="button" class="close" aria-label="Close" (click)="activeModal.dismiss('Cross click')">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+<div id="34201e91-aa7e-4743-ac95-53b7bb60c2d7" class="modal-body" *ngIf="illnesses.length > 0">
+  <p>The following undifferentiable illnesses have been found:</p>
+  <div id="113818bc-793b-40e0-b55a-e9065d502d4a" class="row">
+    <div id="9f98422f-8b16-49ba-afea-268c63dd7342" class="col-6 col-md-3" *ngFor="let col of colIndexes">
+      <ul>
+        <li *ngFor="let ill of cols[col]">{{ill}}</li>
+      </ul>
+    </div>
+  </div>
+</div>
+<div id="c73fcec7-4d39-4996-afbf-d5d3399650f6" class="modal-body" *ngIf="illnesses.length == 0">
+  <p>The {{idIcd10Code}} illness is unique. No undifferentiable illnesses have been found.</p>
+</div>
+<div id="705d0eb7-54ae-428a-9d70-34680f8402f5" class="modal-footer">
+  <button type="button" class="btn btn-outline-dark" (click)="activeModal.close('Close click')">Close</button>
+</div>

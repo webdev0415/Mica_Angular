@@ -1,0 +1,5 @@
+<button type="button" [disabled]="!(tasksToDo | async)" 
+  class="btn btn-outline-secondary btn-sm" [class.btn-outline-danger]="tasksToDo | async" 
+  (click)="onToggleErrors()">To do 
+  <span class="badge badge-default">{{tasksToDo | async}}</span>
+</button>

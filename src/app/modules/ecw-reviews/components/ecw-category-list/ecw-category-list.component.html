@@ -1,0 +1,6 @@
+<div id="b3aa1359-554c-48a2-b111-c6efad9fafec" *ngFor="let catID of categoryIDs; trackBy: trackByFn">
+  <div id="dbfad876-6c8a-440a-aa88-755f9d9a3e9a" *ngIf="getSymptoms(catID).length">
+    <h4 class="text-center bg-inverse text-white pt-2 pb-2 m-0">{{getCatName(catID) | uppercase}} {{sectionName | uppercase}}</h4>
+    <ecw-symptom-review class="d-block" [symptomsIDs]="getSymptoms(catID)" [categoryID]="catID"></ecw-symptom-review>
+  </div>
+</div>

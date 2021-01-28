@@ -1,0 +1,57 @@
+<div class="drug-search-bar">
+  <mat-form-field>
+    <mat-label>Drug name</mat-label>
+    <input [autofocus]="true"
+           type="text"
+           matInput
+           [formControl]="drugSearchCtrl"
+           [errorStateMatcher]="searchErrorStateMatcher"
+           [matAutocomplete]="drugAutocomplete"
+           #drugSearch="matInput"
+           #initialField/>
+    <mat-hint *ngIf="drugSearchCtrl.invalid && drugSearch.focused">Type at least 3 symbols</mat-hint>
+  </mat-form-field>
+  <mat-button-toggle-group [formControl]="drugTypeCtrl" class="search-button">
+    <mat-button-toggle [value]="'PRESCRIPTION'">Prescription</mat-button-toggle>
+    <mat-button-toggle [value]="'OTC'">OTC</mat-button-toggle>
+  </mat-button-toggle-group>
+  <button mat-flat-button color="primary" class="search-button" (click)="onDrugSearch()" [disabled]="drugSearchCtrl.invalid">
+    Search
+  </button>
+  <mat-button-toggle [checked]="showAdvancedFlag" class="search-button" (click)="advancedSearchToggle()">
+    Advanced search
+  </mat-button-toggle>
+</div>
+
+<mat-autocomplete #drugAutocomplete="matAutocomplete" [displayWith]="displayWithFn">
+  <ng-container *ngIf="useAutocomplete">
+    <mat-option *ngFor="let drug of drugList;" [value]="drug">
+      {{drug.name}}
+    </mat-option>
+  </ng-container>
+</mat-autocomplete>
+
+<div *ngIf="showAdvancedFlag" class="advanced-panel">
+
+  <div class="panel-block">
+    <mat-label>Select Source</mat-label>
+    <mat-radio-group aria-label="Select Source" [formControl]="drugSourceCtrl">
+      <mat-radio-button class="radio-btn" value="FDA">FDA</mat-radio-button>
+      <mat-radio-button class="radio-btn" value="RXNORM">RxNorm</mat-radio-button>
+      <mat-radio-button class="radio-btn" value="ALL">All</mat-radio-button>
+    </mat-radio-group>
+  </div>
+
+  <div class="panel-block">
+    <mat-label>Select Cardinality</mat-label>
+    <mat-radio-group aria-label="Cardinality" [formControl]="cardinalityCtrl">
+      <mat-radio-button class="radio-btn" value="SINGLE">Single</mat-radio-button>
+      <mat-radio-button class="radio-btn" value="MULTI">Multi</mat-radio-button>
+    </mat-radio-group>
+  </div>
+
+  <div class="panel-block">
+    <mat-checkbox [formControl]="ndcCtrl">NDC</mat-checkbox>
+  </div>
+
+</div>

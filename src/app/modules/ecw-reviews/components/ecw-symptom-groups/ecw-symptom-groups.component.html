@@ -1,0 +1,33 @@
+<div id="cca68225-11bd-4ceb-bcdc-73b9ec7042aa" class="container">
+  <div id="cb903465-f226-41a5-8e97-aad4e1e92bf9" class="row justify-content-center">
+    <header class="pt-4 pb-2">
+      <div id="b721d8c9-fe0e-4711-b17f-9586862d6746" class="align-middle justify-content-center mb-3">
+        <h2 class="title align-middle m-0 mr-2">
+            <span>{{(meta | async)?.icd10Code}}</span>
+            <span class="badge badge-default ml-1 mr-1">v{{(meta | async)?.version}}</span>
+            <span>- [ECW] {{(meta | async)?.name}}</span>
+        </h2>
+      </div>
+    </header>
+  </div>
+  <div id="529d8fee-85ad-4659-b5b9-9ce65059a16b" class="row justify-content-center">
+    <ecw-submit></ecw-submit>
+  </div>
+  <section *ngFor="let sgID of sgIDs" class="row review-group rounded mb-3">
+    <div id="ae8ed757-6e20-44bd-a30c-f9d7d342cee3" class="col">
+      <h4 class="text-center text-white pt-2 pb-2 m-0" [ngClass]="getSGClass(sgID)">{{sgID | uppercase}}</h4>
+        <div id="96722ffc-de7e-48a9-8aae-f983cf30e578" *ngIf="symptomGroups[sgID].sections; else basicSymptomGroup">
+          <div id="8fcb04ab-bd75-4472-8a4c-f79b797f13ef" *ngFor="let sectionID of symptomGroups[sgID].sections; trackBy: trackSectionByFn">
+            <ecw-category-list [categoryIDs]="getCategories(sectionID)" [sectionID]="sectionID"></ecw-category-list>
+          </div>
+        </div>
+        <ng-template #basicSymptomGroup>
+          <ecw-category-list [categoryIDs]="symptomGroups[sgID].categories"></ecw-category-list>
+        </ng-template>
+    </div>
+  </section>
+  <div id="55fc3d96-8c22-4343-b545-f856adf329bb" class="row">
+  </div>
+</div>
+
+

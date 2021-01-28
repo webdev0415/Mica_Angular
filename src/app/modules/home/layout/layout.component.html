@@ -1,0 +1,37 @@
+<div id="fe80c968-71ec-4e8b-bdd5-d7505edeba9d" *ngIf="!dataLoading; else spinner">
+  <div id="65775fdc-6c09-4daa-a7d5-85f444bb8f20" class="container" *ngIf="!taskErrorMsg; else taskErrorBox">
+    <div id="25e63d76-ff3a-484d-b7ad-d31a7f32f78b" class="row mt-4 mb-3 justify-content-center align-items-center">
+      <div id="f5063988-c518-4469-8b74-2c9a2d7e8405" class="new-tasks-notifier">
+        <button *ngIf="!newTasksCounter" [disabled]="!removeEnabled || (tasksLoading | async)" (click)="onReloadTasks()" class="btn btn-outline-primary">Reload tasks</button>
+        <button *ngIf="newTasksCounter" [disabled]="!removeEnabled || (tasksLoading | async)" (click)="onReloadTasks()" class="btn btn-outline-success">Add New Tasks</button>
+        <span *ngIf="newTasksCounter" class="bg-primary text-white counter">{{newTasksCounter}}</span>
+      </div>
+    </div>
+    <div id="3119769c-5f87-4ac9-a0de-6a308682abb4" class="row">
+      <div id="8414795a-5699-4e5f-8053-7f4bd8de548c" class="col">
+        <section class="mt-5 mb-5">
+          <mica-tasks [title]="'Ongoing Tasks'"
+            [tasks]="taskOngoingWithLimit"
+            [tasksOriginal]="tasksOngoing"
+            [removeEnabled]="removeEnabled && !(tasksLoading | async)"
+            (onEnableRemove)="onEnableRemove($event)"
+          ></mica-tasks>
+        </section>
+        <section class="mb-5">
+          <mica-tasks [removeEnabled]="removeEnabled && !(tasksLoading | async)" [title]="'Completed Tasks'" (onEnableRemove)="onEnableRemove($event)" [disabledAccordion]="true" [tasks]="tasksComplete"></mica-tasks>
+        </section>
+      </div>
+    </div>
+  </div>
+</div>
+<ng-template #spinner>
+  <mica-page-spinner [message]="'Loading Your Tasks...'"></mica-page-spinner>
+</ng-template>
+<ng-template #taskErrorBox>
+  <div id="1642b2ac-6a8e-4a3d-98af-2921c1bf325e" class="container">
+    <mica-error-box *ngIf="taskErrorMsg" [message]="taskErrorMsg" [retryAllowed]="true" (retry)="loadTasksOnce()">
+      <p><strong>Sorry, it's not been possible to get your tasks.</strong></p>
+      <p>Please report this error by clicking below.</p>
+    </mica-error-box>
+  </div>
+</ng-template>

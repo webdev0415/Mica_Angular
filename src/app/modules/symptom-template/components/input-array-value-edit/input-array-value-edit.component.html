@@ -1,0 +1,28 @@
+
+<div id="45b39831-1bbe-45bc-9d6f-e396cbabc62e" class="value d-flex" placement="top">
+  <div *ngFor="let value of ctrl.value; let index = index" class="mr-2 mb-2 badge badge-primary item">
+    {{value}}
+    <button type="button" class="close ml-2" (click)="removeItem(index)"><span>×</span></button>
+  </div>
+  <div *ngIf="!showInput; else editMode" id="b3519831-1bbe-45bc-9d6f-e396cbabc62e" class="d-flex">
+    <div id="978f3f8e-162d-4d74-84e6-26e49c55f581" (click)="toggleMode()" class="badge badge-default">
+      <span class="material-icons mr-2 add-button">edit</span>
+      Add {{title}}</div>
+    </div>
+</div>
+
+<ng-template #editMode>
+  <div id="d27aa1a4-16be-451e-9fe5-c809330e155d" class="input-container">
+    <mica-typeahead
+    [placeholder]="'Enter ' + title"
+    [typeAheadMin]="3"
+    [liveSearchType]="type"
+    [icd10CodeSearch]="true"
+    [sortByKey]="'value'"
+    (select)="addItem($event)"
+    (close)="toggleMode()"
+    >
+  </mica-typeahead>
+  </div>
+</ng-template>
+
