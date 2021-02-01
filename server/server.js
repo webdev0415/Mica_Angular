@@ -5,7 +5,7 @@ const express = require("express");
 const app = express();
 
 let host = "0.0.0.0",
-  port = 8081;
+  port = process.env.PORT || 8081;
 
 app.use(express.static(path.resolve("dist")));
 
